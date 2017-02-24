@@ -192,6 +192,7 @@ var oneApp = oneApp || {};
 
 					var ids = $(this).sortable('toArray', {attribute: 'data-id'});
 					self.$el.trigger('columns-sort', [ids]);
+					oneApp.builder.initFrame(self.model.get('id') + '-' + $item.attr('data-id'));
 				}
 			});
 		},
@@ -202,8 +203,7 @@ var oneApp = oneApp || {};
 		},
 
 		onOverlayClose: function(e, changeset) {
-			e.stopPropagation();
-
+			oneApp.views.section.prototype.onOverlayClose.apply(this, arguments);
 			this.model.set(changeset);
 
 			if ('columns-number' in changeset) {
