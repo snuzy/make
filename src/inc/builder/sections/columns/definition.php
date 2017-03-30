@@ -53,6 +53,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 
 		add_filter( 'make_section_defaults', array( $this, 'section_defaults' ) );
 		add_filter( 'make_get_section_json', array ( $this, 'get_section_json' ), 10, 1 );
+		add_filter( 'make_get_section_json', array ( $this, 'embed_column_images' ), 20, 1 );
 		add_filter( 'make_builder_js_dependencies', array( $this, 'add_js_dependencies' ) );
 	}
 
@@ -136,7 +137,8 @@ class MAKE_Builder_Sections_Columns_Definition {
 			'darken' => 0,
 			'background-style' => 'tile',
 			'background-color' => '',
-			'full-width' => 0
+			'full-width' => 0,
+			'rows-number' => 1
 		);
 	}
 
@@ -149,10 +151,6 @@ class MAKE_Builder_Sections_Columns_Definition {
 	 */
 	public function get_column_defaults() {
 		return array(
-			'title' => '',
-			'image-id' => '',
-			'image-link' => '',
-			'image-url' => '',
 			'size' => '',
 			'content' => '',
 			'sidebar-label' => '',
@@ -205,13 +203,15 @@ class MAKE_Builder_Sections_Columns_Definition {
 					$ordered_items = array();
 
 					foreach ( $data['columns-order'] as $index => $item_id ) {
-						array_push($ordered_items, $data['columns'][$index+1]);
+						array_push( $ordered_items, $data['columns'][$index + 1] );
 
-						if ( array_key_exists('sidebar-label', $ordered_items[$index]) && $ordered_items[$index]['sidebar-label'] != '' && empty($ordered_items[$index]['widget-area-id']) ) {
-							$old_index = $index + 1; // index started at 1 before
+						if ( array_key_exists( 'sidebar-label', $ordered_items[$index] )
+							&& ( $ordered_items[$index]['sidebar-label'] != '' )
+							&& empty( $ordered_items[$index]['widget-area-id'] ) ) {
 
+							// index started at 1 before
+							$old_index = $index + 1;
 							$page_id = get_the_ID();
-
 							$ordered_items[$index]['widget-area-id'] = 'ttfmp-' . $page_id . '-' . $data['id'] . '-' . $old_index;
 						}
 					}
@@ -226,18 +226,77 @@ class MAKE_Builder_Sections_Columns_Definition {
 					// Handle legacy data layout
 					$id = isset( $column['id'] ) ? $column['id']: $s;
 					$data['columns'][$s]['id'] = $id;
-					$column_image = ttfmake_get_image_src( $column['image-id'], 'large' );
 
-					$column_image = ttfmake_get_image_src( $column['image-id'], 'large' );
+					if ( isset( $column['image-id'] ) ) {
+						$column_image = ttfmake_get_image_src( $column['image-id'], 'large' );
 
-					if ( isset( $column_image[0] ) ) {
-						$data['columns'][$s]['image-url'] = $column_image[0];
+						if ( isset( $column_image[0] ) ) {
+							$data['columns'][$s]['image-url'] = $column_image[0];
+						}
 					}
 
 					if ( isset( $column['sidebar-label'] ) && !empty( $column['sidebar-label'] ) && empty( $column['widget-area-id'] ) ) {
 						$data['columns'][$s]['widget-area-id'] = 'ttfmp-' . get_the_ID() . '-' . $data['id'] . '-' . $column['id'];
 					}
 				}
+			}
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Embeds columns featured images in
+	 * columns content.
+	 *
+	 * @since 1.8.6.
+	 *
+	 * @hooked filter make_get_section_json
+	 *
+	 * @param array $defaults    The array of data for this section.
+	 *
+	 * @return array             The modified array to be jsonified.
+	 */
+	public function embed_column_images( $data ) {
+		if ( $data['section-type'] == 'text' ) {
+			foreach ( $data['columns'] as $s => $column ) {
+				$image_tag = '';
+				$column_title = '';
+
+				if ( isset( $column['title'] ) && '' !== $column['title'] ) {
+					$column_title = apply_filters( 'the_title', $column['title'] );
+					$column_title = sprintf( '<h3>%s</h3>', $column_title );
+				}
+
+				if ( isset( $column['image-id'] ) ) {
+					$attachment_id = intval( $column['image-id'] );
+
+					if ( $attachment_id > 0 ) {
+						$image_attrs = wp_get_attachment_image_src( $attachment_id, 'full' );
+						$image_template = '<img src="%s" width="%s" height="%s" class="alignnone size-full wp-image-%s" />';
+						$image_tag = sprintf( $image_template, $image_attrs[0], $image_attrs[1], $image_attrs[2], $attachment_id, $image_tag );
+
+						if ( isset( $column['image-link'] ) && '' !== $column['image-link'] ) {
+							$image_link = esc_url_raw( $column['image-link'] );
+							$image_tag = sprintf( '<a href="%s">%s</a>', $image_link, $image_tag );
+						}
+
+						$image_tag = sprintf( '<p>%s</p>', $image_tag, $image_tag );
+
+						if ( '' == $column_title && '</p>' == substr( $image_tag, -4 ) && '<p>' == substr( $column['content'], 0, 3 ) ) {
+							$image_tag = substr( $image_tag, 0, -4 );
+							$column['content'] = substr( $column['content'], 3 );
+						}
+					}
+				}
+
+				$column['content'] = $image_tag . $column_title . $column['content'];
+				$data['columns'][$s] = $column;
+
+				unset( $column['image-id'] );
+				unset( $column['image-url'] );
+				unset( $column['image-link'] );
+				unset( $column['title'] );
 			}
 		}
 
@@ -253,13 +312,13 @@ class MAKE_Builder_Sections_Columns_Definition {
 	public function save( $data ) {
 		$clean_data = array();
 
+		$clean_data['title'] = $clean_data['label'] = ( isset( $data['title'] ) ) ? apply_filters( 'title_save_pre', $data['title'] ) : '';
+
 		if ( isset( $data['columns-number'] ) ) {
 			if ( in_array( $data['columns-number'], range( 1, 6 ) ) ) {
 				$clean_data['columns-number'] = $data['columns-number'];
 			}
 		}
-
-		$clean_data['title'] = $clean_data['label'] = ( isset( $data['title'] ) ) ? apply_filters( 'title_save_pre', $data['title'] ) : '';
 
 		if ( isset( $data['background-image'] ) ) {
 			$clean_data['background-image'] = ttfmake_sanitize_image_id( $data['background-image'] );
@@ -295,24 +354,6 @@ class MAKE_Builder_Sections_Columns_Definition {
 
 				if ( isset( $item['parentID'] ) ) {
 					$clean_data['columns'][ $id ]['parentID'] = $item['parentID'];
-				}
-
-				if ( isset( $item['title'] ) ) {
-					$clean_data['columns'][ $id ]['title'] = apply_filters( 'title_save_pre', $item['title'] );
-				}
-
-				if ( isset( $item['image-link'] ) ) {
-					$clean_data['columns'][ $id ]['image-link'] = esc_url_raw( $item['image-link'] );
-				}
-
-				if ( isset( $item['image-id'] ) ) {
-					$clean_data['columns'][ $id ]['image-id'] = ttfmake_sanitize_image_id( $item['image-id'] );
-
-					$image = ttfmake_get_image_src( $item['image-id'], 'large' );
-
-					if( isset( $image[0] ) ) {
-						$clean_data['columns'][ $id ]['image-url'] = $image[0];
-					}
 				}
 
 				if ( isset( $item['content'] ) ) {

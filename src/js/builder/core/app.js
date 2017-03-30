@@ -65,6 +65,11 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 				self.$stage.trigger('uploader-image-removed')
 			});
 
+			$('body').on('click', function(e) {
+				self.$stage.find('.ttfmake-configure-item-button').removeClass('active');
+				self.$stage.find('.configure-item-dropdown').hide();
+			});
+
 			return this;
 		},
 
@@ -292,6 +297,14 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 		},
 
 		wrapShortcodes: function(content) {
+			// Render captions
+			content = content.replace(
+				/\[caption.*?\](\<img.*?\/\>)[ ]*(.*?)\[\/caption\]/g,
+				'<div><dl class="wp-caption alignnone">'
+				+ '<dt class="wp-caption-dt">$1</dt>'
+				+ '<dd class="wp-caption-dd">$2</dd></dl></div>'
+			);
+
 			return content.replace(/^(<p>)?(\[.*\])(<\/p>)?$/gm, '<div class="shortcode-wrapper">$2</div>');
 		},
 

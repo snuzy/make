@@ -17,7 +17,10 @@ var oneApp = oneApp || {};
 				'columns-sort': 'onColumnsSort',
 				'view-ready': 'onViewReady',
 				'overlay-open': 'onOverlayOpen',
-				'overlay-close': 'onOverlayClose'
+				'overlay-close': 'onOverlayClose',
+				'click .ttfmake-text-columns-add-row': 'addRow',
+				'column-remove': 'onColumnRemove',
+				'click .ttfmake-text-columns-add-column-link': 'handleColumnAddLink'
 			});
 		},
 
@@ -40,23 +43,51 @@ var oneApp = oneApp || {};
 			return this;
 		},
 
+		handleColumnAddLink: function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			this.addColumns(1);
+
+			this.$el.trigger('columns-ready');
+			this.model.trigger('change');
+		},
+
+		onColumnRemove: function(e, columnView) {
+			var columns = this.model.get('columns');
+			this.model.set('columns', _(columns).without(columnView.model));
+
+			this.$el.trigger('column-removed');
+		},
+
 		addColumn: function(columnModel) {
 			var columnView = new oneApp.views['text-item']({
 				model: columnModel
 			});
 
 			var html = columnView.render().el;
-			$('.ttfmake-text-columns-stage', this.$el).append(html);
+
+			if (!$('.ttfmp-column-size-container').length) {
+				$('.ttfmake-text-columns-stage', this.$el).append(html);
+			} else {
+				$('.ttfmp-column-size-container', this.$el).before(html);
+			}
 
 			this.itemViews.push(columnView);
 
 			var columns = parseInt($('.ttfmake-text-column', this.$el).length, 10);
 			columnView.$el.addClass('ttfmake-text-column-position-'+columns);
-
+			
+			this.$el.trigger('column-added');
+			columnView.$el.trigger('column-ready');
+			columnView.$el.trigger('column-load');
+			
 			return columnView;
 		},
 
 		addColumns: function(number) {
+			var self = this;
+
 			if (typeof number === 'undefined') {
 				number = 1;
 			}
@@ -79,6 +110,23 @@ var oneApp = oneApp || {};
 				this.model.set('columns', columns);
 				this.model.trigger('change');
 			}
+
+			setTimeout(function() {
+				self.initFrames();
+			}, 100);
+		},
+
+		handleColumnsClasses: function() {
+			var self = this;
+
+			var columnsNumber = this.model.get('columns-number');
+			var nthChild = parseInt(columnsNumber, 10) + 1;
+
+			$(document).ready(function() {
+				self.$el.find('.ttfmake-text-column').removeClass('ttfmake-text-column-row-start');
+
+				self.$el.find('.ttfmake-text-column:nth-child('+columnsNumber+'n+'+nthChild+')').addClass('ttfmake-text-column-row-start');
+			});
 		},
 
 		onViewReady: function(e) {
@@ -111,11 +159,12 @@ var oneApp = oneApp || {};
 			});
 
 			this.model.set('columns', sortedColumns);
+			this.$el.trigger('columns-sorted');
 		},
 
 		onColumnsNumberChange: function() {
 			var columns = this.model.get('columns-number'),
-				$stage = $('.ttfmake-text-columns-stage', this.$el);
+					$stage = $('.ttfmake-text-columns-stage', this.$el);
 
 			var numberOfColumnsToCreate = columns - this.model.get('columns').length;
 
@@ -130,6 +179,8 @@ var oneApp = oneApp || {};
 			});
 
 			$stage.addClass('ttfmake-text-columns-' + columns);
+
+			this.$el.trigger('columns-layout-updated');
 		},
 
 		onTextItemChange: function(evt) {
@@ -142,7 +193,14 @@ var oneApp = oneApp || {};
 
 			$sortableSelector.sortable({
 				handle: '.ttfmake-sortable-handle',
-				placeholder: 'sortable-placeholder',
+				placeholder: {
+					element: function(currentItem) {
+						return $('<span class="sortable-placeholder"></span>')[0];
+					},
+					update: function(container, p) {
+            return;
+					}
+				},
 				items: '.ttfmake-text-column',
 				forcePlaceholderSizeType: true,
 				distance: 2,
@@ -155,10 +213,14 @@ var oneApp = oneApp || {};
 					var $item = $(ui.item.get(0)),
 						$stage = $item.parents('.ttfmake-text-columns-stage');
 
+					ui.placeholder.height(ui.item.height());
+
 					/**
 					 * Make Plus feature from here
 					 */
 					var addClass;
+
+					$stage.removeClass('current-item-one-half current-item-two-thirds current-item-one-third current-item-one-fourth current-item-three-fourths');
 
 					// If text item, potentially add class to stage
 					if ($item.hasClass('ttfmake-text-column')) {
@@ -175,6 +237,9 @@ var oneApp = oneApp || {};
 						}
 
 						$stage.addClass(addClass);
+
+         		ui.placeholder.css('padding', $item.css('padding'));
+         		ui.placeholder.css('margin-bottom', $item.css('margin-bottom'));
 					}
 				},
 				stop: function(event, ui) {
