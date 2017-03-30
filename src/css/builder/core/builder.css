@@ -19,7 +19,7 @@
 	box-sizing: border-box;
 }
 .ttfmake-titlediv .ttfmake-title:focus {
-	border: 1px solid #ddd;
+	border: 1px solid #e5e5e5;
 	-webkit-box-shadow: none; /*reset*/
 	box-shadow: none; /*reset*/
 }
@@ -74,10 +74,10 @@
 }
 .ttfmake-menu-list a {
 	text-decoration: none; /*reset*/
-	color: #777777 !important;
+	color: #82878c !important;
 }
 .ttfmake-menu-list a:hover {
-	color: #333333 !important;
+	color: #23282d !important;
 }
 .ttfmake-menu-list a .ttfmake-menu-list-item-link-icon {
 	display: block;
@@ -103,7 +103,7 @@
 	box-sizing: border-box;
 }
 .ttfmake-menu-list-item:hover .ttfmake-menu-list-item-link-icon-wrapper {
-	border-color: #bbbbbb;
+	border-color: #b4b9be;
 }
 .ttfmake-menu-list-item:last-of-type {
 	margin-right: 0; /*reset*/
@@ -144,7 +144,7 @@
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: 70px 60px;
-	border: 1px solid #dfdfdf;
+	border: 1px solid #e5e5e5;
 }
 .section-type-description {
 	margin-top: 18px;
@@ -187,10 +187,10 @@
 .ttfmake-sortable-handle {
 	position: relative;
 	width: 100%;
-	height: 20px;
-	border: 1px solid #d9d9d9;
+	height: 35px;
+	border: 1px solid #e5e5e5;
 	border-bottom: 0; /*reset*/
-	background-color: #eee;
+	background-color: #fafafa;
 	cursor: move;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -199,9 +199,7 @@
 .sortable-background,
 .ttfmp-widget-list li .sortable-background {
 	display: block;
-	height: 18px;
-	background: url(images/sortable-background.png) center center repeat-x;
-	opacity: .5;
+	height: 32px;
 }
 .ttfmake-gallery-item:hover .sortable-background,
 .ttfmake-text-column:hover .sortable-background.column-sortable-background,
@@ -222,10 +220,10 @@
 }
 .ttfmake-section input[type=text]:focus,
 .ttfmake-section input[type=number]:focus {
-	border-color: #ddd;
+	border-color: #e5e5e5;
 }
 .ttfmake-configuration-overlay-input-wrap select {
-	border: 1px solid #ddd;
+	border: 1px solid #e5e5e5;
 }
 /*---------------------------------------------------------
  Sections (builder.css)
@@ -250,7 +248,7 @@
 	box-sizing: border-box;
 }
 .ttfmake-section-open {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 .ttfmake-section-open .ttfmake-section-body {
 	display: block; /*reset*/
@@ -258,6 +256,10 @@
 .ttfmake-section-header-title {
 	max-width: 90%;
 	display: inline-block;
+}
+.ttfmake-section-header h3.has-title .ttfmake-section-header-title {
+	padding-left: 10px;
+	padding-right: 12px;
 }
 .ttfmake-section h4 {
 	margin: 20px 0 10px;
@@ -271,7 +273,7 @@
 	width: 100%;
 	margin: 0;
 	padding: 8px 12px;
-	color: #23282d;
+	color: #777;
 	font-size: 13px !important;
 	font-weight: 700 !important;
 	font-family: 'Open Sans', sans-serif !important;
@@ -288,30 +290,28 @@
 	-ms-transition: background-color 300ms ease;
 	transition: background-color 300ms ease;
 }
-.ttfmake-section:hover .ttfmake-section-header h3 {
-	border-color: #999;
-}
 .ttfmake-section-open .ttfmake-section-header h3 {
-	color: #fff;
-	border-color: #23282d;
-	background-color: #23282d;
+	color: #777;
+	border-color: #e5e5e5;
+	background-color: #fafafa;
 }
 .ttfmake-section-open:hover .ttfmake-section-header h3 {
-	border-color: #23282d;
+	border-color: #e5e5e5;
 }
 .ttfmake-section-header span {
 	font-weight: bold;
 	font-weight: 600;
+	color: #23282d;
 }
 .ttfmake-section-header em {
 	margin-left: 10px;
-	color: #777;
-	font-size: 12px;
+	color: #82878c;
+	font-size: 13px;
 	font-weight: normal !important;
 	font-style: normal !important;
 }
-.ttfmake-section-open .ttfmake-section-header em {
-	color: #bbb;
+.ttfmake-section-header h3.has-title em {
+	margin-left: 0;
 }
 .ttfmake-section-toggle:focus {
 	border: none !important;
@@ -343,13 +343,13 @@
 	display: inline-block;
 	height: 100%;
 	padding: 0 8px;
-	color: #aaa;
+	color: #b4b9be;
 	text-decoration: none;  /*reset*/
 }
 .ttfmake-section-open .ttfmake-section-remove,
 .ttfmake-section-open .ttfmake-section-configure,
 .ttfmake-section-open .ttfmp-duplicate-section {
-	color: #bbb;
+	color: #b4b9be;
 }
 /*---------------------------------------------------------
  Hide Configure Section button when closed (builder.css)
@@ -382,7 +382,7 @@
 .ttfmake-section-open .ttfmake-section-remove:hover,
 .ttfmake-section-open .ttfmake-section-configure:hover,
 .ttfmake-section-open .ttfmp-duplicate-section:hover {
-	color: #fff;
+	color: #23282d;
 }
 /*---------------------------------------------------------
  Section header icons (builder.css)
@@ -417,7 +417,7 @@
 	display: block;
 	width: 100%;
 	height: 220px;
-	border: 1px solid #dfdfdf;
+	border: 1px solid #e5e5e5;
 	background-color: #fafafa;
 	background-position: center;
 	background-size: cover;
@@ -432,7 +432,7 @@
 .ttfmake-media-uploader-placeholder:before {
 	content: "\f128";
 	display: block;
-	color: #d9d9d9;
+	color: #cbcdce;
 	font: 60px/220px dashicons;
 	text-align: center;
 }
@@ -440,7 +440,7 @@
  Media placeholder hover state (builder.css)
 -------------------------------------------------------- */
 .ttfmake-media-uploader-placeholder:hover:before {
-	color: #c7c7c7;
+	color: #b4b9be;
 }
 .ttfmake-media-uploader-placeholder img {
 	position: absolute;
@@ -457,9 +457,6 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-.ttfmake-section-body iframe {
-	background: #fff !important;
 }
 /*---------------------------------------------------------
  Media placeholder if has image set (builder.css)
@@ -546,7 +543,7 @@
 	-webkit-font-smoothing: subpixel-antialiased !important;
 }
 .ttfmake-overlay-header {
-	border-bottom: 1px solid #dfdfdf;
+	border-bottom: 1px solid #ddd;
 }
 .ttfmake-overlay-header h2 {
 	float: left;
@@ -613,8 +610,8 @@
 	padding: 20px !important;
 	clear: both;
 	overflow-y: auto;
-	max-height: 500px;
-    border-bottom: 1px solid #dfdfdf;
+	max-height: 400px;
+    border-bottom: 1px solid #ddd;
 }
 .ttfmake-overlay-body .ttfmake-configuration-overlay-input-wrap:last-of-type {
 	padding-bottom: 0 !important;
@@ -661,7 +658,8 @@
 -------------------------------------------------------- */
 .ttfmake-iframe-wrapper {
 	position: relative;
-	border: 1px solid #ddd;
+	z-index: 3;
+	border: 1px solid #e5e5e5;
 }
 .ttfmake-iframe-wrapper iframe {
 	overflow: hidden;
@@ -675,13 +673,38 @@
 	top: 0;
 	left: 0;
 	width: 100%; /* same as iframe */
-	height: 300px; /* same as iframe */
+	height: 100%; /* same as iframe */
 }
 .ttfmake-iframe-overlay .edit-content-link {
-	display: block;
+	position: relative;
+	z-index: 2;
+	display: table;
 	width: 100%;
 	height: 100%;
+	text-align: center;
+	text-decoration: none;
+	color: inherit;
 }
+
+.ttfmake-iframe-content-placeholder {
+	position: absolute;
+	top: 50%;
+	z-index: 1;
+	display: none;
+	width: 100%;
+	font-size: 14px;
+	text-align: center;
+	color: #b4b9be;
+}
+
+.ttfmake-iframe-content-placeholder.show {
+	display: block;
+}
+
+.ttfmake-iframe-overlay .edit-content-link.item-has-content .ttfmake-iframe-content-placeholder {
+	display: none;
+}
+
 /*---------------------------------------------------------
  Media Modal (builder.css)
 -------------------------------------------------------- */
@@ -711,19 +734,14 @@
 	line-height: 40px;
 }
 .ttfmake-section:hover .ttfmake-section-toggle__wrapper {
-	border-color: #999;
-}
-.ttfmake-section-open:hover .ttfmake-section-toggle__wrapper {
 	border-color: #e5e5e5;
 }
-.ttfmake-section-toggle__indicator {
-	color: #bbb;
+
+.ttfmake-section .ttfmake-section-toggle__wrapper .ttfmake-section-toggle__indicator {
+	color: #82878c;
 }
 .ttfmake-section .ttfmake-section-toggle__wrapper:hover .ttfmake-section-toggle__indicator {
 	color: #23282d;
-}
-.ttfmake-section-open .ttfmake-section-toggle__wrapper:hover .ttfmake-section-toggle__indicator {
-	color: #fff;
 }
 .ttfmake-section-toggle__indicator:before {
 	content: '\f140';
@@ -731,4 +749,30 @@
 }
 .ttfmake-section-open .ttfmake-section-toggle__indicator:before {
 	content: '\f142';
+}
+.ttfmake-configure-item-button {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	clear: both;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	margin-bottom: 0;
+	outline: none !important;
+	color: #aaaaaa;
+	text-decoration: none;
+	text-indent: -9999px;
+	background: url(images/menu-icon.png) no-repeat center center;
+	background-size: 25px 25px;
+	transition: all 0.15s ease-out;
+}
+.ttfmake-configure-item-button:hover {
+	background-image: url(images/menu-icon-hover.png);
+}
+
+.ttfmake-configure-item-button.active {
+	top: 4px;
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
 }
