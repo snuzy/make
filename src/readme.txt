@@ -26,6 +26,10 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.8.7 - April 5 2017 =
+* Bug fix: Additional empty columns were created in builder when coming from older versions.
+* Bug fix: Sidebar wasn't displaying on search results and archives page sometimes.
+
 = 1.8.6 - March 30 2017 =
 * New feature: Columns now support additional rows.
 * Improved: Columns now support up to 6 columns per row.
