@@ -221,11 +221,26 @@ class MAKE_Builder_Sections_Columns_Definition {
 				}
 
 				foreach ( $data['columns'] as $s => $column ) {
+					/*
+					 * Back compat stuff for versions older than 1.8.6.
+					 * Checks if image-id is present.
+					 *
+					 * This is used in a condition at the end of this foreach
+					 * to remove empty columns created when coming from older versions.
+					 */
+					$column_image_id_set = false;
+
+					if ( isset( $column['image-id'] ) ) {
+						$column_image_id_set = true;
+					}
+
 					$column = wp_parse_args( $column, $this->get_column_defaults() );
 
 					// Handle legacy data layout
 					$id = isset( $column['id'] ) ? $column['id']: $s;
 					$data['columns'][$s]['id'] = $id;
+
+					$column_image = '';
 
 					if ( isset( $column['image-id'] ) ) {
 						$column_image = ttfmake_get_image_src( $column['image-id'], 'large' );
@@ -237,6 +252,14 @@ class MAKE_Builder_Sections_Columns_Definition {
 
 					if ( isset( $column['sidebar-label'] ) && !empty( $column['sidebar-label'] ) && empty( $column['widget-area-id'] ) ) {
 						$data['columns'][$s]['widget-area-id'] = 'ttfmp-' . get_the_ID() . '-' . $data['id'] . '-' . $column['id'];
+					}
+
+					/*
+					 * Checks for an empty columns accidentally created when coming from
+					 * versions older than 1.8.6. Then removes those.
+					 */
+					if ( empty( $column['content'] ) && $column_image_id_set && empty( $column_image ) && empty( $column['sidebar-label'] ) ) {
+						unset( $data['columns'][$s] );
 					}
 				}
 			}

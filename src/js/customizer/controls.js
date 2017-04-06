@@ -139,18 +139,7 @@
 				$container = control.container.find('.make-backgroundposition-container');
 
 			// Initialize the buttonset.
-			$container.buttonset({
-				create : function(event) {
-					var $control = $(event.target),
-						$positionButton = $control.find('label'),
-						$caption = $control.parent().find('.background-position-caption');
-
-					$positionButton.on('click', function() {
-						var label = $(this).data('label');
-						$caption.text(label);
-					});
-				}
-			});
+			$container.buttonset();
 
 			// Listen for changes to the buttonset.
 			$container.on('change', 'input:radio', function() {
