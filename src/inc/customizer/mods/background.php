@@ -43,8 +43,6 @@ $wp_customize->get_control( 'background_repeat' )->label = __( 'Repeat', 'make' 
 $wp_customize->get_control( 'background_repeat' )->priority = $priority->add();
 
 // Remove position and attachment controls
-$wp_customize->remove_control( 'background_position_x' );
-$wp_customize->remove_control( 'background_position' );
 $wp_customize->remove_control( 'background_preset' );
 $wp_customize->remove_control( 'background_size' );
 $wp_customize->remove_control( 'background_repeat' );
@@ -52,15 +50,6 @@ $wp_customize->remove_control( 'background_attachment' );
 
 // Add replacement and new controls
 $controls = array(
-	'background_position_x' => array(
-		'setting' => true,
-		'control' => array(
-			'control_type' => 'MAKE_Customizer_Control_BackgroundPosition',
-			'label'   => __( 'Position', 'make' ),
-			'type'    => 'radio',
-			'choices' => $this->thememod()->get_choice_set( 'background_position_x' ),
-		),
-	),
 	'background_attachment'     => array(
 		'setting' => true,
 		'control' => array(
