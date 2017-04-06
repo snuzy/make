@@ -44,6 +44,10 @@ $wp_customize->get_control( 'background_repeat' )->priority = $priority->add();
 
 // Remove position and attachment controls
 $wp_customize->remove_control( 'background_position_x' );
+$wp_customize->remove_control( 'background_position' );
+$wp_customize->remove_control( 'background_preset' );
+$wp_customize->remove_control( 'background_size' );
+$wp_customize->remove_control( 'background_repeat' );
 $wp_customize->remove_control( 'background_attachment' );
 
 // Add replacement and new controls
