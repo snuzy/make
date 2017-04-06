@@ -29,6 +29,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 = 1.8.7 - April 5 2017 =
 * Bug fix: Additional empty columns were created in builder when coming from older versions.
 * Bug fix: Sidebar wasn't displaying on search results and archives page sometimes.
+* Bug fix: Background controls in the Customizer were clashing with 4.7.0 core updates.
 
 = 1.8.6 - March 30 2017 =
 * New feature: Columns now support additional rows.
@@ -499,6 +500,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.8.7 =
+Bug fixes.
 
 = 1.8.6 =
 Column rows, refreshed builder design, bug fixes.
