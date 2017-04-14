@@ -153,7 +153,8 @@ var oneApp = oneApp || {};
 		open: function(view, $overlay) {
 			this.render($overlay);
 
-			if (view.model.get('background-image')) {
+			var backgroundImage = view.model.get('background-image');
+			if (backgroundImage && parseInt(backgroundImage, 10)) {
 				this.$el.addClass('ttfmake-has-image-set');
 			} else {
 				this.$el.removeClass('ttfmake-has-image-set');
