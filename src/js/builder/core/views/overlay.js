@@ -152,6 +152,13 @@ var oneApp = oneApp || {};
 
 		open: function(view, $overlay) {
 			this.render($overlay);
+
+			if (view.model.get('background-image')) {
+				this.$el.addClass('ttfmake-has-image-set');
+			} else {
+				this.$el.removeClass('ttfmake-has-image-set');
+			}
+
 			oneApp.views.overlay.prototype.open.apply(this, arguments);
 
 			$('input, select', this.$el).first().focus();
@@ -262,12 +269,16 @@ var oneApp = oneApp || {};
 
 		onMediaSelected: function(e, attachment) {
 			e.stopPropagation();
+
+			this.$el.addClass('ttfmake-has-image-set');
 			this.model.set('background-image', attachment.id);
 			this.model.set('background-image-url', attachment.url);
 		},
 
 		onMediaRemoved: function(e) {
 			e.stopPropagation();
+
+			this.$el.removeClass('ttfmake-has-image-set');
 			this.model.set('background-image', '');
 			this.model.set('background-image-url', '');
 		},

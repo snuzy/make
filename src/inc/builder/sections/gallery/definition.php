@@ -128,6 +128,7 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			800 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken background to improve readability', 'make' ),
+				'class'   => 'ttfmake-configuration-media-related',
 				'name'    => 'darken',
 				'default' => ttfmake_get_section_default( 'darken', 'gallery' ),
 			),
@@ -135,6 +136,7 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'type'    => 'select',
 				'name'    => 'background-style',
 				'label'   => __( 'Background style', 'make' ),
+				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-style', 'gallery' ),
 				'options' => array(
 					'tile'  => __( 'Tile', 'make' ),

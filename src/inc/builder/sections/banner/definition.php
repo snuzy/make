@@ -129,12 +129,14 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken background to improve readability', 'make' ),
 				'name'    => 'darken',
+				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'darken', 'banner' ),
 			),
 			1100 => array(
 				'type'    => 'select',
 				'name'    => 'background-style',
 				'label'   => __( 'Background style', 'make' ),
+				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-style', 'banner' ),
 				'options' => array(
 					'tile'  => __( 'Tile', 'make' ),

@@ -461,7 +461,7 @@
 /*---------------------------------------------------------
  Media placeholder if has image set (builder.css)
 -------------------------------------------------------- */
-.ttfmake-has-image-set {
+.ttfmake-has-image-set .ttfmake-media-uploader-placeholder {
 	background-color: #fff;
 }
 .ttfmake-has-image-set .ttfmake-media-uploader-placeholder:before {
@@ -469,6 +469,14 @@
 }
 .ttfmake-has-image-set:hover .ttfmake-media-uploader-placeholder {
 	opacity: .8;
+}
+
+.ttfmake-configuration-media-related-wrap {
+	display: none;
+}
+
+.ttfmake-has-image-set .ttfmake-configuration-media-related-wrap {
+	display: block;
 }
 /*---------------------------------------------------------
  Overlay (builder.css)
