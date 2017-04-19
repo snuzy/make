@@ -1268,6 +1268,7 @@ div.custom-logo a {
 	.site-navigation .nav-menu .sub-menu .menu-item-has-children a:after,
 	.site-navigation .nav-menu .children .page_item_has_children a:after,
 	.site-navigation .nav-menu .children .menu-item-has-children a:after {
+		display: inline-block;
 		float: right;
 		position: relative;
 		top: 4px;
@@ -1276,6 +1277,7 @@ div.custom-logo a {
 		font-size: 10px;
 		font-size: 1rem;
 		font-weight: normal;
+		text-decoration: none;
 		content: "  \f054";
 	}
 
@@ -1344,6 +1346,7 @@ div.custom-logo a {
 @media screen and (min-width: 800px) {
 	.site-navigation .page_item_has_children a:after,
 	.site-navigation .menu-item-has-children a:after {
+		display: inline-block;
 		position: relative;
 		top: -1px;
 		padding-left: 2px;
@@ -1353,6 +1356,7 @@ div.custom-logo a {
 		font-size: 10px;
 		font-size: 1rem;
 		font-weight: normal;
+		text-decoration: none;
 		content: "  \f078";
 	}
 
