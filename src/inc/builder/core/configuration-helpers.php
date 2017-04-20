@@ -29,7 +29,7 @@ function ttfmake_create_config_select( $section_name, $args, $section_data ) {
 		}
 
 		foreach ( $args['options'] as $key => $value ) {
-			$options .= '<option value="' . esc_attr( $key ) . '" {{ (get("'. $args['name'] .'").toString() === "'. $key .'".toString()) ? " selected" : "" }}>' . esc_html( $value ) . '</option>';
+			$options .= '<option value="' . esc_attr( $key ) . '" {{ (get("'. $args['name'] .'") && get("'. $args['name'] .'").toString() === "'. $key .'".toString()) ? " selected" : "" }}>' . esc_html( $value ) . '</option>';
 		}
 
 		$return = $label . sprintf( $select, $options ) . $description;
@@ -161,6 +161,39 @@ function ttfmake_create_config_section_title( $section_name, $args, $section_dat
 	}
 
 	return  '<input' . $placeholder . ' type="text" ' . $name . ' value="' . esc_attr( $current_value ) . '" class="ttfmake-title' . $class . '" data-model-attr="' . $args['name'] . '" autocomplete="off">';
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_create_config_background_position' ) ) :
+/**
+ * Generate a background position input for the configuration overlay.
+ *
+ * @since  1.8.0.
+ *
+ * @param  string    $section_name    The section prefix for the input name.
+ * @param  array     $args            Arguments for creating the input.
+ * @param  array     $section_data    The data for the current section.
+ * @return string                     The full input string.
+ */
+function ttfmake_create_config_background_position( $section_name, $args, $section_data ) {
+	$current_value = ttfmake_get_current_configuration_value( $section_data, $args );
+	$name = $section_name . '[' . esc_attr( $args['name'] ) . ']';
+	ob_start(); ?>
+
+	<?php if( isset( $args['label'] ) ): ?>
+	<?php endif; ?>
+
+	<div class="ttfmake-configuration-background-position">
+	<?php foreach ( $args['options'] as $key => $value ) : ?>
+		<?php $id = preg_replace('/[\[\]]/', '', $name . $key); ?>
+		<input type="radio" name="<?php echo $name; ?>" value="<?php echo $value; ?>" id="<?php echo $id; ?>">
+		<label for="<?php echo $id; ?>"><?php echo $value; ?></label><br>
+	<?php endforeach; ?>
+	</div>
+
+	<?php
+	$output = ob_get_clean();
+	return $output;
 }
 endif;
 

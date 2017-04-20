@@ -135,12 +135,13 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			900 => array(
 				'type'    => 'select',
 				'name'    => 'background-style',
-				'label'   => __( 'Background style', 'make' ),
+				'label'   => __( 'Scale', 'make' ),
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-style', 'gallery' ),
 				'options' => array(
 					'tile'  => __( 'Tile', 'make' ),
 					'cover' => __( 'Cover', 'make' ),
+					'contain' => __( 'Contain', 'make' ),
 				),
 			),
 			1000 => array(

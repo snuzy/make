@@ -135,12 +135,13 @@ class MAKE_Builder_Sections_Banner_Definition {
 			1100 => array(
 				'type'    => 'select',
 				'name'    => 'background-style',
-				'label'   => __( 'Background style', 'make' ),
+				'label'   => __( 'Scale', 'make' ),
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-style', 'banner' ),
 				'options' => array(
 					'tile'  => __( 'Tile', 'make' ),
 					'cover' => __( 'Cover', 'make' ),
+					'contain' => __( 'Contain', 'make' ),
 				),
 			),
 			1200 => array(

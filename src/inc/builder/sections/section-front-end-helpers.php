@@ -162,8 +162,8 @@ function ttfmake_builder_get_gallery_style( $ttfmake_section_data ) {
 
 	// Background style
 	if ( isset( $ttfmake_section_data['background-style'] ) && ! empty( $ttfmake_section_data['background-style'] ) ) {
-		if ( 'cover' === $ttfmake_section_data['background-style'] ) {
-			$gallery_style .= 'background-size: cover;';
+		if ( in_array( $ttfmake_section_data['background-style'], array( 'cover', 'contain' ) ) ) {
+			$gallery_style .= 'background-size: ' . $ttfmake_section_data['background-style'] . ';';
 		}
 	}
 
@@ -438,8 +438,8 @@ function ttfmake_builder_get_text_style( $ttfmake_section_data ) {
 
 	// Background style
 	if ( isset( $ttfmake_section_data['background-style'] ) && ! empty( $ttfmake_section_data['background-style'] ) ) {
-		if ( 'cover' === $ttfmake_section_data['background-style'] ) {
-			$text_style .= 'background-size: cover;';
+		if ( in_array( $ttfmake_section_data['background-style'], array( 'cover', 'contain' ) ) ) {
+			$text_style .= 'background-size: ' . $ttfmake_section_data['background-style'] . ';';
 		}
 	}
 
@@ -550,8 +550,8 @@ function ttfmake_builder_get_banner_style( $ttfmake_section_data ) {
 
 	// Background style
 	if ( isset( $ttfmake_section_data['background-style'] ) && ! empty( $ttfmake_section_data['background-style'] ) ) {
-		if ( 'cover' === $ttfmake_section_data['background-style'] ) {
-			$banner_style .= 'background-size: cover;';
+		if ( in_array( $ttfmake_section_data['background-style'], array( 'cover', 'contain' ) ) ) {
+			$banner_style .= 'background-size: ' . $ttfmake_section_data['background-style'] . ';';
 		}
 	}
 

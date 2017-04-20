@@ -784,3 +784,30 @@
 	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
+/*---------------------------------------------------------
+ Background position buttonset (builder.css)
+-------------------------------------------------------- */
+.ttfmake-configuration-background-position-wrapper {
+
+}
+.ttfmake-configuration-background-position {
+	clear: both;
+}
+.ttfmake-configuration-background-position label {
+	// float: left;
+	display: block;
+	// width: 20px;
+	// height: 20px;
+	// background-color: #ededed;
+	cursor: default;
+}
+.ttfmake-configuration-background-position label:nth-child(8),
+.ttfmake-configuration-background-position label:nth-child(14) {
+	// clear: left;
+}
+.ttfmake-configuration-background-position input {
+	// display: none;
+}
+.ttfmake-configuration-background-position input[type="radio"]:checked + label {
+	background-color: #cccccc;
+}
