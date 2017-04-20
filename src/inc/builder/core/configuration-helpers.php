@@ -177,7 +177,8 @@ if ( ! function_exists( 'ttfmake_create_config_background_position' ) ) :
  */
 function ttfmake_create_config_background_position( $section_name, $args, $section_data ) {
 	$current_value = ttfmake_get_current_configuration_value( $section_data, $args );
-	$name = $section_name . '[' . esc_attr( $args['name'] ) . ']';
+	$field = esc_attr( $args['name'] );
+	$name = $section_name . '[' . $field . ']';
 	ob_start(); ?>
 
 	<?php if( isset( $args['label'] ) ): ?>
@@ -187,7 +188,7 @@ function ttfmake_create_config_background_position( $section_name, $args, $secti
 	<div class="ttfmake-configuration-background-position">
 	<?php foreach ( $args['options'] as $key => $value ) : ?>
 		<label>
-			<input type="radio" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+			<input type="radio" name="<?php echo $name; ?>" value="<?php echo $key; ?>" {{ get('<?php echo $field; ?>') && get('<?php echo $field; ?>').toString() === '<?php echo $key; ?>'.toString() ? ' checked': '' }} data-model-attr="<?php echo $field; ?>">
 			<span class="icon"><i></i></span>
 			<span class="label"><?php echo $value; ?></span>
 		</label>
