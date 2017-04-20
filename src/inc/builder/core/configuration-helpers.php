@@ -181,13 +181,16 @@ function ttfmake_create_config_background_position( $section_name, $args, $secti
 	ob_start(); ?>
 
 	<?php if( isset( $args['label'] ) ): ?>
+	<label for="<?php echo $name; ?>"><?php echo esc_html( $args['label'] ); ?></label>
 	<?php endif; ?>
 
 	<div class="ttfmake-configuration-background-position">
 	<?php foreach ( $args['options'] as $key => $value ) : ?>
-		<?php $id = preg_replace('/[\[\]]/', '', $name . $key); ?>
-		<input type="radio" name="<?php echo $name; ?>" value="<?php echo $value; ?>" id="<?php echo $id; ?>">
-		<label for="<?php echo $id; ?>"><?php echo $value; ?></label><br>
+		<label>
+			<input type="radio" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+			<span class="icon"><i></i></span>
+			<span class="label"><?php echo $value; ?></span>
+		</label>
 	<?php endforeach; ?>
 	</div>
 
