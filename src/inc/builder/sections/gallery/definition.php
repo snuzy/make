@@ -35,6 +35,11 @@ class MAKE_Builder_Sections_Gallery_Definition {
 	}
 
 	public function __construct() {
+		add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
+		add_filter( 'make_section_defaults', array( $this, 'section_defaults' ) );
+		add_filter( 'make_get_section_json', array ( $this, 'get_section_json' ), 10, 1 );
+		add_filter( 'make_builder_js_dependencies', array( $this, 'add_js_dependencies' ) );
+
 		ttfmake_add_section(
 			'gallery',
 			__( 'Gallery', 'make' ),
@@ -51,10 +56,6 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			$this->get_settings(),
 			array( 'item' => $this->get_item_settings() )
 		);
-
-		add_filter( 'make_section_defaults', array( $this, 'section_defaults' ) );
-		add_filter( 'make_get_section_json', array ( $this, 'get_section_json' ), 10, 1 );
-		add_filter( 'make_builder_js_dependencies', array( $this, 'add_js_dependencies' ) );
 	}
 
 	public function get_settings() {
@@ -78,45 +79,28 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'label'   => __( 'Columns', 'make' ),
 				'class'   => 'ttfmake-gallery-columns',
 				'default' => ttfmake_get_section_default( 'columns', 'gallery' ),
-				'options' => array(
-					1 => 1,
-					2 => 2,
-					3 => 3,
-					4 => 4,
-				)
+				'options' => ttfmake_get_section_choices( 'columns', 'gallery' ),
 			),
 			400 => array(
 				'type'    => 'select',
 				'name'    => 'aspect',
 				'label'   => __( 'Aspect ratio', 'make' ),
 				'default' => ttfmake_get_section_default( 'aspect', 'gallery' ),
-				'options' => array(
-					'square'    => __( 'Square', 'make' ),
-					'landscape' => __( 'Landscape', 'make' ),
-					'portrait'  => __( 'Portrait', 'make' ),
-					'none'      => __( 'None', 'make' ),
-				)
+				'options' => ttfmake_get_section_choices( 'aspect', 'gallery' ),
 			),
 			500 => array(
 				'type'    => 'select',
 				'name'    => 'captions',
 				'label'   => __( 'Caption style', 'make' ),
 				'default' => ttfmake_get_section_default( 'captions', 'gallery' ),
-				'options' => array(
-					'reveal'  => __( 'Reveal', 'make' ),
-					'overlay' => __( 'Overlay', 'make' ),
-					'none'    => __( 'None', 'make' ),
-				)
+				'options' => ttfmake_get_section_choices( 'captions', 'gallery' ),
 			),
 			600 => array(
 				'type'    => 'select',
 				'name'    => 'caption-color',
 				'label'   => __( 'Caption color', 'make' ),
 				'default' => ttfmake_get_section_default( 'caption-color', 'gallery' ),
-				'options' => array(
-					'light'  => __( 'Light', 'make' ),
-					'dark' => __( 'Dark', 'make' ),
-				)
+				'options' => ttfmake_get_section_choices( 'caption-color', 'gallery' ),
 			),
 			700 => array(
 				'type'  => 'image',
@@ -126,11 +110,12 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'default' => ttfmake_get_section_default( 'background-image', 'gallery' )
 			),
 			800 => array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Darken background to improve readability', 'make' ),
-				'class'   => 'ttfmake-configuration-media-related',
-				'name'    => 'darken',
-				'default' => ttfmake_get_section_default( 'darken', 'gallery' ),
+				'type'  => 'background_position',
+				'name'  => 'background-position',
+				'label' => __( 'Position', 'make' ),
+				'class' => 'ttfmake-configuration-background-position ttfmake-configuration-media-related',
+				'default' => ttfmake_get_section_default( 'background-position', 'gallery' ),
+				'options' => ttfmake_get_section_choices( 'background-position', 'gallery' ),
 			),
 			900 => array(
 				'type'    => 'select',
@@ -138,13 +123,16 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'label'   => __( 'Scale', 'make' ),
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-style', 'gallery' ),
-				'options' => array(
-					'tile'  => __( 'Tile', 'make' ),
-					'cover' => __( 'Cover', 'make' ),
-					'contain' => __( 'Contain', 'make' ),
-				),
+				'options' => ttfmake_get_section_choices( 'background-style', 'gallery' ),
 			),
 			1000 => array(
+				'type'    => 'checkbox',
+				'label'   => __( 'Darken background to improve readability', 'make' ),
+				'class'   => 'ttfmake-configuration-media-related',
+				'name'    => 'darken',
+				'default' => ttfmake_get_section_default( 'darken', 'gallery' ),
+			),
+			1100 => array(
 				'type'    => 'color',
 				'label'   => __( 'Background color', 'make' ),
 				'name'    => 'background-color',
@@ -191,6 +179,86 @@ class MAKE_Builder_Sections_Gallery_Definition {
 	}
 
 	/**
+	 * Add new section choices.
+	 *
+	 * @since 1.8.8.
+	 *
+	 * @hooked filter make_section_choices
+	 *
+	 * @param array  $choices         The existing choices.
+	 * @param string $key             The key for the section setting.
+	 * @param string $section_type    The section type.
+	 *
+	 * @return array                  The choices for the particular section_type / key combo.
+	 */
+	public function section_choices( $choices, $key, $section_type ) {
+		if ( count( $choices ) > 1 || ! in_array( $section_type, array( 'gallery' ) ) ) {
+			return $choices;
+		}
+
+		$choice_id = "$section_type-$key";
+
+		switch ( $choice_id ) {
+			case 'gallery-columns':
+				$choices = array(
+					1 => 1,
+					2 => 2,
+					3 => 3,
+					4 => 4,
+				);
+				break;
+
+			case 'gallery-aspect' :
+				$choices = array(
+					'square' => __( 'Square', 'make' ),
+					'landscape' => __( 'Landscape', 'make' ),
+					'portrait' => __( 'Portrait', 'make' ),
+					'none' => __( 'None', 'make' ),
+				);
+				break;
+
+			case 'gallery-captions':
+				$choices = array(
+					'reveal' => __( 'Reveal', 'make' ),
+					'overlay' => __( 'Overlay', 'make' ),
+					'none' => __( 'None', 'make' ),
+				);
+				break;
+
+			case 'gallery-caption-color' :
+				$choices = array(
+					'light' => __( 'Light', 'make' ),
+					'dark' => __( 'Dark', 'make' ),
+				);
+				break;
+
+			case 'gallery-background-position' :
+				$choices = array(
+					'left-top'  => __( 'Left top', 'make' ),
+					'center-top' => __( 'Center top', 'make' ),
+					'right-top' => __( 'Right top', 'make' ),
+					'left-center'  => __( 'Left center', 'make' ),
+					'center-center' => __( 'Center center', 'make' ),
+					'right-center' => __( 'Right center', 'make' ),
+					'left-bottom'  => __( 'Left bottom', 'make' ),
+					'center-bottom' => __( 'Center bottom', 'make' ),
+					'right-bottom' => __( 'Right bottom', 'make' ),
+				);
+				break;
+
+			case 'gallery-background-style' :
+				$choices = array(
+					'tile'  => __( 'Tile', 'make' ),
+					'cover' => __( 'Cover', 'make' ),
+					'contain' => __( 'Contain', 'make' ),
+				);
+				break;
+		}
+
+		return $choices;
+	}
+
+	/**
 	 * Get default values for gallery section
 	 *
 	 * @since 1.8
@@ -205,6 +273,7 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			'captions' => 'reveal',
 			'caption-color' => 'light',
 			'background-image' => '',
+			'background-position' => 'center-center',
 			'darken' => 0,
 			'background-style' => 'tile',
 			'background-color' => '',
@@ -308,27 +377,19 @@ class MAKE_Builder_Sections_Gallery_Definition {
 		$clean_data = array();
 
 		if ( isset( $data['columns'] ) ) {
-			if ( in_array( $data['columns'], range( 1, 4 ) ) ) {
-				$clean_data['columns'] = $data['columns'];
-			}
+			$clean_data['columns'] = ttfmake_sanitize_section_choice( $data['columns'], 'columns', $data['section-type'] );
 		}
 
 		if ( isset( $data['caption-color'] ) ) {
-			if ( in_array( $data['caption-color'], array( 'light', 'dark' ) ) ) {
-				$clean_data['caption-color'] = $data['caption-color'];
-			}
+			$clean_data['caption-color'] = ttfmake_sanitize_section_choice( $data['caption-color'], 'caption-color', $data['section-type'] );
 		}
 
 		if ( isset( $data['captions'] ) ) {
-			if ( in_array( $data['captions'], array( 'none', 'overlay', 'reveal' ) ) ) {
-				$clean_data['captions'] = $data['captions'];
-			}
+			$clean_data['captions'] = ttfmake_sanitize_section_choice( $data['captions'], 'captions', $data['section-type'] );
 		}
 
 		if ( isset( $data['aspect'] ) ) {
-			if ( in_array( $data['aspect'], array( 'none', 'landscape', 'portrait', 'square' ) ) ) {
-				$clean_data['aspect'] = $data['aspect'];
-			}
+			$clean_data['aspect'] = ttfmake_sanitize_section_choice( $data['aspect'], 'aspect', $data['section-type'] );
 		}
 
 		if ( isset( $data['background-image'] ) ) {
@@ -350,9 +411,11 @@ class MAKE_Builder_Sections_Gallery_Definition {
 		}
 
 		if ( isset( $data['background-style'] ) ) {
-			if ( in_array( $data['background-style'], array( 'tile', 'cover' ) ) ) {
-				$clean_data['background-style'] = $data['background-style'];
-			}
+			$clean_data['background-style'] = ttfmake_sanitize_section_choice( $data['background-style'], 'background-style', $data['section-type'] );
+		}
+
+		if ( isset( $data['background-position'] ) ) {
+			$clean_data['background-position'] = ttfmake_sanitize_section_choice( $data['background-position'], 'background-position', $data['section-type'] );
 		}
 
 		if ( isset( $data['full-width'] ) && $data['full-width'] == 1 ) {

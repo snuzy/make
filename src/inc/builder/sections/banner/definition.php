@@ -35,6 +35,11 @@ class MAKE_Builder_Sections_Banner_Definition {
 	}
 
 	public function __construct() {
+		add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
+		add_filter( 'make_section_defaults', array( $this, 'section_defaults' ) );
+		add_filter( 'make_get_section_json', array ( $this, 'get_section_json' ), 10, 1 );
+		add_filter( 'make_builder_js_dependencies', array( $this, 'add_js_dependencies' ) );
+
 		ttfmake_add_section(
 			'banner',
 			__( 'Banner', 'make' ),
@@ -51,10 +56,6 @@ class MAKE_Builder_Sections_Banner_Definition {
 			$this->get_settings(),
 			array( 'slide' => $this->get_banner_slide_settings() )
 		);
-
-		add_filter( 'make_section_defaults', array( $this, 'section_defaults' ) );
-		add_filter( 'make_get_section_json', array ( $this, 'get_section_json' ), 10, 1 );
-		add_filter( 'make_builder_js_dependencies', array( $this, 'add_js_dependencies' ) );
 	}
 
 	public function get_settings() {
@@ -95,11 +96,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'label'   => __( 'Transition effect', 'make' ),
 				'name'    => 'transition',
 				'default' => ttfmake_get_section_default( 'transition', 'banner' ),
-				'options' => array(
-					'scrollHorz' => __( 'Slide horizontal', 'make' ),
-					'fade'       => __( 'Fade', 'make' ),
-					'none'       => __( 'None', 'make' ),
-				)
+				'options' => ttfmake_get_section_choices( 'transition', 'banner' ),
 			),
 			700 => array(
 				'type'    => 'text',
@@ -113,10 +110,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'name'        => 'responsive',
 				'default' => ttfmake_get_section_default( 'responsive', 'banner' ),
 				'description' => __( 'Choose how the Banner will respond to varying screen widths. Default is ideal for large amounts of written content, while Aspect is better for showing your images.', 'make' ),
-				'options'     => array(
-					'balanced' => __( 'Default', 'make' ),
-					'aspect'   => __( 'Aspect', 'make' ),
-				)
+				'options'     => ttfmake_get_section_choices( 'responsive', 'banner' ),
 			),
 			900 => array(
 				'type'  => 'image',
@@ -126,11 +120,12 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'default' => ttfmake_get_section_default( 'background-image', 'banner' ),
 			),
 			1000 => array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Darken background to improve readability', 'make' ),
-				'name'    => 'darken',
-				'class'   => 'ttfmake-configuration-media-related',
-				'default' => ttfmake_get_section_default( 'darken', 'banner' ),
+				'type'  => 'background_position',
+				'name'  => 'background-position',
+				'label' => __( 'Position', 'make' ),
+				'class' => 'ttfmake-configuration-background-position ttfmake-configuration-media-related',
+				'default' => ttfmake_get_section_default( 'background-position', 'text' ),
+				'options' => ttfmake_get_section_choices( 'background-position', 'text' ),
 			),
 			1100 => array(
 				'type'    => 'select',
@@ -138,13 +133,16 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'label'   => __( 'Scale', 'make' ),
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-style', 'banner' ),
-				'options' => array(
-					'tile'  => __( 'Tile', 'make' ),
-					'cover' => __( 'Cover', 'make' ),
-					'contain' => __( 'Contain', 'make' ),
-				),
+				'options' => ttfmake_get_section_choices( 'background-style', 'banner' ),
 			),
 			1200 => array(
+				'type'    => 'checkbox',
+				'label'   => __( 'Darken background to improve readability', 'make' ),
+				'name'    => 'darken',
+				'class'   => 'ttfmake-configuration-media-related',
+				'default' => ttfmake_get_section_default( 'darken', 'banner' ),
+			),
+			1300 => array(
 				'type'    => 'color',
 				'label'   => __( 'Background color', 'make' ),
 				'name'    => 'background-color',
@@ -198,6 +196,68 @@ class MAKE_Builder_Sections_Banner_Definition {
 	}
 
 	/**
+	 * Add new section choices.
+	 *
+	 * @since 1.8.8.
+	 *
+	 * @hooked filter make_section_choices
+	 *
+	 * @param array  $choices         The existing choices.
+	 * @param string $key             The key for the section setting.
+	 * @param string $section_type    The section type.
+	 *
+	 * @return array                  The choices for the particular section_type / key combo.
+	 */
+	public function section_choices( $choices, $key, $section_type ) {
+		if ( count( $choices ) > 1 || ! in_array( $section_type, array( 'banner' ) ) ) {
+			return $choices;
+		}
+
+		$choice_id = "$section_type-$key";
+
+		switch ( $choice_id ) {
+			case 'banner-transition':
+				$choices = array(
+					'scrollHorz' => __( 'Slide horizontal', 'make' ),
+					'fade' => __( 'Fade', 'make' ),
+					'none' => __( 'None', 'make' ),
+				);
+				break;
+
+			case 'banner-responsive' :
+				$choices = array(
+					'balanced' => __( 'Default', 'make' ),
+					'aspect'   => __( 'Aspect', 'make' ),
+				);
+				break;
+
+			case 'banner-background-style':
+				$choices = array(
+					'tile'  => __( 'Tile', 'make' ),
+					'cover' => __( 'Cover', 'make' ),
+					'contain' => __( 'Contain', 'make' ),
+				);
+				break;
+
+			case 'banner-background-position' :
+				$choices = array(
+					'left-top'  => __( 'Left top', 'make' ),
+					'center-top' => __( 'Center top', 'make' ),
+					'right-top' => __( 'Right top', 'make' ),
+					'left-center'  => __( 'Left center', 'make' ),
+					'center-center' => __( 'Center center', 'make' ),
+					'right-center' => __( 'Right center', 'make' ),
+					'left-bottom'  => __( 'Left bottom', 'make' ),
+					'center-bottom' => __( 'Center bottom', 'make' ),
+					'right-bottom' => __( 'Right bottom', 'make' ),
+				);
+				break;
+		}
+
+		return $choices;
+	}
+
+	/**
 	 * Get default values for banner section
 	 *
 	 * @since 1.8
@@ -215,6 +275,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 			'height' => 600,
 			'responsive' => 'balanced',
 			'background-image' => '',
+			'background-position' => 'center-center',
 			'darken' => 0,
 			'background-style' => 'tile',
 			'background-color' => ''
@@ -333,8 +394,8 @@ class MAKE_Builder_Sections_Banner_Definition {
 			$clean_data['height'] = absint( $data['height'] );
 		}
 
-		if ( isset( $data['responsive'] ) && in_array( $data['responsive'], array( 'aspect', 'balanced' ) ) ) {
-			$clean_data['responsive'] = $data['responsive'];
+		if ( isset( $data['responsive'] ) ) {
+			$clean_data['responsive'] = ttfmake_sanitize_section_choice( $data['responsive'], 'responsive', $data['section-type'] );
 		}
 
 		if ( isset( $data['background-image'] ) ) {
@@ -352,9 +413,11 @@ class MAKE_Builder_Sections_Banner_Definition {
 		}
 
 		if ( isset( $data['background-style'] ) ) {
-			if ( in_array( $data['background-style'], array( 'tile', 'cover' ) ) ) {
-				$clean_data['background-style'] = $data['background-style'];
-			}
+			$clean_data['background-style'] = ttfmake_sanitize_section_choice( $data['background-style'], 'background-style', $data['section-type'] );
+		}
+
+		if ( isset( $data['background-position'] ) ) {
+			$clean_data['background-position'] = ttfmake_sanitize_section_choice( $data['background-position'], 'background-position', $data['section-type'] );
 		}
 
 		if ( isset( $data['banner-slides'] ) && is_array( $data['banner-slides'] ) ) {
