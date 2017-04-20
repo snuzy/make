@@ -142,6 +142,7 @@ var oneApp = oneApp || {};
 				'change input[type=text]' : 'updateInputField',
 				'keyup input[type=text]' : 'updateInputField',
 				'change input[type=checkbox]' : 'updateCheckbox',
+				'change input[type=radio]' : 'updateRadioField',
 				'change select': 'updateSelectField',
 				'color-picker-change': 'onColorPickerChange',
 				'click .ttfmake-media-uploader-add': 'onMediaAdd',
@@ -219,7 +220,10 @@ var oneApp = oneApp || {};
 				var modelAttr = $this.data('model-attr');
 				var $destinationInput =  $('[data-model-attr="' + modelAttr + '"]', $destination);
 
-				if ($this.is(':checkbox')) {
+				if ($this.is(':radio')) {
+					$destinationInput =  $('[data-model-attr="' + modelAttr + '"][value="' + $this.val() + '"]', $destination);
+					$destinationInput.prop('checked', $this.is(':checked'));
+				} else if ($this.is(':checkbox')) {
 					$destinationInput.prop('checked', $this.is(':checked'));
 				} else {
 					$destinationInput.val($this.val());
@@ -255,6 +259,15 @@ var oneApp = oneApp || {};
 		},
 
 		updateSelectField: function(e) {
+			var $select = $(e.target);
+			var modelAttrName = $select.attr('data-model-attr');
+
+			if (typeof modelAttrName !== 'undefined') {
+				this.model.set(modelAttrName, $select.val());
+			}
+		},
+
+		updateRadioField: function(e) {
 			var $select = $(e.target);
 			var modelAttrName = $select.attr('data-model-attr');
 
