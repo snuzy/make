@@ -831,6 +831,7 @@
 	margin: -1px -1px 0 0;
 	z-index: 0;
 	position: relative;
+	color: #555;
 }
 .ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position input[type="radio"]:checked + span.icon {
 	background-color: #eee;
@@ -877,7 +878,7 @@
 	content: "";
 	width: 8px;
 	height: 8px;
-	background-color: black;
+	background-color: #555;
 	border-radius: 50%;
 	-webkit-transform: translate(0, -1px);
 	-ms-transform: translate(0, -1px);
