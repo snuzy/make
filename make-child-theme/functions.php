@@ -50,11 +50,3 @@ add_action( 'wp_enqueue_scripts', 'childtheme_style_version', 20 );
 /**
  * Add your custom theme functions here.
  */
-$sites = get_sites();
-for ( $s = 0; $s < count( $sites ); $s ++ ) {
-    $site = $sites[$s];
-    switch_to_blog( $site->blog_id );
-
-    set_theme_mod( 'line-height-header-bar-text', 200 );
-    restore_current_blog();
-}
