@@ -110,10 +110,10 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'default' => ttfmake_get_section_default( 'background-image', 'gallery' )
 			),
 			800 => array(
-				'type'  => 'background_position',
+				'type'  => 'select',
 				'name'  => 'background-position',
 				'label' => __( 'Position', 'make' ),
-				'class' => 'ttfmake-configuration-background-position ttfmake-configuration-media-related',
+				'class' => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-position', 'gallery' ),
 				'options' => ttfmake_get_section_choices( 'background-position', 'gallery' ),
 			),
