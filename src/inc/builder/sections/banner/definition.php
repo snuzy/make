@@ -241,15 +241,11 @@ class MAKE_Builder_Sections_Banner_Definition {
 
 			case 'banner-background-position' :
 				$choices = array(
-					'left-top'  => __( 'Left top', 'make' ),
-					'center-top' => __( 'Center top', 'make' ),
-					'right-top' => __( 'Right top', 'make' ),
-					'left-center'  => __( 'Left center', 'make' ),
-					'center-center' => __( 'Center center', 'make' ),
-					'right-center' => __( 'Right center', 'make' ),
-					'left-bottom'  => __( 'Left bottom', 'make' ),
-					'center-bottom' => __( 'Center bottom', 'make' ),
-					'right-bottom' => __( 'Right bottom', 'make' ),
+					'center-top'  => __( 'Top', 'make' ),
+					'center-center' => __( 'Center', 'make' ),
+					'center-bottom' => __( 'Bottom', 'make' ),
+					'left-center'  => __( 'Left', 'make' ),
+					'right-center' => __( 'Right', 'make' )
 				);
 				break;
 		}
