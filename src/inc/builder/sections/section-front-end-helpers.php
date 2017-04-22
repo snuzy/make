@@ -439,8 +439,14 @@ function ttfmake_builder_get_text_style( $ttfmake_section_data ) {
 	// Background style
 	if ( isset( $ttfmake_section_data['background-style'] ) && ! empty( $ttfmake_section_data['background-style'] ) ) {
 		if ( in_array( $ttfmake_section_data['background-style'], array( 'cover', 'contain' ) ) ) {
-			$text_style .= 'background-size: ' . $ttfmake_section_data['background-style'] . ';';
+			$text_style .= 'background-size: ' . $ttfmake_section_data['background-style'] . '; background-repeat: no-repeat;';
 		}
+	}
+
+	// Background position
+	if ( isset( $ttfmake_section_data['background-position'] ) && ! empty( $ttfmake_section_data['background-position'] ) ) {
+		$rule = explode( '-', $ttfmake_section_data['background-position'] );
+		$text_style .= 'background-position: ' . implode( ' ', $rule ) . ';';
 	}
 
 	return $text_style;
