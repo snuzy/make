@@ -317,7 +317,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 		},
 
 		initUploader: function (view, placeholder) {
-			wp.media.view.Sidebar = oneApp.MediaSidebar;
+			wp.media.view.Sidebar = oneApp.ImageSidebar;
 
 			this.$currentPlaceholder = $(placeholder);
 
@@ -447,7 +447,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 	oneApp.OriginalSidebar = wp.media.view.Sidebar;
 
-	oneApp.MediaSidebar = wp.media.view.Sidebar.extend({
+	oneApp.ImageSidebar = wp.media.view.Sidebar.extend({
 		render: function() {
 			this.$el.html( wp.media.template( 'ttfmake-remove-image' ) );
 			return this;
