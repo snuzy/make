@@ -343,9 +343,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 		onUploaderFrameRemoveImage: function() {
 			// Remove the image
 			this.$currentPlaceholder.css('background-image', '');
-			this.$currentPlaceholder
-				.parents('.ttfmake-configuration-overlay')
-				.removeClass('ttfmake-has-image-set');
+			this.$currentPlaceholder.parent().removeClass('ttfmake-has-image-set');
 
 			// Trigger event on the uploader to propagate it to calling view
 			this.$currentPlaceholder.trigger('mediaRemoved')
@@ -362,9 +360,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			var props = wp.media.string.props({}, attachment);
 			// Show the image
 			this.$currentPlaceholder.css('background-image', 'url(' + attachment.url + ')');
-			this.$currentPlaceholder
-				.parents('.ttfmake-configuration-overlay')
-				.addClass('ttfmake-has-image-set');
+			this.$currentPlaceholder.parent().addClass('ttfmake-has-image-set');
 			// Trigger events on the view
 			this.$currentPlaceholder.trigger('mediaSelected', attachment);
 		},
