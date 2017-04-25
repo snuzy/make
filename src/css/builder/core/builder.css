@@ -564,8 +564,8 @@
 	user-select: none;
 }
 .ttfmake-configuration-overlay-input-wrap {
-	padding: 20px 0 !important;
-	border-bottom: 1px solid #efefef !important;
+	padding: 20px 0;
+	border-bottom: 1px solid #efefef;
 }
 .ttfmake-configuration-overlay-input-wrap {
 	zoom: 1;
@@ -577,6 +577,39 @@
 }
 .ttfmake-configuration-overlay-input-wrap:after {
 	clear: both;
+}
+.ttfmake-configuration-overlay-input-wrap {
+	padding: 20px 0;
+	border-bottom: 1px solid #efefef;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap {
+	position: relative;
+	margin: -1px -20px 20px -20px;
+	padding: 15px 20px;
+	font-size: 14px;
+	font-weight: 600;
+	border-top: 1px solid #efefef;
+	cursor: pointer;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap {
+	background: #fcfcfc;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap:after {
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	content: '\f140';
+	font-family: dashicons;
+	font-size: 18px;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap + div {
+	display: none;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap:after {
+	content: '\f142';
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap + div {
+	display: block;
 }
 .ttfmake-configuration-overlay-input-wrap label {
 	position: relative;
@@ -622,8 +655,7 @@
 	border-bottom: 1px solid #ddd;
 }
 .ttfmake-overlay-body .ttfmake-configuration-overlay-input-wrap:last-of-type {
-	padding-bottom: 0 !important;
-	border-bottom: 0 !important;
+	border-bottom: 0;
 }
 .ttfmake-configuration-title {
 	width: 100%;

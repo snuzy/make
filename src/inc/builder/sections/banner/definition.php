@@ -61,50 +61,56 @@ class MAKE_Builder_Sections_Banner_Definition {
 	public function get_settings() {
 		return array(
 			100 => array(
+				'type'    => 'divider',
+				'label'   => __( 'General', 'make' ),
+				'name'    => '',
+				'class'   => 'ttfmake-configuration-divider open',
+			),
+			200 => array(
 				'type'  => 'section_title',
 				'name'  => 'title',
 				'label' => __( 'Enter section title', 'make' ),
 				'class' => 'ttfmake-configuration-title ttfmake-section-header-title-input',
 				'default' => ttfmake_get_section_default( 'title', 'banner' ),
 			),
-			200 => array(
+			300 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Hide navigation arrows', 'make' ),
 				'name'    => 'hide-arrows',
 				'default' => ttfmake_get_section_default( 'hide-arrows', 'banner' ),
 			),
-			300 => array(
+			400 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Hide navigation dots', 'make' ),
 				'name'    => 'hide-dots',
 				'default' => ttfmake_get_section_default( 'hide-dots', 'banner' ),
 			),
-			400 => array(
+			500 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Autoplay slideshow', 'make' ),
 				'name'    => 'autoplay',
 				'default' => ttfmake_get_section_default( 'autoplay', 'banner' ),
 			),
-			500 => array(
+			600 => array(
 				'type'    => 'text',
 				'label'   => __( 'Time between slides (ms)', 'make' ),
 				'name'    => 'delay',
 				'default' => ttfmake_get_section_default( 'delay', 'banner' ),
 			),
-			600 => array(
+			700 => array(
 				'type'    => 'select',
 				'label'   => __( 'Transition effect', 'make' ),
 				'name'    => 'transition',
 				'default' => ttfmake_get_section_default( 'transition', 'banner' ),
 				'options' => ttfmake_get_section_choices( 'transition', 'banner' ),
 			),
-			700 => array(
+			800 => array(
 				'type'    => 'text',
 				'label'   => __( 'Section height (px)', 'make' ),
 				'name'    => 'height',
 				'default' => ttfmake_get_section_default( 'height', 'banner' ),
 			),
-			800 => array(
+			900 => array(
 				'type'        => 'select',
 				'label'       => __( 'Responsive behavior', 'make' ),
 				'name'        => 'responsive',
@@ -112,14 +118,14 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'description' => __( 'Choose how the Banner will respond to varying screen widths. Default is ideal for large amounts of written content, while Aspect is better for showing your images.', 'make' ),
 				'options'     => ttfmake_get_section_choices( 'responsive', 'banner' ),
 			),
-			900 => array(
+			1000 => array(
 				'type'  => 'image',
 				'name'  => 'background-image',
 				'label' => __( 'Background image', 'make' ),
 				'class' => 'ttfmake-configuration-media',
 				'default' => ttfmake_get_section_default( 'background-image', 'banner' ),
 			),
-			1000 => array(
+			1100 => array(
 				'type'  => 'select',
 				'name'  => 'background-position',
 				'label' => __( 'Position', 'make' ),
@@ -127,7 +133,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'default' => ttfmake_get_section_default( 'background-position', 'banner' ),
 				'options' => ttfmake_get_section_choices( 'background-position', 'banner' ),
 			),
-			1100 => array(
+			1200 => array(
 				'type'    => 'select',
 				'name'    => 'background-style',
 				'label'   => __( 'Scale', 'make' ),
@@ -135,14 +141,14 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'default' => ttfmake_get_section_default( 'background-style', 'banner' ),
 				'options' => ttfmake_get_section_choices( 'background-style', 'banner' ),
 			),
-			1200 => array(
+			1300 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken background to improve readability', 'make' ),
 				'name'    => 'darken',
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'darken', 'banner' ),
 			),
-			1300 => array(
+			1400 => array(
 				'type'    => 'color',
 				'label'   => __( 'Background color', 'make' ),
 				'name'    => 'background-color',

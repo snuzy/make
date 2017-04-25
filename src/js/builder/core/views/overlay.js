@@ -148,6 +148,7 @@ var oneApp = oneApp || {};
 				'click .ttfmake-media-uploader-add': 'onMediaAdd',
 				'mediaSelected': 'onMediaSelected',
 				'mediaRemoved': 'onMediaRemoved',
+				'click .ttfmake-configuration-divider-wrap': 'toggleSection'
 			});
 		},
 
@@ -300,6 +301,16 @@ var oneApp = oneApp || {};
 		onColorPickerChange: function(e, data) {
 			if (data) {
 				this.model.set(data.modelAttr, data.color);
+			}
+		},
+
+		toggleSection: function(e) {
+			var $divider = $(e.target);
+
+			if ($divider.hasClass('open-wrap')) {
+				$divider.removeClass('open-wrap');
+			} else {
+				$divider.addClass('open-wrap');
 			}
 		},
 

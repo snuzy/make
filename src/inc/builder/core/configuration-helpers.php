@@ -164,36 +164,22 @@ function ttfmake_create_config_section_title( $section_name, $args, $section_dat
 }
 endif;
 
-if ( ! function_exists( 'ttfmake_create_config_background_position' ) ) :
+if ( ! function_exists( 'ttfmake_create_config_divider' ) ) :
 /**
- * Generate a background position input for the configuration overlay.
+ * Generate a section divider for settings controls
  *
- * @since  1.8.0.
+ * @since  1.8.8.
  *
- * @param  string    $section_name    The section prefix for the input name.
- * @param  array     $args            Arguments for creating the input.
+ * @param  string    $section_name    The section prefix for the divider.
+ * @param  array     $args            Arguments for creating the divider.
  * @param  array     $section_data    The data for the current section.
  * @return string                     The full input string.
  */
-function ttfmake_create_config_background_position( $section_name, $args, $section_data ) {
-	$current_value = ttfmake_get_current_configuration_value( $section_data, $args );
-	$field = esc_attr( $args['name'] );
-	$name = $section_name . '[' . $field . ']';
+function ttfmake_create_config_divider( $section_name, $args, $section_data ) {
+	$label = ( isset( $args['label'] ) ) ? $args['label']: '';
 	ob_start(); ?>
 
-	<?php if( isset( $args['label'] ) ): ?>
-	<label for="<?php echo $name; ?>"><?php echo esc_html( $args['label'] ); ?></label>
-	<?php endif; ?>
-
-	<div class="ttfmake-configuration-background-position">
-	<?php foreach ( $args['options'] as $key => $value ) : ?>
-		<label>
-			<input type="radio" name="<?php echo $name; ?>" value="<?php echo $key; ?>" {{ get('<?php echo $field; ?>') && get('<?php echo $field; ?>').toString() === '<?php echo $key; ?>'.toString() ? ' checked': '' }} data-model-attr="<?php echo $field; ?>">
-			<span class="icon"><i></i></span>
-			<span class="label"><?php echo $value; ?></span>
-		</label>
-	<?php endforeach; ?>
-	</div>
+	<span><?php echo $label; ?></span>
 
 	<?php
 	$output = ob_get_clean();

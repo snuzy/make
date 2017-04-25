@@ -12,12 +12,25 @@ ksort( $ttfmake_section_data['section']['config'], SORT_NUMERIC );
 
 // Print the inputs
 $output = '';
+$i = 0;
 
 foreach ( $ttfmake_section_data['section']['config'] as $input ) {
 	if ( isset( $input['type'] ) && isset( $input['name'] ) ) {
+		if ( 'divider' === $input['type'] && $i > 0 ) {
+			$output .= '</div>';
+		}
+
 		$output .= ttfmake_create_input( $section_name, $input, $ttfmake_section_data['data'] );
+
+		if ( 'divider' === $input['type'] ) {
+			$output .= '<div>';
+		}
 	}
+
+	$i ++;
 }
+
+$output .= '</div>';
 
 echo $output;
 
