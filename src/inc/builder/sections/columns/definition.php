@@ -60,26 +60,26 @@ class MAKE_Builder_Sections_Columns_Definition {
 
 	public function get_settings() {
 		return array(
-			100 => array(
-				'type'    => 'divider',
-				'label'   => __( 'General', 'make' ),
-				'name'    => '',
-				'class'   => 'ttfmake-configuration-divider open',
+			array(
+				'type'  => 'divider',
+				'label' => __( 'General', 'make' ),
+				'name'  => 'divider-general',
+				'class' => 'ttfmake-configuration-divider open',
 			),
-			200 => array(
+			array(
 				'type'  => 'section_title',
 				'name'  => 'title',
 				'label' => __( 'Enter section title', 'make' ),
 				'class' => 'ttfmake-configuration-title ttfmake-section-header-title-input',
 				'default' => ttfmake_get_section_default( 'title', 'text' ),
 			),
-			300 => array(
+			array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Full width', 'make' ),
 				'name'    => 'full-width',
 				'default' => ttfmake_get_section_default( 'full-width', 'text' ),
 			),
-			400 => array(
+			array(
 				'type'    => 'select',
 				'name'    => 'columns-number',
 				'class'   => 'ttfmake-text-columns',
@@ -87,14 +87,20 @@ class MAKE_Builder_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'columns-number', 'text' ),
 				'options' => ttfmake_get_section_choices( 'columns-number', 'text' ),
 			),
-			500 => array(
+			array(
+				'type'    => 'divider',
+				'label'   => __( 'Background', 'make-plus' ),
+				'name'    => 'divider-background',
+				'class'   => 'ttfmake-configuration-divider',
+			),
+			array(
 				'type'  => 'image',
 				'name'  => 'background-image',
 				'label' => __( 'Background image', 'make' ),
 				'class' => 'ttfmake-configuration-media',
 				'default' => ttfmake_get_section_default( 'background-image', 'text' ),
 			),
-			600 => array(
+			array(
 				'type'  => 'select',
 				'name'  => 'background-position',
 				'label' => __( 'Position', 'make' ),
@@ -102,7 +108,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'background-position', 'text' ),
 				'options' => ttfmake_get_section_choices( 'background-position', 'text' ),
 			),
-			700 => array(
+			array(
 				'type'    => 'select',
 				'name'    => 'background-style',
 				'label'   => __( 'Scale', 'make' ),
@@ -110,14 +116,14 @@ class MAKE_Builder_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'background-style', 'text' ),
 				'options' => ttfmake_get_section_choices( 'background-style', 'text' ),
 			),
-			800 => array(
+			array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken background to improve readability', 'make' ),
 				'class'   => 'ttfmake-configuration-media-related',
 				'name'    => 'darken',
 				'default' => ttfmake_get_section_default( 'darken', 'text' ),
 			),
-			900 => array(
+			array(
 				'type'    => 'color',
 				'label'   => __( 'Background color', 'make' ),
 				'name'    => 'background-color',

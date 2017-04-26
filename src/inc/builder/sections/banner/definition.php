@@ -60,57 +60,57 @@ class MAKE_Builder_Sections_Banner_Definition {
 
 	public function get_settings() {
 		return array(
-			100 => array(
+			array(
 				'type'    => 'divider',
 				'label'   => __( 'General', 'make' ),
-				'name'    => '',
+				'name'    => 'divider-general',
 				'class'   => 'ttfmake-configuration-divider open',
 			),
-			200 => array(
+			array(
 				'type'  => 'section_title',
 				'name'  => 'title',
 				'label' => __( 'Enter section title', 'make' ),
 				'class' => 'ttfmake-configuration-title ttfmake-section-header-title-input',
 				'default' => ttfmake_get_section_default( 'title', 'banner' ),
 			),
-			300 => array(
+			array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Hide navigation arrows', 'make' ),
 				'name'    => 'hide-arrows',
 				'default' => ttfmake_get_section_default( 'hide-arrows', 'banner' ),
 			),
-			400 => array(
+			array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Hide navigation dots', 'make' ),
 				'name'    => 'hide-dots',
 				'default' => ttfmake_get_section_default( 'hide-dots', 'banner' ),
 			),
-			500 => array(
+			array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Autoplay slideshow', 'make' ),
 				'name'    => 'autoplay',
 				'default' => ttfmake_get_section_default( 'autoplay', 'banner' ),
 			),
-			600 => array(
+			array(
 				'type'    => 'text',
 				'label'   => __( 'Time between slides (ms)', 'make' ),
 				'name'    => 'delay',
 				'default' => ttfmake_get_section_default( 'delay', 'banner' ),
 			),
-			700 => array(
+			array(
 				'type'    => 'select',
 				'label'   => __( 'Transition effect', 'make' ),
 				'name'    => 'transition',
 				'default' => ttfmake_get_section_default( 'transition', 'banner' ),
 				'options' => ttfmake_get_section_choices( 'transition', 'banner' ),
 			),
-			800 => array(
+			array(
 				'type'    => 'text',
 				'label'   => __( 'Section height (px)', 'make' ),
 				'name'    => 'height',
 				'default' => ttfmake_get_section_default( 'height', 'banner' ),
 			),
-			900 => array(
+			array(
 				'type'        => 'select',
 				'label'       => __( 'Responsive behavior', 'make' ),
 				'name'        => 'responsive',
@@ -118,14 +118,20 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'description' => __( 'Choose how the Banner will respond to varying screen widths. Default is ideal for large amounts of written content, while Aspect is better for showing your images.', 'make' ),
 				'options'     => ttfmake_get_section_choices( 'responsive', 'banner' ),
 			),
-			1000 => array(
+			array(
+				'type'  => 'divider',
+				'label' => __( 'Background', 'make' ),
+				'name'  => 'divider-background',
+				'class' => 'ttfmake-configuration-divider',
+			),
+			array(
 				'type'  => 'image',
 				'name'  => 'background-image',
 				'label' => __( 'Background image', 'make' ),
 				'class' => 'ttfmake-configuration-media',
 				'default' => ttfmake_get_section_default( 'background-image', 'banner' ),
 			),
-			1100 => array(
+			array(
 				'type'  => 'select',
 				'name'  => 'background-position',
 				'label' => __( 'Position', 'make' ),
@@ -133,7 +139,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'default' => ttfmake_get_section_default( 'background-position', 'banner' ),
 				'options' => ttfmake_get_section_choices( 'background-position', 'banner' ),
 			),
-			1200 => array(
+			array(
 				'type'    => 'select',
 				'name'    => 'background-style',
 				'label'   => __( 'Scale', 'make' ),
@@ -141,14 +147,14 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'default' => ttfmake_get_section_default( 'background-style', 'banner' ),
 				'options' => ttfmake_get_section_choices( 'background-style', 'banner' ),
 			),
-			1300 => array(
+			array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken background to improve readability', 'make' ),
 				'name'    => 'darken',
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'darken', 'banner' ),
 			),
-			1400 => array(
+			array(
 				'type'    => 'color',
 				'label'   => __( 'Background color', 'make' ),
 				'name'    => 'background-color',
