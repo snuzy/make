@@ -584,7 +584,7 @@
 }
 .ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap {
 	position: relative;
-	margin: -1px -20px 20px -20px;
+	margin: -1px -20px 0 -20px;
 	padding: 15px 20px;
 	font-size: 14px;
 	font-weight: 600;
@@ -659,8 +659,7 @@
 	font-size: 19px;
 }
 .ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-title-wrap {
-	padding-top: 0 !important; /*reset*/
-	border-bottom: 0 !important; /*reset*/
+	border-bottom: 0; /*reset*/
 }
 .ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-media-wrap {
 	display: block; /*reset*/
