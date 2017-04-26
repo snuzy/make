@@ -359,6 +359,12 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			$clean_data['full-width'] = 0;
 		}
 
+		if ( isset( $data['draft'] ) && $data['draft'] == 1 ) {
+			$clean_data['draft'] = 1;
+		} else {
+			$clean_data['draft'] = 0;
+		}
+
 		if ( isset( $data['gallery-items'] ) && is_array( $data['gallery-items'] ) ) {
 			$clean_data['gallery-items'] = array();
 
