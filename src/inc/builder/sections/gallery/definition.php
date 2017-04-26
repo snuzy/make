@@ -205,7 +205,8 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			'darken' => 0,
 			'background-style' => 'tile',
 			'background-color' => '',
-			'full-width' => 0
+			'full-width' => 0,
+			'draft' => 0
 		);
 	}
 
