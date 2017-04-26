@@ -163,20 +163,20 @@ class MAKE_Builder_Sections_Gallery_Definition {
 		 * @param array    $inputs    The input definition array.
 		 */
 		$inputs = apply_filters( 'make_gallery_item_configuration', array(
-			100 => array(
+			array(
 				'type'    => 'section_title',
 				'name'    => 'title',
 				'label'   => __( 'Enter item title', 'make' ),
 				'default' => ttfmake_get_section_default( 'title', 'gallery-item' ),
 				'class'   => 'ttfmake-configuration-title',
 			),
-			200 => array(
+			array(
 				'type'    => 'text',
 				'name'    => 'link',
 				'label'   => __( 'Item link URL', 'make' ),
 				'default' => ttfmake_get_section_default( 'link', 'gallery-item' ),
 			),
-			300 => array(
+			array(
 				'type'    => 'checkbox',
 				'name'    => 'open-new-tab',
 				'label'   => __( 'Open link in a new tab', 'make' ),

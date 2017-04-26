@@ -166,7 +166,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 
 	public function get_banner_slide_settings() {
 		$inputs = array(
-			100 => array(
+			array(
 				'type'    => 'select',
 				'name'    => 'alignment',
 				'label'   => __( 'Content position', 'make' ),
@@ -177,13 +177,13 @@ class MAKE_Builder_Sections_Banner_Definition {
 					'right' => __( 'Right', 'make' ),
 				),
 			),
-			200 => array(
+			array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken background to improve readability', 'make' ),
 				'name'    => 'darken',
 				'default' => ttfmake_get_section_default( 'darken', 'banner-slide' )
 			),
-			300 => array(
+			array(
 				'type'    => 'color',
 				'label'   => __( 'Background color', 'make' ),
 				'name'    => 'background-color',
