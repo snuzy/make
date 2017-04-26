@@ -345,12 +345,6 @@ class MAKE_Builder_Sections_Banner_Definition {
 			$clean_data['darken'] = 0;
 		}
 
-		if ( isset( $data['draft'] ) && (int) $data['draft'] == 1 ) {
-			$clean_data['draft'] = 1;
-		} else {
-			$clean_data['draft'] = 0;
-		}
-
 		if ( isset( $data['background-color'] ) ) {
 			$clean_data['background-color'] = maybe_hash_hex_color( $data['background-color'] );
 		}
