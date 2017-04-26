@@ -166,7 +166,7 @@ var oneApp = oneApp || {};
 
 			$('input, select', this.$el).first().focus();
 			$('.wp-color-result', $overlay).click().off('click');
-			$( 'body' ).off( 'click.wpcolorpicker' );
+			$('body').off('click.wpcolorpicker');
 			$('body').on('keydown', {self: this}, this.onKeyDown);
 
 			view.$el.trigger('overlay-open', this.$el);
@@ -183,6 +183,14 @@ var oneApp = oneApp || {};
 			this.setElement($el);
 			this.$colorPickers = oneApp.builder.initColorPicker(this);
 			this.$overlay = $overlay;
+
+			$('.ttfmake-configuration-divider-wrap', this.$el).each(function() {
+				var $divider = $(this);
+
+				if (!$divider.hasClass('open-wrap')) {
+					$divider.next().hide();
+				}
+			});
 		},
 
 		close: function(apply) {
@@ -309,8 +317,10 @@ var oneApp = oneApp || {};
 
 			if ($divider.hasClass('open-wrap')) {
 				$divider.removeClass('open-wrap');
+				$divider.next().slideUp();
 			} else {
 				$divider.addClass('open-wrap');
+				$divider.next().slideDown();
 			}
 		},
 

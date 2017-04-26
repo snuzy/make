@@ -588,11 +588,12 @@
 	padding: 15px 20px;
 	font-size: 14px;
 	font-weight: 600;
+	background: #fcfcfc;
 	border-top: 1px solid #efefef;
 	cursor: pointer;
 }
-.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap {
-	background: #fcfcfc;
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap:hover {
+	border-color: #999;
 }
 .ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap:after {
 	display: inline-block;
@@ -602,14 +603,8 @@
 	font-family: dashicons;
 	font-size: 18px;
 }
-.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap + div {
-	display: none;
-}
 .ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap:after {
 	content: '\f142';
-}
-.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap + div {
-	display: block;
 }
 .ttfmake-configuration-overlay-input-wrap label {
 	position: relative;
