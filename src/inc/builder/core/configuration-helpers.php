@@ -177,9 +177,10 @@ if ( ! function_exists( 'ttfmake_create_config_divider' ) ) :
  */
 function ttfmake_create_config_divider( $section_name, $args, $section_data ) {
 	$label = ( isset( $args['label'] ) ) ? $args['label']: '';
+	$name = ( isset( $args['name'] ) ) ? $args['name']: '';
 	ob_start(); ?>
 
-	<span><?php echo $label; ?></span>
+	<span data-name="<?php echo $name; ?>"><?php echo $label; ?></span>
 
 	<?php
 	$output = ob_get_clean();

@@ -169,6 +169,11 @@ var oneApp = oneApp || {};
 			$('body').off('click.wpcolorpicker');
 			$('body').on('keydown', {self: this}, this.onKeyDown);
 
+			var $openDivider = $('.ttfmake-configuration-divider-wrap.open-wrap', this.$el);
+			var $body = $('.ttfmake-overlay-body', this.$el);
+			var offset = $openDivider.position().top + $body.scrollTop() - $openDivider.outerHeight();
+			$body.scrollTop(offset);
+
 			view.$el.trigger('overlay-open', this.$el);
 		},
 
@@ -183,14 +188,6 @@ var oneApp = oneApp || {};
 			this.setElement($el);
 			this.$colorPickers = oneApp.builder.initColorPicker(this);
 			this.$overlay = $overlay;
-
-			$('.ttfmake-configuration-divider-wrap', this.$el).each(function() {
-				var $divider = $(this);
-
-				if (!$divider.hasClass('open-wrap')) {
-					$divider.next().hide();
-				}
-			});
 		},
 
 		close: function(apply) {
@@ -214,6 +211,8 @@ var oneApp = oneApp || {};
 				this.applyDOMChanges(this.$el, this.$overlay);
 				changeset = this.model.attributes;
 			}
+
+			this.applyDOMState(this.$el, this.$overlay);
 
 			$('body').off('keydown', this.onKeyDown);
 			this.caller.$el.trigger('overlay-close', changeset);
@@ -243,6 +242,21 @@ var oneApp = oneApp || {};
 			var $sourcePlaceholder = $('.ttfmake-configuration-media-wrap', $source);
 			var $destinationPlaceholder = $('.ttfmake-configuration-media-wrap', $destination);
 			$destinationPlaceholder.html($sourcePlaceholder.html());
+		},
+
+		applyDOMState: function($source, $destination) {
+			// Dividers
+			var $sourceDividers = $('.ttfmake-configuration-divider-wrap', $source);
+
+			$sourceDividers.each(function() {
+				var $this = $(this);
+				var name = $this.children(':first-child').data('name');
+				var $destinationDivider = $('[data-name="' + name + '"]', $destination).parent();
+
+				if ($this.hasClass('open-wrap')) {
+					$destinationDivider.addClass('open-wrap');
+				}
+			});
 		},
 
 		updateInputField: function(e) {
@@ -314,14 +328,13 @@ var oneApp = oneApp || {};
 
 		toggleSection: function(e) {
 			var $divider = $(e.target);
+			var $dividers = $('.ttfmake-configuration-divider-wrap').not($divider);
+			var $body = $('.ttfmake-overlay-body', this.$el);
 
-			if ($divider.hasClass('open-wrap')) {
-				$divider.removeClass('open-wrap');
-				$divider.next().slideUp();
-			} else {
-				$divider.addClass('open-wrap');
-				$divider.next().slideDown();
-			}
+			$dividers.removeClass('open-wrap');
+			$divider.addClass('open-wrap');
+			var offset = $divider.position().top + $body.scrollTop() - $divider.outerHeight();
+			$body.scrollTop(offset);
 		},
 
 		onKeyDown: function(e) {
