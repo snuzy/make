@@ -344,11 +344,13 @@ class TTFMAKE_Builder_Save {
 			// Get the registered sections
 			$registered_sections = ttfmake_get_sections();
 
-			// Get the template for the section
-			ttfmake_load_section_template(
-				$registered_sections[ $section['section-type'] ]['display_template'],
-				$registered_sections[ $section['section-type'] ]['path']
-			);
+			if ( !isset( $ttfmake_section_data['draft'] ) || $ttfmake_section_data['draft'] != 1 ) {
+				// Get the template for the section
+				ttfmake_load_section_template(
+					$registered_sections[ $section['section-type'] ]['display_template'],
+					$registered_sections[ $section['section-type'] ]['path']
+				);
+			}
 
 			// Cleanup the global
 			unset( $GLOBALS['ttfmake_section_data'] );
