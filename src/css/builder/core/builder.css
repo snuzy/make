@@ -261,6 +261,16 @@
 	padding-left: 10px;
 	padding-right: 12px;
 }
+.ttfmake-section .ttfmake-section-draft-indicator {
+	position: relative;
+	margin-left: 10px;
+}
+.ttfmake-section .ttfmake-section-draft-indicator-inner {
+	padding: 4px 13px;
+	background-color: #de420c;
+	border-radius: 25px;
+	color: #fff;
+}
 .ttfmake-section h4 {
 	margin: 20px 0 10px;
 	font-size: 13px;

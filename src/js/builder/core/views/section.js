@@ -122,6 +122,14 @@ var oneApp = oneApp || {};
 				}
 			}
 
+			if ('draft' in changeset) {
+				if (parseInt(changeset['draft'], 10) === 1) {
+					this.$el.find('.ttfmake-section-draft-indicator').show();
+				} else {
+					this.$el.find('.ttfmake-section-draft-indicator').hide();
+				}
+			}
+
 			this.model.set(changeset);
 		},
 
