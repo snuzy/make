@@ -372,6 +372,9 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			var $colorPickerInput = $('.ttfmake-configuration-color-picker', view.$el);
 			var colorPickerOptions = {
+				hide: false,
+				width: 365,
+
 				change: function(event, ui) {
 					var $input = $(event.target);
 
@@ -394,7 +397,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			// init color picker
 			$colorPickerInput.wpColorPicker(colorPickerOptions);
-			$colorPickerInput.iris('option', 'width', 365);
+			$('.iris-picker', view.$el).show();
 			return $colorPickerInput;
 		},
 
