@@ -394,6 +394,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			// init color picker
 			$colorPickerInput.wpColorPicker(colorPickerOptions);
+			$colorPickerInput.iris('option', 'width', 365);
 			return $colorPickerInput;
 		},
 
