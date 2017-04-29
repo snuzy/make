@@ -317,6 +317,8 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 		},
 
 		initUploader: function (view, placeholder) {
+			wp.media.view.Sidebar = oneApp.ImageSidebar;
+
 			this.$currentPlaceholder = $(placeholder);
 
 			// Create the media frame.
@@ -328,6 +330,9 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			frame.on('open', this.onUploaderFrameOpen, this);
 			frame.on('select', this.onUploaderFrameSelect, this, 2);
+			frame.on('close', function() {
+				wp.media.view.Sidebar = oneApp.OriginalSidebar;
+			});
 
 			// Finally, open the modal
 			frame.open();
@@ -367,6 +372,9 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			var $colorPickerInput = $('.ttfmake-configuration-color-picker', view.$el);
 			var colorPickerOptions = {
+				hide: false,
+				width: 365,
+
 				change: function(event, ui) {
 					var $input = $(event.target);
 
@@ -389,6 +397,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			// init color picker
 			$colorPickerInput.wpColorPicker(colorPickerOptions);
+			$('.iris-picker', view.$el).show();
 			return $colorPickerInput;
 		},
 
@@ -436,7 +445,9 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 		}
 	});
 
-	wp.media.view.Sidebar = wp.media.view.Sidebar.extend({
+	oneApp.OriginalSidebar = wp.media.view.Sidebar;
+
+	oneApp.ImageSidebar = wp.media.view.Sidebar.extend({
 		render: function() {
 			this.$el.html( wp.media.template( 'ttfmake-remove-image' ) );
 			return this;
