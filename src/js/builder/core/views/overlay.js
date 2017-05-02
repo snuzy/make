@@ -327,7 +327,10 @@ var oneApp = oneApp || {};
 		},
 
 		toggleSection: function(e) {
-			var $divider = $(e.target);
+			e.preventDefault();
+			e.stopPropagation();
+
+			var $divider = $(e.currentTarget);
 			var $dividers = $('.ttfmake-configuration-divider-wrap').not($divider);
 			var $body = $('.ttfmake-overlay-body', this.$el);
 
