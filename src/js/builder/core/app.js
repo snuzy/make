@@ -119,7 +119,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			return view;
 		},
 
-		cloneItemView: function (item, originalItem) {
+		addItemView: function (item, originalItem) {
 			var viewClass = oneApp.views[item.get('section-type')];
 			var view = new viewClass({
 				model: item
@@ -127,7 +127,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			var html = view.render().el;
 
-			originalItem.$el.after(html);
+			originalItem.$el.parent().append(html);
 
 			view.$el.trigger('view-ready', view);
 

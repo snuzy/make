@@ -499,6 +499,9 @@
 .configure-item-dropdown li a.ttfmake-icon-trash:before {
 	content: "\f182";
 }
+.configure-item-dropdown li a.ttfmake-icon-duplicate:before {
+	content: "\f105";
+}
 .configure-item-dropdown li a:hover {
 	color: #00b9eb;
 }
