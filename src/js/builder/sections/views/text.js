@@ -14,6 +14,7 @@ var oneApp = oneApp || {};
 				'columns-number-change' : 'onColumnsNumberChange',
 				'mouseup .ttfmake-text-column' : 'updateJSONOnSlide',
 				'model-item-change': 'onTextItemChange',
+				'item-duplicated': 'onItemDuplication',
 				'columns-sort': 'onColumnsSort',
 				'view-ready': 'onViewReady',
 				'overlay-open': 'onOverlayOpen',
@@ -185,6 +186,10 @@ var oneApp = oneApp || {};
 
 		onTextItemChange: function(evt) {
 			this.model.trigger('change');
+		},
+
+		onItemDuplication: function(evt) {
+			this.initFrames();
 		},
 
 		initializeColumnsSortables: function() {
