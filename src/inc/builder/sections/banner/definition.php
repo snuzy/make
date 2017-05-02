@@ -92,10 +92,11 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'default' => ttfmake_get_section_default( 'autoplay', 'banner' ),
 			),
 			array(
-				'type'    => 'text',
-				'label'   => __( 'Time between slides (ms)', 'make' ),
+				'type'    => 'select',
+				'label'   => __( 'Speed', 'make' ),
 				'name'    => 'delay',
 				'default' => ttfmake_get_section_default( 'delay', 'banner' ),
+				'options' => ttfmake_get_section_choices( 'delay', 'banner' )
 			),
 			array(
 				'type'    => 'select',
@@ -228,6 +229,14 @@ class MAKE_Builder_Sections_Banner_Definition {
 		$choice_id = "$section_type-$key";
 
 		switch ( $choice_id ) {
+			case 'banner-delay':
+				$choices = array(
+					'9000' => __( 'Slow', 'make' ),
+					'6000' => __( 'Default', 'make' ),
+					'3000' => __( 'Fast', 'make' ),
+				);
+				break;
+
 			case 'banner-transition':
 				$choices = array(
 					'scrollHorz' => __( 'Slide horizontal', 'make' ),
