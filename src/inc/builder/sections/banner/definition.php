@@ -75,15 +75,15 @@ class MAKE_Builder_Sections_Banner_Definition {
 			),
 			array(
 				'type'    => 'checkbox',
-				'label'   => __( 'Hide navigation arrows', 'make' ),
-				'name'    => 'hide-arrows',
-				'default' => ttfmake_get_section_default( 'hide-arrows', 'banner' ),
+				'label'   => __( 'Navigation arrows', 'make' ),
+				'name'    => 'arrows',
+				'default' => ttfmake_get_section_default( 'arrows', 'banner' ),
 			),
 			array(
 				'type'    => 'checkbox',
-				'label'   => __( 'Hide navigation dots', 'make' ),
-				'name'    => 'hide-dots',
-				'default' => ttfmake_get_section_default( 'hide-dots', 'banner' ),
+				'label'   => __( 'Navigation dots', 'make' ),
+				'name'    => 'dots',
+				'default' => ttfmake_get_section_default( 'dots', 'banner' ),
 			),
 			array(
 				'type'    => 'checkbox',
@@ -275,8 +275,8 @@ class MAKE_Builder_Sections_Banner_Definition {
 	public function get_defaults() {
 		return array(
 			'title' => '',
-			'hide-arrows' => 0,
-			'hide-dots' => 0,
+			'arrows' => 1,
+			'dots' => 1,
 			'autoplay' => 1,
 			'delay' => 6000,
 			'transition' => 'scrollHorz',
@@ -370,6 +370,19 @@ class MAKE_Builder_Sections_Banner_Definition {
 					$data['banner-slides'] = $ordered_items;
 					unset( $data['banner-slide-order'] );
 				}
+
+				/*
+				 * Back compatibility code for changing negative phrased checkboxes.
+				 * 
+				 * @since 1.8.8
+				 */
+				if ( isset( $data['hide-dots'] ) ) {
+					$data['dots'] = ( absint( $data['hide-dots'] ) == 1 ) ? 0 : 1;
+				}
+
+				if ( isset( $data['hide-arrows'] ) ) {
+					$data['arrows'] = ( absint( $data['hide-arrows'] ) == 1 ) ? 0 : 1;
+				}
 			}
 		}
 
@@ -387,8 +400,8 @@ class MAKE_Builder_Sections_Banner_Definition {
 
 		$clean_data = array();
 		$clean_data['title']       = $clean_data['label'] = ( isset( $data['title'] ) ) ? apply_filters( 'title_save_pre', $data['title'] ) : '';
-		$clean_data['hide-arrows'] = ( isset( $data['hide-arrows'] ) && 1 === (int) $data['hide-arrows'] ) ? 1 : 0;
-		$clean_data['hide-dots']   = ( isset( $data['hide-dots'] ) && 1 === (int) $data['hide-dots'] ) ? 1 : 0;
+		$clean_data['arrows'] = ( isset( $data['arrows'] ) && 1 === (int) $data['arrows'] ) ? 1 : 0;
+		$clean_data['dots']   = ( isset( $data['dots'] ) && 1 === (int) $data['dots'] ) ? 1 : 0;
 		$clean_data['autoplay']    = ( isset( $data['autoplay'] ) && 1 === (int) $data['autoplay'] ) ? 1 : 0;
 
 		if ( isset( $data['transition'] ) && in_array( $data['transition'], array( 'fade', 'scrollHorz', 'none' ) ) ) {
