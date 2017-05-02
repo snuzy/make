@@ -33,6 +33,8 @@ var oneApp = oneApp || {};
 				return item.toJSON();
 			});
 
+			console.log(json);
+
 			return json;
 		}
 	});

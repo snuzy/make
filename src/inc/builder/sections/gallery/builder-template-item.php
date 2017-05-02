@@ -36,6 +36,11 @@ $overlay_id  = "ttfmake-overlay-" . $combined_id;
 				<?php esc_html_e( 'Trash item', 'make' ); ?>
 			</a>
 		</li>
+		<li>
+			<a href="#" class="ttfmake-icon-trash ttfmp-duplicate-section-item" title="<?php esc_attr_e( 'Duplicate item', 'make' ); ?>">
+				<?php esc_html_e( 'Duplicate item', 'make' ); ?>
+			</a>
+		</li>
 	</ul>
 
 	<?php echo ttfmake_get_builder_base()->add_uploader( $section_name, 0, __( 'Set gallery image', 'make' ), 'image-url' ); ?>

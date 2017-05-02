@@ -119,6 +119,21 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			return view;
 		},
 
+		cloneItemView: function (item, originalItem) {
+			var viewClass = oneApp.views[item.get('section-type')];
+			var view = new viewClass({
+				model: item
+			});
+
+			var html = view.render().el;
+
+			originalItem.$el.after(html);
+
+			view.$el.trigger('view-ready', view);
+
+			return view;
+		},
+
 		toggleStageClass: function() {
 			if (this.sections.length > 0) {
 				this.$stage.removeClass('ttfmake-stage-closed');
