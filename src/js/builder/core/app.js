@@ -453,7 +453,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			$('.iris-picker.iris-border .iris-palette-container .iris-palette').css({
 				width: '31px',
 				height: '31px',
-				'margin-left': '9px'
+				'margin-left': '8px'
 			});
 
 			$('.wp-picker-input-wrap').css({
