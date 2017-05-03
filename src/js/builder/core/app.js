@@ -388,7 +388,6 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			var $colorPickerInput = $('.ttfmake-configuration-color-picker', view.$el);
 			var colorPickerOptions = {
 				hide: false,
-				width: 365,
 
 				change: function(event, ui) {
 					var $input = $(event.target);
@@ -412,7 +411,49 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			// init color picker
 			$colorPickerInput.wpColorPicker(colorPickerOptions);
+
+			/*
+				You call throwing dynamite around a martial art?
+				- Hey, as long as it works!
+			 */
+			$('.iris-picker.iris-border').css({
+				width: '100%'
+			});
+
+			$('.iris-picker.iris-border .iris-picker-inner').css({
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0,
+			});
+
+			$('.iris-picker.iris-border .iris-picker-inner .iris-slider.iris-strip').css({
+				right: 0,
+				position: 'absolute',
+			});
+
+			$('.iris-picker.iris-border .iris-picker-inner .iris-square').css({
+				'margin-right': 0,
+				width: '300px',
+			});
+
+			$('.iris-picker.iris-border .iris-palette-container').css({
+				left: 0,
+				width: '300px'
+			});
+
+			$('.iris-picker.iris-border .iris-palette-container .iris-palette').css({
+				width: '33px',
+				height: '33px',
+				'margin-left': '5px'
+			});
+
+			$('.iris-picker.iris-border .iris-palette-container .iris-palette:first-child').css({
+				'margin-left': 0
+			});
+
 			$('.iris-picker', view.$el).show();
+
 			return $colorPickerInput;
 		},
 

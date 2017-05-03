@@ -705,11 +705,11 @@
 	margin-left: 0; /*reset*/
 	margin-right: 4px; /*reset*/
 }
-.ttfmake-configuration-overlay-input-wrap .wp-picker-container .wp-picker-holder {
-	margin-left: -8px;
-}
 .ttfmake-configuration-overlay-input-wrap .wp-picker-container .iris-picker {
 	border: 0; /*reset*/
+}
+.wp-picker-container input[type=text].wp-color-picker {
+	width: 257px;
 }
 /*---------------------------------------------------------
  iFrame (builder.css)
