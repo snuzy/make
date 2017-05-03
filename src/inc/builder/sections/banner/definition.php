@@ -150,7 +150,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 			),
 			array(
 				'type'    => 'checkbox',
-				'label'   => __( 'Darken background to improve readability', 'make' ),
+				'label'   => __( 'Darken', 'make' ),
 				'name'    => 'darken',
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'darken', 'banner' ),
@@ -180,7 +180,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 			),
 			array(
 				'type'    => 'checkbox',
-				'label'   => __( 'Darken background to improve readability', 'make' ),
+				'label'   => __( 'Darken', 'make' ),
 				'name'    => 'darken',
 				'default' => ttfmake_get_section_default( 'darken', 'banner-slide' )
 			),
