@@ -152,7 +152,6 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken', 'make' ),
 				'name'    => 'darken',
-				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'darken', 'banner' ),
 			),
 			array(

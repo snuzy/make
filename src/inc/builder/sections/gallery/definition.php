@@ -140,7 +140,6 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken', 'make' ),
-				'class'   => 'ttfmake-configuration-media-related',
 				'name'    => 'darken',
 				'default' => ttfmake_get_section_default( 'darken', 'gallery' ),
 			),
