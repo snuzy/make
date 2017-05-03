@@ -704,12 +704,14 @@
 .ttfmake-configuration-overlay-input-wrap .wp-picker-container .button {
 	margin-left: 0; /*reset*/
 	margin-right: 4px; /*reset*/
+	float: none;
+	width: 18%;
 }
 .ttfmake-configuration-overlay-input-wrap .wp-picker-container .iris-picker {
 	border: 0; /*reset*/
 }
 .wp-picker-container input[type=text].wp-color-picker {
-	width: 257px;
+	width: 80%;
 }
 /*---------------------------------------------------------
  iFrame (builder.css)

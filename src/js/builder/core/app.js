@@ -416,6 +416,10 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 				You call throwing dynamite around a martial art?
 				- Hey, as long as it works!
 			 */
+			$('.wp-picker-container').css({
+				position: 'relative'
+			});
+
 			$('.iris-picker.iris-border').css({
 				width: '100%'
 			});
@@ -443,13 +447,19 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			$('.iris-picker.iris-border .iris-palette-container').css({
 				left: 0,
 				bottom: 0,
-				width: '300px'
+				width: 'auto'
 			});
 
 			$('.iris-picker.iris-border .iris-palette-container .iris-palette').css({
-				width: '32px',
-				height: '32px',
-				'margin-left': '6px'
+				width: '31px',
+				height: '31px',
+				'margin-left': '9px'
+			});
+
+			$('.wp-picker-input-wrap').css({
+				position: 'absolute',
+				left: '38px',
+				right: 0
 			});
 
 			$('.iris-picker.iris-border .iris-palette-container .iris-palette:first-child').css({
