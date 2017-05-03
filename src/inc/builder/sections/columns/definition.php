@@ -111,7 +111,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 			array(
 				'type'    => 'select',
 				'name'    => 'background-style',
-				'label'   => __( 'Scale', 'make' ),
+				'label'   => __( 'Display', 'make' ),
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-style', 'text' ),
 				'options' => ttfmake_get_section_choices( 'background-style', 'text' ),

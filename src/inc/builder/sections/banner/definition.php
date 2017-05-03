@@ -143,7 +143,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 			array(
 				'type'    => 'select',
 				'name'    => 'background-style',
-				'label'   => __( 'Scale', 'make' ),
+				'label'   => __( 'Display', 'make' ),
 				'class'   => 'ttfmake-configuration-media-related',
 				'default' => ttfmake_get_section_default( 'background-style', 'banner' ),
 				'options' => ttfmake_get_section_choices( 'background-style', 'banner' ),
@@ -381,7 +381,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 
 				/*
 				 * Back compatibility code for changing negative phrased checkboxes.
-				 * 
+				 *
 				 * @since 1.8.8
 				 */
 				if ( isset( $data['hide-dots'] ) ) {
