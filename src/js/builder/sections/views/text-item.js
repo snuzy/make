@@ -16,7 +16,8 @@ var oneApp = oneApp || {};
 				'column-load': 'onColumnLoad',
 				'overlay-open': 'onOverlayOpen',
 				'click .ttfmake-text-column-remove': 'onColumnRemove',
-				'overlay-close': 'onOverlayClose'
+				'overlay-close': 'onOverlayClose',
+				'item-duplicated': 'onItemDuplicated'
 			});
 		},
 
@@ -52,6 +53,11 @@ var oneApp = oneApp || {};
 			});
 		},
 
+		onItemDuplicated: function() {
+			this.$el.trigger('column-ready');
+			this.$el.trigger('column-load');
+		},
+
 		onOverlayOpen: function (e, $overlay) {
 			e.stopPropagation();
 
@@ -81,7 +87,7 @@ var oneApp = oneApp || {};
 			var $iframe = this.$el.find('iframe');
 
 			var self = this;
-			
+
 			setTimeout(function() {
 				if (self.model.get('content')) {
 					$iframe.height($iframe.contents().height());
