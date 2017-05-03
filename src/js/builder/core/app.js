@@ -434,18 +434,22 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			$('.iris-picker.iris-border .iris-picker-inner .iris-square').css({
 				'margin-right': 0,
-				width: '300px',
+				width: 'auto',
+				position: 'absolute',
+				left: 0,
+				right: '40px'
 			});
 
 			$('.iris-picker.iris-border .iris-palette-container').css({
 				left: 0,
+				bottom: 0,
 				width: '300px'
 			});
 
 			$('.iris-picker.iris-border .iris-palette-container .iris-palette').css({
-				width: '33px',
-				height: '33px',
-				'margin-left': '5px'
+				width: '32px',
+				height: '32px',
+				'margin-left': '6px'
 			});
 
 			$('.iris-picker.iris-border .iris-palette-container .iris-palette:first-child').css({
