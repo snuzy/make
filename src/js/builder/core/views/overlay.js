@@ -255,6 +255,8 @@ var oneApp = oneApp || {};
 
 				if ($this.hasClass('open-wrap')) {
 					$destinationDivider.addClass('open-wrap');
+				} else {
+					$destinationDivider.removeClass('open-wrap');
 				}
 			});
 		},
@@ -331,7 +333,7 @@ var oneApp = oneApp || {};
 			e.stopPropagation();
 
 			var $divider = $(e.currentTarget);
-			var $dividers = $('.ttfmake-configuration-divider-wrap').not($divider);
+			var $dividers = $('.ttfmake-configuration-divider-wrap', this.$el).not($divider);
 			var $body = $('.ttfmake-overlay-body', this.$el);
 
 			$dividers.removeClass('open-wrap');
