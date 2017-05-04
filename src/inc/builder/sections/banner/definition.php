@@ -382,7 +382,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 				/*
 				 * Back compatibility code for changing negative phrased checkboxes.
 				 *
-				 * @since 1.8.8
+				 * @since 1.8.8.
 				 */
 				if ( isset( $data['hide-dots'] ) ) {
 					$data['dots'] = ( absint( $data['hide-dots'] ) == 1 ) ? 0 : 1;
@@ -391,6 +391,16 @@ class MAKE_Builder_Sections_Banner_Definition {
 				if ( isset( $data['hide-arrows'] ) ) {
 					$data['arrows'] = ( absint( $data['hide-arrows'] ) == 1 ) ? 0 : 1;
 				}
+
+				/*
+				 * Back compatibility for speed (time between slides). Set it to default value when 
+				 * the original value is other than one found in available section choices.
+				 *
+				 * @since 1.8.8.
+				 */
+				 if( isset( $data['delay'] ) && !in_array( $data['delay'], ttfmake_get_section_choices( 'delay', 'banner' ) ) ) {
+					 $data['delay'] = ttfmake_get_section_default( 'delay', 'banner' );
+				 }
 			}
 		}
 
