@@ -3227,7 +3227,9 @@ div.wp-video-shortcode {
 	background-position: center center;
 	background-size: cover;
 }
-
+.builder-banner-slide:not(:first-child) {
+	display: none;
+}
 
 /*---------------------------------------------------------
  Banner section: Content (_pages.scss)
@@ -3315,6 +3317,7 @@ div.wp-video-shortcode {
 .ttfmake-shortcode-slider .cycle-pager {
 	color: #eaecee;
 	font-size: 40px;
+	height: 40px;
 	font-size: 4rem;
 	line-height: 1;
 	text-align: center;
