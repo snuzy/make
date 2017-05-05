@@ -336,17 +336,15 @@ var oneApp = oneApp || {};
 			var $dividers = $('.ttfmake-configuration-divider-wrap', this.$el).not($divider);
 			var $body = $('.ttfmake-overlay-body', this.$el);
 
-			// $dividers.removeClass('open-wrap');
-			// $divider.addClass('open-wrap');
-
 			$dividers.each(function() {
 				var $this = $(this);
-				$this.next().slideUp(400, function() {
+				$this.next().slideUp(200, function() {
 					$this.removeClass('open-wrap');
 				});
 			});
 
 			$divider.next().slideDown({
+				duration: 200,
 				step: function() {
 					var offset = $divider.position().top + $body.scrollTop() - $divider.outerHeight();
 					$body.scrollTop(offset);
