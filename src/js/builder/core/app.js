@@ -412,10 +412,6 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			// init color picker
 			$colorPickerInput.wpColorPicker(colorPickerOptions);
 
-			/*
-				You call throwing dynamite around a martial art?
-				- Hey, as long as it works!
-			 */
 			$('.wp-picker-container').css({
 				position: 'relative'
 			});
