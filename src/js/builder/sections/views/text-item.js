@@ -21,11 +21,11 @@ var oneApp = oneApp || {};
 			});
 		},
 
-		initialize: function (options) {
+		initialize: function(options) {
 			this.template = _.template(ttfMakeSectionTemplates['text-item'], oneApp.builder.templateSettings);
 		},
 
-		render: function () {
+		render: function() {
 			var self = this;
 
 			var html = this.template(this.model);
@@ -58,7 +58,7 @@ var oneApp = oneApp || {};
 			this.$el.trigger('column-load');
 		},
 
-		onOverlayOpen: function (e, $overlay) {
+		onOverlayOpen: function(e, $overlay) {
 			e.stopPropagation();
 
 			var $button = $('.ttfmake-overlay-close-update', $overlay);
