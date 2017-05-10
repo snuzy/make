@@ -27,14 +27,17 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 == Changelog ==
 
 = 1.8.8 - May 10 2017 =
-* Bug fix: added CSS styling to avoid layout glitches during Banners initialization.
-* Improved: settings in overlays are now categorized into expandable sections.
-* Improved: better styling for the background color picker.
-* Improved: settings backend specification for sections was refactored for easier tweaking.
-* New feature: added a setting to control background position for sections.
-* Bug fix: dropdown controls in overlays now correctly preserve the selected value.
-* Improved: background controls in the overlay now show up only when a background media is selected.
+* New feature: Added a setting to control background position for sections.
+* Improved: Settings in overlays are now categorized into expandable sections.
+* Improved: Better styling for the background color picker.
+* Improved: Settings backend specification for sections was refactored for easier tweaking.
+* Improved: Background controls in the overlay now show up only when a background media is selected.
 * Improved: Media overlay sidebars are now contextual to the selected media.
+* Improved: Compatibility with WooCommerce 3.0 product galleries.
+* Improved: Removed legacy General -> Logo panel from Customizer.
+* Improved: Wording of input labels in various builder sections.
+* Bug fix: Added CSS styling to avoid layout glitches during Banners initialization.
+* Bug fix: Dropdown controls in overlays now correctly preserve the selected value.
 
 = 1.8.7 - April 5 2017 =
 * Bug fix: Additional empty columns were created in builder when coming from older versions.
