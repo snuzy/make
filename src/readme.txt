@@ -26,6 +26,16 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.8.8 - May 10 2017 =
+* Bug fix: added CSS styling to avoid layout glitches during Banners initialization.
+* Improved: settings in overlays are now categorized into expandable sections.
+* Improved: better styling for the background color picker.
+* Improved: settings backend specification for sections was refactored for easier tweaking.
+* New feature: added a setting to control background position for sections.
+* Bug fix: dropdown controls in overlays now correctly preserve the selected value.
+* Improved: background controls in the overlay now show up only when a background media is selected.
+* Improved: Media overlay sidebars are now contextual to the selected media.
+
 = 1.8.7 - April 5 2017 =
 * Bug fix: Additional empty columns were created in builder when coming from older versions.
 * Bug fix: Sidebar wasn't displaying on search results and archives page sometimes.
