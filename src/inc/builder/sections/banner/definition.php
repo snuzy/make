@@ -294,8 +294,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 			'background-position' => 'center-center',
 			'darken' => 0,
 			'background-style' => 'tile',
-			'background-color' => '',
-			'draft' => 0
+			'background-color' => ''
 		);
 	}
 
