@@ -74,38 +74,6 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'default' => ttfmake_get_section_default( 'title', 'banner' ),
 			),
 			array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Navigation arrows', 'make' ),
-				'name'    => 'arrows',
-				'default' => ttfmake_get_section_default( 'arrows', 'banner' ),
-			),
-			array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Navigation dots', 'make' ),
-				'name'    => 'dots',
-				'default' => ttfmake_get_section_default( 'dots', 'banner' ),
-			),
-			array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Autoplay slideshow', 'make' ),
-				'name'    => 'autoplay',
-				'default' => ttfmake_get_section_default( 'autoplay', 'banner' ),
-			),
-			array(
-				'type'    => 'select',
-				'label'   => __( 'Speed', 'make' ),
-				'name'    => 'delay',
-				'default' => ttfmake_get_section_default( 'delay', 'banner' ),
-				'options' => ttfmake_get_section_choices( 'delay', 'banner' )
-			),
-			array(
-				'type'    => 'select',
-				'label'   => __( 'Transition effect', 'make' ),
-				'name'    => 'transition',
-				'default' => ttfmake_get_section_default( 'transition', 'banner' ),
-				'options' => ttfmake_get_section_choices( 'transition', 'banner' ),
-			),
-			array(
 				'type'    => 'text',
 				'label'   => __( 'Section height (px)', 'make' ),
 				'name'    => 'height',
@@ -160,7 +128,45 @@ class MAKE_Builder_Sections_Banner_Definition {
 				'name'    => 'background-color',
 				'class'   => 'ttfmake-gallery-background-color ttfmake-configuration-color-picker',
 				'default' => ttfmake_get_section_default( 'background-color', 'banner' ),
-			)
+			),
+			array(
+				'type'    => 'divider',
+				'label'   => __( 'Slideshow', 'make' ),
+				'name'    => 'divider-slideshow',
+				'class'   => 'ttfmake-configuration-divider',
+			),
+			array(
+				'type'    => 'checkbox',
+				'label'   => __( 'Navigation arrows', 'make' ),
+				'name'    => 'arrows',
+				'default' => ttfmake_get_section_default( 'arrows', 'banner' ),
+			),
+			array(
+				'type'    => 'checkbox',
+				'label'   => __( 'Navigation dots', 'make' ),
+				'name'    => 'dots',
+				'default' => ttfmake_get_section_default( 'dots', 'banner' ),
+			),
+			array(
+				'type'    => 'checkbox',
+				'label'   => __( 'Autoplay slideshow', 'make' ),
+				'name'    => 'autoplay',
+				'default' => ttfmake_get_section_default( 'autoplay', 'banner' ),
+			),
+			array(
+				'type'    => 'select',
+				'label'   => __( 'Speed', 'make' ),
+				'name'    => 'delay',
+				'default' => ttfmake_get_section_default( 'delay', 'banner' ),
+				'options' => ttfmake_get_section_choices( 'delay', 'banner' )
+			),
+			array(
+				'type'    => 'select',
+				'label'   => __( 'Transition effect', 'make' ),
+				'name'    => 'transition',
+				'default' => ttfmake_get_section_default( 'transition', 'banner' ),
+				'options' => ttfmake_get_section_choices( 'transition', 'banner' ),
+			),
 		);
 	}
 
