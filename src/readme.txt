@@ -38,6 +38,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Improved: Wording of input labels in various builder sections.
 * Bug fix: Added CSS styling to avoid layout glitches during Banners initialization.
 * Bug fix: Dropdown controls in overlays now correctly preserve the selected value.
+* Improved: Better grouping of options in Banner settings overlay.
 
 = 1.8.7 - April 5 2017 =
 * Bug fix: Additional empty columns were created in builder when coming from older versions.
