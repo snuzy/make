@@ -293,8 +293,9 @@ class MAKE_Builder_Sections_Banner_Definition {
 			'background-image' => '',
 			'background-position' => 'center-center',
 			'darken' => 0,
-			'background-style' => 'tile',
-			'background-color' => ''
+			'background-style' => 'cover',
+			'background-color' => '',
+			'draft' => 0
 		);
 	}
 
@@ -392,7 +393,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 				}
 
 				/*
-				 * Back compatibility for speed (time between slides). Set it to default value when 
+				 * Back compatibility for speed (time between slides). Set it to default value when
 				 * the original value is other than one found in available section choices.
 				 *
 				 * @since 1.8.8.

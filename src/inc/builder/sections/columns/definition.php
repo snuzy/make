@@ -202,7 +202,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 			'background-image' => '',
 			'background-position' => 'center-center',
 			'darken' => 0,
-			'background-style' => 'tile',
+			'background-style' => 'cover',
 			'background-color' => '',
 			'full-width' => 0
 		);
