@@ -295,7 +295,6 @@ class MAKE_Builder_Sections_Banner_Definition {
 			'darken' => 0,
 			'background-style' => 'cover',
 			'background-color' => '',
-			'draft' => 0
 		);
 	}
 
