@@ -74,18 +74,18 @@ class MAKE_Builder_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'title', 'text' ),
 			),
 			array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Full width', 'make' ),
-				'name'    => 'full-width',
-				'default' => ttfmake_get_section_default( 'full-width', 'text' ),
-			),
-			array(
 				'type'    => 'select',
 				'name'    => 'columns-number',
 				'class'   => 'ttfmake-text-columns',
 				'label'   => __( 'Columns', 'make' ),
 				'default' => ttfmake_get_section_default( 'columns-number', 'text' ),
 				'options' => ttfmake_get_section_choices( 'columns-number', 'text' ),
+			),
+			array(
+				'type'    => 'checkbox',
+				'label'   => __( 'Full width', 'make' ),
+				'name'    => 'full-width',
+				'default' => ttfmake_get_section_default( 'full-width', 'text' ),
 			),
 			array(
 				'type'    => 'divider',
