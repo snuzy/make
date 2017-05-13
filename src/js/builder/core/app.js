@@ -331,7 +331,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			this.settingsOverlay = new oneApp.views.settings();
 		},
 
-		initUploader: function (view, placeholder) {
+		initUploader: function ( overlayView, placeholder ) {
 			wp.media.view.Sidebar = oneApp.ImageSidebar;
 
 			this.$currentPlaceholder = $(placeholder);
@@ -340,10 +340,11 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			window.frame = wp.media.frames.frame = wp.media({
 				title: this.$currentPlaceholder.data('title'),
 				className: 'media-frame ttfmake-builder-uploader',
-				multiple: false
+				multiple: false,
+				selectedAttachment: 'hey'
 			});
 
-			frame.on('open', this.onUploaderFrameOpen, this);
+			frame.on('open', this.onUploaderFrameOpen.bind(this, overlayView));
 			frame.on('select', this.onUploaderFrameSelect, this, 2);
 			frame.on('close', function() {
 				wp.media.view.Sidebar = oneApp.OriginalSidebar;
@@ -353,7 +354,17 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			frame.open();
 		},
 
-		onUploaderFrameOpen: function() {},
+		onUploaderFrameOpen: function( view ) {
+			var savedAttachmentID = view.caller.model.get( 'background-image' );
+			var currentAttachmentID = view.model.get( 'background-image' );
+			var attachmentID = 'undefined' !== typeof currentAttachmentID ? currentAttachmentID: savedAttachmentID;
+
+			if ( attachmentID ) {
+				var selection = frame.state().get('selection');
+				var attachment = wp.media.attachment( attachmentID );
+				selection.add( [ attachment ] );
+			}
+		},
 
 		onUploaderFrameRemoveImage: function() {
 			// Remove the image
