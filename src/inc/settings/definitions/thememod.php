@@ -46,6 +46,7 @@ $this->add_settings(
 		'layout-post-sidebar-right'       => array( 'default' => false ),
 		'layout-post-show-categories'     => array( 'default' => true ),
 		'layout-post-show-tags'           => array( 'default' => true ),
+		'layout-post-hide-navigation'     => array( 'default' => false ),
 		'layout-page-hide-header'         => array( 'default' => false ),
 		'layout-page-hide-footer'         => array( 'default' => false ),
 		'layout-page-sidebar-left'        => array( 'default' => false ),
