@@ -171,8 +171,11 @@ var oneApp = oneApp || {};
 
 			var $openDivider = $('.ttfmake-configuration-divider-wrap.open-wrap', this.$el);
 			var $body = $('.ttfmake-overlay-body', this.$el);
-			var offset = $openDivider.position().top + $body.scrollTop() - $openDivider.outerHeight();
-			$body.scrollTop(offset);
+
+			$openDivider.each(function() {
+				var offset = $openDivider.position().top + $body.scrollTop() - $openDivider.outerHeight();
+				$body.scrollTop(offset);
+			})
 
 			view.$el.trigger('overlay-open', this.$el);
 		},
