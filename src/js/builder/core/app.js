@@ -119,6 +119,21 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			return view;
 		},
 
+		addItemView: function (item, originalItem) {
+			var viewClass = oneApp.views[item.get('section-type')];
+			var view = new viewClass({
+				model: item
+			});
+
+			var html = view.render().el;
+
+			originalItem.$el.parent().append(html);
+
+			view.$el.trigger('view-ready', view);
+
+			return view;
+		},
+
 		toggleStageClass: function() {
 			if (this.sections.length > 0) {
 				this.$stage.removeClass('ttfmake-stage-closed');
@@ -317,6 +332,8 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 		},
 
 		initUploader: function (view, placeholder) {
+			wp.media.view.Sidebar = oneApp.ImageSidebar;
+
 			this.$currentPlaceholder = $(placeholder);
 
 			// Create the media frame.
@@ -328,6 +345,9 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			frame.on('open', this.onUploaderFrameOpen, this);
 			frame.on('select', this.onUploaderFrameSelect, this, 2);
+			frame.on('close', function() {
+				wp.media.view.Sidebar = oneApp.OriginalSidebar;
+			});
 
 			// Finally, open the modal
 			frame.open();
@@ -367,6 +387,8 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			var $colorPickerInput = $('.ttfmake-configuration-color-picker', view.$el);
 			var colorPickerOptions = {
+				hide: false,
+
 				change: function(event, ui) {
 					var $input = $(event.target);
 
@@ -389,6 +411,59 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			// init color picker
 			$colorPickerInput.wpColorPicker(colorPickerOptions);
+
+			$('.wp-picker-container').css({
+				position: 'relative'
+			});
+
+			$('.iris-picker.iris-border').css({
+				width: '100%'
+			});
+
+			$('.iris-picker.iris-border .iris-picker-inner').css({
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0,
+			});
+
+			$('.iris-picker.iris-border .iris-picker-inner .iris-slider.iris-strip').css({
+				right: 0,
+				position: 'absolute',
+			});
+
+			$('.iris-picker.iris-border .iris-picker-inner .iris-square').css({
+				'margin-right': 0,
+				width: 'auto',
+				position: 'absolute',
+				left: 0,
+				right: '40px'
+			});
+
+			$('.iris-picker.iris-border .iris-palette-container').css({
+				left: 0,
+				bottom: 0,
+				width: 'auto'
+			});
+
+			$('.iris-picker.iris-border .iris-palette-container .iris-palette').css({
+				width: '31px',
+				height: '31px',
+				'margin-left': '8px'
+			});
+
+			$('.wp-picker-input-wrap').css({
+				position: 'absolute',
+				left: '38px',
+				right: 0
+			});
+
+			$('.iris-picker.iris-border .iris-palette-container .iris-palette:first-child').css({
+				'margin-left': 0
+			});
+
+			$('.iris-picker', view.$el).show();
+
 			return $colorPickerInput;
 		},
 
@@ -436,7 +511,9 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 		}
 	});
 
-	wp.media.view.Sidebar = wp.media.view.Sidebar.extend({
+	oneApp.OriginalSidebar = wp.media.view.Sidebar;
+
+	oneApp.ImageSidebar = wp.media.view.Sidebar.extend({
 		render: function() {
 			this.$el.html( wp.media.template( 'ttfmake-remove-image' ) );
 			return this;

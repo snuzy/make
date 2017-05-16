@@ -142,22 +142,40 @@ var oneApp = oneApp || {};
 				'change input[type=text]' : 'updateInputField',
 				'keyup input[type=text]' : 'updateInputField',
 				'change input[type=checkbox]' : 'updateCheckbox',
+				'change input[type=radio]' : 'updateRadioField',
 				'change select': 'updateSelectField',
 				'color-picker-change': 'onColorPickerChange',
 				'click .ttfmake-media-uploader-add': 'onMediaAdd',
 				'mediaSelected': 'onMediaSelected',
 				'mediaRemoved': 'onMediaRemoved',
+				'click .ttfmake-configuration-divider-wrap': 'toggleSection'
 			});
 		},
 
 		open: function(view, $overlay) {
 			this.render($overlay);
+
+			var backgroundImage = view.model.get('background-image');
+			if (backgroundImage && parseInt(backgroundImage, 10)) {
+				this.$el.addClass('ttfmake-has-image-set');
+			} else {
+				this.$el.removeClass('ttfmake-has-image-set');
+			}
+
 			oneApp.views.overlay.prototype.open.apply(this, arguments);
 
 			$('input, select', this.$el).first().focus();
 			$('.wp-color-result', $overlay).click().off('click');
-			$( 'body' ).off( 'click.wpcolorpicker' );
+			$('body').off('click.wpcolorpicker');
 			$('body').on('keydown', {self: this}, this.onKeyDown);
+
+			var $openDivider = $('.ttfmake-configuration-divider-wrap.open-wrap', this.$el);
+			var $body = $('.ttfmake-overlay-body', this.$el);
+
+			$openDivider.each(function() {
+				var offset = $openDivider.position().top + $body.scrollTop() - $openDivider.outerHeight();
+				$body.scrollTop(offset);
+			})
 
 			view.$el.trigger('overlay-open', this.$el);
 		},
@@ -197,6 +215,8 @@ var oneApp = oneApp || {};
 				changeset = this.model.attributes;
 			}
 
+			this.applyDOMState(this.$el, this.$overlay);
+
 			$('body').off('keydown', this.onKeyDown);
 			this.caller.$el.trigger('overlay-close', changeset);
 			this.remove();
@@ -211,7 +231,10 @@ var oneApp = oneApp || {};
 				var modelAttr = $this.data('model-attr');
 				var $destinationInput =  $('[data-model-attr="' + modelAttr + '"]', $destination);
 
-				if ($this.is(':checkbox')) {
+				if ($this.is(':radio')) {
+					$destinationInput =  $('[data-model-attr="' + modelAttr + '"][value="' + $this.val() + '"]', $destination);
+					$destinationInput.prop('checked', $this.is(':checked'));
+				} else if ($this.is(':checkbox')) {
 					$destinationInput.prop('checked', $this.is(':checked'));
 				} else {
 					$destinationInput.val($this.val());
@@ -222,6 +245,23 @@ var oneApp = oneApp || {};
 			var $sourcePlaceholder = $('.ttfmake-configuration-media-wrap', $source);
 			var $destinationPlaceholder = $('.ttfmake-configuration-media-wrap', $destination);
 			$destinationPlaceholder.html($sourcePlaceholder.html());
+		},
+
+		applyDOMState: function($source, $destination) {
+			// Dividers
+			var $sourceDividers = $('.ttfmake-configuration-divider-wrap', $source);
+
+			$sourceDividers.each(function() {
+				var $this = $(this);
+				var name = $this.children(':first-child').data('name');
+				var $destinationDivider = $('[data-name="' + name + '"]', $destination).parent();
+
+				if ($this.hasClass('open-wrap')) {
+					$destinationDivider.addClass('open-wrap');
+				} else {
+					$destinationDivider.removeClass('open-wrap');
+				}
+			});
 		},
 
 		updateInputField: function(e) {
@@ -255,6 +295,15 @@ var oneApp = oneApp || {};
 			}
 		},
 
+		updateRadioField: function(e) {
+			var $select = $(e.target);
+			var modelAttrName = $select.attr('data-model-attr');
+
+			if (typeof modelAttrName !== 'undefined') {
+				this.model.set(modelAttrName, $select.val());
+			}
+		},
+
 		onMediaAdd: function(e) {
 			e.stopPropagation();
 			oneApp.builder.initUploader(this, e.target);
@@ -262,12 +311,16 @@ var oneApp = oneApp || {};
 
 		onMediaSelected: function(e, attachment) {
 			e.stopPropagation();
+
+			this.$el.addClass('ttfmake-has-image-set');
 			this.model.set('background-image', attachment.id);
 			this.model.set('background-image-url', attachment.url);
 		},
 
 		onMediaRemoved: function(e) {
 			e.stopPropagation();
+
+			this.$el.removeClass('ttfmake-has-image-set');
 			this.model.set('background-image', '');
 			this.model.set('background-image-url', '');
 		},
@@ -276,6 +329,33 @@ var oneApp = oneApp || {};
 			if (data) {
 				this.model.set(data.modelAttr, data.color);
 			}
+		},
+
+		toggleSection: function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			var $divider = $(e.currentTarget);
+			var $dividers = $('.ttfmake-configuration-divider-wrap', this.$el).not($divider);
+			var $body = $('.ttfmake-overlay-body', this.$el);
+
+			$dividers.each(function() {
+				var $this = $(this);
+				$this.next().slideUp(200, function() {
+					$this.removeClass('open-wrap');
+				});
+			});
+
+			$divider.next().slideDown({
+				duration: 200,
+				step: function() {
+					var offset = $divider.position().top + $body.scrollTop() - $divider.outerHeight();
+					$body.scrollTop(offset);
+				},
+				complete: function() {
+					$divider.addClass('open-wrap');
+				}
+			});
 		},
 
 		onKeyDown: function(e) {

@@ -20,22 +20,42 @@ $overlay_id  = "ttfmake-overlay-" . $combined_id;
 		</a>
 	</div>
 
+	<?php
+	$configuration_buttons = array(
+		100 => array(
+			'label'              => __( 'Edit content', 'make' ),
+			'href'               => '#',
+			'class'              => 'edit-content-link ttfmake-icon-pencil {{ (get("content")) ? "item-has-content" : "" }}',
+			'title'              => __( 'Edit content', 'make' ),
+			'other-a-attributes' => 'data-textarea="ttfmake-content-'. $combined_id .'"',
+		),
+		200 => array(
+			'label'				 => __( 'Configure item', 'make' ),
+			'href'				 => '#',
+			'class'				 => 'ttfmake-icon-cog ttfmake-overlay-open',
+			'title'				 => __( 'Configure item', 'make' ),
+			'other-a-attributes' => 'data-overlay="#'. $overlay_id .'"'
+		),
+		1000 => array(
+			'label'              => __( 'Trash item', 'make' ),
+			'href'               => '#',
+			'class'              => 'ttfmake-icon-trash ttfmake-gallery-item-remove',
+			'title'              => __( 'Trash item', 'make' )
+		)
+	);
+
+	$configuration_buttons = apply_filters( 'make_gallery_item_buttons', $configuration_buttons, 'item' );
+	ksort( $configuration_buttons );
+	?>
+
 	<ul class="configure-item-dropdown">
-		<li>
-			<a href="#" class="edit-content-link ttfmake-icon-pencil{{ get('description') && ' item-has-content' || ''}}" data-textarea="ttfmake-content-<?php echo $combined_id; ?>" title="<?php esc_attr_e( 'Edit content', 'make' ); ?>">
-				<?php esc_html_e( 'Edit content', 'make' ); ?>
-			</a>
-		</li>
-		<li>
-			<a href="#" class="ttfmake-icon-cog ttfmake-overlay-open" title="<?php esc_attr_e( 'Configure item', 'make' ); ?>" data-overlay="#<?php echo $overlay_id; ?>">
-				<?php esc_html_e( 'Configure item', 'make' ); ?>
-			</a>
-		</li>
-		<li>
-			<a href="#" class="ttfmake-icon-trash ttfmake-gallery-item-remove" title="<?php esc_attr_e( 'Trash item', 'make' ); ?>">
-				<?php esc_html_e( 'Trash item', 'make' ); ?>
-			</a>
-		</li>
+		<?php foreach( $configuration_buttons as $button ) : ?>
+			<li>
+				<a href="<?php echo esc_url( $button['href'] ); ?>" class="<?php echo esc_attr( $button['class'] ); ?>" title="<?php printf( esc_attr( $button['title'] ), 'item'); ?>" <?php if ( ! empty( $button['other-a-attributes'] ) ) echo $button['other-a-attributes']; ?>>
+					<?php echo esc_html( $button['label'] ); ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
 	</ul>
 
 	<?php echo ttfmake_get_builder_base()->add_uploader( $section_name, 0, __( 'Set gallery image', 'make' ), 'image-url' ); ?>

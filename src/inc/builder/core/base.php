@@ -484,8 +484,8 @@ class TTFMAKE_Builder_Base {
 		ob_start();
 ?>
 	<div class="ttfmake-uploader{{ get('<?php echo $field_name; ?>')<?php echo $field_name_path; ?> && ' ttfmake-has-image-set' || '' }}">
-	<div data-title="<?php echo $title; ?>" class="ttfmake-media-uploader-placeholder ttfmake-media-uploader-add" style="background-image: url({{ get('<?php echo $field_name; ?>')<?php echo $field_name_path; ?> }});"></div>
-		</div>
+		<div data-title="<?php echo $title; ?>" class="ttfmake-media-uploader-placeholder ttfmake-media-uploader-add" style="background-image: url({{ get('<?php echo $field_name; ?>')<?php echo $field_name_path; ?> }});"></div>
+	</div>
 	<?php
 		$output = ob_get_clean();
 		return $output;
@@ -825,8 +825,8 @@ if ( ! function_exists( 'ttfmake_load_section_template' ) ) :
  *
  * @param  string    $slug    The relative path and filename (w/out suffix) required to substitute the template in a child theme.
  * @param  string    $path    An optional path extension to point to the template in the parent theme or a plugin.
+  * @param  boolean   $return  Specifies if the template should be included or returned as string.
  * @return string             The template filename if one is located.
- * @param  boolean   $return  Specifies if the template should be included or returned as string.
  */
 function ttfmake_load_section_template( $slug, $path, $return = false ) {
 	$templates = array(

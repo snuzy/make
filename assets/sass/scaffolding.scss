@@ -564,6 +564,7 @@ div.custom-logo {
 				}
 				.page_item_has_children a:after,
 				.menu-item-has-children a:after {
+					display: inline-block;
 					content: "  \f054";
 					position: relative;
 					float: right;
@@ -571,6 +572,7 @@ div.custom-logo {
 					font-weight: normal; //reset
 					@include rem('top', 4px);
 					@include rem('font-size', 10px);
+					text-decoration: none;
 				}
 				.sub-menu,
 				.children {
@@ -611,12 +613,14 @@ div.custom-logo {
 	@include for(medium-screens) {
 		.page_item_has_children a:after,
 		.menu-item-has-children a:after {
+			display: inline-block;
 			content: "  \f078";
 			font-family: FontAwesome;
 			font-weight: normal; //reset
 			color: $e;
 			@include rem('padding-left', 2px);
 			@include rem('font-size', 10px);
+			text-decoration: none;
 			position: relative;
 			top: -1px;
 		}

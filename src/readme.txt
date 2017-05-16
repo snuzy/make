@@ -26,6 +26,20 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.8.8 - May 10 2017 =
+* New feature: Added a setting to control background position for sections.
+* Improved: Settings in overlays are now categorized into expandable sections.
+* Improved: Better styling for the background color picker.
+* Improved: Settings backend specification for sections was refactored for easier tweaking.
+* Improved: Background controls in the overlay now show up only when a background media is selected.
+* Improved: Media overlay sidebars are now contextual to the selected media.
+* Improved: Compatibility with WooCommerce 3.0 product galleries.
+* Improved: Removed legacy General -> Logo panel from Customizer.
+* Improved: Wording of input labels in various builder sections.
+* Bug fix: Added CSS styling to avoid layout glitches during Banners initialization.
+* Bug fix: Dropdown controls in overlays now correctly preserve the selected value.
+* Improved: Better grouping of options in Banner settings overlay.
+
 = 1.8.7 - April 5 2017 =
 * Bug fix: Additional empty columns were created in builder when coming from older versions.
 * Bug fix: Sidebar wasn't displaying on search results and archives page sometimes.
@@ -500,6 +514,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.8.8 =
+Better background control, improved settings overlay, bug fixes.
 
 = 1.8.7 =
 Bug fixes.
