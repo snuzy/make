@@ -284,6 +284,25 @@ foreach ( $views as $view => $label ) {
 		) );
 	}
 
+	// Page & Post title
+	if ( in_array( $view, array( 'page', 'post' ) ) ) {
+		$controls = array_merge( $controls, array(
+			$prefix . 'pagetitle-heading' => array(
+				'control' => array(
+					'control_type' => 'MAKE_Customizer_Control_Html',
+					'html'  => '<h4 class="make-group-title">' . esc_html__( ucfirst( $view ) . ' Title', 'make' ) . '</h4>',
+				),
+			),
+			$prefix . 'hide-title'        => array(
+				'setting' => true,
+				'control' => array(
+					'label' => __( 'Hide title', 'make' ),
+					'type'  => 'checkbox',
+				),
+			),
+		) );
+	}
+
 	// Featured images, post date, post author
 	$controls = array_merge( $controls, array(
 		'featured-images-group-' . $view      => array(
@@ -428,25 +447,6 @@ foreach ( $views as $view => $label ) {
 			),
 		),
 	) );
-
-	// Page & Post title
-	if ( in_array( $view, array( 'page', 'post' ) ) ) {
-		$controls = array_merge( $controls, array(
-			$prefix . 'pagetitle-heading' => array(
-				'control' => array(
-					'control_type' => 'MAKE_Customizer_Control_Html',
-					'html'  => '<h4 class="make-group-title">' . esc_html__( ucfirst( $view ) . ' Title', 'make' ) . '</h4>',
-				),
-			),
-			$prefix . 'hide-title'        => array(
-				'setting' => true,
-				'control' => array(
-					'label' => __( 'Hide title', 'make' ),
-					'type'  => 'checkbox',
-				),
-			),
-		) );
-	}
 
 	// Add the definitions
 	$this->add_section_definitions( 'layout-' . $view, array(
