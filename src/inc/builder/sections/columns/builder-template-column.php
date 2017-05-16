@@ -32,11 +32,12 @@ $overlay_id  = "ttfmake-overlay-" . $combined_id;
 	 * Filter the buttons added to a text column.
 	 *
 	 * @since 1.4.0.
+	 * @since 1.8.8. Changed second argument from $ttfmake_section_data to item type, i.e. 'column'.
 	 *
 	 * @param array    $column_buttons          The current list of buttons.
-	 * @param array    $ttfmake_section_data    All data for the section.
+	 * @param string   $item_type 			    Item type, in this case 'column'.
 	 */
-	$column_buttons = apply_filters( 'make_column_buttons', $column_buttons, $ttfmake_section_data );
+	$column_buttons = apply_filters( 'make_column_buttons', $column_buttons, 'column' );
 	ksort( $column_buttons );
 
 	/**

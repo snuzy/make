@@ -16,15 +16,16 @@ var oneApp = oneApp || {};
 				'column-load': 'onColumnLoad',
 				'overlay-open': 'onOverlayOpen',
 				'click .ttfmake-text-column-remove': 'onColumnRemove',
-				'overlay-close': 'onOverlayClose'
+				'overlay-close': 'onOverlayClose',
+				'item-duplicated': 'onItemDuplicated'
 			});
 		},
 
-		initialize: function (options) {
+		initialize: function(options) {
 			this.template = _.template(ttfMakeSectionTemplates['text-item'], oneApp.builder.templateSettings);
 		},
 
-		render: function () {
+		render: function() {
 			var self = this;
 
 			var html = this.template(this.model);
@@ -52,7 +53,12 @@ var oneApp = oneApp || {};
 			});
 		},
 
-		onOverlayOpen: function (e, $overlay) {
+		onItemDuplicated: function() {
+			this.$el.trigger('column-ready');
+			this.$el.trigger('column-load');
+		},
+
+		onOverlayOpen: function(e, $overlay) {
 			e.stopPropagation();
 
 			var $button = $('.ttfmake-overlay-close-update', $overlay);
@@ -81,7 +87,7 @@ var oneApp = oneApp || {};
 			var $iframe = this.$el.find('iframe');
 
 			var self = this;
-			
+
 			setTimeout(function() {
 				if (self.model.get('content')) {
 					$iframe.height($iframe.contents().height());

@@ -29,7 +29,7 @@ function ttfmake_create_config_select( $section_name, $args, $section_data ) {
 		}
 
 		foreach ( $args['options'] as $key => $value ) {
-			$options .= '<option value="' . esc_attr( $key ) . '" {{ (get("'. $args['name'] .'").toString() === "'. $key .'".toString()) ? " selected" : "" }}>' . esc_html( $value ) . '</option>';
+			$options .= '<option value="' . esc_attr( $key ) . '" {{ (get("'. $args['name'] .'") && get("'. $args['name'] .'").toString() === "'. $key .'".toString()) ? " selected" : "" }}>' . esc_html( $value ) . '</option>';
 		}
 
 		$return = $label . sprintf( $select, $options ) . $description;
@@ -161,6 +161,30 @@ function ttfmake_create_config_section_title( $section_name, $args, $section_dat
 	}
 
 	return  '<input' . $placeholder . ' type="text" ' . $name . ' value="' . esc_attr( $current_value ) . '" class="ttfmake-title' . $class . '" data-model-attr="' . $args['name'] . '" autocomplete="off">';
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_create_config_divider' ) ) :
+/**
+ * Generate a section divider for settings controls
+ *
+ * @since  1.8.8.
+ *
+ * @param  string    $section_name    The section prefix for the divider.
+ * @param  array     $args            Arguments for creating the divider.
+ * @param  array     $section_data    The data for the current section.
+ * @return string                     The full input string.
+ */
+function ttfmake_create_config_divider( $section_name, $args, $section_data ) {
+	$label = ( isset( $args['label'] ) ) ? $args['label']: '';
+	$name = ( isset( $args['name'] ) ) ? $args['name']: '';
+	ob_start(); ?>
+
+	<span data-name="<?php echo $name; ?>"><?php echo $label; ?></span>
+
+	<?php
+	$output = ob_get_clean();
+	return $output;
 }
 endif;
 

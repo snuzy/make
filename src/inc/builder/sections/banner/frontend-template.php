@@ -28,11 +28,11 @@ $darken   = ( isset( $ttfmake_section_data[ 'darken' ] ) ) ? absint( $ttfmake_se
 			<?php endif; ?>
 		</div>
 		<?php endforeach; endif; ?>
-		<?php if ( $is_slider && false === (bool) $ttfmake_section_data['hide-arrows'] ) : ?>
+		<?php if ( $is_slider && true === (bool) $ttfmake_section_data['arrows'] ) : ?>
 		<div class="cycle-prev"></div>
 		<div class="cycle-next"></div>
 		<?php endif; ?>
-		<?php if ( $is_slider && false === (bool) $ttfmake_section_data['hide-dots'] ) : ?>
+		<?php if ( $is_slider && true === (bool) $ttfmake_section_data['dots'] ) : ?>
 		<div class="cycle-pager"></div>
 		<?php endif; ?>
 	</div>

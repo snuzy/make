@@ -58,6 +58,10 @@ ksort( $links );
 	<div class="ttfmake-section-header">
 		<h3{{ (get('title')) ? ' class=has-title' : '' }}>
 			<span class="ttfmake-section-header-title">{{ get('title') }}</span><em><?php echo ( esc_html( $ttfmake_section_data['section']['label'] ) ); ?></em>
+			
+			<span class="ttfmake-section-draft-indicator" style="display: {{ (parseInt(get('draft'), 10) === 1) ? 'inline-block' : 'none' }}">
+				<span class="ttfmake-section-draft-indicator-inner">Draft</span>
+			</span>
 		</h3>
 		<div class="ttf-make-section-header-button-wrapper">
 			<?php foreach ( $links as $link ) : ?>

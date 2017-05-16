@@ -103,6 +103,8 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 					default :
 						break;
 					case 'banner' :
+					case 'postlist' :
+					case 'productgrid' :
 						// Add Cycle2 as a dependency for the Frontend script
 						$this->scripts()->add_dependency( 'make-frontend', 'cycle2', 'script' );
 						if ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) {

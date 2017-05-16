@@ -5,7 +5,7 @@
  * Author:      The Theme Foundry
  * Author URI:  https://thethemefoundry.com
  * Description: Build a website that means business. With Make’s powerful drag and drop page builder and hundreds of Customizer options, you can effortlessly brand your site without touching a line of code. Add full-width banners, columns, and galleries to showcase your best work. The intuitive builder delivers clean, lean code — not shortcodes — so you can trust your content remains portable. Make lets you control page layout options, including sidebar display, on all your posts and pages. Choose from hundreds of Google Fonts and upload custom backgrounds everywhere. Built on a fully responsive grid, Make renders as beautifully on tablets and phone screens as it does on desktop. Make scales with your business and is fully compatible with popular plugins like WooCommerce, Gravity Forms, Contact Form 7, Jetpack, and others. For documentation on the page builder and getting started with Make, see: https://thethemefoundry.com/make-help/
- * Version:     1.8.7
+ * Version:     1.8.8
  * License:     GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: make
@@ -1268,6 +1268,7 @@ div.custom-logo a {
 	.site-navigation .nav-menu .sub-menu .menu-item-has-children a:after,
 	.site-navigation .nav-menu .children .page_item_has_children a:after,
 	.site-navigation .nav-menu .children .menu-item-has-children a:after {
+		display: inline-block;
 		float: right;
 		position: relative;
 		top: 4px;
@@ -1276,6 +1277,7 @@ div.custom-logo a {
 		font-size: 10px;
 		font-size: 1rem;
 		font-weight: normal;
+		text-decoration: none;
 		content: "  \f054";
 	}
 
@@ -1344,6 +1346,7 @@ div.custom-logo a {
 @media screen and (min-width: 800px) {
 	.site-navigation .page_item_has_children a:after,
 	.site-navigation .menu-item-has-children a:after {
+		display: inline-block;
 		position: relative;
 		top: -1px;
 		padding-left: 2px;
@@ -1353,6 +1356,7 @@ div.custom-logo a {
 		font-size: 10px;
 		font-size: 1rem;
 		font-weight: normal;
+		text-decoration: none;
 		content: "  \f078";
 	}
 

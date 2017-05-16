@@ -261,6 +261,17 @@
 	padding-left: 10px;
 	padding-right: 12px;
 }
+.ttfmake-section .ttfmake-section-draft-indicator {
+	position: relative;
+	margin-left: 10px;
+}
+.ttfmake-section .ttfmake-section-draft-indicator-inner {
+	padding: 3px 10px;
+	font-weight: 600;
+	background-color: #d54e21;
+	border-radius: 25px;
+	color: #fff;
+}
 .ttfmake-section h4 {
 	margin: 20px 0 10px;
 	font-size: 13px;
@@ -461,7 +472,7 @@
 /*---------------------------------------------------------
  Media placeholder if has image set (builder.css)
 -------------------------------------------------------- */
-.ttfmake-has-image-set {
+.ttfmake-has-image-set .ttfmake-media-uploader-placeholder {
 	background-color: #fff;
 }
 .ttfmake-has-image-set .ttfmake-media-uploader-placeholder:before {
@@ -469,6 +480,14 @@
 }
 .ttfmake-has-image-set:hover .ttfmake-media-uploader-placeholder {
 	opacity: .8;
+}
+
+.ttfmake-configuration-media-related-wrap {
+	display: none;
+}
+
+.ttfmake-has-image-set .ttfmake-configuration-media-related-wrap {
+	display: block;
 }
 /*---------------------------------------------------------
  Overlay (builder.css)
@@ -504,9 +523,9 @@
 .ttfmake-overlay-title {
 	margin: 0;
 	padding: 0 16px;
-    color: #444;
+	color: #444;
 	font-size: 22px;
-    font-weight: 600;
+	font-weight: 600;
 	line-height: 50px;
 	text-rendering: optimizelegibility;
 	white-space: nowrap;
@@ -556,8 +575,8 @@
 	user-select: none;
 }
 .ttfmake-configuration-overlay-input-wrap {
-	padding: 20px 0 !important;
-	border-bottom: 1px solid #efefef !important;
+	padding: 20px 0;
+	border-bottom: 1px solid #efefef;
 }
 .ttfmake-configuration-overlay-input-wrap {
 	zoom: 1;
@@ -569,6 +588,47 @@
 }
 .ttfmake-configuration-overlay-input-wrap:after {
 	clear: both;
+}
+.ttfmake-configuration-overlay-input-wrap {
+	padding: 20px 0;
+	border-bottom: 1px solid #efefef;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap {
+	position: relative;
+	margin: -1px -20px 0 -20px;
+	padding: 15px 20px;
+	font-size: 14px;
+	font-weight: 600;
+	background: #fff;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap:hover,
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap {
+	background: #f5f5f5;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap:after {
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	content: '\f140';
+	font-family: dashicons;
+	font-size: 18px;
+	color: #82878c;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap:after {
+	content: '\f142';
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap:hover:after,
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap:after {
+	color: #23282d;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap + div {
+	display: none;
+}
+.ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-divider-wrap.open-wrap + div {
+	display: block;
 }
 .ttfmake-configuration-overlay-input-wrap label {
 	position: relative;
@@ -611,11 +671,10 @@
 	clear: both;
 	overflow-y: auto;
 	max-height: 400px;
-    border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 .ttfmake-overlay-body .ttfmake-configuration-overlay-input-wrap:last-of-type {
-	padding-bottom: 0 !important;
-	border-bottom: 0 !important;
+	border-bottom: 0;
 }
 .ttfmake-configuration-title {
 	width: 100%;
@@ -624,8 +683,7 @@
 	font-size: 19px;
 }
 .ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-title-wrap {
-	padding-top: 0 !important; /*reset*/
-	border-bottom: 0 !important; /*reset*/
+	border-bottom: 0; /*reset*/
 }
 .ttfmake-configuration-overlay-input-wrap.ttfmake-configuration-media-wrap {
 	display: block; /*reset*/
@@ -635,7 +693,7 @@
 .ttfmake-overlay-footer {
 	background-color: #fcfcfc;
 	text-align: right;
-    padding: 15px;
+	padding: 15px;
 }
 /*---------------------------------------------------------
  Color picker (builder.css)
@@ -646,12 +704,14 @@
 .ttfmake-configuration-overlay-input-wrap .wp-picker-container .button {
 	margin-left: 0; /*reset*/
 	margin-right: 4px; /*reset*/
-}
-.ttfmake-configuration-overlay-input-wrap .wp-picker-container .wp-picker-holder {
-	margin-left: -8px;
+	float: none;
+	width: 18%;
 }
 .ttfmake-configuration-overlay-input-wrap .wp-picker-container .iris-picker {
 	border: 0; /*reset*/
+}
+.wp-picker-container input[type=text].wp-color-picker {
+	width: 80%;
 }
 /*---------------------------------------------------------
  iFrame (builder.css)
@@ -775,4 +835,132 @@
 	top: 4px;
 	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
+}
+/*---------------------------------------------------------
+ Background position buttonset (builder.css)
+-------------------------------------------------------- */
+.ttfmake-configuration-background-position-wrap > label {
+	margin-bottom: 20px;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position {
+	clear: both;
+	position: relative;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label {
+	float: left;
+	display: block;
+	position: static;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position span.label {
+	position: absolute;
+	left: 110px;
+	top: 36px;
+	display: none;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position input[type="radio"]:checked ~ span.label {
+	display: block;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(4),
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(7) {
+	clear: left;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label input {
+	display: none;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label span.icon,
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label span.icon i,
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label span.icon i:before {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label span.icon {
+	border: 1px solid #ccc;
+	background: #f7f7f7;
+	vertical-align: top;
+	margin: -1px -1px 0 0;
+	z-index: 0;
+	position: relative;
+	color: #555;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position input[type="radio"]:checked + span.icon {
+	background-color: #eee;
+	border-color: #999;
+	-webkit-box-shadow: inset 0 2px 5px -3px rgba(0,0,0,.5);
+    box-shadow: inset 0 2px 5px -3px rgba(0,0,0,.5);
+    z-index: 1;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label span.icon i {
+	display: inline-block;
+	font-style: normal;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label span.icon i:before {
+	font-family: dashicons;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(1) span.icon {
+	border-top-left-radius: 3px;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(3) span.icon {
+	border-top-right-radius: 3px;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(7) span.icon {
+	border-bottom-left-radius: 3px;
+	box-shadow: 0 1px 0 #ccc;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(8) span.icon {
+	box-shadow: 0 1px 0 #ccc;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(9) span.icon {
+	border-bottom-right-radius: 3px;
+	box-shadow: 0 1px 0 #ccc;
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(1) span.icon i:before,
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(2) span.icon i:before,
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(3) span.icon i:before {
+	content: "\f342";
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(4) span.icon i:before {
+	content: "\f340";
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(5) span.icon i:before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	background-color: #555;
+	border-radius: 50%;
+	-webkit-transform: translate(0, -1px);
+	-ms-transform: translate(0, -1px);
+	transform: translate(0, -1px);
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(6) span.icon i:before {
+	content: "\f344";
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(7) span.icon i:before,
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(8) span.icon i:before,
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(9) span.icon i:before {
+	content: "\f346";
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(1) span.icon i {
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(3) span.icon i {
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(7) span.icon i {
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.ttfmake-configuration-overlay-input-wrap .ttfmake-configuration-background-position label:nth-child(9) span.icon i {
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
 }
