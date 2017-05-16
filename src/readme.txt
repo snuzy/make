@@ -515,6 +515,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Upgrade Notice ==
 
+= 1.8.8 =
+Better background control, improved settings overlay, bug fixes.
+
 = 1.8.7 =
 Bug fixes.
 

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Make 1.8.7\n"
+"Project-Id-Version: Make 1.8.8\n"
 "Report-Msgid-Bugs-To: https://thethemefoundry.com/support/\n"
-"POT-Creation-Date: 2017-05-03 12:53:13+00:00\n"
+"POT-Creation-Date: 2017-05-16 09:10:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -226,88 +226,92 @@ msgid "Enter section title"
 msgstr ""
 
 #: inc/builder/sections/banner/definition.php:78
-msgid "Navigation arrows"
-msgstr ""
-
-#: inc/builder/sections/banner/definition.php:84
-msgid "Navigation dots"
-msgstr ""
-
-#: inc/builder/sections/banner/definition.php:90
-msgid "Autoplay slideshow"
-msgstr ""
-
-#: inc/builder/sections/banner/definition.php:96
-msgid "Speed"
-msgstr ""
-
-#: inc/builder/sections/banner/definition.php:103
-msgid "Transition effect"
-msgstr ""
-
-#: inc/builder/sections/banner/definition.php:110
 msgid "Section height (px)"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:116
+#: inc/builder/sections/banner/definition.php:84
 msgid "Responsive behavior"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:119
+#: inc/builder/sections/banner/definition.php:87
 msgid ""
 "Choose how the Banner will respond to varying screen widths. Default is "
 "ideal for large amounts of written content, while Aspect is better for "
 "showing your images."
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:124
+#: inc/builder/sections/banner/definition.php:92
 #: inc/builder/sections/columns/definition.php:92
 #: inc/builder/sections/gallery/definition.php:113
 #: inc/customizer/definitions/color.php:124
 msgid "Background"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:131
+#: inc/builder/sections/banner/definition.php:99
 #: inc/builder/sections/columns/definition.php:99
 #: inc/builder/sections/gallery/definition.php:120
 msgid "Background image"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:138
+#: inc/builder/sections/banner/definition.php:106
 #: inc/builder/sections/columns/definition.php:106
 #: inc/builder/sections/gallery/definition.php:127
 #: inc/customizer/definitions/background-images.php:44
 msgid "Position"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:146
+#: inc/builder/sections/banner/definition.php:114
 #: inc/builder/sections/columns/definition.php:114
 #: inc/builder/sections/gallery/definition.php:135
-msgid "Scale"
+msgid "Display"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:153
-#: inc/builder/sections/banner/definition.php:183
+#: inc/builder/sections/banner/definition.php:121
+#: inc/builder/sections/banner/definition.php:188
 #: inc/builder/sections/columns/definition.php:121
 #: inc/builder/sections/gallery/definition.php:142
 msgid "Darken"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:160
-#: inc/builder/sections/banner/definition.php:189
-#: inc/builder/sections/columns/definition.php:128
-#: inc/builder/sections/gallery/definition.php:149
+#: inc/builder/sections/banner/definition.php:127
+#: inc/builder/sections/banner/definition.php:194
+#: inc/builder/sections/columns/definition.php:127
+#: inc/builder/sections/gallery/definition.php:148
 msgid "Background color"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:173
+#: inc/builder/sections/banner/definition.php:134
+msgid "Slideshow"
+msgstr ""
+
+#: inc/builder/sections/banner/definition.php:140
+msgid "Navigation arrows"
+msgstr ""
+
+#: inc/builder/sections/banner/definition.php:146
+msgid "Navigation dots"
+msgstr ""
+
+#: inc/builder/sections/banner/definition.php:152
+msgid "Autoplay slideshow"
+msgstr ""
+
+#: inc/builder/sections/banner/definition.php:158
+msgid "Speed"
+msgstr ""
+
+#: inc/builder/sections/banner/definition.php:165
+msgid "Transition effect"
+msgstr ""
+
+#: inc/builder/sections/banner/definition.php:178
 msgid "Content position"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:176
-#: inc/builder/sections/banner/definition.php:244
-#: inc/builder/sections/gallery/definition.php:228
-#: inc/builder/sections/gallery/definition.php:236
+#: inc/builder/sections/banner/definition.php:181
+#: inc/builder/sections/banner/definition.php:249
+#: inc/builder/sections/gallery/definition.php:227
+#: inc/builder/sections/gallery/definition.php:235
 #: inc/choices/definitions/choices.php:58
 #: inc/choices/definitions/choices.php:63
 #: inc/choices/definitions/choices.php:98
@@ -316,95 +320,95 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:177
-#: inc/builder/sections/banner/definition.php:268
-#: inc/builder/sections/columns/definition.php:181
-#: inc/builder/sections/gallery/definition.php:252
+#: inc/builder/sections/banner/definition.php:182
+#: inc/builder/sections/banner/definition.php:273
+#: inc/builder/sections/columns/definition.php:180
+#: inc/builder/sections/gallery/definition.php:251
 #: inc/choices/definitions/choices.php:21
 #: inc/choices/definitions/choices.php:25
 #: inc/choices/definitions/choices.php:33
 msgid "Left"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:178
-#: inc/builder/sections/banner/definition.php:269
-#: inc/builder/sections/columns/definition.php:182
-#: inc/builder/sections/gallery/definition.php:253
+#: inc/builder/sections/banner/definition.php:183
+#: inc/builder/sections/banner/definition.php:274
+#: inc/builder/sections/columns/definition.php:181
+#: inc/builder/sections/gallery/definition.php:252
 #: inc/choices/definitions/choices.php:22
 #: inc/choices/definitions/choices.php:27
 #: inc/choices/definitions/choices.php:35
 msgid "Right"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:234
+#: inc/builder/sections/banner/definition.php:239
 msgid "Slow"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:235
-#: inc/builder/sections/banner/definition.php:250
+#: inc/builder/sections/banner/definition.php:240
+#: inc/builder/sections/banner/definition.php:255
 #: inc/choices/definitions/choices.php:82
 #: inc/customizer/definitions/typography.php:19
 msgid "Default"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:236
+#: inc/builder/sections/banner/definition.php:241
 msgid "Fast"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:242
+#: inc/builder/sections/banner/definition.php:247
 #: inc/galleryslider/setup.php:127
 msgid "Slide horizontal"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:243
+#: inc/builder/sections/banner/definition.php:248
 #: inc/galleryslider/setup.php:128
 msgid "Fade"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:251
+#: inc/builder/sections/banner/definition.php:256
 msgid "Aspect"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:257
-#: inc/builder/sections/columns/definition.php:170
-#: inc/builder/sections/gallery/definition.php:259
+#: inc/builder/sections/banner/definition.php:262
+#: inc/builder/sections/columns/definition.php:169
+#: inc/builder/sections/gallery/definition.php:258
 #: inc/choices/definitions/choices.php:46
 msgid "Tile"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:258
-#: inc/builder/sections/columns/definition.php:171
-#: inc/builder/sections/gallery/definition.php:260
+#: inc/builder/sections/banner/definition.php:263
+#: inc/builder/sections/columns/definition.php:170
+#: inc/builder/sections/gallery/definition.php:259
 #: inc/choices/definitions/choices.php:52
 msgid "Cover"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:259
-#: inc/builder/sections/columns/definition.php:172
-#: inc/builder/sections/gallery/definition.php:261
+#: inc/builder/sections/banner/definition.php:264
+#: inc/builder/sections/columns/definition.php:171
+#: inc/builder/sections/gallery/definition.php:260
 #: inc/choices/definitions/choices.php:53
 msgid "Contain"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:265
-#: inc/builder/sections/columns/definition.php:178
-#: inc/builder/sections/gallery/definition.php:249
+#: inc/builder/sections/banner/definition.php:270
+#: inc/builder/sections/columns/definition.php:177
+#: inc/builder/sections/gallery/definition.php:248
 #: inc/choices/definitions/choices.php:31
 #: inc/choices/definitions/choices.php:107
 msgid "Top"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:266
-#: inc/builder/sections/columns/definition.php:179
-#: inc/builder/sections/gallery/definition.php:250
+#: inc/builder/sections/banner/definition.php:271
+#: inc/builder/sections/columns/definition.php:178
+#: inc/builder/sections/gallery/definition.php:249
 #: inc/choices/definitions/choices.php:26
 #: inc/choices/definitions/choices.php:34
 msgid "Center"
 msgstr ""
 
-#: inc/builder/sections/banner/definition.php:267
-#: inc/builder/sections/columns/definition.php:180
-#: inc/builder/sections/gallery/definition.php:251
+#: inc/builder/sections/banner/definition.php:272
+#: inc/builder/sections/columns/definition.php:179
+#: inc/builder/sections/gallery/definition.php:250
 #: inc/choices/definitions/choices.php:37
 msgid "Bottom"
 msgstr ""
@@ -424,7 +428,7 @@ msgid "Add new column"
 msgstr ""
 
 #: inc/builder/sections/columns/definition.php:46
-#: inc/builder/sections/columns/definition.php:86
+#: inc/builder/sections/columns/definition.php:80
 #: inc/builder/sections/gallery/definition.php:85
 msgid "Columns"
 msgstr ""
@@ -433,7 +437,7 @@ msgstr ""
 msgid "Create rearrangeable columns of content and images."
 msgstr ""
 
-#: inc/builder/sections/columns/definition.php:78
+#: inc/builder/sections/columns/definition.php:86
 #: inc/builder/sections/gallery/definition.php:78
 msgid "Full width"
 msgstr ""
@@ -482,43 +486,43 @@ msgstr ""
 msgid "Caption color"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:169
+#: inc/builder/sections/gallery/definition.php:168
 msgid "Enter item title"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:176
+#: inc/builder/sections/gallery/definition.php:175
 msgid "Item link URL"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:182
+#: inc/builder/sections/gallery/definition.php:181
 msgid "Open link in a new tab"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:225
+#: inc/builder/sections/gallery/definition.php:224
 msgid "Square"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:226
+#: inc/builder/sections/gallery/definition.php:225
 msgid "Landscape"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:227
+#: inc/builder/sections/gallery/definition.php:226
 msgid "Portrait"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:234
+#: inc/builder/sections/gallery/definition.php:233
 msgid "Reveal"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:235
+#: inc/builder/sections/gallery/definition.php:234
 msgid "Overlay"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:242
+#: inc/builder/sections/gallery/definition.php:241
 msgid "Light"
 msgstr ""
 
-#: inc/builder/sections/gallery/definition.php:243
+#: inc/builder/sections/gallery/definition.php:242
 msgid "Dark"
 msgstr ""
 
@@ -1037,7 +1041,7 @@ msgstr ""
 #: inc/customizer/datahelper.php:46
 #: inc/customizer/definitions/background-images.php:77
 #: inc/customizer/definitions/color.php:583
-#: inc/customizer/definitions/general.php:143
+#: inc/customizer/definitions/general.php:98
 #: inc/customizer/definitions/layout.php:466
 #: inc/customizer/definitions/typography.php:145
 msgid ""
@@ -1365,62 +1369,31 @@ msgstr ""
 msgid "Footer Text Color"
 msgstr ""
 
-#: inc/customizer/definitions/general.php:19
-#: inc/customizer/definitions/general.php:36
-msgid "Logo"
-msgstr ""
-
-#: inc/customizer/definitions/general.php:24
-msgid "Regular & Retina Logos"
-msgstr ""
-
-#: inc/customizer/definitions/general.php:25
-msgid ""
-"\n"
-"\t\t\t\t\t\tThese settings have been deprecated in favor of the Site Logo "
-"setting provided by WordPress core.\n"
-"\t\t\t\t\t\tPlease visit the Site Identity section to configure your site "
-"logo.\n"
-"\t\t\t\t\t"
-msgstr ""
-
-#: inc/customizer/definitions/general.php:42
-msgid "Regular Logo"
-msgstr ""
-
-#: inc/customizer/definitions/general.php:50
-msgid "Retina Logo (2x)"
-msgstr ""
-
-#: inc/customizer/definitions/general.php:51
-msgid "The Retina Logo should be twice the size of the Regular Logo."
-msgstr ""
-
-#: inc/customizer/definitions/general.php:62
+#: inc/customizer/definitions/general.php:17
 msgid "Labels"
 msgstr ""
 
-#: inc/customizer/definitions/general.php:69
+#: inc/customizer/definitions/general.php:24
 msgid "Search Field Label"
 msgstr ""
 
-#: inc/customizer/definitions/general.php:79
+#: inc/customizer/definitions/general.php:34
 msgid "Mobile Menu Label"
 msgstr ""
 
-#: inc/customizer/definitions/general.php:88
+#: inc/customizer/definitions/general.php:43
 msgid "Sticky Label"
 msgstr ""
 
-#: inc/customizer/definitions/general.php:106
+#: inc/customizer/definitions/general.php:61
 msgid "Read More Label"
 msgstr ""
 
-#: inc/customizer/definitions/general.php:117
+#: inc/customizer/definitions/general.php:72
 msgid "Social Icons"
 msgstr ""
 
-#: inc/customizer/definitions/general.php:125
+#: inc/customizer/definitions/general.php:80
 msgid ""
 "Add a link to each of your social profiles and we&#8217;ll add the icon to "
 "match — it&#8217;s that simple. Drag and drop to rearrange."
