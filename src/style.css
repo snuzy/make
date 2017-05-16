@@ -188,10 +188,6 @@ html {
 	-ms-text-size-adjust: 100%;
 }
 
-a:focus {
-	outline: none;
-}
-
 article,
 aside,
 details,
