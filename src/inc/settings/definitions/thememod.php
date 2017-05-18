@@ -225,6 +225,8 @@ $this->add_settings(
 		'footer-link-hover-color'           => array( 'default' => '' ),
 		'footer-border-color'               => array( 'default' => '#b9bcbf' ),
 		'footer-background-color'           => array( 'default' => '#eaecee' ),
+		'color-panel'						=> array( 'default' => '#eaecee' ),
+		'color-panel-active'				=> array( 'default' => '#3070d1' ),
 	),
 	array(
 		'sanitize' => 'maybe_hash_hex_color',
