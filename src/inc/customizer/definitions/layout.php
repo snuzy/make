@@ -331,7 +331,7 @@ foreach ( $views as $view => $label ) {
 		'post-date-group-' . $view            => array(
 			'control' => array(
 				'control_type' => 'MAKE_Customizer_Control_Html',
-				'html'  => '<h4 class="make-group-title">' . esc_html__( 'Post Date', 'make' ) . '</h4>',
+				'html'  => '<h4 class="make-group-title">' . esc_html__( ucfirst( $view ) . ' Date', 'make' ) . '</h4>',
 			),
 		),
 		$prefix . 'post-date'                 => array(
@@ -354,7 +354,7 @@ foreach ( $views as $view => $label ) {
 		'post-author-group-' . $view          => array(
 			'control' => array(
 				'control_type' => 'MAKE_Customizer_Control_Html',
-				'html'  => '<h4 class="make-group-title">' . esc_html__( 'Post Author', 'make' ) . '</h4>',
+				'html'  => '<h4 class="make-group-title">' . esc_html__( ucfirst( $view ) . ' Author', 'make' ) . '</h4>',
 			),
 		),
 		$prefix . 'post-author'               => array(
