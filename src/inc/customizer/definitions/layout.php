@@ -429,13 +429,13 @@ foreach ( $views as $view => $label ) {
 		),
 	) );
 
-	// Page title
-	if ( 'page' === $view ) {
+	// Page & Post title
+	if ( in_array( $view, array( 'page', 'post' ) ) ) {
 		$controls = array_merge( $controls, array(
 			$prefix . 'pagetitle-heading' => array(
 				'control' => array(
 					'control_type' => 'MAKE_Customizer_Control_Html',
-					'html'  => '<h4 class="make-group-title">' . esc_html__( 'Page Title', 'make' ) . '</h4>',
+					'html'  => '<h4 class="make-group-title">' . esc_html__( ucfirst( $view ) . ' Title', 'make' ) . '</h4>',
 				),
 			),
 			$prefix . 'hide-title'        => array(
