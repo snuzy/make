@@ -448,6 +448,24 @@ foreach ( $views as $view => $label ) {
 		),
 	) );
 
+	if ( 'post' === $view ) {
+		$controls = array_merge( $controls, array(
+			$prefix . 'postnavigation-heading' => array(
+				'control' => array(
+					'control_type' => 'MAKE_Customizer_Control_Html',
+					'html'  => '<h4 class="make-group-title">' . esc_html__( 'Post Navigation', 'make' ) . '</h4>',
+				),
+			),
+			$prefix . 'hide-navigation' => array(
+				'setting' => true,
+				'control' => array(
+					'label' => __( 'Hide navigation', 'make' ),
+					'type'  => 'checkbox',
+				),
+			),
+		) );
+	}
+
 	// Add the definitions
 	$this->add_section_definitions( 'layout-' . $view, array(
 		'panel'   => $panel,
