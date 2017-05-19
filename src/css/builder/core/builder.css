@@ -478,7 +478,7 @@
 .ttfmake-has-image-set .ttfmake-media-uploader-placeholder:before {
 	content: none;
 }
-.ttfmake-has-image-set:hover .ttfmake-media-uploader-placeholder {
+.ttfmake-media-uploader-placeholder:hover {
 	opacity: .8;
 }
 
