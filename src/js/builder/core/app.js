@@ -336,12 +336,16 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			this.$currentPlaceholder = $(placeholder);
 
+			if (window.frame) {
+				window.frame.detach();
+			}
+
 			// Create the media frame.
 			window.frame = wp.media.frames.frame = wp.media({
 				title: this.$currentPlaceholder.data('title'),
 				className: 'media-frame ttfmake-builder-uploader',
 				multiple: false,
-				selectedAttachment: 'hey'
+				library: {type: 'image'},
 			});
 
 			frame.on('open', this.onUploaderFrameOpen.bind(this, overlayView));
@@ -363,6 +367,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 				var selection = frame.state().get('selection');
 				var attachment = wp.media.attachment( attachmentID );
 				selection.add( [ attachment ] );
+				window.frame.$el.addClass('ttfmake-media-selected');
 			}
 		},
 
@@ -374,7 +379,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			// Trigger event on the uploader to propagate it to calling view
 			this.$currentPlaceholder.trigger('mediaRemoved')
 
-			wp.media.frames.frame.close();
+			window.frame.detach();
 		},
 
 		onUploaderFrameSelect: function() {
