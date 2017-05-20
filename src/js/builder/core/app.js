@@ -375,7 +375,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			// Trigger event on the uploader to propagate it to calling view
 			this.$currentPlaceholder.trigger('mediaRemoved')
 
-			wp.media.frames.frame.close();
+			window.frame.detach();
 		},
 
 		onUploaderFrameSelect: function() {
