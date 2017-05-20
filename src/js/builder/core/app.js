@@ -341,7 +341,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 				title: this.$currentPlaceholder.data('title'),
 				className: 'media-frame ttfmake-builder-uploader',
 				multiple: false,
-				selectedAttachment: 'hey'
+				library: {type: 'image'},
 			});
 
 			frame.on('open', this.onUploaderFrameOpen.bind(this, overlayView));
@@ -363,6 +363,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 				var selection = frame.state().get('selection');
 				var attachment = wp.media.attachment( attachmentID );
 				selection.add( [ attachment ] );
+				window.frame.$el.addClass('ttfmake-media-selected');
 			}
 		},
 
