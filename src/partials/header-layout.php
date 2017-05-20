@@ -42,14 +42,8 @@ $header_bar_menu = wp_nav_menu( array(
 				<?php echo make_get_thememod_value( 'header-text' ); ?>
 				</span>
 			<?php endif; ?>
-			<?php if ( ! empty( $header_bar_menu ) ): ?>
-				<nav class="header-navigation" role="navigation">
-					<?php if ( 'header-bar' === $mobile_menu ): ?>
-						<span class="menu-toggle"><?php echo make_get_thememod_value( 'navigation-mobile-label' ); ?></span>
-					<?php endif;?>
-					<?php echo $header_bar_menu; ?>
-				</nav>
-			<?php endif; ?>
+
+			<?php get_template_part( 'partials/nav', 'header-bar' ); ?>
 		</div>
 	</div>
 	<?php endif; ?>
@@ -74,20 +68,7 @@ $header_bar_menu = wp_nav_menu( array(
 				<?php endif; ?>
 			</div>
 
-			<nav id="site-navigation" class="site-navigation" role="navigation">
-				<?php if ( 'primary' === $mobile_menu ): ?>
-					<span class="menu-toggle"><?php echo make_get_thememod_value( 'navigation-mobile-label' ); ?></span>
-				<?php endif;?>
-				<?php
-				$nav_menu_container_class = 'primary' === $mobile_menu ? ' mobile-menu': 'desktop-menu';
-
-				wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'container_class' => $nav_menu_container_class,
-					'fallback_cb'    => false,
-				) );
-				?>
-			</nav>
+			<?php get_template_part( 'partials/nav', 'header-main' ); ?>
 		</div>
 	</div>
 </header>
