@@ -336,6 +336,10 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 			this.$currentPlaceholder = $(placeholder);
 
+			if (window.frame) {
+				window.frame.detach();
+			}
+
 			// Create the media frame.
 			window.frame = wp.media.frames.frame = wp.media({
 				title: this.$currentPlaceholder.data('title'),
