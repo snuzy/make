@@ -72,8 +72,8 @@ final class MAKE_Integration_YoastSEO extends MAKE_Util_Modules implements MAKE_
 		// Theme Mod settings
 		add_action( 'make_settings_thememod_loaded', array( $this, 'add_settings' ) );
 
-		// Customizer controls
-		add_action( 'customize_register', array( $this, 'add_controls' ), 11 );
+		// Migrate to generic breadcrumb setting
+		add_action( 'after_switch_theme', array( $this, 'migrate_settings' ) );
 
 		// Hooking has occurred.
 		self::$hooked = true;
@@ -133,54 +133,20 @@ final class MAKE_Integration_YoastSEO extends MAKE_Util_Modules implements MAKE_
 	}
 
 	/**
-	 * Add Customizer controls.
+	 * Migrate Yoast-specific breadcrumb setting to general setting
 	 *
-	 * @since 1.7.0.
-	 *
-	 * @hooked action customize_register
-	 *
-	 * @param WP_Customize_Manager $wp_customize
+	 * @since 1.8.9.
 	 *
 	 * @return void
 	 */
-	public function add_controls( WP_Customize_Manager $wp_customize ) {
-		// Views that can have breadcrumbs
-		$views = array(
-			'blog',
-			'archive',
-			'search',
-			'post',
-			'page',
-		);
+	public function migrate_settings() {
+		$views = array( 'blog', 'archive', 'search', 'post', 'page' );
 
 		foreach ( $views as $view ) {
-			$section_id = 'ttfmake_layout-' . $view;
-			$setting_id = 'layout-' . $view . '-yoast-breadcrumb';
-			$section_controls = $this->customizer_controls()->get_section_controls( $wp_customize, $section_id );
-			$last_priority = $this->customizer_controls()->get_last_priority( $section_controls );
-
-			// Breadcrumb heading
-			$wp_customize->add_control( new MAKE_Customizer_Control_Html( $wp_customize, 'breadcrumb-group-' . $view, array(
-				'section'  => $section_id,
-				'priority' => $last_priority + 1,
-				'html'     => '<h4 class="make-group-title">' . esc_html__( 'Breadcrumbs', 'make' ) . '</h4><span class="description customize-control-description">' . esc_html__( 'The Yoast SEO plugin enables this option.', 'make' ) . '</span>',
-			) ) );
-
-			// Breadcrumb setting
-			$wp_customize->add_setting( $setting_id, array(
-				'default'              => $this->thememod()->get_default( $setting_id ),
-				'sanitize_callback'    => array( $this->customizer_controls(), 'sanitize' ),
-				'sanitize_js_callback' => array( $this->customizer_controls(), 'sanitize_js' ),
-			) );
-
-			// Breadcrumb control
-			$wp_customize->add_control( 'ttfmake_' . $setting_id, array(
-				'settings' => $setting_id,
-				'section'  => $section_id,
-				'priority' => $last_priority + 2,
-				'label'    => __( 'Show breadcrumbs', 'make' ),
-				'type'     => 'checkbox',
-			) );
+			$source_setting = "layout-$view-yoast-breadcrumb";
+			$destination_setting = "layout-$view-breadcrumb";
+			$source_value = $this->thememod()->get_value( $source_setting );
+			$this->thememod()->set_value( $destination_setting,  $source_value );
 		}
 	}
 
@@ -196,7 +162,7 @@ final class MAKE_Integration_YoastSEO extends MAKE_Util_Modules implements MAKE_
 	 */
 	public function maybe_render_breadcrumb( $before = '<p class="yoast-seo-breadcrumb">', $after = '</p>' ) {
 		if ( function_exists( 'yoast_breadcrumb' ) ) {
-			$show_breadcrumbs = $this->thememod()->get_value( 'layout-' . $this->view()->get_current_view() . '-yoast-breadcrumb' );
+			$show_breadcrumbs = $this->thememod()->get_value( 'layout-' . $this->view()->get_current_view() . '-breadcrumb' );
 
 			if ( ( $show_breadcrumbs && ! is_front_page() ) || is_404() ) {
 				return yoast_breadcrumb( $before, $after, false );
