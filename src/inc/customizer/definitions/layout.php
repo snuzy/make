@@ -466,6 +466,25 @@ foreach ( $views as $view => $label ) {
 		) );
 	}
 
+	// Breadcrumbs
+	if ( in_array( $view, array( 'blog', 'archive', 'search', 'post', 'page' ) ) ) {
+		$controls = array_merge( $controls, array(
+			$prefix . 'breadcrumb-heading' => array(
+				'control' => array(
+					'control_type' => 'MAKE_Customizer_Control_Html',
+					'html'  => '<h4 class="make-group-title">' . esc_html__( 'Breadcrumbs', 'make' ) . '</h4>',
+				),
+			),
+
+			$prefix . 'breadcrumb'       => array(
+				'setting' => true,
+				'control' => array(
+					'label' => __( 'Show breadcumbs', 'make' ),
+					'type'  => 'checkbox',
+				),
+			),
+		) );
+	}
 	// Add the definitions
 	$this->add_section_definitions( 'layout-' . $view, array(
 		'panel'   => $panel,
