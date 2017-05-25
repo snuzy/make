@@ -579,7 +579,11 @@ function make_breadcrumb( $before = '<p class="yoast-seo-breadcrumb">', $after =
 	 * @param string $before            The wrapper opening markup.
 	 * @param string $after             The wrapper closing markup.
 	 */
-	$breadcrumb = apply_filters( 'make_breadcrumb_output', $breadcrumb, $before, $after );
+	$show_breadcrumbs = Make()->thememod()->get_value( 'layout-' . make_get_current_view() . '-breadcrumb' );
+
+	if ( ( $show_breadcrumbs && ! is_front_page() ) || is_404() ) {
+		$breadcrumb = apply_filters( 'make_breadcrumb_output', $breadcrumb, $before, $after );
+	}
 
 	echo $breadcrumb;
 }
