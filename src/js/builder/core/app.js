@@ -1,4 +1,4 @@
-/*global jQuery, tinyMCE, switchEditors */
+/*global jQuery, tinyMCE, switchEditors, ttfmakeBuilderData */
 var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 (function ($, Backbone, oneApp, ttfMakeFrames) {
@@ -402,8 +402,12 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			}
 
 			var $colorPickerInput = $('.ttfmake-configuration-color-picker', view.$el);
+			var palettes = _(ttfmakeBuilderData.palettes);
+			palettes = palettes.isArray() ? palettes.toArray(): palettes.values();
+
 			var colorPickerOptions = {
 				hide: false,
+				palettes: palettes,
 
 				change: function(event, ui) {
 					var $input = $(event.target);
