@@ -68,6 +68,18 @@ $rule: 				1px solid $b;
 	}
 }
 
+@mixin below($media) {
+	@if $media == small-screens {
+		@media screen and (max-width: $one) { @content; }
+	}
+	@else if $media == medium-screens {
+		@media screen and (max-width: $two) { @content; }
+	}
+	@else if $media == large-screens {
+		@media screen and (max-width: $three) { @content; }
+	}
+}
+
 $baseline-px: 10px;
 
 @mixin rem($property, $px-values) {
