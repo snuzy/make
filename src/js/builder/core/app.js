@@ -359,7 +359,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 		},
 
 		onUploaderFrameOpen: function( view ) {
-			var savedAttachmentID = view.caller.model.get( 'background-image' );
+			var savedAttachmentID = view.caller ? view.caller.model.get( 'background-image' ): undefined;
 			var currentAttachmentID = view.model.get( 'background-image' );
 			var attachmentID = 'undefined' !== typeof currentAttachmentID ? currentAttachmentID: savedAttachmentID;
 
