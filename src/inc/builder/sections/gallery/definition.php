@@ -300,7 +300,7 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			'title' => '',
 			'link' => '',
 			'description' => '',
-			'image-id' => '',
+			'background-image' => '',
 			'open-new-tab' => 0
 		);
 	}

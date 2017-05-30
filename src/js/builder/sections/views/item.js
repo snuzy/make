@@ -51,15 +51,15 @@ var oneApp = oneApp || {};
 
 			onMediaSelected: function(e, attachment) {
 				e.stopPropagation();
-				this.model.set('image-id', attachment.id);
-				this.model.set('image-url', attachment.url);
+				this.model.set('background-image', attachment.id);
+				this.model.set('background-image-url', attachment.url);
 				this.$el.trigger('model-item-change');
 			},
 
 			onMediaRemoved: function(e) {
 				e.stopPropagation();
-				this.model.unset('image-id');
-				this.model.unset('image-url');
+				this.model.unset('background-image');
+				this.model.unset('background-image-url');
 				this.$el.trigger('model-item-change');
 			},
 
@@ -106,7 +106,7 @@ var oneApp = oneApp || {};
 
 			hideConfigureDropdown: function(evt) {
 				evt.stopPropagation();
-				
+
 				this.$el.find('.configure-item-dropdown').hide();
 				this.$el.find('.ttfmake-configure-item-button').removeClass('active');
 			},
