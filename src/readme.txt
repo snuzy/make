@@ -4,7 +4,7 @@ Contributors: thethemefoundry
 Tags: black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, fixed-layout, fluid-layout, responsive-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, photoblogging
 
 Requires at least: 4.4
-Tested up to: 4.7
+Tested up to: 4.7.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
-= 1.8.9 - June 1 2017 =
+= 1.8.9-beta - June 1 2017 =
 * New feature: Added a setting to hide the Post title in single Post view.
 * New feature: Added a setting to toggle Post navigation in single Post view.
 * Improved: Better styling and accessibility for the Skip To Content link.
