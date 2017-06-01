@@ -469,7 +469,6 @@ body.boxed .site-wrapper {
 .container,
 .infinite-footer-container,
 .page-template-template-builder-php .entry-content > .twitter-share {
-	max-width: 1024px;
 	margin: 0 auto;
 	padding: 0 32px;
 	padding: 0 3.2rem;
