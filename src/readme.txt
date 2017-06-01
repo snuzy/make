@@ -28,18 +28,19 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 = 1.8.9 - June 1 2017 =
 * New feature: Added a setting to hide the Post title in single Post view.
+* New feature: Added a setting to toggle Post navigation in single Post view.
 * Improved: Better styling and accessibility for the Skip To Content link.
-* Bug fix: Fixed the "Failed to decode downloaded font" error with Jetpack share icon.
-* Improved: Added support for Jetpack reponsive videos.
+* Improved: Added support for Jetpack responsive videos.
 * Improved: Media selection frame now shows selected attachment and metadata.
 * Improved: Refactored header templates into partials for easier customization.
 * Improved: Google Maps embeds now honor user defined attributes.
-* New feature: Added a setting to toggle Post navigation in single Post view.
 * Improved: Added a general setting to toggle breadcrumbs in single Page and Post view.
-* New feature: Added the "make_breadcrumb_output" filter to control the output of breadcrumbs.
 * Improved: Swatches in the Background Color setting get populated from Customizer color settings.
 * Improved: Better alignment of text, theme credits and social icons in the footer.
 * Improved: Header, containers and footer expand to full width when Full Width layout is on.
+* Improved: Logo and navigation width is more flexible now, allowing more space for navigation.
+* New filter: `make_breadcrumb_output` to control the output of breadcrumbs.
+* Bug fix: Fixed the "Failed to decode downloaded font" error with Jetpack share icon.
 
 = 1.8.8 - May 10 2017 =
 * New feature: Added a setting to control background position for sections.
