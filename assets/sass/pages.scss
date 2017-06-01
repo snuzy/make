@@ -201,6 +201,9 @@
 	background-position: center center;
 	background-size: cover;
 }
+.builder-banner-slide:not(:first-child) {
+	display: none;
+}
 /*---------------------------------------------------------
  Banner section: Content (_pages.scss)
 -------------------------------------------------------- */
@@ -267,6 +270,7 @@ position: relative;
 .builder-section-banner,
 .ttfmake-shortcode-slider {
 	.cycle-pager {
+		height: 40px;
 		text-align: center;
 		color: $d;
 		line-height: 1; //reset
