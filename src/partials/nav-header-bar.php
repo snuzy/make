@@ -5,6 +5,7 @@
 
 global $header_bar_menu, $mobile_menu;
 ?>
+
 <?php if ( ! empty( $header_bar_menu ) ): ?>
     <nav class="header-navigation" role="navigation">
         <?php if ( 'header-bar' === $mobile_menu ): ?>
