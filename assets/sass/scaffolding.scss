@@ -397,7 +397,7 @@ div.custom-logo {
 	}
 }
 .social-links {
-	@include for(large-screens) {
+	@include for(medium-screens) {
 		padding-top: 0;
 	}
 	padding-left: 0; //reset
