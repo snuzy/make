@@ -135,7 +135,7 @@ if ( ! function_exists( 'ttfmake_get_read_more' ) ) :
  *
  * @return string               Full read more HTML.
  */
-function ttfmake_get_read_more( $before = '<a class="more-link" href="%s">', $after = '</a>' ) {
+function ttfmake_get_read_more( $before = ' <a class="more-link" href="%s">', $after = '</a>' ) {
 	// Add the permalink
 	if ( false !== strpos( $before, '%s' ) ) {
 		$before = sprintf(
