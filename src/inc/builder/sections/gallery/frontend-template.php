@@ -23,7 +23,7 @@ $aspect   = ( isset( $ttfmake_section_data[ 'aspect' ] ) ) ? esc_attr( $ttfmake_
 			<?php if ( '' !== $image ) : ?>
 				<?php echo $image; ?>
 			<?php endif; ?>
-			<?php if ( 'none' !== $captions && ( '' !== $item['title'] || '' !== $item['description'] || has_excerpt( $item['image-id'] ) ) ) : ?>
+			<?php if ( 'none' !== $captions && ( '' !== $item['title'] || '' !== $item['description'] || has_excerpt( $item['background-image'] ) ) ) : ?>
 			<div class="builder-gallery-content">
 				<div class="builder-gallery-content-inner">
 					<?php if ( '' !== $item['title'] ) : ?>
@@ -35,9 +35,9 @@ $aspect   = ( isset( $ttfmake_section_data[ 'aspect' ] ) ) ? esc_attr( $ttfmake_
 					<div class="builder-gallery-description">
 						<?php ttfmake_get_builder_save()->the_builder_content( $item['description'] ); ?>
 					</div>
-					<?php elseif ( has_excerpt( $item['image-id'] ) ) : ?>
+					<?php elseif ( has_excerpt( $item['background-image'] ) ) : ?>
 					<div class="builder-gallery-description">
-						<?php echo Make()->sanitize()->sanitize_text( get_post( $item['image-id'] )->post_excerpt ); ?>
+						<?php echo Make()->sanitize()->sanitize_text( get_post( $item['background-image'] )->post_excerpt ); ?>
 					</div>
 					<?php endif; ?>
 				</div>
