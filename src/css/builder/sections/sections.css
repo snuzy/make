@@ -15,7 +15,6 @@
 	background-color: #fff;
 }
 .ttfmake-section-text .ttfmake-iframe-wrapper {
-	height: calc(100% - 35px);
 	border: 0;
 	overflow: hidden;
 	-webkit-transform: translateZ(0px);
