@@ -469,6 +469,7 @@ body.boxed .site-wrapper {
 .container,
 .infinite-footer-container,
 .page-template-template-builder-php .entry-content > .twitter-share {
+	max-width: 1024px;
 	margin: 0 auto;
 	padding: 0 32px;
 	padding: 0 3.2rem;
@@ -3283,8 +3284,10 @@ div.wp-video-shortcode {
 .builder-banner-inner-content {
 	position: relative;
 	top: 50%;
-	width: 100%;
-	max-width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 0 32px;
+	padding: 0 3.2rem;
 	vertical-align: middle;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);

@@ -11,18 +11,19 @@ body {
 	background-color: $e;
 	text-rendering: optimizeLegibility;
 	@include rem('font-size', 17px);
+
 	&.boxed {
 		.site-wrapper {
 			@include for(medium-screens) {
-				 max-width: $width+($col*2);
-			 }
-			 max-width: $width+($gut*2);
+				max-width: $width + ($col * 2);
+			}
+			max-width: $width + ($gut * 2);
 		}
 	}
 }
 .site-main [class*="navigation"] {
 	overflow: hidden;
-	@include rem('padding', 0 0 $base*2);
+	@include rem('padding', 0 0 $base * 2);
 }
 .site-wrapper,
 .site-main {
@@ -30,6 +31,7 @@ body {
 	margin: 0 auto;
 }
 .container {
+	max-width: $width + ($gut * 2);
 	margin: 0 auto;
 	@include rem('padding', 0 $gut);
 }
