@@ -2,8 +2,6 @@
 /**
  * @package Make
  */
-
-global $header_bar_menu, $mobile_menu;
 ?>
 
 <?php if ( ! empty( $header_bar_menu ) ): ?>

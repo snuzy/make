@@ -7,7 +7,6 @@
 $subheader_class = ( make_get_thememod_value( 'header-show-social' ) || make_get_thememod_value( 'header-show-search' ) ) ? ' right-content' : '';
 $mobile_menu = make_get_thememod_value( 'mobile-menu' );
 $header_menu_container_class = 'header-bar-menu' . ( 'header-bar' === $mobile_menu ? ' mobile-menu': ' desktop-menu' );
-
 $header_bar_menu = wp_nav_menu( array(
 	'theme_location'  => 'header-bar',
 	'container_class' => $header_menu_container_class,
@@ -15,6 +14,9 @@ $header_bar_menu = wp_nav_menu( array(
 	'fallback_cb'     => false,
 	'echo'            => false,
 ) );
+
+set_query_var( 'mobile_menu', $mobile_menu );
+set_query_var( 'header_bar_menu', $header_bar_menu );
 ?>
 
 <header id="site-header" class="<?php echo esc_attr( ttfmake_get_site_header_class() ); ?>" role="banner">

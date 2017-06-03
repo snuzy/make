@@ -15,6 +15,9 @@ $header_bar_menu = wp_nav_menu( array(
 	'fallback_cb'     => false,
 	'echo'            => false,
 ) );
+
+set_query_var( 'mobile_menu', $mobile_menu );
+set_query_var( 'header_bar_menu', $header_bar_menu );
 ?>
 
 <header id="site-header" class="<?php echo esc_attr( ttfmake_get_site_header_class() ); ?>" role="banner">

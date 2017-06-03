@@ -2,8 +2,6 @@
 /**
  * @package Make
  */
-
-global $mobile_menu;
 ?>
 
 <nav id="site-navigation" class="site-navigation" role="navigation">
