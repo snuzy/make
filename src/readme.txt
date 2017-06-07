@@ -40,6 +40,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Improved: Header, containers and footer expand to full width when Full Width layout is on.
 * Improved: Logo and navigation width is more flexible now, allowing more space for navigation.
 * New filter: `make_breadcrumb_output` to control the output of breadcrumbs.
+* New filter: `make_breadcrumb_override` to allow custom defined breadcrumbs.
 * Bug fix: Fixed the "Failed to decode downloaded font" error with Jetpack share icon.
 
 = 1.8.8 - May 10 2017 =
