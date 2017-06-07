@@ -467,7 +467,15 @@ foreach ( $views as $view => $label ) {
 	}
 
 	// Breadcrumbs
-	if ( in_array( $view, array( 'blog', 'archive', 'search', 'post', 'page' ) ) ) {
+	/**
+	 * Filter: Allow override of breadcrumb settings, controls and output
+	 *
+	 * @since 1.7.4.
+	 *
+	 * @param boolean $override         Wether third party breadcrumbs should be overriden.
+	 */
+	$breadcrumb_override = apply_filters( 'make_breadcrumb_override', false );
+	if ( ( true === $breadcrumb_override ) && in_array( $view, array( 'blog', 'archive', 'search', 'post', 'page' ) ) ) {
 		$controls = array_merge( $controls, array(
 			$prefix . 'breadcrumb-heading' => array(
 				'control' => array(
@@ -485,6 +493,7 @@ foreach ( $views as $view => $label ) {
 			),
 		) );
 	}
+
 	// Add the definitions
 	$this->add_section_definitions( 'layout-' . $view, array(
 		'panel'   => $panel,
