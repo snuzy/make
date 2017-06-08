@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Make 1.8.8\n"
+"Project-Id-Version: Make 1.8.9\n"
 "Report-Msgid-Bugs-To: https://thethemefoundry.com/support/\n"
-"POT-Creation-Date: 2017-05-16 09:10:09+00:00\n"
+"POT-Creation-Date: 2017-06-08 12:36:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -122,23 +122,23 @@ msgstr ""
 msgid "Use Page Builder"
 msgstr ""
 
-#: inc/builder/core/base.php:359
+#: inc/builder/core/base.php:367
 msgid "Are you sure you want to trash this section permanently?"
 msgstr ""
 
-#: inc/builder/core/base.php:380
+#: inc/builder/core/base.php:389
 msgid "Note: the Builder Template does not display a featured image."
 msgstr ""
 
-#: inc/builder/core/base.php:483 inc/builder/core/configuration-helpers.php:113
+#: inc/builder/core/base.php:492 inc/builder/core/configuration-helpers.php:113
 msgid "Set image"
 msgstr ""
 
-#: inc/builder/core/base.php:514
+#: inc/builder/core/base.php:523
 msgid "Click to edit"
 msgstr ""
 
-#: inc/builder/core/base.php:520
+#: inc/builder/core/base.php:529
 #: inc/builder/core/templates/overlay-tinymce.php:4
 #: inc/builder/sections/banner/builder-template-slide.php:26
 #: inc/builder/sections/banner/builder-template-slide.php:29
@@ -149,11 +149,11 @@ msgstr ""
 msgid "Edit content"
 msgstr ""
 
-#: inc/builder/core/base.php:602
+#: inc/builder/core/base.php:611
 msgid "Current image"
 msgstr ""
 
-#: inc/builder/core/base.php:604
+#: inc/builder/core/base.php:613
 msgid "Remove Current Image"
 msgstr ""
 
@@ -1042,7 +1042,7 @@ msgstr ""
 #: inc/customizer/definitions/background-images.php:77
 #: inc/customizer/definitions/color.php:583
 #: inc/customizer/definitions/general.php:98
-#: inc/customizer/definitions/layout.php:466
+#: inc/customizer/definitions/layout.php:512
 #: inc/customizer/definitions/typography.php:145
 msgid ""
 "To add or modify Customizer sections and controls, use the %1$s hook "
@@ -1523,65 +1523,69 @@ msgstr ""
 msgid "Sidebars are not available on pages using the Builder Template."
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:292
+#: inc/customizer/definitions/layout.php:299
+msgid "Hide title"
+msgstr ""
+
+#: inc/customizer/definitions/layout.php:311
 msgid "Featured Images"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:298
-#: inc/customizer/definitions/layout.php:330
-#: inc/customizer/definitions/layout.php:353
-#: inc/customizer/definitions/layout.php:425
+#: inc/customizer/definitions/layout.php:317
+#: inc/customizer/definitions/layout.php:349
+#: inc/customizer/definitions/layout.php:372
+#: inc/customizer/definitions/layout.php:444
 msgid "Location"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:307
+#: inc/customizer/definitions/layout.php:326
 msgid "Alignment"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:315
-msgid "Post Date"
-msgstr ""
-
-#: inc/customizer/definitions/layout.php:321
-#: inc/customizer/definitions/layout.php:344
-#: inc/customizer/definitions/layout.php:416
+#: inc/customizer/definitions/layout.php:340
+#: inc/customizer/definitions/layout.php:363
+#: inc/customizer/definitions/layout.php:435
 msgid "Style"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:338
-msgid "Post Author"
-msgstr ""
-
-#: inc/customizer/definitions/layout.php:366
+#: inc/customizer/definitions/layout.php:385
 msgid "Content"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:372
+#: inc/customizer/definitions/layout.php:391
 msgid "Generate excerpts automatically"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:385
+#: inc/customizer/definitions/layout.php:404
 msgid "Post Meta"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:391
+#: inc/customizer/definitions/layout.php:410
 msgid "Show categories"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:398
+#: inc/customizer/definitions/layout.php:417
 msgid "Show tags"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:410
+#: inc/customizer/definitions/layout.php:429
 msgid "Comment Count"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:438
-msgid "Page Title"
+#: inc/customizer/definitions/layout.php:456
+msgid "Post Navigation"
 msgstr ""
 
-#: inc/customizer/definitions/layout.php:444
-msgid "Hide title"
+#: inc/customizer/definitions/layout.php:462
+msgid "Hide navigation"
+msgstr ""
+
+#: inc/customizer/definitions/layout.php:483 inc/integration/yoastseo.php:168
+msgid "Breadcrumbs"
+msgstr ""
+
+#: inc/customizer/definitions/layout.php:490
+msgid "Show breadcumbs"
 msgstr ""
 
 #: inc/customizer/definitions/typography.php:28
@@ -2075,11 +2079,7 @@ msgid ""
 "image that is 200% the width you want."
 msgstr ""
 
-#: inc/integration/yoastseo.php:166
-msgid "Breadcrumbs"
-msgstr ""
-
-#: inc/integration/yoastseo.php:166
+#: inc/integration/yoastseo.php:168
 msgid "The Yoast SEO plugin enables this option."
 msgstr ""
 
@@ -2198,19 +2198,19 @@ msgstr ""
 msgid "The sanitize callback (%1$s) for \"%2$s\" is not valid."
 msgstr ""
 
-#: inc/settings/definitions/thememod.php:165
+#: inc/settings/definitions/thememod.php:172
 msgid "Menu"
 msgstr ""
 
-#: inc/settings/definitions/thememod.php:166
+#: inc/settings/definitions/thememod.php:173
 msgid "Featured"
 msgstr ""
 
-#: inc/settings/definitions/thememod.php:167
+#: inc/settings/definitions/thememod.php:174
 msgid "Read more"
 msgstr ""
 
-#: inc/settings/definitions/thememod.php:168
+#: inc/settings/definitions/thememod.php:175
 msgid "Search&hellip;"
 msgstr ""
 
@@ -2464,7 +2464,7 @@ msgstr ""
 msgid "<i class=\"fa fa-tag\"></i> "
 msgstr ""
 
-#: partials/footer-credit.php:27
+#: partials/footer-credit.php:28
 msgid ""
 "Built with <a class=\"theme-name\" href=\"%s\" target=\"_blank\">Make</a>. "
 "Your friendly small business site builder."
@@ -2482,7 +2482,7 @@ msgstr ""
 msgid "Older posts"
 msgstr ""
 
-#: partials/nav-post.php:20
+#: partials/nav-post.php:23
 msgid "Post navigation"
 msgstr ""
 
