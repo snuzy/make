@@ -317,7 +317,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 			'darken' => 0,
 			'background-color' => '',
 			'content' => '',
-			'image-id' => '',
+			'background-image' => '',
 		);
 	}
 
@@ -366,10 +366,20 @@ class MAKE_Builder_Sections_Banner_Definition {
 					// Handle legacy data layout
 					$id = isset( $slide['id'] ) ? $slide['id']: $s;
 					$data['banner-slides'][$s]['id'] = $id;
-					$slide_image = ttfmake_get_image_src( $slide['image-id'], 'large' );
+
+					/*
+					 * Back compatibility code for slide background images.
+					 *
+					 * @since 1.8.9.
+					 */
+					if ( isset( $data['banner-slides'][$s]['image-id'] ) && '' !== $data['banner-slides'][$s]['image-id'] ) {
+						$data['banner-slides'][$s]['background-image'] = $data['banner-slides'][$s]['image-id'];
+					}
+
+					$slide_image = ttfmake_get_image_src( $data['banner-slides'][$s]['background-image'], 'large' );
 
 					if ( isset( $slide_image[0] ) ) {
-						$data['banner-slides'][$s]['image-url'] = $slide_image[0];
+						$data['banner-slides'][$s]['background-image-url'] = $slide_image[0];
 					}
 				}
 
@@ -484,8 +494,8 @@ class MAKE_Builder_Sections_Banner_Definition {
 
 				$clean_slide_data['darken'] = ( isset( $slide['darken'] ) && 1 === (int) $slide['darken'] ) ? 1 : 0;
 
-				if ( isset( $slide['image-id'] ) ) {
-					$clean_slide_data['image-id'] = ttfmake_sanitize_image_id( $slide['image-id'] );
+				if ( isset( $slide['background-image'] ) ) {
+					$clean_slide_data['background-image'] = ttfmake_sanitize_image_id( $slide['background-image'] );
 				}
 
 				$clean_slide_data['alignment'] = ( isset( $slide['alignment'] ) && in_array( $slide['alignment'], array( 'none', 'left', 'right' ) ) ) ? $slide['alignment'] : 'none';

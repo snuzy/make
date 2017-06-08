@@ -1,4 +1,4 @@
-/*global jQuery, tinyMCE, switchEditors */
+/*global jQuery, tinyMCE, switchEditors, ttfmakeBuilderData */
 var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 
 (function ($, Backbone, oneApp, ttfMakeFrames) {
@@ -331,19 +331,24 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			this.settingsOverlay = new oneApp.views.settings();
 		},
 
-		initUploader: function (view, placeholder) {
+		initUploader: function ( overlayView, placeholder ) {
 			wp.media.view.Sidebar = oneApp.ImageSidebar;
 
 			this.$currentPlaceholder = $(placeholder);
+
+			if (window.frame) {
+				window.frame.detach();
+			}
 
 			// Create the media frame.
 			window.frame = wp.media.frames.frame = wp.media({
 				title: this.$currentPlaceholder.data('title'),
 				className: 'media-frame ttfmake-builder-uploader',
-				multiple: false
+				multiple: false,
+				library: {type: 'image'},
 			});
 
-			frame.on('open', this.onUploaderFrameOpen, this);
+			frame.on('open', this.onUploaderFrameOpen.bind(this, overlayView));
 			frame.on('select', this.onUploaderFrameSelect, this, 2);
 			frame.on('close', function() {
 				wp.media.view.Sidebar = oneApp.OriginalSidebar;
@@ -353,7 +358,18 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			frame.open();
 		},
 
-		onUploaderFrameOpen: function() {},
+		onUploaderFrameOpen: function( view ) {
+			var savedAttachmentID = view.caller ? view.caller.model.get( 'background-image' ): undefined;
+			var currentAttachmentID = view.model.get( 'background-image' );
+			var attachmentID = 'undefined' !== typeof currentAttachmentID ? currentAttachmentID: savedAttachmentID;
+
+			if ( attachmentID ) {
+				var selection = frame.state().get('selection');
+				var attachment = wp.media.attachment( attachmentID );
+				selection.add( [ attachment ] );
+				window.frame.$el.addClass('ttfmake-media-selected');
+			}
+		},
 
 		onUploaderFrameRemoveImage: function() {
 			// Remove the image
@@ -363,7 +379,7 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			// Trigger event on the uploader to propagate it to calling view
 			this.$currentPlaceholder.trigger('mediaRemoved')
 
-			wp.media.frames.frame.close();
+			window.frame.detach();
 		},
 
 		onUploaderFrameSelect: function() {
@@ -386,8 +402,12 @@ var oneApp = oneApp || {}, ttfMakeFrames = ttfMakeFrames || [];
 			}
 
 			var $colorPickerInput = $('.ttfmake-configuration-color-picker', view.$el);
+			var palettes = _(ttfmakeBuilderData.palettes);
+			palettes = palettes.isArray() ? palettes.toArray(): palettes.values();
+
 			var colorPickerOptions = {
 				hide: false,
+				palettes: palettes,
 
 				change: function(event, ui) {
 					var $input = $(event.target);

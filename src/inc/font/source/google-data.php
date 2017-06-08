@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2017-05-16T09:10:45+00:00
+// Updated: 2017-06-08T12:37:51+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -4677,14 +4677,17 @@ $this->load_font_data( array(
 			'300',
 			'500',
 			'600',
+			'700',
 			'regular',
 		),
 		'subsets' => array(
 			'cyrillic',
 			'cyrillic-ext',
 			'greek',
+			'greek-ext',
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -7402,6 +7405,7 @@ $this->load_font_data( array(
 			'greek',
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -9075,6 +9079,10 @@ $this->load_font_data( array(
 			'regular',
 		),
 		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
+			'greek-ext',
 			'latin',
 			'latin-ext',
 			'vietnamese',

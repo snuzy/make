@@ -58,7 +58,7 @@ $overlay_id  = "ttfmake-overlay-" . $combined_id;
 		<?php endforeach; ?>
 	</ul>
 
-	<?php echo ttfmake_get_builder_base()->add_uploader( $section_name, 0, __( 'Set gallery image', 'make' ), 'image-url' ); ?>
+	<?php echo ttfmake_get_builder_base()->add_uploader( $section_name, 0, __( 'Set gallery image', 'make' ), 'background-image-url' ); ?>
 	<?php ttfmake_get_builder_base()->add_frame( $combined_id, 'description', '', '', false ); ?>
 
 	<?php

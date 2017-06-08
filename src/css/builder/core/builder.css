@@ -478,7 +478,7 @@
 .ttfmake-has-image-set .ttfmake-media-uploader-placeholder:before {
 	content: none;
 }
-.ttfmake-has-image-set:hover .ttfmake-media-uploader-placeholder {
+.ttfmake-media-uploader-placeholder:hover {
 	opacity: .8;
 }
 
@@ -772,14 +772,17 @@
 	display: none;
 }
 .ttfmake-builder-uploader .ttfmake-remove-current-image {
-	display: block;
+	display: none;
 	float: left;
 }
-.ttfmake-builder-uploader .ttfmake-remove-current-image a.ttfmake-remove-image-from-modal {
+.ttfmake-builder-uploader.ttfmake-media-selected .ttfmake-remove-current-image {
+	display: block;
+}
+.ttfmake-builder-uploader .ttfmake-remove-current-image a {
 	color: #bc0b0b;
 	text-decoration: none; /*reset*/
 }
-.ttfmake-builder-uploader .ttfmake-remove-current-image a.ttfmake-remove-image-from-modal:hover {
+.ttfmake-builder-uploader .ttfmake-remove-current-image a:hover {
 	color: red;
 }
 /*---------------------------------------------------------

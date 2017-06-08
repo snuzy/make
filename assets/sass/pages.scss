@@ -201,6 +201,9 @@
 	background-position: center center;
 	background-size: cover;
 }
+.builder-banner-slide:not(:first-child) {
+	display: none;
+}
 /*---------------------------------------------------------
  Banner section: Content (_pages.scss)
 -------------------------------------------------------- */
@@ -249,11 +252,12 @@
 	}
 }
 .builder-banner-inner-content {
-position: relative;
+	position: relative;
 	top: 50%;
 	vertical-align: middle;
-	max-width: 100%;
-	width: 100%;
+	max-width: $width + ($gut * 2);
+	margin: 0 auto;
+	@include rem('padding', 0 $gut);
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
@@ -267,6 +271,7 @@ position: relative;
 .builder-section-banner,
 .ttfmake-shortcode-slider {
 	.cycle-pager {
+		height: 40px;
 		text-align: center;
 		color: $d;
 		line-height: 1; //reset
