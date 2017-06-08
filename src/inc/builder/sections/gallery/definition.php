@@ -300,7 +300,7 @@ class MAKE_Builder_Sections_Gallery_Definition {
 			'title' => '',
 			'link' => '',
 			'description' => '',
-			'image-id' => '',
+			'background-image' => '',
 			'open-new-tab' => 0
 		);
 	}
@@ -350,10 +350,15 @@ class MAKE_Builder_Sections_Gallery_Definition {
 					// Handle legacy data layout
 					$id = isset( $item['id'] ) ? $item['id']: $s;
 					$data['gallery-items'][$s]['id'] = $id;
-					$item_image = ttfmake_get_image_src( $item['image-id'], 'large' );
+
+					if ( isset( $data['gallery-items'][$s]['image-id'] ) && '' !== $data['gallery-items'][$s]['image-id'] ) {
+						$data['gallery-items'][$s]['background-image'] = $data['gallery-items'][$s]['image-id'];
+					}
+
+					$item_image = ttfmake_get_image_src( $data['gallery-items'][$s]['background-image'], 'large' );
 
 					if( isset( $item_image[0] ) ) {
-						$data['gallery-items'][$s]['image-url'] = $item_image[0];
+						$data['gallery-items'][$s]['background-image-url'] = $item_image[0];
 					}
 				}
 
@@ -454,12 +459,8 @@ class MAKE_Builder_Sections_Gallery_Definition {
 					$clean_item_data['description'] = sanitize_post_field( 'post_content', $item['description'], ( get_post() ) ? get_the_ID() : 0, 'db' );
 				}
 
-				if ( isset( $item['image-id'] ) ) {
-					$clean_item_data['image-id'] = ttfmake_sanitize_image_id( $item['image-id'] );
-				}
-
-				if ( isset( $item['image-id'] ) ) {
-					$clean_item_data['image-id'] = ttfmake_sanitize_image_id( $item['image-id'] );
+				if ( isset( $item['background-image'] ) ) {
+					$clean_item_data['background-image'] = ttfmake_sanitize_image_id( $item['background-image'] );
 				}
 
 				if ( isset( $item['open-new-tab'] ) && $item['open-new-tab'] == 1 ) {

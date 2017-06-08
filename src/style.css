@@ -5,7 +5,7 @@
  * Author:      The Theme Foundry
  * Author URI:  https://thethemefoundry.com
  * Description: Build a website that means business. With Make’s powerful drag and drop page builder and hundreds of Customizer options, you can effortlessly brand your site without touching a line of code. Add full-width banners, columns, and galleries to showcase your best work. The intuitive builder delivers clean, lean code — not shortcodes — so you can trust your content remains portable. Make lets you control page layout options, including sidebar display, on all your posts and pages. Choose from hundreds of Google Fonts and upload custom backgrounds everywhere. Built on a fully responsive grid, Make renders as beautifully on tablets and phone screens as it does on desktop. Make scales with your business and is fully compatible with popular plugins like WooCommerce, Gravity Forms, Contact Form 7, Jetpack, and others. For documentation on the page builder and getting started with Make, see: https://thethemefoundry.com/make-help/
- * Version:     1.8.8
+ * Version:     1.8.9
  * License:     GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: make
@@ -188,10 +188,6 @@ html {
 	-ms-text-size-adjust: 100%;
 }
 
-a:focus {
-	outline: none;
-}
-
 article,
 aside,
 details,
@@ -296,10 +292,6 @@ textarea {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
-
-a:focus {
-	outline: thin dotted;
 }
 
 a:hover,
@@ -662,10 +654,12 @@ a {
 	.site-branding {
 		float: left;
 		max-width: 50%;
+		margin-right: 2%;
 	}
 
 	.branding-right .site-branding {
 		float: right;
+		margin-right: 0;
 	}
 }
 
@@ -986,7 +980,7 @@ div.custom-logo a {
 	user-select: none;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 800px) {
 	.social-links {
 		padding-top: 0;
 	}
@@ -1121,18 +1115,11 @@ div.custom-logo a {
 }
 
 @media screen and (min-width: 800px) {
-	.site-navigation {
-		float: right;
-		max-width: 50%;
-	}
-
 	.branding-right .header-layout-1 .site-navigation {
-		float: left;
 		text-align: left;
 	}
 
 	.branding-right .header-layout-3 .site-navigation {
-		float: right;
 		text-align: right;
 	}
 }
@@ -2458,32 +2445,27 @@ img {
 }
 
 .screen-reader-text {
-	overflow: hidden;
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	width: 1px;
-	height: 1px;
+	position: absolute;
+	top: -1000em;
 }
 
 .screen-reader-text:focus {
 	display: block;
-	clip: auto !important;
 	z-index: 100000;
-	top: 5px;
-	left: 5px;
+	top: 7px;
+	left: 6px;
 	width: auto;
 	height: auto;
 	padding: 15px 23px 14px;
-	border-radius: 3px;
-	color: #21759b;
-	background-color: #f1f1f1;
+	color: #0073aa;
+	background: #f1f1f1;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: bold;
+	font-weight: 600;
 	line-height: normal;
 	text-decoration: none;
-	/* Above WP toolbar. */
 }
 
 #site-content[tabindex="-1"]:focus {
@@ -2550,15 +2532,19 @@ div.wp-video-shortcode {
  Google maps (_patterns.scss)
 -------------------------------------------------------- */
 
-.entry-content iframe[src*="google.com/maps"] {
-	width: 100%;
-	height: 300px;
+@media screen and (max-width: 800px) {
+	.entry-content iframe[src*="google.com/maps"] {
+		width: 100%;
+	}
 }
 
-@media screen and (min-width: 800px) {
-	.entry-content iframe[src*="google.com/maps"] {
-		height: 600px;
-	}
+
+/*---------------------------------------------------------
+ Icons (_patterns.scss)
+-------------------------------------------------------- */
+
+.share-icon {
+	text-rendering: auto;
 }
 
 
@@ -3228,6 +3214,10 @@ div.wp-video-shortcode {
 	background-size: cover;
 }
 
+.builder-banner-slide:not(:first-child) {
+	display: none;
+}
+
 
 /*---------------------------------------------------------
  Banner section: Content (_pages.scss)
@@ -3294,8 +3284,10 @@ div.wp-video-shortcode {
 .builder-banner-inner-content {
 	position: relative;
 	top: 50%;
-	width: 100%;
-	max-width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 0 32px;
+	padding: 0 3.2rem;
 	vertical-align: middle;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -3313,6 +3305,7 @@ div.wp-video-shortcode {
 
 .builder-section-banner .cycle-pager,
 .ttfmake-shortcode-slider .cycle-pager {
+	height: 40px;
 	color: #eaecee;
 	font-size: 40px;
 	font-size: 4rem;

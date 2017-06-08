@@ -352,11 +352,20 @@ class TTFMAKE_Builder_Base {
 			true
 		);
 
+		// Fetch color palette
+		$color_settings = array( 'color-primary', 'color-secondary', 'color-text', 'color-detail', 'color-primary-link', 'color-button-background', 'background_color', 'main-background-color' );
+
+		$color_values = array_map( array( Make()->thememod(), 'get_value' ), $color_settings );
+		$color_values = array_values( $color_values );
+		$color_values = array_unique( $color_values );
+		$color_values = array_filter( $color_values, 'strlen' );
+
 		// Add data needed for the JS
 		$data = array(
 			'pageID'        => get_the_ID(),
 			'postRefresh'   => true,
 			'confirmString' => esc_html__( 'Are you sure you want to trash this section permanently?', 'make' ),
+			'palettes'      => $color_values
 		);
 
 		wp_localize_script(

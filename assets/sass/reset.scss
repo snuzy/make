@@ -44,10 +44,6 @@ html {
   -webkit-text-size-adjust: 100%;
 	  -ms-text-size-adjust: 100%;
 }
-// Focus states
-a:focus {
-  outline: none;
-}
 
 // Display in IE6-9 and FF3
 // -------------------------
@@ -159,9 +155,6 @@ textarea {
 	-webkit-box-sizing: border-box; // Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing
 	-moz-box-sizing:    border-box; // Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing
 	box-sizing:         border-box;
-}
-a:focus {
-	outline: thin dotted;
 }
 a:hover,
 a:active {
