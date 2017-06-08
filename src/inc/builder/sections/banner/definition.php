@@ -372,11 +372,11 @@ class MAKE_Builder_Sections_Banner_Definition {
 					 *
 					 * @since 1.8.9.
 					 */
-					if ( isset( $slide['image-id'] ) && '' !== $slide['image-id'] ) {
-						$slide['background-image'] = $slide['image-id'];
+					if ( isset( $data['banner-slides'][$s]['image-id'] ) && '' !== $data['banner-slides'][$s]['image-id'] ) {
+						$data['banner-slides'][$s]['background-image'] = $data['banner-slides'][$s]['image-id'];
 					}
 
-					$slide_image = ttfmake_get_image_src( $slide['background-image'], 'large' );
+					$slide_image = ttfmake_get_image_src( $data['banner-slides'][$s]['background-image'], 'large' );
 
 					if ( isset( $slide_image[0] ) ) {
 						$data['banner-slides'][$s]['background-image-url'] = $slide_image[0];
