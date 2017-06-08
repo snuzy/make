@@ -26,7 +26,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
-= 1.8.9-beta - June 1 2017 =
+= 1.8.9 - June 8 2017 =
 * New feature: Added a setting to hide the Post title in single Post view.
 * New feature: Added a setting to toggle Post navigation in single Post view.
 * Improved: Better styling and accessibility for the Skip To Content link.
@@ -531,6 +531,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.8.9 =
+Improvements and bug fixes in templates, Customize screen, breadcrumbs and builder sections configuration.
 
 = 1.8.8 =
 Better background control, improved settings overlay, bug fixes.
