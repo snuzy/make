@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.8.10 - June 10 2017 =
+* Bug fix: Fixed site navigation menu float styles.
+
 = 1.8.9 - June 8 2017 =
 * New feature: Added a setting to hide the Post title in single Post view.
 * New feature: Added a setting to toggle Post navigation in single Post view.
@@ -531,6 +534,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.8.10 =
+Bug fix for float styles of site navigation menu.
 
 = 1.8.9 =
 Improvements and bug fixes in templates, Customize screen, breadcrumbs and builder sections configuration.
