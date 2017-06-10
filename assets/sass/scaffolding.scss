@@ -165,10 +165,8 @@ a {
 	.site-branding {
 		float: left;
 		max-width: 50%;
-		margin-right: 2%;
 		.branding-right & {
 			float: right;
-			margin-right: 0;
 		}
 	}
 }
@@ -486,10 +484,14 @@ div.custom-logo {
 -------------------------------------------------------- */
 .site-navigation {
 	@include for(medium-screens) {
+		float: right;
+		max-width: 50%;
 		.branding-right .header-layout-1 & {
+			float: left;
 			text-align: left;
 		}
 		.branding-right .header-layout-3 & {
+			float: left;
 			text-align: right;
 		}
 	}
