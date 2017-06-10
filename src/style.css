@@ -654,12 +654,10 @@ a {
 	.site-branding {
 		float: left;
 		max-width: 50%;
-		margin-right: 2%;
 	}
 
 	.branding-right .site-branding {
 		float: right;
-		margin-right: 0;
 	}
 }
 
@@ -1115,11 +1113,18 @@ div.custom-logo a {
 }
 
 @media screen and (min-width: 800px) {
+	.site-navigation {
+		float: right;
+		max-width: 50%;
+	}
+
 	.branding-right .header-layout-1 .site-navigation {
+		float: left;
 		text-align: left;
 	}
 
 	.branding-right .header-layout-3 .site-navigation {
+		float: left;
 		text-align: right;
 	}
 }
