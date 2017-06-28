@@ -2452,6 +2452,7 @@ img {
 .screen-reader-text {
 	position: absolute;
 	top: -1000em;
+	left: 0;
 }
 
 .screen-reader-text:focus {
