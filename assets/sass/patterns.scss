@@ -24,6 +24,7 @@ img {
 .screen-reader-text {
 	position: absolute;
 	top: -10000em;
+	left: 0;
 }
 .screen-reader-text:focus {
 	left: 6px;
