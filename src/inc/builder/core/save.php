@@ -635,8 +635,17 @@ class TTFMAKE_Builder_Save {
 		if ( empty( $this->_sanitized_sections ) ) {
 			$data = array();
 
-			if ( isset( $_POST['ttfmake-sections-json'] ) ) {
-				$data = json_decode( wp_unslash( $_POST['ttfmake-sections-json'] ), true );
+			if ( isset( $_POST['ttfmake-section-layout'] ) ) {
+				$section_ids = json_decode( wp_unslash( $_POST['ttfmake-section-layout'] ), true );
+
+				foreach( $section_ids as $section_id ) {
+					$section_name = 'ttfmake-section-json-' . $section_id;
+
+					if ( isset( $_POST[ $section_name ] ) ) {
+						$section_data = json_decode( wp_unslash( $_POST[ $section_name ] ), true );
+						$data[ $section_id ] = $section_data;
+					}
+				}
 			}
 
 			$this->_sanitized_sections = $this->prepare_data( $data );

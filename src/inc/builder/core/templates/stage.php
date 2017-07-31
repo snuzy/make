@@ -15,7 +15,7 @@ do_action( 'make_before_builder_stage' );
 
 <div class="ttfmake-stage ttfmake-stage-closed" id="ttfmake-stage"></div>
 
-<textarea name="ttfmake-sections-json" id="ttfmake-sections-json" style="display: none;"></textarea>
+<input type="hidden" name="ttfmake-section-layout" id="ttfmake-section-layout" style="display: none;" />
 
 <?php
 /**

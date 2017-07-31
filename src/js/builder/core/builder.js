@@ -67,7 +67,7 @@
 			this.listenTo( this.collection, 'add', this.onSectionModelAdded );
 			this.listenTo( this.collection, 'remove', this.onSectionModelRemoved );
 			this.listenTo( this.collection, 'reset', this.onSectionModelsSorted );
-			this.listenTo( this.collection, 'add remove change reset', this.onSectionCollectionChanged );
+			this.listenTo( this.collection, 'add remove reset', this.onSectionCollectionChanged );
 			this.listenTo( this.sectionViews, 'add', this.onSectionViewAdded );
 			this.listenTo( this.sectionViews, 'remove', this.onSectionViewRemoved );
 			this.listenTo( this.sectionViews, 'add remove', this.toggleClosedClass );
@@ -93,9 +93,8 @@
 		},
 
 		onSectionCollectionChanged: function( sectionModel ) {
-			var jsonTextarea = $( '#ttfmake-sections-json' );
-			jsonTextarea.val( JSON.stringify( this.collection.toJSON() ) );
-			// console.log( jsonTextarea.val() );
+			var $layoutInput = $( '#ttfmake-section-layout' );
+			$layoutInput.val( JSON.stringify( this.collection.pluck( 'id' ) ) );
 		},
 
 		onSectionModelsSorted: function( sectionCollection ) {
@@ -184,6 +183,7 @@
 
 		initialize: function() {
 			this.on( 'rendered', this.afterRender, this );
+			this.listenTo( this.model, 'change', this.onSectionModelChanged );
 		},
 
 		render: function() {
@@ -196,6 +196,11 @@
 
 		afterRender: function() {
 			this.listenTo( this.model, 'change:title', this.updateTitle );
+		},
+
+		onSectionModelChanged: function() {
+			var $sectionModelTextarea = $( '.ttfmake-section-json', this.$el );
+			$sectionModelTextarea.val( JSON.stringify( this.model.toJSON() ) );
 		},
 
 		onToggleSectionClick: function ( e ) {
