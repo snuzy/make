@@ -275,7 +275,7 @@ class MAKE_Section_Methods extends MAKE_Util_Modules implements MAKE_Section_Met
 				 * @param array     $ttfmake_section_data    The section data.
 				 * @param array     $sections                The list of sections.
 				 */
-				return apply_filters( 'make_gallery_class', $html_class, $section_data, $sections );
+				$section_specific_classes = apply_filters( 'make_gallery_class', $html_class, $section_data, $sections );
 				break;
 
 			case 'banner':
