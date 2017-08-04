@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2017-06-10T14:16:47+00:00
+// Updated: 2017-08-04T11:18:56+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -647,6 +647,25 @@ $this->load_font_data( array(
 		),
 		'category' => 'handwriting',
 	),
+	'Archivo' => array(
+		'label' => 'Archivo',
+		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
 	'Archivo Black' => array(
 		'label' => 'Archivo Black',
 		'variants' => array(
@@ -661,6 +680,10 @@ $this->load_font_data( array(
 	'Archivo Narrow' => array(
 		'label' => 'Archivo Narrow',
 		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
 			'700',
 			'700italic',
 			'italic',
@@ -804,6 +827,25 @@ $this->load_font_data( array(
 		'variants' => array(
 			'500',
 			'500italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Asap Condensed' => array(
+		'label' => 'Asap Condensed',
+		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
 			'700',
 			'700italic',
 			'italic',
@@ -1238,6 +1280,18 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'latin',
+		),
+		'category' => 'serif',
+	),
+	'Bellefair' => array(
+		'label' => 'Bellefair',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'hebrew',
+			'latin',
+			'latin-ext',
 		),
 		'category' => 'serif',
 	),
@@ -3154,6 +3208,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -3275,6 +3330,25 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+		),
+		'category' => 'serif',
+	),
+	'Faustina' => array(
+		'label' => 'Faustina',
+		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'serif',
 	),
@@ -5503,8 +5577,11 @@ $this->load_font_data( array(
 	'Mada' => array(
 		'label' => 'Mada',
 		'variants' => array(
+			'200',
 			'300',
 			'500',
+			'600',
+			'700',
 			'900',
 			'regular',
 		),
@@ -5585,6 +5662,25 @@ $this->load_font_data( array(
 			'telugu',
 		),
 		'category' => 'sans-serif',
+	),
+	'Manuale' => array(
+		'label' => 'Manuale',
+		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'serif',
 	),
 	'Marcellus' => array(
 		'label' => 'Marcellus',
@@ -7278,6 +7374,8 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'latin',
+			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -8514,6 +8612,86 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Saira' => array(
+		'label' => 'Saira',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Saira Condensed' => array(
+		'label' => 'Saira Condensed',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Saira Extra Condensed' => array(
+		'label' => 'Saira Extra Condensed',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Saira Semi Condensed' => array(
+		'label' => 'Saira Semi Condensed',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
 	'Salsa' => array(
 		'label' => 'Salsa',
 		'variants' => array(
@@ -8687,6 +8865,30 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'sans-serif',
+	),
+	'Sedgwick Ave' => array(
+		'label' => 'Sedgwick Ave',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'handwriting',
+	),
+	'Sedgwick Ave Display' => array(
+		'label' => 'Sedgwick Ave Display',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'handwriting',
 	),
 	'Sevillana' => array(
 		'label' => 'Sevillana',
@@ -9126,6 +9328,31 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'display',
+	),
+	'Spectral' => array(
+		'label' => 'Spectral',
+		'variants' => array(
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'800',
+			'800italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'serif',
 	),
 	'Spicy Rice' => array(
 		'label' => 'Spicy Rice',
@@ -10197,5 +10424,37 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'handwriting',
+	),
+	'Zilla Slab' => array(
+		'label' => 'Zilla Slab',
+		'variants' => array(
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
+	),
+	'Zilla Slab Highlight' => array(
+		'label' => 'Zilla Slab Highlight',
+		'variants' => array(
+			'700',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'display',
 	),
 ) );
