@@ -536,7 +536,7 @@ class MAKE_Builder_Sections_Banner_Definition {
 				}
 
 				if ( isset( $slide['background-image-url'] ) && '' !== $slide['background-image-url'] ) {
-					$clean_slide_data['background-image-url'] = $clean_slide_data['background-image-url'];
+					$clean_slide_data['background-image-url'] = $slide['background-image-url'];
 				} else {
 					$clean_slide_data['background-image-url'] = '';
 				}
