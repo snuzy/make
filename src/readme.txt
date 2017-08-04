@@ -26,6 +26,10 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.8.11 - August 4 2017 =
+* Bug fix: Screen reader text was causing horizontal scrolling in Firefox.
+* Bug fix: The format overlay wasn't appearing on Wordpress 4.8.1.
+
 = 1.8.10 - June 10 2017 =
 * Bug fix: Fixed site navigation menu float styles.
 
@@ -534,6 +538,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.8.11 =
+Minor bug fixes.
 
 = 1.8.10 =
 Bug fix for float styles of site navigation menu.
