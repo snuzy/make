@@ -84,10 +84,11 @@ if ( ! function_exists( 'ttfmake_get_section_data' ) ) :
  *
  * @since  1.2.0.
  *
- * @param  string    $post_id    The post to retrieve the data from.
- * @return array                 The combined data.
+ * @param  string    $post_id        The post to retrieve the data from.
+ * @param  string    $section_id     The optional section_id to retrieve data for.
+ * @return array                     The combined data.
  */
-function ttfmake_get_section_data( $post_id ) {
+function ttfmake_get_section_data( $post_id, $section_id = false ) {
 	$ordered_data = array();
 	$ids          = get_post_meta( $post_id, '_ttfmake-section-ids', true );
 	$ids          = ( ! empty( $ids ) && is_array( $ids ) ) ? array_map( 'strval', $ids ) : $ids;
@@ -119,15 +120,34 @@ function ttfmake_get_section_data( $post_id ) {
 		}
 	}
 
-	/**
-	 * Filter the section data for a post.
-	 *
-	 * @since 1.2.3.
-	 *
-	 * @param array    $ordered_data    The array of section data.
-	 * @param int      $post_id         The post ID for the retrieved data.
-	 */
-	return apply_filters( 'make_get_section_data', $ordered_data, $post_id );
+
+	if ( ! isset( $GLOBALS['make_post_section_data'] ) ) {
+		/**
+		 * Filter the section data for a post.
+		 *
+		 * @since 1.2.3.
+		 *
+		 * @param array    $ordered_data    The array of section data.
+		 * @param int      $post_id         The post ID for the retrieved data.
+		 */
+		$post_section_data = apply_filters( 'make_get_section_data', $ordered_data, $post_id );
+	} else {
+		global $make_post_section_data;
+		$post_section_data = $make_post_section_data;
+	}
+
+
+	if ( false !== $section_id ) {
+		foreach( $post_section_data as $section_data ) {
+			if ( strval( $section_id ) === $section_data['id'] ) {
+				return $section_data;
+			}
+		}
+
+		return false;
+	}
+
+	return $post_section_data;
 }
 endif;
 

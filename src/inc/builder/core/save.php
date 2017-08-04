@@ -376,43 +376,61 @@ class TTFMAKE_Builder_Save {
 		// Remove editor image constraints while rendering section data.
 		add_filter( 'editor_max_image_size', array( &$this, 'remove_image_constraints' ) );
 
+		// Set section data as a global to avoid re-querying when
+		// templates render through ttfmake_get_section_data
+		global $make_post_section_data;
+		$make_post_section_data = $data;
+
 		// Start the output buffer to collect the contents of the templates
 		ob_start();
 
 		// For each sections, render it using the template
-		foreach ( $data as $section ) {
-			global $ttfmake_section_data, $ttfmake_sections;
-			$ttfmake_section_data = $section;
-			$ttfmake_sections     = $data;
+		foreach ( $make_post_section_data as $section_data ) {
+			$section_definition = ttfmake_get_section_definition( $section_data['section-type'] );
 
-			// Get the registered sections
-			$registered_sections = ttfmake_get_sections();
+			// Get the template for the section
+			$section_id = $section_data['id'];
+			$section_template = $section_definition['display_template'];
 
-			if ( !isset( $ttfmake_section_data['draft'] ) || $ttfmake_section_data['draft'] != 1 ) {
-				$section_display_template = apply_filters(
-					'make_section_display_template_relative_path',
-					$registered_sections[ $section['section-type'] ]['display_template'],
-					$ttfmake_section_data
-				);
+			set_query_var( 'section_id', $section_id );
+			get_template_part( $section_template );
 
-				$section_path = apply_filters(
-					'make_section_path',
-					$registered_sections[ $section['section-type'] ]['path'],
-					$ttfmake_section_data
-				);
 
-				// Get the template for the section
-				Make()->section()->load_section_template(
-					$section_display_template,
-					$section_path,
-					false,
-					$ttfmake_section_data
-				);
-			}
+			// die(print_r($section_definition));
+			// global $ttfmake_section_data, $ttfmake_sections;
+			// $ttfmake_section_data = $section;
+			// $ttfmake_sections     = $data;
+
+			// // Get the registered sections
+			// $registered_sections = ttfmake_get_sections();
+
+			// if ( !isset( $ttfmake_section_data['draft'] ) || $ttfmake_section_data['draft'] != 1 ) {
+			// 	$section_display_template = apply_filters(
+			// 		'make_section_display_template_relative_path',
+			// 		$registered_sections[ $section['section-type'] ]['display_template'],
+			// 		$ttfmake_section_data
+			// 	);
+
+			// 	$section_path = apply_filters(
+			// 		'make_section_path',
+			// 		$registered_sections[ $section['section-type'] ]['path'],
+			// 		$ttfmake_section_data
+			// 	);
+
+			// 	// Get the template for the section
+			// 	Make()->section()->load_section_template(
+			// 		$section_display_template,
+			// 		$section_path,
+			// 		false,
+			// 		$ttfmake_section_data
+			// 	);
+			// }
 
 			// Cleanup the global
-			unset( $GLOBALS['ttfmake_section_data'] );
+			// unset( $GLOBALS['ttfmake_section_data'] );
 		}
+
+		unset( $GLOBALS['make_post_section_data'] );
 
 		// Get the rendered templates from the output buffer
 		$post_content = ob_get_clean();
@@ -531,6 +549,69 @@ class TTFMAKE_Builder_Save {
 	}
 
 	/**
+	 * Get the next section's data.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  array    $current_section    The current section's data.
+	 * @param  array    $sections           The list of sections.
+	 * @return array                        The next section's data.
+	 */
+	public function get_next_section_data( $current_section, $sections ) {
+		$next_is_the_one = false;
+		$next_data       = array();
+		foreach ( $sections as $id => $data ) {
+			if ( true === $next_is_the_one ) {
+				$next_data = $data;
+				break;
+			}
+			if ( $current_section['id'] == $id ) {
+				$next_is_the_one = true;
+			}
+		}
+		/**
+		 * Allow developers to alter the "next" section data.
+		 *
+		 * @since 1.2.3.
+		 *
+		 * @param array    $next_data          The data for the next section.
+		 * @param array    $current_section    The data for the current section.
+		 * @param array    $sections           The list of all sections.
+		 */
+		return apply_filters( 'make_get_next_section_data', $next_data, $current_section, $sections );
+	}
+
+	/**
+	 * Get the previous section's data.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  array    $current_section    The current section's data.
+	 * @param  array    $sections           The list of sections.
+	 * @return array                        The previous section's data.
+	 */
+	public function get_prev_section_data( $current_section, $sections ) {
+		foreach ( $sections as $id => $data ) {
+			if ( $current_section['id'] == $id ) {
+				break;
+			} else {
+				$prev_key = $id;
+			}
+		}
+		$prev_section = ( isset( $prev_key ) && isset( $sections[ $prev_key ] ) ) ? $sections[ $prev_key ] : array();
+		/**
+		 * Allow developers to alter the "next" section data.
+		 *
+		 * @since 1.2.3.
+		 *
+		 * @param array    $prev_section       The data for the next section.
+		 * @param array    $current_section    The data for the current section.
+		 * @param array    $sections           The list of all sections.
+		 */
+		return apply_filters( 'make_get_prev_section_data', $prev_section, $current_section, $sections );
+	}
+
+	/**
 	 * Prepare the HTML id for a section.
 	 *
 	 * @since 1.6.0.
@@ -566,11 +647,14 @@ class TTFMAKE_Builder_Save {
 	 * @param  array     $sections           The list of sections.
 	 * @return string                        The class string.
 	 */
-	public function section_classes( $current_section, $sections ) {
+	public function section_html_classes( $current_section, $sections ) {
 		$prefix = 'builder-section-';
 
 		// Get the current section type
 		$current = ( isset( $current_section['section-type'] ) ) ? $prefix . $current_section['section-type'] : '';
+
+		// Prepend default classes
+		$current = 'builder-section ' . $current;
 
 		// Get the next section's type
 		$next_data = $this->get_next_section_data( $current_section, $sections );
@@ -580,6 +664,23 @@ class TTFMAKE_Builder_Save {
 		$prev_data = $this->get_prev_section_data( $current_section, $sections );
 		$prev      = ( ! empty( $prev_data ) && isset( $prev_data['section-type'] ) ) ? $prefix . 'prev-' . $prev_data['section-type'] : $prefix . 'first';
 
+		$html_classes = $prev . ' ' . $current . ' ' . $next;
+
+		// Background
+		$bg_color = ( isset( $current_section['background-color'] ) && ! empty( $current_section['background-color'] ) );
+		$bg_image = ( isset( $current_section['background-image'] ) && 0 !== absint( $current_section['background-image'] ) );
+
+		if ( true === $bg_color || true === $bg_image ) {
+			$html_classes .= ' has-background';
+		}
+
+		// Full width
+		$full_width = isset( $current_section['full-width'] ) && 0 !== absint( $current_section['full-width'] );
+
+		if ( true === $full_width ) {
+			$html_classes .= ' builder-section-full-width';
+		}
+
 		/**
 		 * Filter the section classes.
 		 *
@@ -588,7 +689,44 @@ class TTFMAKE_Builder_Save {
 		 * @param string    $classes            The sting of classes.
 		 * @param array     $current_section    The array of data for the current section.
 		 */
-		return apply_filters( 'make_section_classes', $prev . ' ' . $current . ' ' . $next, $current_section );
+		$html_classes = apply_filters( 'make_section_classes', $html_classes, $current_section );
+
+		/**
+		 * MISSING DOCS
+		 */
+		return apply_filters( 'make_section_html_classes', $html_classes, $current_section );
+	}
+
+	/**
+	 * MISSING DOCS
+	 */
+	public function section_html_style( $current_section ) {
+		$style = '';
+
+		// Background color
+		if ( isset( $current_section['background-color'] ) && ! empty( $current_section['background-color'] ) ) {
+			$style .= 'background-color:' . maybe_hash_hex_color( $current_section['background-color'] ) . ';';
+		}
+		// Background image
+		if ( isset( $current_section['background-image'] ) && 0 !== absint( $current_section['background-image'] ) ) {
+			$image_src = ttfmake_get_image_src( $current_section['background-image'], 'full' );
+			if ( isset( $image_src[0] ) ) {
+				$style .= 'background-image: url(\'' . addcslashes( esc_url_raw( $image_src[0] ), '"' ) . '\');';
+			}
+		}
+		// Background style
+		if ( isset( $current_section['background-style'] ) && ! empty( $current_section['background-style'] ) ) {
+			if ( in_array( $current_section['background-style'], array( 'cover', 'contain' ) ) ) {
+				$style .= 'background-size: ' . $current_section['background-style'] . '; background-repeat: no-repeat;';
+			}
+		}
+		// Background position
+		if ( isset( $current_section['background-position'] ) && ! empty( $current_section['background-position'] ) ) {
+			$rule = explode( '-', $current_section['background-position'] );
+			$style .= 'background-position: ' . implode( ' ', $rule ) . ';';
+		}
+
+		return $style;
 	}
 
 	/**
@@ -704,5 +842,66 @@ function ttfmake_sanitize_image_id( $id ) {
 	}
 
 	return $id;
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_id' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_id( $post_id, $section_id ) {
+	$section_data = ttfmake_get_section_data( $post_id, $section_id );
+	return ttfmake_get_builder_save()->section_html_id( $section_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_class' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_class( $post_id, $section_id ) {
+	$sections_data = ttfmake_get_section_data( $post_id );
+	$section_data = ttfmake_get_section_data( $post_id, $section_id );
+	return ttfmake_get_builder_save()->section_html_classes( $section_data, $sections_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_style' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_style( $post_id, $section_id ) {
+	$section_data = ttfmake_get_section_data( $post_id, $section_id );
+	return ttfmake_get_builder_save()->section_html_style( $section_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_content' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_content( $content ) {
+	return ttfmake_get_builder_save()->the_builder_content( $content );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_field' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_field( $post_id, $section_id, $field ) {
+	$section_data = ttfmake_get_section_data( $post_id, $section_id );
+	$value = '';
+
+	if ( isset( $section_data[$field] ) ) {
+		$value = $section_data[$field];
+	}
+
+	return $value;
 }
 endif;

@@ -48,9 +48,6 @@ class TTFMAKE_Builder_Base {
 		// Include the configuration helpers
 		require_once get_template_directory() . '/inc/builder/core/configuration-helpers.php';
 
-		// Add the core sections
-		require_once get_template_directory() . '/inc/builder/sections/section-definitions.php';
-
 		// Include the save routines
 		require_once get_template_directory() . '/inc/builder/core/save.php';
 
@@ -309,7 +306,7 @@ class TTFMAKE_Builder_Base {
 			'ttfMakeSections',
 			array(
 				'settings' => ttfmake_get_sections_settings(),
-				'defaults' => ttfmake_get_section_definitions()->get_section_defaults(),
+				'defaults' => ttfmake_get_sections_defaults(),
 				'data' => ttfmake_get_section_json_data( $section_data )
 			)
 		);
