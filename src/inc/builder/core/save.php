@@ -209,7 +209,7 @@ class TTFMAKE_Builder_Save {
 			update_post_meta(
 				$post_id,
 				'_ttfmake_section_' . $section[ 'id' ],
-				wp_slash( json_encode( $section ) )
+				serialize( $section )
 			);
 
 			$layout[] = $section[ 'id' ];
@@ -219,7 +219,7 @@ class TTFMAKE_Builder_Save {
 		$current_layout_meta = get_post_meta( $post_id, '_ttfmake_layout', true );
 
 		if ( $current_layout_meta ) {
-			$current_layout = json_decode( wp_unslash( $current_layout_meta ), true );
+			$current_layout = unserialize( $current_layout_meta );
 			$removed_section_ids = array_diff( $current_layout, $layout );
 
 			foreach ( $removed_section_ids as $section_id ) {
@@ -228,7 +228,7 @@ class TTFMAKE_Builder_Save {
 		}
 
 		// Update layout
-		update_post_meta( $post_id, '_ttfmake_layout', wp_slash( json_encode( $layout ) ) );
+		update_post_meta( $post_id, '_ttfmake_layout', serialize( $layout ) );
 	}
 
 	/**

@@ -147,12 +147,12 @@ class TTFMAKE_Builder_Base {
 		$layout_meta = get_post_meta( $post_id, '_ttfmake_layout', true );
 
 		if ( $layout_meta ) {
-			$layout = json_decode( wp_unslash( $layout_meta ), true );
+			$layout = unserialize( $layout_meta );
 			$sections = array();
 
 			foreach ( $layout as $section_id ) {
 				$section_meta = get_post_meta( $post_id, "_ttfmake_section_{$section_id}", true );
-				$section = json_decode( wp_unslash( $section_meta ), true );
+				$section = unserialize( $section_meta );
 				$sections[] = $section;
 			}
 		}
