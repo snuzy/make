@@ -478,48 +478,6 @@ class TTFMAKE_Builder_Base {
 	}
 
 	/**
-	 * Load a section template with an available data payload for use in the template.
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  string    $section     The section data.
-	 * @param  array     $data        The data payload to inject into the section.
-	 * @param  boolean   $return      Specifies if the template should be included or returned as string.
-	 * @return void
-	 */
-	public function load_section( $section, $data = array(), $return = false ) {
-		if ( ! isset( $section['id'] ) ) {
-			return;
-		}
-
-		// Globalize the data to provide access within the template
-		global $ttfmake_section_data;
-		$ttfmake_section_data = array(
-			'data'    => $data,
-			'section' => $section,
-		);
-
-		$templates = $ttfmake_section_data['section']['builder_template'];
-		$path = $ttfmake_section_data['section']['path'];
-
-		if ( !is_array( $templates ) ) {
-			$templates = array ( $templates );
-		}
-
-		foreach ( $templates as $key => $template ) {
-			// Include the template
-			$templates[$key] = Make()->section()->load_section_template( $template, $path, $return, $ttfmake_section_data['data'] );
-		}
-
-		// Destroy the variable as a good citizen does
-		unset( $GLOBALS['ttfmake_section_data'] );
-
-		if ( $return ) {
-			return count( $templates ) == 1 ? $templates[0]: $templates;
-		}
-	}
-
-	/**
 	 * Print out the JS section templates
 	 *
 	 * @since  1.0.0.
@@ -775,44 +733,39 @@ if ( ! function_exists( 'ttfmake_load_section_template' ) ) :
  *
  * @since  1.0.4.
  *
- * @param  string    $slug    The relative path and filename (w/out suffix) required to substitute the template in a child theme.
- * @param  string    $path    An optional path extension to point to the template in the parent theme or a plugin.
-  * @param  boolean   $return  Specifies if the template should be included or returned as string.
- * @return string             The template filename if one is located.
+ * @param  string    $slug    The slug name for the generic template.
+ * @param  string    $name    The name of the specialised template.
+ * @return void
  */
-function ttfmake_load_section_template( $slug, $path, $return = false ) {
-	$templates = array(
-		$slug . '.php',
-		trailingslashit( $path ) . $slug . '.php'
+function ttfmake_get_template( $slug, $name = '' ) {
+	$templates = array();
+	$paths = array(
+		STYLESHEETPATH . '/',
+		TEMPLATEPATH . '/inc/'
 	);
+	$slug = ltrim( $slug, '/' );
 
-	/**
-	 * Filter the templates to try and load.
-	 *
-	 * @since 1.2.3.
-	 *
-	 * @param array    $templates    The list of template to try and load.
-	 * @param string   $slug         The template slug.
-	 * @param string   $path         The path to the template.
-	 */
-	$templates = apply_filters( 'make_load_section_template', $templates, $slug, $path );
+	if ( '' !== $name ) {
+		$templates[] = "{$slug}-{$name}.php";
+	}
 
-	if ( '' === $located = locate_template( $templates, true, false ) ) {
-		if ( isset( $templates[1] ) && file_exists( $templates[1] ) ) {
-			if ( $return ) {
-				ob_start();
-			}
+	$templates[] = "{$slug}.php";
 
-			require( $templates[1] );
-			$located = $templates[1];
+	if ( Make()->plus()->is_plus() ) {
+		$paths[] = makeplus_get_plugin_directory() . '/inc/';
+	}
 
-			if ( $return ) {
-				$located = ob_get_clean();
+	foreach ( $templates as $template ) {
+		foreach( $paths as $path ) {
+			$template_file = $path . $template;
+
+			if ( file_exists( $template_file ) ) {
+				return require( $template_file );
 			}
 		}
 	}
 
-	return $located;
+	get_template_part( $slug, $name );
 }
 endif;
 
