@@ -3259,9 +3259,10 @@ div.wp-video-shortcode {
 	}
 }
 
-.cycle-slide .builder-banner-content {
-	padding: 11px 96px;
-	padding: 1.1rem 9.6rem;
+.cycle-prev ~ .builder-banner-slide .builder-banner-content,
+.cycle-next ~ .builder-banner-slide .builder-banner-content {
+	padding: 0 96px;
+	padding: 0 9.6rem;
 }
 
 @media screen and (min-width: 800px) {
@@ -3292,8 +3293,7 @@ div.wp-video-shortcode {
 	top: 50%;
 	max-width: 1024px;
 	margin: 0 auto;
-	padding: 0 32px;
-	padding: 0 3.2rem;
+	padding: 0;
 	vertical-align: middle;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
