@@ -58,6 +58,11 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 			return;
 		}
 
+		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_builder_scripts' ) );
+		add_action( 'make_style_loaded', array( $this, 'builder_styles' ) );
+		// Read from new layout if present
+		add_filter( 'make_get_section_data', array( $this, 'read_layout' ), 10, 2 );
+
 		// Hooking has occurred.
 		self::$hooked = true;
 	}
@@ -71,6 +76,95 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 	 */
 	public function is_hooked() {
 		return self::$hooked;
+	}
+
+	public function read_layout( $sections, $post_id ) {
+		$layout_meta = get_post_meta( $post_id, '_ttfmake_layout', true );
+
+		if ( $layout_meta ) {
+			$layout = unserialize( $layout_meta );
+			$sections = array();
+
+			foreach ( $layout as $section_id ) {
+				$section_meta = get_post_meta( $post_id, "_ttfmake_section_{$section_id}", true );
+				$section = unserialize( $section_meta );
+				$sections[] = $section;
+			}
+		}
+
+		return $sections;
+	}
+
+	/**
+	 * Handle frontend scripts for use with the existing sections on the current Builder page.
+	 *
+	 * @since 1.6.1.
+	 *
+	 * @hooked action wp_enqueue_scripts
+	 *
+	 * @return void
+	 */
+	public function frontend_builder_scripts() {
+		if ( ttfmake_is_builder_page() ) {
+			$sections = ttfmake_get_section_data( get_the_ID() );
+			// Bail if there are no sections
+			if ( empty( $sections ) ) {
+				return;
+			}
+			// Parse the sections included on the page.
+			$section_types = wp_list_pluck( $sections, 'section-type' );
+			foreach ( $section_types as $section_id => $section_type ) {
+				switch ( $section_type ) {
+					default :
+						break;
+					case 'banner' :
+					case 'postlist' :
+					case 'productgrid' :
+						// Add Cycle2 as a dependency for the Frontend script
+						$this->scripts()->add_dependency( 'make-frontend', 'cycle2', 'script' );
+						if ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) {
+							$this->scripts()->add_dependency( 'make-frontend', 'cycle2-center', 'script' );
+							$this->scripts()->add_dependency( 'make-frontend', 'cycle2-swipe', 'script' );
+						}
+						break;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Trigger an action hook for each section on a Builder page for the purpose
+	 * of adding section-specific CSS rules to the document head.
+	 *
+	 * @since 1.4.5
+	 *
+	 * @hooked action make_style_loaded
+	 *
+	 * @param MAKE_Style_ManagerInterface $style    The style manager instance.
+	 *
+	 * @return void
+	 */
+	public function builder_styles( MAKE_Style_ManagerInterface $style ) {
+		if ( ttfmake_is_builder_page() ) {
+			$sections = ttfmake_get_section_data( get_the_ID() );
+			if ( ! empty( $sections ) ) {
+				foreach ( $sections as $id => $data ) {
+					if ( isset( $data['section-type'] ) ) {
+						/**
+						 * Allow section-specific CSS rules to be added to the document head of a Builder page.
+						 *
+						 * @since 1.4.5
+						 * @since 1.7.0. Added the $style parameter.
+						 *
+						 * @param array                       $data     The Builder section's data.
+						 * @param int                         $id       The ID of the Builder section.
+						 * @param MAKE_Style_ManagerInterface $style    The style manager instance.
+						 */
+						do_action( 'make_builder_' . $data['section-type'] . '_css', $data, $id, $style );
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -135,7 +229,6 @@ function ttfmake_get_section_data( $post_id, $section_id = false ) {
 		global $make_post_section_data;
 		$post_section_data = $make_post_section_data;
 	}
-
 
 	if ( false !== $section_id ) {
 		foreach( $post_section_data as $section_data ) {

@@ -60,9 +60,6 @@ class TTFMAKE_Builder_Base {
 		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 		add_action( 'admin_footer', array( $this, 'print_templates' ) );
 		add_action( 'post_submitbox_misc_actions', array( $this, 'builder_toggle' ) );
-
-		// Read from new layout if present
-		add_filter( 'make_get_section_data', array( $this, 'read_layout' ), 10, 2 );
 		add_filter( 'make_get_section_data', array( $this, 'massage_legacy_format' ), 20, 2 );
 	}
 
@@ -138,23 +135,6 @@ class TTFMAKE_Builder_Base {
 		// Load the boilerplate templates
 		get_template_part( 'inc/builder/core/templates/menu' );
 		get_template_part( 'inc/builder/core/templates/stage' );
-	}
-
-	public function read_layout( $sections, $post_id ) {
-		$layout_meta = get_post_meta( $post_id, '_ttfmake_layout', true );
-
-		if ( $layout_meta ) {
-			$layout = unserialize( $layout_meta );
-			$sections = array();
-
-			foreach ( $layout as $section_id ) {
-				$section_meta = get_post_meta( $post_id, "_ttfmake_section_{$section_id}", true );
-				$section = unserialize( $section_meta );
-				$sections[] = $section;
-			}
-		}
-
-		return $sections;
 	}
 
 	public function massage_legacy_format( $section_data, $post_id ) {
