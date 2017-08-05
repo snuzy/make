@@ -35,27 +35,35 @@ class MAKE_Sections_Banner_Definition {
 	}
 
 	public function __construct() {
-		add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
-		add_filter( 'make_sections_settings', array( $this, 'section_settings' ) );
-		add_filter( 'make_sections_defaults', array( $this, 'section_defaults' ) );
-		add_filter( 'make_get_section_json', array ( $this, 'get_section_json' ), 10, 1 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
-		add_action( 'admin_footer', array( $this, 'print_templates' ) );
+		if ( is_admin() ) {
+			add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
+			add_filter( 'make_sections_settings', array( $this, 'section_settings' ) );
+			add_filter( 'make_sections_defaults', array( $this, 'section_defaults' ) );
+			add_filter( 'make_get_section_json', array( $this, 'get_section_json' ), 10, 1 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
+			add_action( 'admin_footer', array( $this, 'print_templates' ) );
+			add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
+			add_filter( 'make_section_html_attrs', array( $this, 'html_attrs' ), 10, 3 );
+			add_filter( 'make_section_item_html_class', array( $this, 'item_html_class' ), 10, 3 );
+			add_filter( 'make_section_item_html_style', array( $this, 'item_html_style' ), 10, 4 );
 
-		ttfmake_add_section(
-			'banner',
-			__( 'Banner', 'make' ),
-			Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/banner.png',
-			__( 'Display multiple types of content in a banner or a slider.', 'make' ),
-			array( $this, 'save' ),
-			array (
-				'banner' => 'sections/banner/builder-template',
-				'banner-slide' => 'sections/banner/builder-template-slide'
-			),
-			'sections/banner/frontend-template',
-			300,
-			get_template_directory() . '/inc/builder/'
-		);
+			ttfmake_add_section(
+				'banner',
+				__( 'Banner', 'make' ),
+				Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/banner.png',
+				__( 'Display multiple types of content in a banner or a slider.', 'make' ),
+				array( $this, 'save' ),
+				array(
+					'banner' => 'sections/banner/builder-template',
+					'banner-slide' => 'sections/banner/builder-template-slide'
+				),
+				'inc/sections/banner/frontend-template',
+				300,
+				get_template_directory() . '/inc/builder/'
+			);
+		} else {
+			add_action( 'make_builder_banner_css', array( $this, 'style_rules' ), 10, 3 );
+		}
 	}
 
 	public function get_settings() {
@@ -599,6 +607,182 @@ class MAKE_Sections_Banner_Definition {
 		<?php get_template_part( 'inc/builder/sections/banner/builder-template', 'slide' ); ?>
 		</script>
 		<?php
+	}
+
+	public function html_class( $classes, $section_id, $post_id ) {
+		$section_data = ttfmake_get_section_data( $post_id, $section_id );
+
+		if ( 'banner' === $section_data['section-type'] ) {
+			/**
+			 * Filter the class for the banner section.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string    $banner_class            The banner class.
+			 * @param array     $ttfmake_section_data    The section data.
+			 */
+			$classes = apply_filters( 'make_builder_banner_class', $classes, $section_data );
+		}
+
+		return $classes;
+	}
+
+	public function html_attrs( $attrs, $section_id, $post_id ) {
+		$section_data = ttfmake_get_section_data( $post_id, $section_id );
+
+		if ( 'banner' === $section_data['section-type'] ) {
+			$config = shortcode_atts( array(
+				'autoplay' => true,
+				'transition' => 'scrollHorz',
+				'delay' => 6000
+			), $section_data );
+
+			// Data attributes
+			$attrs .= ' data-cycle-log="false"';
+			$attrs .= ' data-cycle-slides="div.builder-banner-slide"';
+			$attrs .= ' data-cycle-swipe="true"';
+
+			// Autoplay
+			$autoplay = (bool) $config['autoplay'];
+
+			if ( false === $autoplay ) {
+				$attrs .= ' data-cycle-paused="true"';
+			}
+
+			// Delay
+			$delay = absint( $config['delay'] );
+
+			if ( 0 === $delay ) {
+				$delay = 6000;
+			}
+
+			if ( 4000 !== $delay ) {
+				$attrs .= ' data-cycle-timeout="' . esc_attr( $delay ) . '"';
+			}
+
+			// Effect
+			$effect = trim( $config['transition'] );
+
+			if ( ! in_array( $effect, array( 'fade', 'fadeout', 'scrollHorz', 'none' ) ) ) {
+				$effect = 'scrollHorz';
+			}
+
+			if ( 'fade' !== $effect ) {
+				$attrs .= ' data-cycle-fx="' . esc_attr( $effect ) . '"';
+			}
+
+			/**
+			 * Allow for altering the banner slider attributes.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string    $data_attributes         The data attributes in string form.
+			 * @param array     $ttfmake_section_data    The section data.
+			 */
+			$attrs = apply_filters( 'make_builder_get_banner_slider_atts', $attrs, $section_data );
+		}
+
+		return $attrs;
+	}
+
+	public function item_html_class( $classes, $item, $section_id ) {
+		if ( 'banner-slide' === $item['section-type'] ) {
+			if ( isset( $item['alignment'] ) && '' !== $item['alignment'] ) {
+				$classes .= ' ' . sanitize_html_class( 'content-position-' . $item['alignment'] );
+			}
+
+			/**
+			 * Allow developers to alter the class for the banner slide.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string $slide_class The banner classes.
+			 */
+			$classes = apply_filters( 'make_builder_banner_slide_class', $classes, $item );
+		}
+
+		return $classes;
+	}
+
+	public function item_html_style( $style, $item, $section_id, $post_id ) {
+		$section_data = ttfmake_get_section_data( $post_id, $section_id );
+
+		if ( 'banner-slide' === $item['section-type'] ) {
+			// Background color
+			if ( isset( $item['background-color'] ) && '' !== $item['background-color'] ) {
+				$style .= 'background-color:' . maybe_hash_hex_color( $item['background-color'] ) . ';';
+			}
+			// Background image
+			if ( isset( $item['background-image'] ) && 0 !== ttfmake_sanitize_image_id( $item['background-image'] ) ) {
+				$image_src = ttfmake_get_image_src( $item['background-image'], 'full' );
+				if ( isset( $image_src[0] ) ) {
+					$style .= 'background-image: url(\'' . addcslashes( esc_url_raw( $image_src[0] ), '"' ) . '\');';
+				}
+			}
+			/**
+			 * Allow developers to change the CSS for a Banner section.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string    $slide_style             The CSS for the banner.
+			 * @param array     $slide                   The slide data.
+			 * @param array     $ttfmake_section_data    The section data.
+			 */
+			$style = apply_filters( 'make_builder_banner_slide_style', esc_attr( $style ), $item, $section_data );
+		}
+
+		return $style;
+	}
+
+	/**
+	 * Add frontend CSS rules for Banner sections based on certain section options.
+	 *
+	 * @since 1.4.5
+	 *
+	 * @hooked action make_builder_banner_css
+	 *
+	 * @param array                       $data     The banner's section data.
+	 * @param int                         $id       The banner's section ID.
+	 * @param MAKE_Style_ManagerInterface $style    The style manager instance.
+	 *
+	 * @return void
+	 */
+	public function style_rules( array $data, $id, MAKE_Style_ManagerInterface $style ) {
+		$prefix = 'builder-section-';
+
+		$id = sanitize_title_with_dashes( $data['id'] );
+		/**
+		 * This filter is documented in inc/builder/core/save.php
+		 */
+		$section_id = apply_filters( 'make_section_html_id', $prefix . $id, $data );
+		$responsive = ( isset( $data['responsive'] ) ) ? $data['responsive'] : 'balanced';
+		$slider_height = absint( $data['height'] );
+		if ( 0 === $slider_height ) {
+			$slider_height = 600;
+		}
+		$slider_ratio = ( $slider_height / 960 ) * 100;
+		if ( 'aspect' === $responsive ) {
+			$style->css()->add( array(
+				'selectors'    => array( '#' . esc_attr( $section_id ) . ' .builder-banner-slide' ),
+				'declarations' => array(
+					'padding-bottom' => $slider_ratio . '%'
+				),
+			) );
+		} else {
+			$style->css()->add( array(
+				'selectors'    => array( '#' . esc_attr( $section_id ) . ' .builder-banner-slide' ),
+				'declarations' => array(
+					'padding-bottom' => $slider_height . 'px'
+				),
+			) );
+			$style->css()->add( array(
+				'selectors'    => array( '#' . esc_attr( $section_id ) . ' .builder-banner-slide' ),
+				'declarations' => array(
+					'padding-bottom' => $slider_ratio . '%'
+				),
+				'media'        => 'screen and (min-width: 600px) and (max-width: 960px)'
+			) );
+		}
 	}
 }
 endif;

@@ -4,10 +4,10 @@
  */
 ?>
 
-<section id="<?php echo ttfmake_get_section_html_id( get_the_ID(), $section_id ); ?>" class="<?php echo esc_attr( ttfmake_get_section_html_class( get_the_ID(), $section_id ) ); ?>" style="<?php echo esc_attr( ttfmake_get_section_html_style( get_the_ID(), $section_id ) ); ?>">
+<section id="<?php echo ttfmake_get_section_html_id( $section_id ); ?>" class="<?php echo esc_attr( ttfmake_get_section_html_class( $section_id ) ); ?>" style="<?php echo esc_attr( ttfmake_get_section_html_style( $section_id ) ); ?>">
 
 	<?php
-	$title = ttfmake_get_section_field( get_the_ID(), $section_id, 'title' );
+	$title = ttfmake_get_section_field( $section_id, 'title' );
 	if ( '' !== $title ) : ?>
     <h3 class="builder-text-section-title">
         <?php echo apply_filters( 'the_title', $title ); ?>
@@ -16,8 +16,8 @@
 
     <div class="builder-section-content">
         <?php
-        $text_columns = ttfmake_get_section_field( get_the_ID(), $section_id, 'columns' );
-        $columns_layout_size = ttfmake_get_section_field( get_the_ID(), $section_id, 'columns-number' );
+        $text_columns = ttfmake_get_section_field( $section_id, 'columns' );
+        $columns_layout_size = ttfmake_get_section_field( $section_id, 'columns-number' );
 
         if ( '' !== $text_columns ) : $i = 1; foreach ( $text_columns as $column ) : ?>
 			<?php if ( $i == 1 ): ?>
@@ -42,7 +42,7 @@
         <?php $i ++; endforeach; endif; ?>
     </div>
 
-    <?php if ( '' !== ttfmake_get_section_field( get_the_ID(), $section_id, 'darken' ) ) : ?>
+    <?php if ( '' !== ttfmake_get_section_field( $section_id, 'darken' ) ) : ?>
     <div class="builder-section-overlay"></div>
     <?php endif; ?>
 

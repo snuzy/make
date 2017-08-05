@@ -35,29 +35,31 @@ class MAKE_Sections_Columns_Definition {
 	}
 
 	public function __construct() {
-		add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
-		add_filter( 'make_sections_settings', array( $this, 'section_settings' ) );
-		add_filter( 'make_sections_defaults', array( $this, 'section_defaults' ) );
-		add_filter( 'make_get_section_json', array( $this, 'get_section_json' ), 10, 1 );
-		add_filter( 'make_get_section_json', array( $this, 'embed_column_images' ), 20, 1 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
-		add_action( 'admin_footer', array( $this, 'print_templates' ) );
-		add_filter( 'make_section_html_classes', array( $this, 'html_classes' ), 10, 2 );
+		if ( is_admin() ) {
+			add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
+			add_filter( 'make_sections_settings', array( $this, 'section_settings' ) );
+			add_filter( 'make_sections_defaults', array( $this, 'section_defaults' ) );
+			add_filter( 'make_get_section_json', array( $this, 'get_section_json' ), 10, 1 );
+			add_filter( 'make_get_section_json', array( $this, 'embed_column_images' ), 20, 1 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
+			add_action( 'admin_footer', array( $this, 'print_templates' ) );
+			add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 4 );
 
-		ttfmake_add_section(
-			'text',
-			__( 'Content', 'make' ),
-			Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/text.png',
-			__( 'Create rearrangeable columns of content and images.', 'make' ),
-			array( $this, 'save' ),
-			array (
-				'text' => 'sections/columns/builder-template',
-				'text-item' => 'sections/columns/builder-template-column'
-			),
-			'inc/sections/columns/frontend-template',
-			100,
-			get_template_directory() . '/inc/builder/'
-		);
+			ttfmake_add_section(
+				'text',
+				__( 'Content', 'make' ),
+				Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/text.png',
+				__( 'Create rearrangeable columns of content and images.', 'make' ),
+				array( $this, 'save' ),
+				array (
+					'text' => 'sections/columns/builder-template',
+					'text-item' => 'sections/columns/builder-template-column'
+				),
+				'inc/sections/columns/frontend-template',
+				100,
+				get_template_directory() . '/inc/builder/'
+			);
+		}
 	}
 
 	public function get_settings() {
@@ -565,11 +567,24 @@ class MAKE_Sections_Columns_Definition {
 		<?php
 	}
 
-	public function html_classes( $classes, $section_data ) {
+	public function html_class( $classes, $section_id, $post_id, $sections ) {
+		$section_data = ttfmake_get_section_data( $post_id, $section_id );
+
 		if ( 'text' === $section_data['section-type'] ) {
 			// Columns
 			$columns_number = ( isset( $section_data['columns-number'] ) ) ? absint( $section_data['columns-number'] ) : 1;
 			$classes .= ' builder-text-columns-' . $columns_number;
+
+			/**
+			 * Filter the text section class.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string    $text_class              The computed class string.
+			 * @param array     $ttfmake_section_data    The section data.
+			 * @param array     $sections                The list of sections.
+			 */
+			$classes = apply_filters( 'make_builder_get_text_class', $classes, $section_data, $sections );
 		}
 
 		return $classes;
