@@ -51,13 +51,11 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 			return;
 		}
 
-		if ( is_admin() ) {
-			// Register base sections
-			add_action( 'after_setup_theme', array( $this, 'register_sections'), 11 );
+		// Register base sections
+		add_action( 'after_setup_theme', array( $this, 'register_sections'), 11 );
 
-			// Add base sections styles
-			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-		}
+		// Add base sections styles
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
 		// Hooking has occurred.
 		self::$hooked = true;
