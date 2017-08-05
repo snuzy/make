@@ -43,7 +43,7 @@ class MAKE_Sections_Columns_Definition {
 			add_filter( 'make_get_section_json', array( $this, 'embed_column_images' ), 20, 1 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
 			add_action( 'admin_footer', array( $this, 'print_templates' ) );
-			add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 4 );
+			add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
 
 			ttfmake_add_section(
 				'text',
@@ -55,7 +55,7 @@ class MAKE_Sections_Columns_Definition {
 					'text' => 'sections/columns/builder-template',
 					'text-item' => 'sections/columns/builder-template-column'
 				),
-				'inc/sections/columns/frontend-template',
+				'sections/columns/frontend-template',
 				100,
 				get_template_directory() . '/inc/builder/'
 			);
@@ -558,18 +558,16 @@ class MAKE_Sections_Columns_Definition {
 		set_query_var( 'ttfmake_section_data', $section_definitions[ 'text' ] );
 		?>
 		<script type="text/template" id="tmpl-ttfmake-section-text">
-		<?php get_template_part( 'inc/builder/sections/columns/builder-template' ); ?>
+		<?php get_template_part( 'inc/sections/columns/builder-template' ); ?>
 		</script>
 		<?php set_query_var( 'ttfmake_section_data', array() ); ?>
 		<script type="text/template" id="tmpl-ttfmake-section-text-item">
-		<?php get_template_part( 'inc/builder/sections/columns/builder-template', 'column' ); ?>
+		<?php get_template_part( 'inc/sections/columns/builder-template', 'column' ); ?>
 		</script>
 		<?php
 	}
 
-	public function html_class( $classes, $section_id, $post_id, $sections ) {
-		$section_data = ttfmake_get_section_data( $post_id, $section_id );
-
+	public function html_class( $classes, $section_data, $sections ) {
 		if ( 'text' === $section_data['section-type'] ) {
 			// Columns
 			$columns_number = ( isset( $section_data['columns-number'] ) ) ? absint( $section_data['columns-number'] ) : 1;

@@ -3,27 +3,31 @@
  * @package Make
  */
 
-global $post;
-
-$gallery  = $section_data['gallery-items'];
-$darken   = ( isset( $section_data[ 'darken' ] ) ) ? absint( $section_data[ 'darken' ] ) : 0;
-$captions = ( isset( $section_data[ 'captions' ] ) ) ? esc_attr( $section_data[ 'captions' ] ) : 'reveal';
-$aspect   = ( isset( $section_data[ 'aspect' ] ) ) ? esc_attr( $section_data[ 'aspect' ] ) : 'square';
+$gallery = ttfmake_get_section_field( 'gallery-items' );
+$captions = ( '' !== ttfmake_get_section_field( 'captions' ) ) ? esc_attr( ttfmake_get_section_field( 'captions' ) ) : 'reveal';
+$aspect = ( '' !== ttfmake_get_section_field( 'aspect' ) ) ? esc_attr( ttfmake_get_section_field( 'aspect' ) ) : 'square';
 ?>
 
-<section id="<?php echo esc_attr( Make()->section()->get_html_id( $section_data ) ); ?>" class="builder-section<?php echo esc_attr( Make()->section()->get_html_class( $section_data ) ); ?>" style="<?php echo Make()->section()->get_section_styles( $section_data ); ?>">
-	<?php if ( '' !== $section_data['title'] ) : ?>
-	<h3 class="builder-gallery-section-title">
-		<?php echo apply_filters( 'the_title', $section_data['title'] ); ?>
-	</h3>
-	<?php endif; ?>
+<section id="<?php echo ttfmake_get_section_html_id(); ?>" class="<?php echo esc_attr( ttfmake_get_section_html_class() ); ?>" style="<?php echo esc_attr( ttfmake_get_section_html_style() ); ?>">
+
+	<?php
+	$title = ttfmake_get_section_field( 'title' );
+	if ( '' !== $title ) : ?>
+    <h3 class="builder-gallery-section-title">
+        <?php echo apply_filters( 'the_title', $title ); ?>
+    </h3>
+    <?php endif; ?>
+
 	<div class="builder-section-content">
-		<?php if ( ! empty( $gallery ) ) : $i = 0; foreach ( $gallery as $item ) : $i++; ?>
-		<div class="builder-gallery-item<?php echo esc_attr( Make()->section()->get_gallery_item_class( $item, $section_data, $i ) ); ?>"<?php echo Make()->section()->get_gallery_item_onclick( $item['link'], $section_data, $i ); ?>>
-			<?php $image = Make()->section()->get_gallery_item_image( $item, $aspect, $section_data ); ?>
+		<?php if ( ! empty( $gallery ) ) : foreach ( $gallery as $item ) : ?>
+
+		<div class="builder-gallery-item <?php echo esc_attr( ttfmake_get_section_item_html_class( $item ) ); ?>"<?php echo ttfmake_builder_get_gallery_item_onclick( $item ); ?>>
+
+			<?php $image = ttfmake_builder_get_gallery_item_image( $item ); ?>
 			<?php if ( '' !== $image ) : ?>
 				<?php echo $image; ?>
 			<?php endif; ?>
+
 			<?php if ( 'none' !== $captions && ( '' !== $item['title'] || '' !== $item['description'] || has_excerpt( $item['background-image'] ) ) ) : ?>
 			<div class="builder-gallery-content">
 				<div class="builder-gallery-content-inner">
@@ -34,7 +38,7 @@ $aspect   = ( isset( $section_data[ 'aspect' ] ) ) ? esc_attr( $section_data[ 'a
 					<?php endif; ?>
 					<?php if ( '' !== $item['description'] ) : ?>
 					<div class="builder-gallery-description">
-						<?php Make()->section()->get_content( $item['description'] ); ?>
+						<?php ttfmake_get_content( $item['description'] ); ?>
 					</div>
 					<?php elseif ( has_excerpt( $item['background-image'] ) ) : ?>
 					<div class="builder-gallery-description">
@@ -47,7 +51,9 @@ $aspect   = ( isset( $section_data[ 'aspect' ] ) ) ? esc_attr( $section_data[ 'a
 		</div>
 		<?php endforeach; endif; ?>
 	</div>
-	<?php if ( 0 !== $darken ) : ?>
+
+	<?php if ( absint( ttfmake_get_section_field( 'darken' ) ) ) : ?>
 	<div class="builder-section-overlay"></div>
 	<?php endif; ?>
+
 </section>

@@ -64,7 +64,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 	public function register_sections() {
 		MAKE_Sections_Columns_Definition::register();
 		MAKE_Sections_Banner_Definition::register();
-		// MAKE_Sections_Gallery_Definition::register();
+		MAKE_Sections_Gallery_Definition::register();
 	}
 
 	/**

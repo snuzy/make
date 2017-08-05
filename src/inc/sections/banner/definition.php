@@ -44,8 +44,8 @@ class MAKE_Sections_Banner_Definition {
 			add_action( 'admin_footer', array( $this, 'print_templates' ) );
 			add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
 			add_filter( 'make_section_html_attrs', array( $this, 'html_attrs' ), 10, 3 );
-			add_filter( 'make_section_item_html_class', array( $this, 'item_html_class' ), 10, 3 );
-			add_filter( 'make_section_item_html_style', array( $this, 'item_html_style' ), 10, 4 );
+			add_filter( 'make_section_item_html_class', array( $this, 'item_html_class' ), 10, 2 );
+			add_filter( 'make_section_item_html_style', array( $this, 'item_html_style' ), 10, 3 );
 
 			ttfmake_add_section(
 				'banner',
@@ -57,7 +57,7 @@ class MAKE_Sections_Banner_Definition {
 					'banner' => 'sections/banner/builder-template',
 					'banner-slide' => 'sections/banner/builder-template-slide'
 				),
-				'inc/sections/banner/frontend-template',
+				'sections/banner/frontend-template',
 				300,
 				get_template_directory() . '/inc/builder/'
 			);
@@ -312,6 +312,7 @@ class MAKE_Sections_Banner_Definition {
 		return array(
 			'section-type' => 'banner',
 			'title' => '',
+			'state' => 'open',
 			'arrows' => 1,
 			'dots' => 1,
 			'autoplay' => 1,
@@ -600,18 +601,16 @@ class MAKE_Sections_Banner_Definition {
 		set_query_var( 'ttfmake_section_data', $section_definitions[ 'banner' ] );
 		?>
 		<script type="text/template" id="tmpl-ttfmake-section-banner">
-		<?php get_template_part( 'inc/builder/sections/banner/builder-template' ); ?>
+		<?php get_template_part( 'inc/sections/banner/builder-template' ); ?>
 		</script>
 		<?php set_query_var( 'ttfmake_section_data', array() ); ?>
 		<script type="text/template" id="tmpl-ttfmake-section-banner-slide">
-		<?php get_template_part( 'inc/builder/sections/banner/builder-template', 'slide' ); ?>
+		<?php get_template_part( 'inc/sections/banner/builder-template', 'slide' ); ?>
 		</script>
 		<?php
 	}
 
-	public function html_class( $classes, $section_id, $post_id ) {
-		$section_data = ttfmake_get_section_data( $post_id, $section_id );
-
+	public function html_class( $classes, $section_data, $sections ) {
 		if ( 'banner' === $section_data['section-type'] ) {
 			/**
 			 * Filter the class for the banner section.
@@ -627,9 +626,7 @@ class MAKE_Sections_Banner_Definition {
 		return $classes;
 	}
 
-	public function html_attrs( $attrs, $section_id, $post_id ) {
-		$section_data = ttfmake_get_section_data( $post_id, $section_id );
-
+	public function html_attrs( $attrs, $section_data ) {
 		if ( 'banner' === $section_data['section-type'] ) {
 			$config = shortcode_atts( array(
 				'autoplay' => true,
@@ -685,7 +682,7 @@ class MAKE_Sections_Banner_Definition {
 		return $attrs;
 	}
 
-	public function item_html_class( $classes, $item, $section_id ) {
+	public function item_html_class( $classes, $item ) {
 		if ( 'banner-slide' === $item['section-type'] ) {
 			if ( isset( $item['alignment'] ) && '' !== $item['alignment'] ) {
 				$classes .= ' ' . sanitize_html_class( 'content-position-' . $item['alignment'] );
@@ -704,9 +701,7 @@ class MAKE_Sections_Banner_Definition {
 		return $classes;
 	}
 
-	public function item_html_style( $style, $item, $section_id, $post_id ) {
-		$section_data = ttfmake_get_section_data( $post_id, $section_id );
-
+	public function item_html_style( $style, $item, $section_data ) {
 		if ( 'banner-slide' === $item['section-type'] ) {
 			// Background color
 			if ( isset( $item['background-color'] ) && '' !== $item['background-color'] ) {
@@ -780,7 +775,7 @@ class MAKE_Sections_Banner_Definition {
 				'declarations' => array(
 					'padding-bottom' => $slider_ratio . '%'
 				),
-				'media'        => 'screen and (min-width: 600px) and (max-width: 960px)'
+				'media' => 'screen and (min-width: 600px) and (max-width: 960px)'
 			) );
 		}
 	}

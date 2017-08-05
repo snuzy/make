@@ -3,17 +3,17 @@
  * @package Make
  */
 
-if ( ! class_exists( 'MAKE_Builder_Sections_Gallery_Definition' ) ) :
+if ( ! class_exists( 'MAKE_Sections_Gallery_Definition' ) ) :
 /**
  * Section definition for Columns
  *
- * Class MAKE_Builder_Sections_Gallery_Definition
+ * Class MAKE_Sections_Gallery_Definition
  */
-class MAKE_Builder_Sections_Gallery_Definition {
+class MAKE_Sections_Gallery_Definition {
 	/**
-	 * The one instance of MAKE_Builder_Sections_Gallery_Definition.
+	 * The one instance of MAKE_Sections_Gallery_Definition.
 	 *
-	 * @var   MAKE_Builder_Sections_Gallery_Definition
+	 * @var   MAKE_Sections_Gallery_Definition
 	 */
 	private static $instance;
 
@@ -26,27 +26,32 @@ class MAKE_Builder_Sections_Gallery_Definition {
 	}
 
 	public function __construct() {
-		add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
-		add_filter( 'make_sections_settings', array( $this, 'section_settings' ) );
-		add_filter( 'make_sections_defaults', array( $this, 'section_defaults' ) );
-		add_filter( 'make_get_section_json', array ( $this, 'get_section_json' ), 10, 1 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
-		add_action( 'admin_footer', array( $this, 'print_templates' ) );
+		if ( is_admin() ) {
+			add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
+			add_filter( 'make_sections_settings', array( $this, 'section_settings' ) );
+			add_filter( 'make_sections_defaults', array( $this, 'section_defaults' ) );
+			add_filter( 'make_get_section_json', array( $this, 'get_section_json' ), 10, 1 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
+			add_action( 'admin_footer', array( $this, 'print_templates' ) );
+			add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
+			add_filter( 'make_section_html_style', array( $this, 'html_style' ), 10, 3 );
+			add_filter( 'make_section_item_html_class', array( $this, 'item_html_class' ), 10, 3 );
 
-		ttfmake_add_section(
-			'gallery',
-			__( 'Gallery', 'make' ),
-			Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/gallery.png',
-			__( 'Display your images in various grid combinations.', 'make' ),
-			array( $this, 'save' ),
-			array(
-				'gallery' => 'sections/gallery/builder-template',
-				'gallery-item' => 'sections/gallery/builder-template-item'
-			),
-			'sections/gallery/frontend-template',
-			400,
-			get_template_directory() . '/inc/builder/'
-		);
+			ttfmake_add_section(
+				'gallery',
+				__( 'Gallery', 'make' ),
+				Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/gallery.png',
+				__( 'Display your images in various grid combinations.', 'make' ),
+				array( $this, 'save' ),
+				array(
+					'gallery' => 'sections/gallery/builder-template',
+					'gallery-item' => 'sections/gallery/builder-template-item'
+				),
+				'sections/gallery/frontend-template',
+				400,
+				get_template_directory() . '/inc/builder/'
+			);
+		}
 	}
 
 	public function get_settings() {
@@ -62,41 +67,41 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'name'  => 'title',
 				'label' => __( 'Enter section title', 'make' ),
 				'class' => 'ttfmake-configuration-title ttfmake-section-header-title-input',
-				'default' => Make()->section()->get_section_default( 'title', 'gallery' )
+				'default' => ttfmake_get_section_default( 'title', 'gallery' )
 			),
 			300 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Full width', 'make' ),
 				'name'    => 'full-width',
-				'default' => Make()->section()->get_section_default( 'full-width', 'gallery' )
+				'default' => ttfmake_get_section_default( 'full-width', 'gallery' )
 			),
 			400 => array(
 				'type'    => 'select',
 				'name'    => 'columns',
 				'label'   => __( 'Columns', 'make' ),
 				'class'   => 'ttfmake-gallery-columns',
-				'default' => Make()->section()->get_section_default( 'columns', 'gallery' ),
+				'default' => ttfmake_get_section_default( 'columns', 'gallery' ),
 				'options' => ttfmake_get_section_choices( 'columns', 'gallery' ),
 			),
 			500 => array(
 				'type'    => 'select',
 				'name'    => 'aspect',
 				'label'   => __( 'Aspect ratio', 'make' ),
-				'default' => Make()->section()->get_section_default( 'aspect', 'gallery' ),
+				'default' => ttfmake_get_section_default( 'aspect', 'gallery' ),
 				'options' => ttfmake_get_section_choices( 'aspect', 'gallery' ),
 			),
 			600 => array(
 				'type'    => 'select',
 				'name'    => 'captions',
 				'label'   => __( 'Caption style', 'make' ),
-				'default' => Make()->section()->get_section_default( 'captions', 'gallery' ),
+				'default' => ttfmake_get_section_default( 'captions', 'gallery' ),
 				'options' => ttfmake_get_section_choices( 'captions', 'gallery' ),
 			),
 			700 => array(
 				'type'    => 'select',
 				'name'    => 'caption-color',
 				'label'   => __( 'Caption color', 'make' ),
-				'default' => Make()->section()->get_section_default( 'caption-color', 'gallery' ),
+				'default' => ttfmake_get_section_default( 'caption-color', 'gallery' ),
 				'options' => ttfmake_get_section_choices( 'caption-color', 'gallery' ),
 			),
 			800 => array(
@@ -110,14 +115,14 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'name'  => 'background-image',
 				'label' => __( 'Background image', 'make' ),
 				'class' => 'ttfmake-configuration-media',
-				'default' => Make()->section()->get_section_default( 'background-image', 'gallery' )
+				'default' => ttfmake_get_section_default( 'background-image', 'gallery' )
 			),
 			1000 => array(
 				'type'  => 'select',
 				'name'  => 'background-position',
 				'label' => __( 'Position', 'make' ),
 				'class' => 'ttfmake-configuration-media-related',
-				'default' => Make()->section()->get_section_default( 'background-position', 'gallery' ),
+				'default' => ttfmake_get_section_default( 'background-position', 'gallery' ),
 				'options' => ttfmake_get_section_choices( 'background-position', 'gallery' ),
 			),
 			1100 => array(
@@ -125,21 +130,21 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'name'    => 'background-style',
 				'label'   => __( 'Display', 'make' ),
 				'class'   => 'ttfmake-configuration-media-related',
-				'default' => Make()->section()->get_section_default( 'background-style', 'gallery' ),
+				'default' => ttfmake_get_section_default( 'background-style', 'gallery' ),
 				'options' => ttfmake_get_section_choices( 'background-style', 'gallery' ),
 			),
 			1200 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken', 'make' ),
 				'name'    => 'darken',
-				'default' => Make()->section()->get_section_default( 'darken', 'gallery' ),
+				'default' => ttfmake_get_section_default( 'darken', 'gallery' ),
 			),
 			1300 => array(
 				'type'    => 'color',
 				'label'   => __( 'Background color', 'make' ),
 				'name'    => 'background-color',
 				'class'   => 'ttfmake-gallery-background-color ttfmake-configuration-color-picker',
-				'default' => Make()->section()->get_section_default( 'background-color', 'gallery' )
+				'default' => ttfmake_get_section_default( 'background-color', 'gallery' )
 			),
 		);
 	}
@@ -157,20 +162,20 @@ class MAKE_Builder_Sections_Gallery_Definition {
 				'type'    => 'section_title',
 				'name'    => 'title',
 				'label'   => __( 'Enter item title', 'make' ),
-				'default' => Make()->section()->get_section_default( 'title', 'gallery-item' ),
+				'default' => ttfmake_get_section_default( 'title', 'gallery-item' ),
 				'class'   => 'ttfmake-configuration-title',
 			),
 			200 => array(
 				'type'    => 'text',
 				'name'    => 'link',
 				'label'   => __( 'Item link URL', 'make' ),
-				'default' => Make()->section()->get_section_default( 'link', 'gallery-item' ),
+				'default' => ttfmake_get_section_default( 'link', 'gallery-item' ),
 			),
 			300 => array(
 				'type'    => 'checkbox',
 				'name'    => 'open-new-tab',
 				'label'   => __( 'Open link in a new tab', 'make' ),
-				'default' => Make()->section()->get_section_default( 'open-new-tab', 'gallery-item' ),
+				'default' => ttfmake_get_section_default( 'open-new-tab', 'gallery-item' ),
 			),
 		) );
 
@@ -285,6 +290,7 @@ class MAKE_Builder_Sections_Gallery_Definition {
 		return array(
 			'section-type' => 'gallery',
 			'title' => '',
+			'state' => 'open',
 			'columns' => 3,
 			'aspect' => 'square',
 			'captions' => 'reveal',
@@ -411,19 +417,19 @@ class MAKE_Builder_Sections_Gallery_Definition {
 		);
 
 		if ( isset( $data['columns'] ) ) {
-			$clean_data['columns'] = Make()->section()->sanitize_section_choice( $data['columns'], 'columns', $data['section-type'] );
+			$clean_data['columns'] = ttfmake_sanitize_section_choice( $data['columns'], 'columns', $data['section-type'] );
 		}
 
 		if ( isset( $data['caption-color'] ) ) {
-			$clean_data['caption-color'] = Make()->section()->sanitize_section_choice( $data['caption-color'], 'caption-color', $data['section-type'] );
+			$clean_data['caption-color'] = ttfmake_sanitize_section_choice( $data['caption-color'], 'caption-color', $data['section-type'] );
 		}
 
 		if ( isset( $data['captions'] ) ) {
-			$clean_data['captions'] = Make()->section()->sanitize_section_choice( $data['captions'], 'captions', $data['section-type'] );
+			$clean_data['captions'] = ttfmake_sanitize_section_choice( $data['captions'], 'captions', $data['section-type'] );
 		}
 
 		if ( isset( $data['aspect'] ) ) {
-			$clean_data['aspect'] = Make()->section()->sanitize_section_choice( $data['aspect'], 'aspect', $data['section-type'] );
+			$clean_data['aspect'] = ttfmake_sanitize_section_choice( $data['aspect'], 'aspect', $data['section-type'] );
 		}
 
 		if ( isset( $data['background-image'] ) && '' !== $data['background-image'] ) {
@@ -451,11 +457,11 @@ class MAKE_Builder_Sections_Gallery_Definition {
 		}
 
 		if ( isset( $data['background-style'] ) ) {
-			$clean_data['background-style'] = Make()->section()->sanitize_section_choice( $data['background-style'], 'background-style', $data['section-type'] );
+			$clean_data['background-style'] = ttfmake_sanitize_section_choice( $data['background-style'], 'background-style', $data['section-type'] );
 		}
 
 		if ( isset( $data['background-position'] ) ) {
-			$clean_data['background-position'] = Make()->section()->sanitize_section_choice( $data['background-position'], 'background-position', $data['section-type'] );
+			$clean_data['background-position'] = ttfmake_sanitize_section_choice( $data['background-position'], 'background-position', $data['section-type'] );
 		}
 
 		if ( isset( $data['full-width'] ) && $data['full-width'] == 1 ) {
@@ -557,13 +563,172 @@ class MAKE_Builder_Sections_Gallery_Definition {
 		set_query_var( 'ttfmake_section_data', $section_definitions[ 'gallery' ] );
 		?>
 		<script type="text/template" id="tmpl-ttfmake-section-gallery">
-		<?php get_template_part( 'inc/builder/sections/gallery/builder-template' ); ?>
+		<?php get_template_part( 'inc/sections/gallery/builder-template' ); ?>
 		</script>
 		<?php set_query_var( 'ttfmake_section_data', array() ); ?>
 		<script type="text/template" id="tmpl-ttfmake-section-gallery-item">
-		<?php get_template_part( 'inc/builder/sections/gallery/builder-template', 'item' ); ?>
+		<?php get_template_part( 'inc/sections/gallery/builder-template', 'item' ); ?>
 		</script>
 		<?php
 	}
+
+	public function html_class( $classes, $section_data, $sections ) {
+		if ( 'gallery' === $section_data['section-type'] ) {
+			// Columns
+			$gallery_columns = ( isset( $section_data['columns'] ) ) ? absint( $section_data['columns'] ) : 1;
+			$classes  .= ' builder-gallery-columns-' . $gallery_columns;
+
+			// Captions
+			if ( isset( $section_data['captions'] ) && ! empty( $section_data['captions'] ) ) {
+				$classes .= ' builder-gallery-captions-' . esc_attr( $section_data['captions'] );
+			}
+
+			// Caption color
+			if ( isset( $section_data['caption-color'] ) && ! empty( $section_data['caption-color'] ) ) {
+				$classes .= ' builder-gallery-captions-' . esc_attr( $section_data['caption-color'] );
+			}
+
+			// Aspect Ratio
+			if ( isset( $section_data['aspect'] ) && ! empty( $section_data['aspect'] ) ) {
+				$classes .= ' builder-gallery-aspect-' . esc_attr( $section_data['aspect'] );
+			}
+
+			/**
+			 * Filter the class applied to a gallery.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string    $gallery_class           The class applied to the gallery.
+			 * @param array     $section_data            The section data.
+			 * @param array     $sections                The list of sections.
+			 */
+			$classes = apply_filters( 'make_gallery_class', $classes, $section_data, $sections );
+		}
+
+		return $classes;
+	}
+
+	public function html_style( $style, $section_data, $sections ) {
+		if ( 'gallery' === $section_data['section-type'] ) {
+			/**
+			 * Filter the style added to a gallery section.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string    $gallery_style           The style applied to the gallery.
+			 * @param array     $ttfmake_section_data    The section data.
+			 */
+			$style = apply_filters( 'make_builder_get_gallery_style', $style, $section_data );
+		}
+
+		return $style;
+	}
+
+	public function item_html_class( $classes, $item, $section_data ) {
+		if ( 'gallery-item' === $item['section-type'] ) {
+			// Index
+			$i = 0;
+
+			while ( $section_data['gallery-items'][$i]['id'] !== $item['id'] ) {
+				$i ++;
+			}
+
+			// Link
+			$has_link = ( isset( $item['link'] ) && ! empty( $item['link'] ) ) ? true : false;
+
+			if ( true === $has_link ) {
+				$classes .= ' has-link';
+			}
+
+			// Columns
+			$gallery_columns = ( isset( $section_data['columns'] ) ) ? absint( $section_data['columns'] ) : 1;
+
+			if ( $gallery_columns > 1 && $i > 0 && 0 === $i % ( $gallery_columns - 1 ) ) {
+				$classes .= ' last-' . $gallery_columns;
+			}
+
+			/**
+			 * Filter the class used for a gallery item.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string    $classes                 The computed gallery class.
+			 * @param array     $item                    The item's data.
+			 * @param array     $section_data            The section data.
+			 * @param int       $i                       The current gallery item number.
+			 */
+			$classes = apply_filters( 'make_builder_get_gallery_item_class', $classes, $item, $section_data, $i );
+		}
+
+		return $classes;
+	}
 }
 endif;
+
+/**
+ * MISSING DOCS
+ */
+function ttfmake_builder_get_gallery_item_onclick( $item ) {
+	$link = $item['link'];
+
+	if ( '' === $link ) {
+		return '';
+	}
+
+	$external = isset( $item['open-new-tab'] ) && $item['open-new-tab'] === 1;
+	$url = esc_js( esc_url( $link ) );
+	$open_function = $external ? 'window.open(\'' . $url . '\')': 'window.location.href = \'' . $url . '\'';
+	$onclick = ' onclick="event.preventDefault(); '. $open_function . ';"';
+
+	/**
+	 * Filter the class used for a gallery item.
+	 *
+	 * @since 1.7.6.
+	 *
+	 * @param string    $onclick                 The computed gallery onclick attribute.
+	 * @param string    $link                    The item.
+	 */
+	return apply_filters( 'make_builder_get_gallery_item_onclick', $onclick, $item );
+}
+
+/**
+ * Get the image for the gallery item.
+ *
+ * @since  1.0.0.
+ *
+ * @param  array     $item      The item's data.
+ * @param  string    $aspect    The aspect ratio for the section.
+ * @return string               The HTML or CSS for the item's image.
+ */
+function ttfmake_builder_get_gallery_item_image( $item ) {
+	global $ttfmake_section_data;
+
+	$image = '';
+	$aspect = $ttfmake_section_data['aspect'];
+
+	if ( 0 !== ttfmake_sanitize_image_id( $item[ 'background-image' ] ) ) {
+		$image_style = '';
+		$image_src = ttfmake_get_image_src( $item[ 'background-image' ], 'large' );
+		if ( isset( $image_src[0] ) ) {
+			$image_style .= 'background-image: url(\'' . addcslashes( esc_url_raw( $image_src[0] ), '"' ) . '\');';
+		}
+		if ( 'none' === $aspect && isset( $image_src[1] ) && isset( $image_src[2] ) ) {
+			$image_ratio = ( $image_src[2] / $image_src[1] ) * 100;
+			$image_style .= 'padding-bottom: ' . $image_ratio . '%;';
+		}
+		if ( '' !== $image_style ) {
+			$image .= '<figure class="builder-gallery-image" style="' . esc_attr( $image_style ) . '"></figure>';
+		}
+	}
+
+	/**
+	 * Alter the generated gallery image.
+	 *
+	 * @since 1.2.3.
+	 *
+	 * @param string    $image     The image HTML.
+	 * @param array     $item      The item's data.
+	 * @param string    $aspect    The aspect ratio for the section.
+	 */
+	return apply_filters( 'make_builder_get_gallery_item_image', $image, $item, $aspect );
+}
