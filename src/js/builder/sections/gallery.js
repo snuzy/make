@@ -37,7 +37,7 @@
 		afterRender: function() {
 			make.classes.SectionView.prototype.afterRender.apply( this, arguments );
 
-			// this.listenTo( this.model, 'change:columns-number', this.onColumnCountChanged );
+			this.listenTo( this.model, 'change:columns', this.onColumnCountChanged );
 			this.listenTo( this.model.get( 'gallery-items' ), 'add', this.onItemModelAdded );
 			this.listenTo( this.model.get( 'gallery-items' ), 'remove', this.onItemModelRemoved );
 			this.listenTo( this.model.get( 'gallery-items' ), 'reset', this.onItemModelsSorted );
@@ -58,6 +58,17 @@
 			this.initSortables();
 			this.on( 'sort-start', this.onItemSortStart, this );
 			this.on( 'sort-stop', this.onItemSortStop, this );
+		},
+
+		onColumnCountChanged: function( itemModel ) {
+			var newColumnCount = this.model.get( 'columns' );
+			var $stage = $( '.ttfmake-gallery-items-stage', this.$el );
+
+			$stage.removeClass( function( i, className ) {
+				return className.match( /ttfmake-gallery-columns-[0-9]/g || [] ).join( ' ' );
+			});
+
+			$stage.addClass( 'ttfmake-gallery-columns-' + newColumnCount );
 		},
 
 		onItemModelAdded: function( itemModel, itemCollection, options ) {
