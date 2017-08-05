@@ -215,7 +215,7 @@ function ttfmake_get_section_data( $post_id, $section_id = false ) {
 	}
 
 
-	if ( ! isset( $GLOBALS['make_post_section_data'] ) ) {
+	if ( ! isset( $GLOBALS['ttfmake_sections'] ) ) {
 		/**
 		 * Filter the section data for a post.
 		 *
@@ -224,14 +224,13 @@ function ttfmake_get_section_data( $post_id, $section_id = false ) {
 		 * @param array    $ordered_data    The array of section data.
 		 * @param int      $post_id         The post ID for the retrieved data.
 		 */
-		$post_section_data = apply_filters( 'make_get_section_data', $ordered_data, $post_id );
+		$ttfmake_sections = apply_filters( 'make_get_section_data', $ordered_data, $post_id );
 	} else {
-		global $make_post_section_data;
-		$post_section_data = $make_post_section_data;
+		global $ttfmake_sections;
 	}
 
 	if ( false !== $section_id ) {
-		foreach( $post_section_data as $section_data ) {
+		foreach( $ttfmake_sections as $section_data ) {
 			if ( strval( $section_id ) === $section_data['id'] ) {
 				return $section_data;
 			}
@@ -240,7 +239,7 @@ function ttfmake_get_section_data( $post_id, $section_id = false ) {
 		return false;
 	}
 
-	return $post_section_data;
+	return $ttfmake_sections;
 }
 endif;
 
