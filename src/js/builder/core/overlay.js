@@ -739,9 +739,9 @@
 			$placeholder.css( 'background-image', 'url(' + backgroundImageURL + ')' );
 
 			if ( '' !== backgroundImageURL ) {
-				$placeholder.parent().addClass( 'ttfmake-has-image-set' );
+				this.$el.addClass( 'ttfmake-has-image-set' );
 			} else {
-				$placeholder.parent().removeClass( 'ttfmake-has-image-set' );
+				this.$el.removeClass( 'ttfmake-has-image-set' );
 			}
 
 			this.overlay.trigger( 'setting-updated', { name: 'background-image', value: settingModel.get( 'background-image' ) } );
@@ -757,12 +757,12 @@
 				this.model.set( 'background-image', value );
 				this.model.set( 'background-image-url', url );
 				$placeholder.css( 'background-image', 'url(' + url + ')' );
-				$placeholder.parent().addClass( 'ttfmake-has-image-set' );
+				this.$el.addClass( 'ttfmake-has-image-set' );
 			} else {
 				this.model.set( 'background-image', '' );
 				this.model.set( 'background-image-url', '' );
 				$placeholder.css( 'background-image', '' );
-				$placeholder.parent().removeClass( 'ttfmake-has-image-set' );
+				this.$el.removeClass( 'ttfmake-has-image-set' );
 			}
 		},
 	} );
