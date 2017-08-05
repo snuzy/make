@@ -489,7 +489,7 @@
 	display: none;
 }
 
-.ttfmake-has-image-set .ttfmake-configuration-media-related-wrap {
+.ttfmake-has-image-set ~ .ttfmake-configuration-media-related-wrap {
 	display: block;
 }
 /*---------------------------------------------------------
