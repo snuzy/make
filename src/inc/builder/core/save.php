@@ -380,6 +380,7 @@ class TTFMAKE_Builder_Save {
 		// templates render through ttfmake_get_section_data
 		global $make_post_section_data;
 		$make_post_section_data = $data;
+		$post_id = get_the_ID();
 
 		// Start the output buffer to collect the contents of the templates
 		ob_start();
@@ -387,14 +388,14 @@ class TTFMAKE_Builder_Save {
 		// For each sections, render it using the template
 		foreach ( $make_post_section_data as $section_data ) {
 			$section_definition = ttfmake_get_section_definition( $section_data['section-type'] );
-
-			// Get the template for the section
 			$section_id = $section_data['id'];
 			$section_template = $section_definition['display_template'];
 
-			set_query_var( 'section_id', $section_id );
-			get_template_part( $section_template );
-
+			if ( ttfmake_should_render_section( $post_id, $section_id ) ) {
+				// Get the template for the section
+				set_query_var( 'section_id', $section_id );
+				get_template_part( $section_template );
+			}
 
 			// die(print_r($section_definition));
 			// global $ttfmake_section_data, $ttfmake_sections;
@@ -691,10 +692,7 @@ class TTFMAKE_Builder_Save {
 		 */
 		$html_classes = apply_filters( 'make_section_classes', $html_classes, $current_section );
 
-		/**
-		 * MISSING DOCS
-		 */
-		return apply_filters( 'make_section_html_classes', $html_classes, $current_section );
+		return $html_classes;
 	}
 
 	/**
@@ -850,8 +848,10 @@ if ( ! function_exists( 'ttfmake_get_section_html_id' ) ) :
  * MISSING DOCS
  *
  */
-function ttfmake_get_section_html_id( $post_id, $section_id ) {
+function ttfmake_get_section_html_id( $section_id, $post_id = false ) {
+	$post_id = false !== $post_id ? $post_id: get_the_ID();
 	$section_data = ttfmake_get_section_data( $post_id, $section_id );
+
 	return ttfmake_get_builder_save()->section_html_id( $section_data );
 }
 endif;
@@ -861,10 +861,16 @@ if ( ! function_exists( 'ttfmake_get_section_html_class' ) ) :
  * MISSING DOCS
  *
  */
-function ttfmake_get_section_html_class( $post_id, $section_id ) {
+function ttfmake_get_section_html_class( $section_id, $post_id = false ) {
+	$post_id = false !== $post_id ? $post_id: get_the_ID();
 	$sections_data = ttfmake_get_section_data( $post_id );
 	$section_data = ttfmake_get_section_data( $post_id, $section_id );
-	return ttfmake_get_builder_save()->section_html_classes( $section_data, $sections_data );
+	$classes = ttfmake_get_builder_save()->section_html_classes( $section_data, $sections_data );
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_html_class', $classes, $section_id, $post_id, $sections_data );
 }
 endif;
 
@@ -873,9 +879,32 @@ if ( ! function_exists( 'ttfmake_get_section_html_style' ) ) :
  * MISSING DOCS
  *
  */
-function ttfmake_get_section_html_style( $post_id, $section_id ) {
+function ttfmake_get_section_html_style( $section_id, $post_id = false ) {
+	$post_id = false !== $post_id ? $post_id: get_the_ID();
 	$section_data = ttfmake_get_section_data( $post_id, $section_id );
-	return ttfmake_get_builder_save()->section_html_style( $section_data );
+	$style = ttfmake_get_builder_save()->section_html_style( $section_data );
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_html_style', $style, $section_id, $post_id );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_attrs' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_attrs( $section_id, $post_id = false ) {
+	$post_id = false !== $post_id ? $post_id: get_the_ID();
+	$section_data = ttfmake_get_section_data( $post_id, $section_id );
+	$attrs = '';
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_html_attrs', $attrs, $section_id, $post_id );
 }
 endif;
 
@@ -894,7 +923,8 @@ if ( ! function_exists( 'ttfmake_get_section_field' ) ) :
  * MISSING DOCS
  *
  */
-function ttfmake_get_section_field( $post_id, $section_id, $field ) {
+function ttfmake_get_section_field( $section_id, $field, $post_id = false ) {
+	$post_id = false !== $post_id ? $post_id: get_the_ID();
 	$section_data = ttfmake_get_section_data( $post_id, $section_id );
 	$value = '';
 
@@ -903,5 +933,63 @@ function ttfmake_get_section_field( $post_id, $section_id, $field ) {
 	}
 
 	return $value;
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_item_html_class' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_item_html_class( $item_data, $section_id, $post_id = false ) {
+	$post_id = false !== $post_id ? $post_id: get_the_ID();
+	$classes = '';
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_item_html_class', $classes, $item_data, $section_id, $post_id );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_item_html_style' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_item_html_style( $item_data, $section_id, $post_id = false ) {
+	$post_id = false !== $post_id ? $post_id: get_the_ID();
+	$style = '';
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_item_html_style', $style, $item_data, $section_id, $post_id );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_item_html_attrs' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_item_html_attrs( $item_data, $section_id, $post_id = false ) {
+	$post_id = false !== $post_id ? $post_id: get_the_ID();
+	$style = '';
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_item_html_attrs', $style, $item_data, $section_id, $post_id );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_should_render_section' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_should_render_section( $post_id, $section_id ) {
+	return apply_filters( 'make_should_render_section', true, get_the_ID(), $section_id );
 }
 endif;
