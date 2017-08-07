@@ -40,6 +40,9 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 	public function __construct( MAKE_APIInterface $api, array $modules = array() ) {
 		parent::__construct( $api, $modules );
 
+		// Include the API
+		require_once get_template_directory() . '/inc/builder/core/api.php';
+
 		// Load backend files
 		if ( is_admin() ) {
 			require_once get_template_directory() . '/inc/builder/core/base.php';
@@ -106,7 +109,7 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 	 */
 	public function frontend_builder_scripts() {
 		if ( ttfmake_is_builder_page() ) {
-			$sections = ttfmake_get_section_data( get_the_ID() );
+			$sections = ttfmake_get_post_section_data( get_the_ID() );
 			// Bail if there are no sections
 			if ( empty( $sections ) ) {
 				return;
@@ -146,7 +149,7 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 	 */
 	public function builder_styles( MAKE_Style_ManagerInterface $style ) {
 		if ( ttfmake_is_builder_page() ) {
-			$sections = ttfmake_get_section_data( get_the_ID() );
+			$sections = ttfmake_get_post_section_data( get_the_ID() );
 			if ( ! empty( $sections ) ) {
 				foreach ( $sections as $id => $data ) {
 					if ( isset( $data['section-type'] ) ) {
@@ -172,17 +175,17 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
  * Global Builder functions
  */
 
-if ( ! function_exists( 'ttfmake_get_section_data' ) ) :
+if ( ! function_exists( 'ttfmake_get_post_section_data' ) ) :
 /**
  * Retrieve all of the data for the sections.
  *
- * @since  1.2.0.
+ * @since  1.8.12.
  *
  * @param  string    $post_id        The post to retrieve the data from.
  * @param  string    $section_id     The optional section_id to retrieve data for.
  * @return array                     The combined data.
  */
-function ttfmake_get_section_data( $post_id, $section_id = false ) {
+function ttfmake_get_post_section_data( $post_id, $section_id = false ) {
 	$ordered_data = array();
 	$ids          = get_post_meta( $post_id, '_ttfmake-section-ids', true );
 	$ids          = ( ! empty( $ids ) && is_array( $ids ) ) ? array_map( 'strval', $ids ) : $ids;
