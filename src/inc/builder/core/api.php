@@ -483,6 +483,17 @@ function ttfmake_get_template( $slug, $name = '' ) {
 		foreach( $paths as $path ) {
 			$template_file = $path . $template;
 
+			/**
+			 * Filter the template to try and load.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param array    $templates    The template file to load.
+			 * @param string   $slug         The template slug.
+			 * @param string   $name         The optional template name.
+			 */
+			$template_file = apply_filters( 'make_load_section_template', $template_file, $slug, $name );
+
 			if ( file_exists( $template_file ) ) {
 				return require( $template_file );
 			}
