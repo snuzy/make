@@ -823,30 +823,6 @@ endif;
 
 add_action( 'admin_init', 'ttfmake_get_builder_save' );
 
-if ( ! function_exists( 'ttfmake_sanitize_image_id' ) ) :
-/**
- * Cleans an ID for an image.
- *
- * Handles integer or dimension IDs. This function is necessary for handling the cleaning of placeholder image IDs.
- *
- * @since  1.0.0.
- *
- * @param  int|string    $id    Image ID.
- * @return int|string           Cleaned image ID.
- */
-function ttfmake_sanitize_image_id( $id ) {
-	if ( false !== strpos( $id, 'x' ) ) {
-		$pieces       = explode( 'x', $id );
-		$clean_pieces = array_map( 'absint', $pieces );
-		$id           = implode( 'x', $clean_pieces );
-	} else {
-		$id = absint( $id );
-	}
-
-	return $id;
-}
-endif;
-
 if ( ! function_exists( 'ttfmake_get_content' ) ) :
 /**
  * MISSING DOCS

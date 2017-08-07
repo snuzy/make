@@ -337,6 +337,25 @@ function ttfmake_get_sections_defaults() {
 }
 endif;
 
+if ( ! function_exists( 'ttfmake_get_section_defaults' ) ) :
+/**
+ * Return the default value for a particular section setting.
+ *
+ * @since 1.8.12.
+ *
+ * @return mixed 	Default sections values.
+ */
+function ttfmake_get_section_defaults( $section_type ) {
+	$defaults = ttfmake_get_sections_defaults();
+
+	if ( isset( $defaults[$section_type] ) ) {
+		return $defaults[$section_type];
+	}
+
+	return false;
+}
+endif;
+
 if ( ! function_exists( 'ttfmake_get_section_default' ) ) :
 /**
  * Return the default value for a particular section setting.
@@ -620,5 +639,29 @@ function ttfmake_get_section_html_attrs() {
 	 * MISSING DOCS
 	 */
 	return apply_filters( 'make_section_html_attrs', $attrs, $ttfmake_section_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_sanitize_image_id' ) ) :
+/**
+ * Cleans an ID for an image.
+ *
+ * Handles integer or dimension IDs. This function is necessary for handling the cleaning of placeholder image IDs.
+ *
+ * @since  1.0.0.
+ *
+ * @param  int|string    $id    Image ID.
+ * @return int|string           Cleaned image ID.
+ */
+function ttfmake_sanitize_image_id( $id ) {
+	if ( false !== strpos( $id, 'x' ) ) {
+		$pieces       = explode( 'x', $id );
+		$clean_pieces = array_map( 'absint', $pieces );
+		$id           = implode( 'x', $clean_pieces );
+	} else {
+		$id = absint( $id );
+	}
+
+	return $id;
 }
 endif;
