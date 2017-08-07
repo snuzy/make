@@ -42,9 +42,6 @@ class TTFMAKE_Builder_Base {
 	 * @return TTFMAKE_Builder_Base
 	 */
 	public function __construct() {
-		// Include the API
-		require_once get_template_directory() . '/inc/builder/core/api.php';
-
 		// Include the configuration helpers
 		require_once get_template_directory() . '/inc/builder/core/configuration-helpers.php';
 
@@ -278,7 +275,7 @@ class TTFMAKE_Builder_Base {
 		);
 
 		// Get the current sections
-		$section_data = ttfmake_get_section_data( get_the_ID() );
+		$section_data = ttfmake_get_post_section_data( get_the_ID() );
 
 		// Section settings, defaults and data
 		wp_localize_script(
@@ -582,7 +579,7 @@ class TTFMAKE_Builder_Base {
 	 * @return array                 The combined data.
 	 */
 	public function get_section_data( $post_id ) {
-		return ttfmake_get_section_data( $post_id );
+		return ttfmake_get_post_section_data( $post_id );
 	}
 
 	/**
@@ -723,49 +720,6 @@ function ttfmake_load_section_footer() {
 
 	// Backcompat
 	do_action( 'ttfmake_section_' . $ttfmake_section_data['section']['id'] . '_after', $ttfmake_section_data );
-}
-endif;
-
-if ( ! function_exists( 'ttfmake_load_section_template' ) ) :
-/**
- * Load a section front- or back-end section template. Searches for child theme versions
- * first, then parent themes, then plugins.
- *
- * @since  1.0.4.
- *
- * @param  string    $slug    The slug name for the generic template.
- * @param  string    $name    The name of the specialised template.
- * @return void
- */
-function ttfmake_get_template( $slug, $name = '' ) {
-	$templates = array();
-	$paths = array(
-		STYLESHEETPATH . '/',
-		TEMPLATEPATH . '/inc/'
-	);
-	$slug = ltrim( $slug, '/' );
-
-	if ( '' !== $name ) {
-		$templates[] = "{$slug}-{$name}.php";
-	}
-
-	$templates[] = "{$slug}.php";
-
-	if ( Make()->plus()->is_plus() ) {
-		$paths[] = makeplus_get_plugin_directory() . '/inc/';
-	}
-
-	foreach ( $templates as $template ) {
-		foreach( $paths as $path ) {
-			$template_file = $path . $template;
-
-			if ( file_exists( $template_file ) ) {
-				return require( $template_file );
-			}
-		}
-	}
-
-	get_template_part( $slug, $name );
 }
 endif;
 

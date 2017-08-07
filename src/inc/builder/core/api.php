@@ -430,3 +430,195 @@ function ttfmake_get_sections_settings( $section_type = false ) {
 	return $settings;
 }
 endif;
+
+if ( ! function_exists( 'ttfmake_get_template' ) ) :
+/**
+ * Load a section front- or back-end section template. Searches for child theme versions
+ * first, then parent themes, then plugins.
+ *
+ * @since  1.8.12.
+ *
+ * @param  string    $slug    The slug name for the generic template.
+ * @param  string    $name    The name of the specialised template.
+ * @return void
+ */
+function ttfmake_get_template( $slug, $name = '' ) {
+	$templates = array();
+	$paths = array(
+		STYLESHEETPATH . '/',
+		TEMPLATEPATH . '/inc/'
+	);
+	$slug = ltrim( $slug, '/' );
+
+	if ( '' !== $name ) {
+		$templates[] = "{$slug}-{$name}.php";
+	}
+
+	$templates[] = "{$slug}.php";
+
+	if ( Make()->plus()->is_plus() ) {
+		$paths[] = makeplus_get_plugin_directory() . '/inc/';
+	}
+
+	foreach ( $templates as $template ) {
+		foreach( $paths as $path ) {
+			$template_file = $path . $template;
+
+			if ( file_exists( $template_file ) ) {
+				return require( $template_file );
+			}
+		}
+	}
+
+	get_template_part( $slug, $name );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_data' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_data() {
+	global $ttfmake_section_data;
+
+	return $ttfmake_section_data;
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_field' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_field( $field ) {
+	global $ttfmake_section_data;
+	$value = ttfmake_get_section_default( $field, $ttfmake_section_data['section-type'] );
+	$value = false !== $value && $value || '';
+
+	if ( isset( $ttfmake_section_data[$field] ) ) {
+		$value = $ttfmake_section_data[$field];
+	}
+
+	return $value;
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_item_html_class' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_item_html_class( $item_data ) {
+	global $ttfmake_section_data;
+	$classes = '';
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_item_html_class', $classes, $item_data, $ttfmake_section_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_item_html_style' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_item_html_style( $item_data ) {
+	global $ttfmake_section_data;
+	$style = '';
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_item_html_style', $style, $item_data, $ttfmake_section_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_item_html_attrs' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_item_html_attrs( $item_data ) {
+	global $ttfmake_section_data;
+	$style = '';
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_item_html_attrs', $style, $item_data, $ttfmake_section_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_should_render_section' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_should_render_section( $section_data ) {
+	return apply_filters( 'make_should_render_section', true, $section_data );
+}
+endif;
+
+
+if ( ! function_exists( 'ttfmake_get_section_html_id' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_id() {
+	global $ttfmake_section_data;
+
+	return ttfmake_get_builder_save()->section_html_id( $ttfmake_section_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_class' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_class() {
+	global $ttfmake_section_data, $ttfmake_sections;
+	$classes = ttfmake_get_builder_save()->section_html_classes( $ttfmake_section_data, $ttfmake_sections );
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_html_class', $classes, $ttfmake_section_data, $ttfmake_sections );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_style' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_style() {
+	global $ttfmake_section_data, $ttfmake_sections;
+	$style = ttfmake_get_builder_save()->section_html_style( $ttfmake_section_data );
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_html_style', $style, $ttfmake_section_data, $ttfmake_sections );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_attrs' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_attrs() {
+	global $ttfmake_section_data, $ttfmake_sections;
+	$attrs = '';
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_html_attrs', $attrs, $ttfmake_section_data );
+}
+endif;
