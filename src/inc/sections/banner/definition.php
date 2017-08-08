@@ -42,28 +42,29 @@ class MAKE_Sections_Banner_Definition {
 			add_filter( 'make_get_section_json', array( $this, 'get_section_json' ), 10, 1 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
 			add_action( 'admin_footer', array( $this, 'print_templates' ) );
-			add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
-			add_filter( 'make_section_html_attrs', array( $this, 'html_attrs' ), 10, 3 );
-			add_filter( 'make_section_item_html_class', array( $this, 'item_html_class' ), 10, 2 );
-			add_filter( 'make_section_item_html_style', array( $this, 'item_html_style' ), 10, 3 );
-
-			ttfmake_add_section(
-				'banner',
-				__( 'Banner', 'make' ),
-				Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/banner.png',
-				__( 'Display multiple types of content in a banner or a slider.', 'make' ),
-				array( $this, 'save' ),
-				array(
-					'banner' => 'sections/banner/builder-template',
-					'banner-slide' => 'sections/banner/builder-template-slide'
-				),
-				'sections/banner/frontend-template',
-				300,
-				get_template_directory() . '/inc/builder/'
-			);
 		} else {
 			add_action( 'make_builder_banner_css', array( $this, 'style_rules' ), 10, 3 );
 		}
+
+		add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
+		add_filter( 'make_section_html_attrs', array( $this, 'html_attrs' ), 10, 3 );
+		add_filter( 'make_section_item_html_class', array( $this, 'item_html_class' ), 10, 2 );
+		add_filter( 'make_section_item_html_style', array( $this, 'item_html_style' ), 10, 3 );
+
+		ttfmake_add_section(
+			'banner',
+			__( 'Banner', 'make' ),
+			Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/banner.png',
+			__( 'Display multiple types of content in a banner or a slider.', 'make' ),
+			array( $this, 'save' ),
+			array(
+				'banner' => 'sections/banner/builder-template',
+				'banner-slide' => 'sections/banner/builder-template-slide'
+			),
+			'sections/banner/frontend-template',
+			300,
+			get_template_directory() . '/inc/builder/'
+		);
 	}
 
 	public function get_settings() {
