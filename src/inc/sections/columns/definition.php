@@ -43,23 +43,24 @@ class MAKE_Sections_Columns_Definition {
 			add_filter( 'make_get_section_json', array( $this, 'embed_column_images' ), 20, 1 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
 			add_action( 'admin_footer', array( $this, 'print_templates' ) );
-			add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
-
-			ttfmake_add_section(
-				'text',
-				__( 'Content', 'make' ),
-				Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/text.png',
-				__( 'Create rearrangeable columns of content and images.', 'make' ),
-				array( $this, 'save' ),
-				array (
-					'text' => 'sections/columns/builder-template',
-					'text-item' => 'sections/columns/builder-template-column'
-				),
-				'sections/columns/frontend-template',
-				100,
-				get_template_directory() . '/inc/builder/'
-			);
 		}
+
+		add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
+
+		ttfmake_add_section(
+			'text',
+			__( 'Content', 'make' ),
+			Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/text.png',
+			__( 'Create rearrangeable columns of content and images.', 'make' ),
+			array( $this, 'save' ),
+			array(
+				'text' => 'sections/columns/builder-template',
+				'text-item' => 'sections/columns/builder-template-column'
+			),
+			'sections/columns/frontend-template',
+			100,
+			get_template_directory() . '/inc/builder/'
+		);
 	}
 
 	public function get_settings() {
