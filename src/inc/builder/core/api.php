@@ -853,6 +853,138 @@ function ttfmake_get_content( $content ) {
 }
 endif;
 
+if ( ! function_exists( 'ttfmake_get_image' ) ) :
+/**
+ * Get an image to display in page builder backend or front end template.
+ *
+ * This function allows image IDs defined with a negative number to surface placeholder images. This allows templates to
+ * approximate real content without needing to add images to the user's media library.
+ *
+ * @since  1.0.4.
+ *
+ * @param  int       $image_id    The attachment ID. Dimension value IDs represent placeholders (100x150).
+ * @param  string    $size        The image size.
+ * @return string                 HTML for the image. Empty string if image cannot be produced.
+ */
+function ttfmake_get_image( $image_id, $size ) {
+	$return = '';
+
+	if ( false === strpos( $image_id, 'x' ) ) {
+		$return = wp_get_attachment_image( $image_id, $size );
+	} else {
+		$image = ttfmake_get_placeholder_image( $image_id );
+
+		if ( ! empty( $image ) && isset( $image['src'] ) && isset( $image['alt'] ) && isset( $image['class'] ) && isset( $image['height'] ) && isset( $image['width'] ) ) {
+			$return = '<img src="' . $image['src'] . '" alt="' . $image['alt'] . '" class="' . $image['class'] . '" height="' . $image['height'] . '" width="' . $image['width'] . '" />';
+		}
+	}
+
+	/**
+	 * Filter the image HTML.
+	 *
+	 * @since 1.2.3.
+	 *
+	 * @param string    $return      The image HTML.
+	 * @param int       $image_id    The ID for the image.
+	 * @param bool      $size        The requested image size.
+	 */
+	return apply_filters( 'make_get_image', $return, $image_id, $size );
+}
+endif;
+
+global $ttfmake_placeholder_images;
+
+if ( ! function_exists( 'ttfmake_get_placeholder_image' ) ) :
+/**
+ * Gets the specified placeholder image.
+ *
+ * @since  1.0.4.
+ *
+ * @param  int      $image_id    Image ID. Should be a dimension value (100x150).
+ * @return array                 The image data, including 'src', 'alt', 'class', 'height', and 'width'.
+ */
+function ttfmake_get_placeholder_image( $image_id ) {
+	global $ttfmake_placeholder_images;
+	$return = array();
+
+	if ( isset( $ttfmake_placeholder_images[ $image_id ] ) ) {
+		$return = $ttfmake_placeholder_images[ $image_id ];
+	}
+
+	/**
+	 * Filter the image source attributes.
+	 *
+	 * @since 1.2.3.
+	 *
+	 * @param string    $return                        The image source attributes.
+	 * @param int       $image_id                      The ID for the image.
+	 * @param bool      $ttfmake_placeholder_images    The list of placeholder images.
+	 */
+	return apply_filters( 'make_get_placeholder_image', $return, $image_id, $ttfmake_placeholder_images );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_register_placeholder_image' ) ) :
+/**
+ * Add a new placeholder image.
+ *
+ * @since  1.0.4.
+ *
+ * @param  int      $id      The ID for the image. Should be a dimension value (100x150).
+ * @param  array    $data    The image data, including 'src', 'alt', 'class', 'height', and 'width'.
+ * @return void
+ */
+function ttfmake_register_placeholder_image( $id, $data ) {
+	global $ttfmake_placeholder_images;
+	$ttfmake_placeholder_images[ $id ] = $data;
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_image_src' ) ) :
+/**
+ * Get an image's src.
+ *
+ * @since  1.0.4.
+ *
+ * @param  int       $image_id    The attachment ID. Dimension value IDs represent placeholders (100x150).
+ * @param  string    $size        The image size.
+ * @return string                 URL for the image.
+ */
+function ttfmake_get_image_src( $image_id, $size ) {
+	$src = '';
+
+	if ( false === strpos( $image_id, 'x' ) ) {
+		$image = wp_get_attachment_image_src( $image_id, $size );
+
+		if ( false !== $image && isset( $image[0] ) ) {
+			$src = $image;
+		}
+	} else {
+		$image = ttfmake_get_placeholder_image( $image_id );
+
+		if ( isset( $image['src'] ) ) {
+			$wp_src = array(
+				0 => $image['src'],
+				1 => $image['width'],
+				2 => $image['height'],
+			);
+			$src = array_merge( $image, $wp_src );
+		}
+	}
+
+	/**
+	 * Filter the image source attributes.
+	 *
+	 * @since 1.2.3.
+	 *
+	 * @param string    $src         The image source attributes.
+	 * @param int       $image_id    The ID for the image.
+	 * @param bool      $size        The requested image size.
+	 */
+	return apply_filters( 'make_get_image_src', $src, $image_id, $size );
+}
+endif;
+
 if ( ! function_exists( 'ttfmake_get_section_html_id' ) ) :
 /**
  * MISSING DOCS
