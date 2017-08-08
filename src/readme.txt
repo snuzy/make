@@ -26,6 +26,12 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.8.12-beta - August 4 2017 =
+* Improved: Refactored code to support rendering sections through shortcodes
+* Improved: Easier templating for sections
+* Bug fix: Minor fixes on Banner display
+* Bug fix: Fixed section IDs being incorrectly parsed on some systems
+
 = 1.8.11 - August 4 2017 =
 * Bug fix: Screen reader text was causing horizontal scrolling in Firefox.
 * Bug fix: The format overlay wasn't appearing on Wordpress 4.8.1.
