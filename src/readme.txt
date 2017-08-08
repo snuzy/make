@@ -26,7 +26,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
-= 1.8.12-beta - August 4 2017 =
+= 1.8.12-beta - August 8 2017 =
 * Improved: Refactored code to support rendering sections through shortcodes
 * Improved: Easier templating for sections
 * Bug fix: Minor fixes on Banner display
