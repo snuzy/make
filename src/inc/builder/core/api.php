@@ -52,7 +52,15 @@ class TTFMAKE_Sections {
 	 *
 	 * @return TTFMAKE_Sections
 	 */
-	public function __constructor() {}
+	public function __constructor() {
+		// Run wpautop when saving the data
+		add_filter( 'make_the_builder_content', 'wpautop' );
+
+		// Handle oEmbeds correctly
+		add_filter( 'make_the_builder_content', array( $this, 'embed_handling' ), 8 );
+		add_filter( 'embed_handler_html', array( $this, 'embed_handler_html' ) , 10, 3 );
+		add_filter( 'embed_oembed_html', array( $this, 'embed_oembed_html' ) , 10, 4 );
+	}
 
 	/**
 	 * Return the sections.
@@ -207,6 +215,307 @@ class TTFMAKE_Sections {
 		}
 
 		return $settings;
+	}
+
+	/**
+	 * Run content through the $wp_embed->autoembed method to identify and process oEmbeds.
+	 *
+	 * This function causes oEmbeds to be identified and HTML to created for those oEmbeds. Additional functions in this
+	 * file will not allow the embed code to be saved, but rather wrap the oEmbed url in embed shortcode tags (i.e.,
+	 * [embed]url[/embed]).
+	 *
+	 * In other words, if the following content is passed to this function:
+	 *
+	 *     https://www.youtube.com/watch?v=jScLjUlLTLI
+	 *
+	 *     <p>Here is some more content</p>
+	 *
+	 * it is transformed into:
+	 *
+	 *     [embed]https://www.youtube.com/watch?v=jScLjUlLTLI[/embed]
+	 *
+	 *     <p>Here is some more content</p>
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $content    The content to inspect.
+	 * @return string                The modified content.
+	 */
+	function embed_handling( $content ) {
+		global $wp_embed;
+		$content = $wp_embed->autoembed( $content );
+		return $content;
+	}
+
+	/**
+	 * Modify the embed HTML to be just the URL wrapped in embed tags.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $cache      The previously cached embed value.
+	 * @param  string    $url        The embed URL.
+	 * @param  array     $attr       The shortcode attrs.
+	 * @param  int       $post_ID    The current Post ID.
+	 * @return string                The modified embed code.
+	 */
+	function embed_oembed_html( $cache, $url, $attr, $post_ID ) {
+		return $this->generate_embed_shortcode( $url, $attr );
+	}
+
+	/**
+	 * Modify the embed HTML to be just the URL wrapped in embed tags.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $return     The embed code.
+	 * @param  string    $url        The embed URL.
+	 * @param  array     $attr       The shortcode attrs.
+	 * @return string                The modified embed code.
+	 */
+	function embed_handler_html( $return, $url, $attr ) {
+		return $this->generate_embed_shortcode( $url, $attr );
+	}
+
+	/**
+	 * Wrap a URL in embed shortcode tags.
+	 *
+	 * This function also will apply shortcode attrs if they are available. It only supports the "height" and "width"
+	 * attributes that core supports.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $url        The embed URL.
+	 * @param  array     $attr       The shortcode attrs.
+	 * @return string                The modified embed code.
+	 */
+	function generate_embed_shortcode( $url, $attr ) {
+		$attr_string = '';
+
+		if ( isset( $attr['height'] ) ) {
+			$attr_string = ' height="' . absint( $attr['height'] ) . '"';
+		}
+
+		if ( isset( $attr['width'] ) ) {
+			$attr_string = ' width="' . absint( $attr['width'] ) . '"';
+		}
+
+		return '[embed' . $attr_string . ']' . $url . '[/embed]';
+	}
+
+	/**
+	 * Duplicate of "the_content" with custom filter name for generating content in builder templates.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $content    The original content.
+	 * @return void
+	 */
+	public function the_builder_content( $content ) {
+		/**
+		 * Filter the content used for "post_content" when the builder is used to generate content.
+		 *
+		 * @since 1.2.3.
+		 * @deprecated 1.7.0.
+		 *
+		 * @param string    $content    The post content.
+		 */
+		$content = apply_filters( 'ttfmake_the_builder_content', $content );
+
+		/**
+		 * Filter the content used for "post_content" when the builder is used to generate content.
+		 *
+		 * @since 1.2.3.
+		 *
+		 * @param string    $content    The post content.
+		 */
+		$content = apply_filters( 'make_the_builder_content', $content );
+
+		$content = str_replace( ']]>', ']]&gt;', $content );
+
+		echo $content;
+	}
+
+	/**
+	 * Get the next section's data.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  array    $current_section    The current section's data.
+	 * @param  array    $sections           The list of sections.
+	 * @return array                        The next section's data.
+	 */
+	public function get_next_section_data( $current_section, $sections ) {
+		$next_is_the_one = false;
+		$next_data       = array();
+		foreach ( $sections as $id => $data ) {
+			if ( true === $next_is_the_one ) {
+				$next_data = $data;
+				break;
+			}
+			if ( $current_section['id'] == $id ) {
+				$next_is_the_one = true;
+			}
+		}
+		/**
+		 * Allow developers to alter the "next" section data.
+		 *
+		 * @since 1.2.3.
+		 *
+		 * @param array    $next_data          The data for the next section.
+		 * @param array    $current_section    The data for the current section.
+		 * @param array    $sections           The list of all sections.
+		 */
+		return apply_filters( 'make_get_next_section_data', $next_data, $current_section, $sections );
+	}
+
+	/**
+	 * Get the previous section's data.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  array    $current_section    The current section's data.
+	 * @param  array    $sections           The list of sections.
+	 * @return array                        The previous section's data.
+	 */
+	public function get_prev_section_data( $current_section, $sections ) {
+		foreach ( $sections as $id => $data ) {
+			if ( $current_section['id'] == $id ) {
+				break;
+			} else {
+				$prev_key = $id;
+			}
+		}
+		$prev_section = ( isset( $prev_key ) && isset( $sections[ $prev_key ] ) ) ? $sections[ $prev_key ] : array();
+		/**
+		 * Allow developers to alter the "next" section data.
+		 *
+		 * @since 1.2.3.
+		 *
+		 * @param array    $prev_section       The data for the next section.
+		 * @param array    $current_section    The data for the current section.
+		 * @param array    $sections           The list of all sections.
+		 */
+		return apply_filters( 'make_get_prev_section_data', $prev_section, $current_section, $sections );
+	}
+
+	/**
+	 * Prepare the HTML id for a section.
+	 *
+	 * @since 1.6.0.
+	 *
+	 * @param $current_section
+	 *
+	 * @return mixed|void
+	 */
+	public function section_html_id( $current_section ) {
+		$prefix = 'builder-section-';
+		$id = sanitize_title_with_dashes( $current_section['id'] );
+
+		/**
+		 * Filter the section wrapper's HTML id attribute.
+		 *
+		 * @since 1.6.0.
+		 *
+		 * @param string    $section_id         The string used in the section's HTML id attribute.
+		 * @param array     $current_section    The data for the section.
+		 */
+		return apply_filters( 'make_section_html_id', $prefix . $id, $current_section );
+	}
+
+	/**
+	 * Prepare the HTML classes for a section.
+	 *
+	 * Includes the name of the current section type, the next section type and the previous section type. It will also
+	 * denote if a section is the first or last section.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  array     $current_section    The current section's data.
+	 * @param  array     $sections           The list of sections.
+	 * @return string                        The class string.
+	 */
+	public function section_html_classes( $current_section, $sections ) {
+		$prefix = 'builder-section-';
+
+		// Get the current section type
+		$current = ( isset( $current_section['section-type'] ) ) ? $prefix . $current_section['section-type'] : '';
+
+		// Prepend default classes
+		$current = 'builder-section ' . $current;
+
+		// Get the next section's type
+		$next_data = $this->get_next_section_data( $current_section, $sections );
+		$next      = ( ! empty( $next_data ) && isset( $next_data['section-type'] ) ) ? $prefix . 'next-' . $next_data['section-type'] : $prefix . 'last';
+
+		// Get the previous section's type
+		$prev_data = $this->get_prev_section_data( $current_section, $sections );
+		$prev      = ( ! empty( $prev_data ) && isset( $prev_data['section-type'] ) ) ? $prefix . 'prev-' . $prev_data['section-type'] : $prefix . 'first';
+
+		$html_classes = $prev . ' ' . $current . ' ' . $next;
+
+		// Background
+		$bg_color = ( isset( $current_section['background-color'] ) && ! empty( $current_section['background-color'] ) );
+		$bg_image = ( isset( $current_section['background-image'] ) && 0 !== absint( $current_section['background-image'] ) );
+
+		if ( true === $bg_color || true === $bg_image ) {
+			$html_classes .= ' has-background';
+		}
+
+		// Full width
+		$full_width = isset( $current_section['full-width'] ) && 0 !== absint( $current_section['full-width'] );
+
+		if ( true === $full_width ) {
+			$html_classes .= ' builder-section-full-width';
+		}
+
+		/**
+		 * Filter the section classes.
+		 *
+		 * @since 1.2.3.
+		 *
+		 * @param string    $classes            The sting of classes.
+		 * @param array     $current_section    The array of data for the current section.
+		 */
+		$html_classes = apply_filters( 'make_section_classes', $html_classes, $current_section );
+
+		return $html_classes;
+	}
+
+	/**
+	 * MISSING DOCS
+	 */
+	public function section_html_style( $current_section ) {
+		$style = '';
+
+		// Background color
+		if ( isset( $current_section['background-color'] ) && ! empty( $current_section['background-color'] ) ) {
+			$style .= 'background-color:' . maybe_hash_hex_color( $current_section['background-color'] ) . ';';
+		}
+
+		// Background image
+		if ( isset( $current_section['background-image'] ) && 0 !== absint( $current_section['background-image'] ) ) {
+			$image_src = ttfmake_get_image_src( $current_section['background-image'], 'full' );
+			if ( isset( $image_src[0] ) ) {
+				$style .= 'background-image: url(\'' . addcslashes( esc_url_raw( $image_src[0] ), '"' ) . '\');';
+			}
+		}
+
+		// Background style
+		if ( isset( $current_section['background-style'] ) && ! empty( $current_section['background-style'] ) ) {
+			if ( in_array( $current_section['background-style'], array( 'cover', 'contain' ) ) ) {
+				$style .= 'background-size: ' . $current_section['background-style'] . '; background-repeat: no-repeat;';
+			} else if ( 'tile' === $current_section['background-style'] ) {
+				$style .= 'background-repeat: repeat;';
+			}
+		}
+
+		// Background position
+		if ( isset( $current_section['background-position'] ) && ! empty( $current_section['background-position'] ) ) {
+			$rule = explode( '-', $current_section['background-position'] );
+			$style .= 'background-position: ' . implode( ' ', $rule ) . ';';
+		}
+
+		return $style;
 	}
 }
 endif;
@@ -534,6 +843,60 @@ function ttfmake_get_section_field( $field ) {
 }
 endif;
 
+if ( ! function_exists( 'ttfmake_get_content' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_content( $content ) {
+	return ttfmake_get_sections_class()->the_builder_content( $content );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_id' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_id() {
+	global $ttfmake_section_data;
+
+	return ttfmake_get_sections_class()->section_html_id( $ttfmake_section_data );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_class' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_class() {
+	global $ttfmake_section_data, $ttfmake_sections;
+	$classes = ttfmake_get_sections_class()->section_html_classes( $ttfmake_section_data, $ttfmake_sections );
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_html_class', $classes, $ttfmake_section_data, $ttfmake_sections );
+}
+endif;
+
+if ( ! function_exists( 'ttfmake_get_section_html_style' ) ) :
+/**
+ * MISSING DOCS
+ *
+ */
+function ttfmake_get_section_html_style() {
+	global $ttfmake_section_data, $ttfmake_sections;
+	$style = ttfmake_get_sections_class()->section_html_style( $ttfmake_section_data );
+
+	/**
+	 * MISSING DOCS
+	 */
+	return apply_filters( 'make_section_html_style', $style, $ttfmake_section_data, $ttfmake_sections );
+}
+endif;
+
 if ( ! function_exists( 'ttfmake_get_section_item_html_class' ) ) :
 /**
  * MISSING DOCS
@@ -589,51 +952,6 @@ if ( ! function_exists( 'ttfmake_should_render_section' ) ) :
  */
 function ttfmake_should_render_section( $section_data ) {
 	return apply_filters( 'make_should_render_section', true, $section_data );
-}
-endif;
-
-
-if ( ! function_exists( 'ttfmake_get_section_html_id' ) ) :
-/**
- * MISSING DOCS
- *
- */
-function ttfmake_get_section_html_id() {
-	global $ttfmake_section_data;
-
-	return ttfmake_get_builder_save()->section_html_id( $ttfmake_section_data );
-}
-endif;
-
-if ( ! function_exists( 'ttfmake_get_section_html_class' ) ) :
-/**
- * MISSING DOCS
- *
- */
-function ttfmake_get_section_html_class() {
-	global $ttfmake_section_data, $ttfmake_sections;
-	$classes = ttfmake_get_builder_save()->section_html_classes( $ttfmake_section_data, $ttfmake_sections );
-
-	/**
-	 * MISSING DOCS
-	 */
-	return apply_filters( 'make_section_html_class', $classes, $ttfmake_section_data, $ttfmake_sections );
-}
-endif;
-
-if ( ! function_exists( 'ttfmake_get_section_html_style' ) ) :
-/**
- * MISSING DOCS
- *
- */
-function ttfmake_get_section_html_style() {
-	global $ttfmake_section_data, $ttfmake_sections;
-	$style = ttfmake_get_builder_save()->section_html_style( $ttfmake_section_data );
-
-	/**
-	 * MISSING DOCS
-	 */
-	return apply_filters( 'make_section_html_style', $style, $ttfmake_section_data, $ttfmake_sections );
 }
 endif;
 
