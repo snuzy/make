@@ -84,7 +84,9 @@
 		},
 
 		setStyle: function( style ) {
-			$( this.editor.getBody() ).css( style );
+			if ( this.editor ) {
+				$( this.editor.getBody() ).css( style );
+			}
 		},
 
 		onUpdate: function( e ) {
