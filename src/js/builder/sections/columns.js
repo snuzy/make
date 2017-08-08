@@ -227,6 +227,7 @@
 			var iframe = $( 'iframe', this.$el ).get( 0 );
 			make.utils.initFrame( iframe );
 			make.utils.setFrameContent( iframe, this.model.get( 'content' ) );
+			this.refreshContentHeight();
 		},
 
 		onEditItemContentClick: function( e ) {
@@ -257,6 +258,11 @@
 		onItemContentChanged: function() {
 			var $iframe = $( 'iframe', this.$el );
 			make.utils.setFrameContent( $iframe.get( 0 ), this.model.get( 'content' ) );
+			this.refreshContentHeight();
+		},
+
+		refreshContentHeight: function() {
+			var $iframe = $( 'iframe', this.$el );
 
 			if ( '' !== this.model.get( 'content' ) ) {
 				$( '.ttfmake-iframe-content-placeholder', this.$el ).removeClass( 'show' );
