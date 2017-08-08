@@ -332,7 +332,7 @@ class TTFMAKE_Sections {
 
 		$content = str_replace( ']]>', ']]&gt;', $content );
 
-		echo $content;
+		return $content;
 	}
 
 	/**

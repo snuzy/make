@@ -38,7 +38,7 @@ $aspect = ( '' !== ttfmake_get_section_field( 'aspect' ) ) ? esc_attr( ttfmake_g
 					<?php endif; ?>
 					<?php if ( '' !== $item['description'] ) : ?>
 					<div class="builder-gallery-description">
-						<?php ttfmake_get_content( $item['description'] ); ?>
+						<?php echo ttfmake_get_content( $item['description'] ); ?>
 					</div>
 					<?php elseif ( has_excerpt( $item['background-image'] ) ) : ?>
 					<div class="builder-gallery-description">

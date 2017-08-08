@@ -25,11 +25,9 @@
 
 			<?php foreach( $row as $i => $column ): ?>
 				<div class="builder-text-column builder-text-column-<?php echo ( $r * $columns_number ) + $i + 1; ?>" id="<?php echo esc_attr( ttfmake_get_section_html_id() ); ?>-column-<?php echo $i + 1; ?>">
-	                <?php if ( '' !== $column['content'] ) : ?>
-	                <div class="builder-text-content">
-	                    <?php ttfmake_get_content( $column['content'] ); ?>
-	                </div>
-	                <?php endif; ?>
+					<div class="builder-text-content">
+						<?php echo apply_filters( 'make_filter_column_content', ttfmake_get_content( $column['content'] ), $column ); ?>
+					</div>
 	            </div>
 			<?php endforeach; ?>
 

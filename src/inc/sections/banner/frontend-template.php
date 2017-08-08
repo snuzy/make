@@ -21,7 +21,7 @@ $is_slider = ( count( $banner_slides ) > 1 ) ? true : false;
 		<div class="builder-banner-slide<?php echo ttfmake_get_section_item_html_class( $slide ); ?>" style="<?php echo ttfmake_get_section_item_html_style( $slide ); ?>">
 			<div class="builder-banner-content">
 				<div class="builder-banner-inner-content">
-					<?php ttfmake_get_content( $slide['content'] ); ?>
+					<?php echo ttfmake_get_content( $slide['content'] ); ?>
 				</div>
 			</div>
 			<?php if ( 0 !== absint( $slide['darken'] ) ) : ?>
