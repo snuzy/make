@@ -440,14 +440,19 @@ class MAKE_Sections_Banner_Definition {
 				}
 
 				/*
-				 * Back compatibility for speed (time between slides). Set it to default value when
-				 * the original value is other than one found in available section choices.
-				 *
-				 * @since 1.8.8.
-				 */
-				 if( isset( $data['delay'] ) && !in_array( $data['delay'], ttfmake_get_section_choices( 'delay', 'banner' ) ) ) {
-					 $data['delay'] = ttfmake_get_section_default( 'delay', 'banner' );
-				 }
+				* Back compatibility for speed (time between slides). Set it to default value when
+				* the original value is other than one found in available section choices.
+				*
+				* @since 1.8.8.
+				*/
+				if( isset( $data['delay'] ) ) {
+					$delay = strval( $data['delay'] );
+					$choices = array_keys( ttfmake_get_section_choices( 'delay', 'banner' ) );
+
+					if ( ! in_array( $delay, $choices ) ) {
+						$data['delay'] = ttfmake_get_section_default( 'delay', 'banner' );
+					}
+				}
 			}
 		}
 
