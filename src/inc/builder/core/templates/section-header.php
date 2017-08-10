@@ -46,9 +46,11 @@ $links = apply_filters( 'ttfmake_builder_section_footer_links', $links );
  */
 $links = apply_filters( 'make_builder_section_links', $links );
 ksort( $links );
+
+$section_classes = apply_filters( 'make_builder_section_class', '' );
 ?>
 
-<div class="ttfmake-section{{ 'closed' === data.get('state') ? '' : ' ttfmake-section-open' }} ttfmake-section-{{ data.get('section-type') }}" data-id="{{ data.get('id') }}" data-section-type="{{ data.get('section-type') }}">
+<div class="ttfmake-section {{ 'closed' === data.get('state') ? '' : 'ttfmake-section-open' }} ttfmake-section-{{ data.get('section-type') }} <?php echo $section_classes; ?>" data-id="{{ data.get('id') }}" data-section-type="{{ data.get('section-type') }}">
 	<?php
 	/**
 	 * Execute code before the section header is displayed.
