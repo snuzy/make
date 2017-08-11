@@ -15,9 +15,11 @@ $is_style_preview = isset( $_POST['make-preview'] );
  */
 $element = 'body';
 $selectors = array( 'body', '.font-body' );
+$body_font_customized = false;
 $declarations = $this->helper()->parse_font_properties( $element, $is_style_preview );
 if ( ! empty( $declarations ) ) {
 	$this->css()->add( array( 'selectors' => $selectors, 'declarations' => $declarations, ) );
+	$body_font_customized = true;
 }
 $link_rule = $this->helper()->parse_link_underline( $element, array( 'a' ), $is_style_preview );
 if ( ! empty( $link_rule ) ) {
@@ -187,7 +189,8 @@ if ( ! empty( $link_rule ) ) {
 $menu_items_customized = false;
 $element = 'nav';
 $selectors = array( '.site-navigation .menu li a', '.font-nav', '.site-navigation .menu-toggle' );
-$declarations = $this->helper()->parse_font_properties( $element, $is_style_preview );
+$force = $is_style_preview || $body_font_customized;
+$declarations = $this->helper()->parse_font_properties( $element, $force );
 if ( ! empty( $declarations ) ) {
 	$this->css()->add( array( 'selectors' => $selectors, 'declarations' => $declarations, ) );
 	$menu_items_customized = true;
