@@ -31,6 +31,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Improved: Easier templating for sections
 * Bug fix: Minor fixes on Banner display
 * Bug fix: Fixed section IDs being incorrectly parsed on some systems
+* Bug fix: Fixed Typography bug in Customizer which didn't allow to set Menu font to Open Sans
 
 = 1.8.11 - August 4 2017 =
 * Bug fix: Screen reader text was causing horizontal scrolling in Firefox.
