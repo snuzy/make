@@ -37,6 +37,7 @@ if ( ! empty( $ttfmake_section_data['config'] ) ) {
  * @param array    $links    The link definition array.
  */
 $links = apply_filters( 'ttfmake_builder_section_footer_links', $links );
+
 /**
  * Filter the definitions for the buttons that appear in each Builder section's header.
  *
@@ -47,6 +48,15 @@ $links = apply_filters( 'ttfmake_builder_section_footer_links', $links );
 $links = apply_filters( 'make_builder_section_links', $links );
 ksort( $links );
 
+/**
+ * Filters the rendered HTML class of the section in the Builder.
+ *
+ * @since 1.9.0.
+ *
+ * @param string   $class   The current HTML class.
+ *
+* @return string            The filtered HTML class.
+ */
 $section_classes = apply_filters( 'make_builder_section_class', '' );
 ?>
 
@@ -62,7 +72,6 @@ $section_classes = apply_filters( 'make_builder_section_class', '' );
 	<div class="ttfmake-section-header">
 		<h3{{ (data.get('title')) ? ' class=has-title' : '' }}>
 			<span class="ttfmake-section-header-title">{{ data.get('title') }}</span><em><?php echo ( esc_html( $ttfmake_section_data['label'] ) ); ?></em>
-
 			<?php
 			/**
 			 * Display custom badges.
