@@ -28,12 +28,12 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 = 1.9.0 - August 15 2017 =
 * Improved: Refactored code to support rendering sections through shortcodes
-* Improvement: unified Section API now covers data, settings and template helpers.
-* Improvement: reduced the number of scripts and refactored logic for overlay and setting controls in the Builder.
+* Improved: unified Section API now covers data, settings and template helpers.
+* Improved: reduced the number of scripts and refactored logic for overlay and setting controls in the Builder.
 * Bug fix: Minor fixes on Banner display
 * Bug fix: Fixed section IDs being incorrectly parsed on some systems
 * Bug fix: Fixed Typography bug in Customizer which didn't allow to set Menu font to Open Sans
-* Bug fix:Fixed Typography bug in Customizer which didn't allow to set font-weight on headings.
+* Bug fix: Fixed Typography bug in Customizer which didn't allow to set font-weight on headings.
 * Bug fix: Screen reader text appearing on pages with long content.
 
 = 1.8.11 - August 4 2017 =
@@ -548,6 +548,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.0 =
+Builder improvements, minor fixes for Banners, typography and general layout.
 
 = 1.8.11 =
 Minor bug fixes.
