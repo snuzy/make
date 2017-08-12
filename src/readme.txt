@@ -26,12 +26,15 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
-= 1.8.12-beta - August 8 2017 =
+= 1.9.0 - August 15 2017 =
 * Improved: Refactored code to support rendering sections through shortcodes
-* Improved: Easier templating for sections
+* Improvement: unified Section API now covers data, settings and template helpers.
+* Improvement: reduced the number of scripts and refactored logic for overlay and setting controls in the Builder.
 * Bug fix: Minor fixes on Banner display
 * Bug fix: Fixed section IDs being incorrectly parsed on some systems
 * Bug fix: Fixed Typography bug in Customizer which didn't allow to set Menu font to Open Sans
+* Bug fix:Fixed Typography bug in Customizer which didn't allow to set font-weight on headings.
+* Bug fix: Screen reader text appearing on pages with long content.
 
 = 1.8.11 - August 4 2017 =
 * Bug fix: Screen reader text was causing horizontal scrolling in Firefox.
