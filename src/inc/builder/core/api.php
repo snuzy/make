@@ -141,7 +141,6 @@ class TTFMAKE_Sections {
 	 * @return array    The section defaults.
 	 */
 	public function get_section_defaults() {
-		// Note that this function does not do anything yet. It is part of an API refresh that is happening over time.
 		$defaults = array();
 
 		/**
@@ -425,8 +424,7 @@ class TTFMAKE_Sections {
 	/**
 	 * Prepare the HTML classes for a section.
 	 *
-	 * Includes the name of the current section type, the next section type and the previous section type. It will also
-	 * denote if a section is the first or last section.
+	 * Includes the current section data and an array of the sections in the layout.
 	 *
 	 * @since  1.0.0.
 	 *
@@ -482,7 +480,14 @@ class TTFMAKE_Sections {
 	}
 
 	/**
-	 * MISSING DOCS
+	 * Prepare the HTML style for a section.
+	 *
+	 * Includes the current section data.
+	 *
+	 * @since  1.9.0.
+	 *
+	 * @param  array     $current_section    The current section's data.
+	 * @return string                        The class styles.
 	 */
 	public function section_html_style( $current_section ) {
 		$style = '';
@@ -764,7 +769,7 @@ if ( ! function_exists( 'ttfmake_get_template' ) ) :
  * Load a section front- or back-end section template. Searches for child theme versions
  * first, then parent themes, then plugins.
  *
- * @since  1.8.12.
+ * @since  1.9.0.
  *
  * @param  string    $slug    The slug name for the generic template.
  * @param  string    $name    The name of the specialised template.
@@ -795,7 +800,7 @@ function ttfmake_get_template( $slug, $name = '' ) {
 			/**
 			 * Filter the template to try and load.
 			 *
-			 * @since 1.2.3.
+			 * @since 1.9.0.
 			 *
 			 * @param array    $templates    The template file to load.
 			 * @param string   $slug         The template slug.
@@ -827,11 +832,19 @@ endif;
 
 if ( ! function_exists( 'ttfmake_get_section_field' ) ) :
 /**
- * MISSING DOCS
+ * Returns the value of the specified section setting.
  *
+ * @since 1.9.0.
+ *
+ * @param  string    $field           The key for the section setting.
+ *
+ * @return string                     The saved value as string,
+ *                                    or default value if not set,
+ *                                    or false if the field doesn't exist.
  */
 function ttfmake_get_section_field( $field ) {
 	global $ttfmake_section_data;
+
 	$value = ttfmake_get_section_default( $field, $ttfmake_section_data['section-type'] );
 	$value = false !== $value && $value || '';
 
@@ -845,8 +858,13 @@ endif;
 
 if ( ! function_exists( 'ttfmake_get_content' ) ) :
 /**
- * MISSING DOCS
+ * Returns the input string as filtered content.
  *
+ * @since 1.9.0.
+ *
+ * @param  string    $content         The content string.
+ *
+ * @return string                     The filtered content string.
  */
 function ttfmake_get_content( $content ) {
 	return ttfmake_get_sections_class()->the_builder_content( $content );
@@ -987,8 +1005,11 @@ endif;
 
 if ( ! function_exists( 'ttfmake_get_section_html_id' ) ) :
 /**
- * MISSING DOCS
+ * Returns the current section HTML id.
  *
+ * @since 1.9.0.
+ *
+ * @return string       The section id.
  */
 function ttfmake_get_section_html_id() {
 	global $ttfmake_section_data;
@@ -999,15 +1020,26 @@ endif;
 
 if ( ! function_exists( 'ttfmake_get_section_html_class' ) ) :
 /**
- * MISSING DOCS
+ * Returns the current section HTML class.
  *
+ * @since 1.9.0.
+ *
+ * @return string   The section HTML class.
  */
 function ttfmake_get_section_html_class() {
 	global $ttfmake_section_data, $ttfmake_sections;
 	$classes = ttfmake_get_sections_class()->section_html_classes( $ttfmake_section_data, $ttfmake_sections );
 
 	/**
-	 * MISSING DOCS
+	 * Filters the rendered HTML class of the section.
+	 *
+	 * @since 1.9.0.
+	 *
+	 * @param string   $classes                 The current HTML class.
+	 * @param array    $ttfmake_section_data    The data of the current section.
+	 * @param array    $ttfmake_sections        A list of sections in the current layout.
+	 *
+ 	 * @return string                           The filtered HTML class.
 	 */
 	return apply_filters( 'make_section_html_class', $classes, $ttfmake_section_data, $ttfmake_sections );
 }
@@ -1015,15 +1047,26 @@ endif;
 
 if ( ! function_exists( 'ttfmake_get_section_html_style' ) ) :
 /**
- * MISSING DOCS
+ * Returns the current section HTML style.
  *
+ * @since 1.9.0.
+ *
+ * @return string       The section HTML style.
  */
 function ttfmake_get_section_html_style() {
 	global $ttfmake_section_data, $ttfmake_sections;
 	$style = ttfmake_get_sections_class()->section_html_style( $ttfmake_section_data );
 
 	/**
-	 * MISSING DOCS
+	 * Filters the rendered HTML style of the section.
+	 *
+	 * @since 1.9.0.
+	 *
+	 * @param string   $style                   The current HTML style.
+	 * @param array    $ttfmake_section_data    The data of the current section.
+	 * @param array    $ttfmake_sections        A list of sections in the current layout.
+	 *
+ 	 * @return string                           The filtered HTML style.
 	 */
 	return apply_filters( 'make_section_html_style', $style, $ttfmake_section_data, $ttfmake_sections );
 }
@@ -1031,15 +1074,28 @@ endif;
 
 if ( ! function_exists( 'ttfmake_get_section_item_html_class' ) ) :
 /**
- * MISSING DOCS
+ * Returns the current section item HTML class.
  *
+ * @since 1.9.0.
+ *
+ * @param array   $item_data   The current section item data.
+ *
+ * @return string              The item HTML class.
  */
 function ttfmake_get_section_item_html_class( $item_data ) {
 	global $ttfmake_section_data;
 	$classes = '';
 
 	/**
-	 * MISSING DOCS
+	 * Filters the rendered HTML class of the section item.
+	 *
+	 * @since 1.9.0.
+	 *
+	 * @param string   $classes                 The current HTML class.
+	 * @param array    $item_data               The data of the current section item.
+	 * @param array    $ttfmake_section_data    The data of the current section.
+	 *
+ 	 * @return string                           The filtered HTML class.
 	 */
 	return apply_filters( 'make_section_item_html_class', $classes, $item_data, $ttfmake_section_data );
 }
@@ -1047,15 +1103,28 @@ endif;
 
 if ( ! function_exists( 'ttfmake_get_section_item_html_style' ) ) :
 /**
- * MISSING DOCS
+ * Returns the current section item HTML style.
  *
+ * @since 1.9.0.
+ *
+ * @param array   $item_data   The current section item data.
+ *
+ * @return string              The current section item HTML style.
  */
 function ttfmake_get_section_item_html_style( $item_data ) {
 	global $ttfmake_section_data;
 	$style = '';
 
 	/**
-	 * MISSING DOCS
+	 * Filters the rendered HTML style of the section item.
+	 *
+	 * @since 1.9.0.
+	 *
+	 * @param string   $style                   The current HTML style.
+	 * @param array    $item_data               The data of the current section item.
+	 * @param array    $ttfmake_section_data    The data of the current section.
+	 *
+ 	 * @return string                           The filtered HTML style.
 	 */
 	return apply_filters( 'make_section_item_html_style', $style, $item_data, $ttfmake_section_data );
 }
@@ -1063,41 +1132,79 @@ endif;
 
 if ( ! function_exists( 'ttfmake_get_section_item_html_attrs' ) ) :
 /**
- * MISSING DOCS
+ * Returns the current section item HTML attributes.
  *
+ * @since 1.9.0.
+ *
+ * @param array   $item_data   The current section item data.
+ *
+ * @return string              The current section item HTML attributes.
  */
 function ttfmake_get_section_item_html_attrs( $item_data ) {
 	global $ttfmake_section_data;
-	$style = '';
+	$attrs = '';
 
 	/**
-	 * MISSING DOCS
+	 * Filters the rendered HTML attributes of the section item.
+	 *
+	 * @since 1.9.0.
+	 *
+	 * @param string   $attrs                   The current HTML attrs.
+	 * @param array    $item_data               The data of the current section item.
+	 * @param array    $ttfmake_section_data    The data of the current section.
+	 *
+ 	 * @return string                           The filtered HTML attrs.
 	 */
-	return apply_filters( 'make_section_item_html_attrs', $style, $item_data, $ttfmake_section_data );
+	return apply_filters( 'make_section_item_html_attrs', $attrs, $item_data, $ttfmake_section_data );
 }
 endif;
 
 if ( ! function_exists( 'ttfmake_should_render_section' ) ) :
 /**
- * MISSING DOCS
+ * Wether or not the specified section should be rendered.
  *
+ * @since 1.9.0.
+ *
+ * @param array   $section_data   The current section item data.
+ *
+ * @return boolean                Wether or not to render the section. True by default.
  */
 function ttfmake_should_render_section( $section_data ) {
+	/**
+	 * Filters the condition for rendering a section.
+	 *
+	 * @since 1.9.0.
+	 *
+	 * @param string   $render                  Wether or not to render the section. True by default.
+	 * @param array    $section_data            The data of the current section.
+	 *
+ 	 * @return boolean                          Wether or not to render the section.
+	 */
 	return apply_filters( 'make_should_render_section', true, $section_data );
 }
 endif;
 
 if ( ! function_exists( 'ttfmake_get_section_html_attrs' ) ) :
 /**
- * MISSING DOCS
+ * Returns the current section HTML attributes.
  *
+ * @since 1.9.0.
+ *
+ * @return string       The section HTML attributes.
  */
 function ttfmake_get_section_html_attrs() {
 	global $ttfmake_section_data, $ttfmake_sections;
 	$attrs = '';
 
 	/**
-	 * MISSING DOCS
+	 * Filters the rendered HTML attributes of the section.
+	 *
+	 * @since 1.9.0.
+	 *
+	 * @param string   $attrs                   The current HTML attributes.
+	 * @param array    $ttfmake_section_data    The data of the current section.
+	 *
+ 	 * @return string                           The filtered HTML attributes.
 	 */
 	return apply_filters( 'make_section_html_attrs', $attrs, $ttfmake_section_data );
 }
