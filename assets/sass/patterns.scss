@@ -23,8 +23,8 @@ img {
 }
 .screen-reader-text {
 	position: absolute;
-	top: -10000em;
-	left: 0;
+	top: 0;
+	left: -10000em;
 }
 .screen-reader-text:focus {
 	left: 6px;

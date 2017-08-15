@@ -3,17 +3,17 @@
  * @package Make
  */
 
-if ( ! class_exists( 'MAKE_Builder_Sections_Columns_Definition' ) ) :
+if ( ! class_exists( 'MAKE_Sections_Columns_Definition' ) ) :
 /**
  * Section definition for Columns
  *
- * Class MAKE_Builder_Sections_Columns_Definition
+ * Class MAKE_Sections_Columns_Definition
  */
-class MAKE_Builder_Sections_Columns_Definition {
+class MAKE_Sections_Columns_Definition {
 	/**
-	 * The one instance of MAKE_Builder_Sections_Columns_Definition.
+	 * The one instance of MAKE_Sections_Columns_Definition.
 	 *
-	 * @var   MAKE_Builder_Sections_Columns_Definition
+	 * @var   MAKE_Sections_Columns_Definition
 	 */
 	private static $instance;
 
@@ -35,45 +35,50 @@ class MAKE_Builder_Sections_Columns_Definition {
 	}
 
 	public function __construct() {
-		add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
-		add_filter( 'make_section_defaults', array( $this, 'section_defaults' ) );
-		add_filter( 'make_get_section_json', array ( $this, 'get_section_json' ), 10, 1 );
-		add_filter( 'make_get_section_json', array ( $this, 'embed_column_images' ), 20, 1 );
-		add_filter( 'make_builder_js_dependencies', array( $this, 'add_js_dependencies' ) );
+		if ( is_admin() ) {
+			add_filter( 'make_section_choices', array( $this, 'section_choices' ), 10, 3 );
+			add_filter( 'make_sections_settings', array( $this, 'section_settings' ) );
+			add_filter( 'make_sections_defaults', array( $this, 'section_defaults' ) );
+			add_filter( 'make_get_section_json', array( $this, 'get_section_json' ), 10, 1 );
+			add_filter( 'make_get_section_json', array( $this, 'embed_column_images' ), 20, 1 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
+			add_action( 'admin_footer', array( $this, 'print_templates' ) );
+		}
+
+		add_filter( 'make_section_html_class', array( $this, 'html_class' ), 10, 3 );
 
 		ttfmake_add_section(
 			'text',
-			__( 'Columns', 'make' ),
+			__( 'Content', 'make' ),
 			Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/text.png',
 			__( 'Create rearrangeable columns of content and images.', 'make' ),
 			array( $this, 'save' ),
-			array (
+			array(
 				'text' => 'sections/columns/builder-template',
 				'text-item' => 'sections/columns/builder-template-column'
 			),
 			'sections/columns/frontend-template',
 			100,
-			get_template_directory() . '/inc/builder/',
-			$this->get_settings()
+			get_template_directory() . '/inc/builder/'
 		);
 	}
 
 	public function get_settings() {
 		return array(
-			array(
+			100 => array(
 				'type'  => 'divider',
 				'label' => __( 'General', 'make' ),
 				'name'  => 'divider-general',
 				'class' => 'ttfmake-configuration-divider open',
 			),
-			array(
+			200 => array(
 				'type'  => 'section_title',
 				'name'  => 'title',
 				'label' => __( 'Enter section title', 'make' ),
 				'class' => 'ttfmake-configuration-title ttfmake-section-header-title-input',
 				'default' => ttfmake_get_section_default( 'title', 'text' ),
 			),
-			array(
+			300 => array(
 				'type'    => 'select',
 				'name'    => 'columns-number',
 				'class'   => 'ttfmake-text-columns',
@@ -81,26 +86,26 @@ class MAKE_Builder_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'columns-number', 'text' ),
 				'options' => ttfmake_get_section_choices( 'columns-number', 'text' ),
 			),
-			array(
+			400 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Full width', 'make' ),
 				'name'    => 'full-width',
 				'default' => ttfmake_get_section_default( 'full-width', 'text' ),
 			),
-			array(
+			500 => array(
 				'type'    => 'divider',
 				'label'   => __( 'Background', 'make' ),
 				'name'    => 'divider-background',
 				'class'   => 'ttfmake-configuration-divider',
 			),
-			array(
+			600 => array(
 				'type'  => 'image',
 				'name'  => 'background-image',
 				'label' => __( 'Background image', 'make' ),
 				'class' => 'ttfmake-configuration-media',
 				'default' => ttfmake_get_section_default( 'background-image', 'text' ),
 			),
-			array(
+			700 => array(
 				'type'  => 'select',
 				'name'  => 'background-position',
 				'label' => __( 'Position', 'make' ),
@@ -108,7 +113,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'background-position', 'text' ),
 				'options' => ttfmake_get_section_choices( 'background-position', 'text' ),
 			),
-			array(
+			800 => array(
 				'type'    => 'select',
 				'name'    => 'background-style',
 				'label'   => __( 'Display', 'make' ),
@@ -116,13 +121,13 @@ class MAKE_Builder_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'background-style', 'text' ),
 				'options' => ttfmake_get_section_choices( 'background-style', 'text' ),
 			),
-			array(
+			900 => array(
 				'type'    => 'checkbox',
 				'label'   => __( 'Darken', 'make' ),
 				'name'    => 'darken',
 				'default' => ttfmake_get_section_default( 'darken', 'text' ),
 			),
-			array(
+			1000 => array(
 				'type'    => 'color',
 				'label'   => __( 'Background color', 'make' ),
 				'name'    => 'background-color',
@@ -130,6 +135,23 @@ class MAKE_Builder_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'background-color', 'text' ),
 			),
 		);
+	}
+
+	/**
+	 * Define settings for this section
+	 *
+	 * @since 1.8.11.
+	 *
+	 * @hooked filter make_sections_settings
+	 *
+	 * @param array $settings   The existing array of section settings.
+	 *
+	 * @return array             The modified array of section settings.
+	 */
+	public function section_settings( $settings ) {
+		$settings['text'] = $this->get_settings();
+
+		return $settings;
 	}
 
 	/**
@@ -195,6 +217,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 	 */
 	public function get_defaults() {
 		return array(
+			'section-type' => 'text',
 			'state' => 'open',
 			'title' => '',
 			'image-link' => '',
@@ -204,7 +227,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 			'darken' => 0,
 			'background-style' => 'cover',
 			'background-color' => '',
-			'full-width' => 0
+			'full-width' => 0,
 		);
 	}
 
@@ -215,12 +238,13 @@ class MAKE_Builder_Sections_Columns_Definition {
 	 *
 	 * @return array
 	 */
-	public function get_column_defaults() {
+	public function get_item_defaults() {
 		return array(
-			'size' => '',
+			'section-type' => 'text-item',
 			'content' => '',
 			'sidebar-label' => '',
 			'widget-area-id' => '',
+			'widget-area' => '',
 			'widgets' => ''
 		);
 	}
@@ -230,7 +254,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 	 *
 	 * @since 1.6.0.
 	 *
-	 * @hooked filter make_section_defaults
+	 * @hooked filter make_sections_defaults
 	 *
 	 * @param array $defaults    The existing array of section defaults.
 	 *
@@ -238,7 +262,7 @@ class MAKE_Builder_Sections_Columns_Definition {
 	 */
 	public function section_defaults( $defaults ) {
 		$defaults['text'] = $this->get_defaults();
-		$defaults['text-item'] = $this->get_column_defaults();
+		$defaults['text-item'] = $this->get_item_defaults();
 
 		return $defaults;
 	}
@@ -261,6 +285,8 @@ class MAKE_Builder_Sections_Columns_Definition {
 
 			if ( isset( $image[0] ) ) {
 				$data['background-image-url'] = $image[0];
+			} else {
+				$data['background-image'] = '';
 			}
 
 			if ( isset( $data['columns'] ) && is_array( $data['columns'] ) ) {
@@ -300,11 +326,11 @@ class MAKE_Builder_Sections_Columns_Definition {
 						$column_image_id_set = true;
 					}
 
-					$column = wp_parse_args( $column, $this->get_column_defaults() );
+					$column = wp_parse_args( $column, $this->get_item_defaults() );
 
 					// Handle legacy data layout
 					$id = isset( $column['id'] ) ? $column['id']: $s;
-					$data['columns'][$s]['id'] = $id;
+					$column['id'] = $id;
 
 					$column_image = '';
 
@@ -312,13 +338,15 @@ class MAKE_Builder_Sections_Columns_Definition {
 						$column_image = ttfmake_get_image_src( $column['image-id'], 'large' );
 
 						if ( isset( $column_image[0] ) ) {
-							$data['columns'][$s]['image-url'] = $column_image[0];
+							$column['image-url'] = $column_image[0];
 						}
 					}
 
 					if ( isset( $column['sidebar-label'] ) && !empty( $column['sidebar-label'] ) && empty( $column['widget-area-id'] ) ) {
-						$data['columns'][$s]['widget-area-id'] = 'ttfmp-' . get_the_ID() . '-' . $data['id'] . '-' . $column['id'];
+						$column['widget-area-id'] = 'ttfmp-' . get_the_ID() . '-' . $data['id'] . '-' . $column['id'];
 					}
+
+					$data['columns'][$s] = $column;
 
 					/*
 					 * Checks for an empty columns accidentally created when coming from
@@ -399,7 +427,11 @@ class MAKE_Builder_Sections_Columns_Definition {
 	 * @return array             The cleaned data.
 	 */
 	public function save( $data ) {
-		$clean_data = array();
+		$clean_data = array(
+			'id' => $data['id'],
+			'section-type' => $data['section-type'],
+			'state' => $data['state'],
+		);
 
 		$clean_data['title'] = $clean_data['label'] = ( isset( $data['title'] ) ) ? apply_filters( 'title_save_pre', $data['title'] ) : '';
 
@@ -407,8 +439,14 @@ class MAKE_Builder_Sections_Columns_Definition {
 			$clean_data['columns-number'] = ttfmake_sanitize_section_choice( $data['columns-number'], 'columns-number', $data['section-type'] );
 		}
 
-		if ( isset( $data['background-image'] ) ) {
+		if ( isset( $data['background-image'] ) && '' !== $data['background-image'] ) {
 			$clean_data['background-image'] = ttfmake_sanitize_image_id( $data['background-image'] );
+		} else {
+			$clean_data['background-image'] = '';
+		}
+
+		if ( isset( $data['background-image-url'] ) && '' !== $data['background-image-url'] ) {
+			$clean_data['background-image-url'] = $data['background-image-url'];
 		}
 
 		if ( isset( $data['background-position'] ) ) {
@@ -436,80 +474,119 @@ class MAKE_Builder_Sections_Columns_Definition {
 		}
 
 		if ( isset( $data['columns'] ) && is_array( $data['columns'] ) ) {
-			foreach ( $data['columns'] as $id => $item ) {
-				if ( isset( $item['id'] ) ) {
-					$clean_data['columns'][ $id ]['id'] = $item['id'];
-				}
+			$clean_data['columns'] = array();
 
-				if ( isset( $item['parentID'] ) ) {
-					$clean_data['columns'][ $id ]['parentID'] = $item['parentID'];
-				}
+			foreach ( $data['columns'] as $i => $item ) {
+				$item = wp_parse_args( $item, $this->get_item_defaults() );
+
+				$id = isset( $item['id'] ) ? $item['id'] : $i;
+
+				$clean_item_data = array(
+					'id' => $id,
+					'section-type' => $item['section-type']
+				);
 
 				if ( isset( $item['content'] ) ) {
-					$clean_data['columns'][ $id ]['content'] = sanitize_post_field( 'post_content', $item['content'], ( get_post() ) ? get_the_ID() : 0, 'db' );
+					$clean_item_data['content'] = sanitize_post_field( 'post_content', $item['content'], ( get_post() ) ? get_the_ID() : 0, 'db' );
 				}
 
 				if ( isset( $item['size'] ) ) {
-					$clean_data['columns'][ $id ]['size'] = esc_attr( $item['size'] );
+					$clean_item_data['size'] = esc_attr( $item['size'] );
 				}
 
 				if ( isset( $item['sidebar-label'] ) ) {
-					$clean_data['columns'][ $id ]['sidebar-label'] = $item['sidebar-label'];
+					$clean_item_data['sidebar-label'] = $item['sidebar-label'];
 				}
+
+				if ( isset( $item['background-image'] ) ) {
+					$clean_item_data['background-image'] = ttfmake_sanitize_image_id( $item['background-image'] );
+				}
+
+				if ( isset( $item['background-image'] ) && '' !== $item['background-image'] ) {
+					$clean_item_data['background-image'] = ttfmake_sanitize_image_id( $item['background-image'] );
+				} else {
+					$clean_item_data['background-image'] = '';
+				}
+
+				if ( isset( $item['background-image-url'] ) && '' !== $item['background-image-url'] ) {
+					$clean_item_data['background-image-url'] = $item['background-image-url'];
+				} else {
+					$clean_item_data['background-image-url'] = '';
+				}
+
+				array_push( $clean_data['columns'], $clean_item_data );
 			}
 		}
 
 		return $clean_data;
 	}
 
-	/**
-	 * Add JS dependencies for the section
-	 *
-	 * @return array
-	 */
-	public function add_js_dependencies( $deps ) {
-		if ( ! is_array( $deps ) ) {
-			$deps = array();
+	public function admin_enqueue_scripts( $hook_suffix ) {
+		// Only load resources if they are needed on the current page
+		if ( ! in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) || ! ttfmake_post_type_supports_builder( get_post_type() ) ) {
+			return;
 		}
 
-		wp_register_script(
-			'builder-models-text',
-			Make()->scripts()->get_js_directory_uri() . '/builder/sections/models/text.js',
-			array(),
-			TTFMAKE_VERSION,
-			true
-		);
-
-		wp_register_script(
-			'builder-models-text-item',
-			Make()->scripts()->get_js_directory_uri() . '/builder/sections/models/text-item.js',
-			array(),
-			TTFMAKE_VERSION,
-			true
-		);
-
-		wp_register_script(
-			'builder-views-text',
-			Make()->scripts()->get_js_directory_uri() . '/builder/sections/views/text.js',
-			array(),
-			TTFMAKE_VERSION,
-			true
-		);
-
-		wp_register_script(
-			'builder-views-text-item',
-			Make()->scripts()->get_js_directory_uri() . '/builder/sections/views/text-item.js',
-			array( 'builder-views-item' ),
-			TTFMAKE_VERSION,
-			true
-		);
-
-		return array_merge( $deps, array(
-			'builder-models-text',
-			'builder-models-text-item',
-			'builder-views-text',
-			'builder-views-text-item'
+		/**
+		 * Filter any available extensions for the Make builder JS.
+		 *
+		 * @since 1.8.11.
+		 *
+		 * @param array    $dependencies    The list of dependencies.
+		 */
+		$dependencies = apply_filters( 'make_builder_js_extensions', array(
+			'ttfmake-builder', 'ttfmake-builder-overlay'
 		) );
+
+		wp_enqueue_script(
+			'builder-section-columns',
+			Make()->scripts()->get_js_directory_uri() . '/builder/sections/columns.js',
+			$dependencies,
+			TTFMAKE_VERSION,
+			true
+		);
+	}
+
+	public function print_templates() {
+		global $hook_suffix, $typenow;
+
+		// Only show when adding/editing pages
+		if ( ! ttfmake_post_type_supports_builder( $typenow ) || ! in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) )) {
+			return;
+		}
+
+		$section_definitions = ttfmake_get_sections();
+		set_query_var( 'ttfmake_section_data', $section_definitions[ 'text' ] );
+		?>
+		<script type="text/template" id="tmpl-ttfmake-section-text">
+		<?php get_template_part( 'inc/sections/columns/builder-template' ); ?>
+		</script>
+		<?php set_query_var( 'ttfmake_section_data', array() ); ?>
+		<script type="text/template" id="tmpl-ttfmake-section-text-item">
+		<?php get_template_part( 'inc/sections/columns/builder-template', 'column' ); ?>
+		</script>
+		<?php
+	}
+
+	public function html_class( $classes, $section_data, $sections ) {
+		if ( 'text' === $section_data['section-type'] ) {
+			// Columns
+			$columns_number = ( isset( $section_data['columns-number'] ) ) ? absint( $section_data['columns-number'] ) : 1;
+			$classes .= ' builder-text-columns-' . $columns_number;
+
+			/**
+			 * Filter the text section class.
+			 *
+			 * @since 1.2.3.
+			 *
+			 * @param string    $text_class              The computed class string.
+			 * @param array     $ttfmake_section_data    The section data.
+			 * @param array     $sections                The list of sections.
+			 */
+			$classes = apply_filters( 'make_builder_get_text_class', $classes, $section_data, $sections );
+		}
+
+		return $classes;
 	}
 }
 endif;

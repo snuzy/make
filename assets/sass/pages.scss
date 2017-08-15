@@ -227,8 +227,9 @@
 	-webkit-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-	.cycle-slide & {
-		@include rem('padding', $base/2 $gut*3);
+	.cycle-prev ~ .builder-banner-slide &,
+	.cycle-next ~ .builder-banner-slide &, {
+		@include rem('padding', 0 $gut * 3);
 	}
 	.content-position-none & {
 		@include for(medium-screens) {
@@ -257,7 +258,8 @@
 	vertical-align: middle;
 	max-width: $width + ($gut * 2);
 	margin: 0 auto;
-	@include rem('padding', 0 $gut);
+	padding: 0;
+	// @include rem('padding', 0 $gut);
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);

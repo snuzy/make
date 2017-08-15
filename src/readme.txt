@@ -1,10 +1,10 @@
 === Make ===
 
 Contributors: thethemefoundry
-Tags: black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, fixed-layout, fluid-layout, responsive-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, photoblogging
+Tags: black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, grid-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, footer-widgets, blog, e-commerce, portfolio
 
 Requires at least: 4.4
-Tested up to: 4.7.5
+Tested up to: 4.8.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,16 @@ Build a website that means business. With Make’s powerful drag and drop page b
 Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
+
+= 1.9.0 - August 15 2017 =
+* Improved: Refactored code to support rendering sections through shortcodes
+* Improved: unified Section API now covers data, settings and template helpers.
+* Improved: reduced the number of scripts and refactored logic for overlay and setting controls in the Builder.
+* Bug fix: Minor fixes on Banner display
+* Bug fix: Fixed section IDs being incorrectly parsed on some systems
+* Bug fix: Fixed Typography bug in Customizer which didn't allow to set Menu font to Open Sans
+* Bug fix: Fixed Typography bug in Customizer which didn't allow to set font-weight on headings.
+* Bug fix: Screen reader text appearing on pages with long content.
 
 = 1.8.11 - August 4 2017 =
 * Bug fix: Screen reader text was causing horizontal scrolling in Firefox.
@@ -538,6 +548,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.0 =
+Builder improvements, minor fixes for Banners, typography and general layout.
 
 = 1.8.11 =
 Minor bug fixes.

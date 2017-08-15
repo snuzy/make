@@ -397,7 +397,7 @@ final class MAKE_Setup_Scripts extends MAKE_Util_Modules implements MAKE_Setup_S
 			wp_enqueue_script( 'comment-reply' );
 		}
 	}
-	
+
 	/**
 	 * Get the URL of a theme file.
 	 *
@@ -644,14 +644,7 @@ final class MAKE_Setup_Scripts extends MAKE_Util_Modules implements MAKE_Setup_S
 		 *
 		 * @param array $selector_array    The selectors used by FitVids.
 		 */
-		$selector_array = apply_filters( 'make_fitvids_custom_selectors', array(
-			"iframe[src*='www.viddler.com']",
-			"iframe[src*='money.cnn.com']",
-			"iframe[src*='www.educreations.com']",
-			"iframe[src*='//blip.tv']",
-			"iframe[src*='//embed.ted.com']",
-			"iframe[src*='//www.hulu.com']",
-		) );
+		$selector_array = apply_filters( 'make_fitvids_custom_selectors', array() );
 
 		// Compile selectors
 		return array(
