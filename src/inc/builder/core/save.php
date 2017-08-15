@@ -58,6 +58,9 @@ class TTFMAKE_Builder_Save {
 
 			// Combine the input into the post's content
 			add_filter( 'wp_insert_post_data', array( $this, 'wp_insert_post_data' ), 30, 2 );
+
+			// Write sections to new layout format
+			add_action( 'make_builder_data_saved', array( $this, 'save_layout' ), 10, 2 );
 		}
 	}
 
@@ -127,10 +130,10 @@ class TTFMAKE_Builder_Save {
 				 * @param string $section_type    The type of section being handled.
 				 */
 				$id = $section['id'];
-				$clean_sections[ $id ]                 = apply_filters( 'make_prepare_data_section', call_user_func_array( $registered_sections[ $section['section-type'] ]['save_callback'], array( $section ) ), $section, $section['section-type'] );
-				$clean_sections[ $id ]['state']        = ( isset( $section['state'] ) ) ? sanitize_key( $section['state'] ) : 'open';
+				$clean_sections[ $id ]['id'] = strval( $id );
+				$clean_sections[ $id ]['state'] = ( isset( $section['state'] ) ) ? sanitize_key( $section['state'] ) : 'open';
 				$clean_sections[ $id ]['section-type'] = $section['section-type'];
-				$clean_sections[ $id ]['id']           = $id;
+				$clean_sections[ $id ] = apply_filters( 'make_prepare_data_section', call_user_func_array( $registered_sections[ $section['section-type'] ]['save_callback'], array( $section ) ), $section, $section['section-type'] );
 			}
 		}
 
@@ -185,6 +188,47 @@ class TTFMAKE_Builder_Save {
 
 		// Remove the old section values if necessary
 		$this->prune_abandoned_rows( $post_id, $values_to_save );
+	}
+
+	public function save_layout( $sections, $post_id ) {
+		// Remove legacy layout field
+		delete_post_meta( $post_id, '_ttfmake-section-ids' );
+
+		// Remove legacy section metas
+		$post_meta = get_post_meta( $post_id );
+		foreach ( $post_meta as $key => $value ) {
+			if ( 0 === strpos( $key, '_ttfmake:' ) ) {
+				delete_post_meta( $post_id, $key );
+			}
+		}
+
+		$layout = array();
+
+		foreach( $sections as $id => $section ) {
+			// Save new section metas
+			update_post_meta(
+				$post_id,
+				'_ttfmake_section_' . $section[ 'id' ],
+				serialize( $section )
+			);
+
+			$layout[] = $section[ 'id' ];
+		}
+
+		// Purge removed sections
+		$current_layout_meta = get_post_meta( $post_id, '_ttfmake_layout', true );
+
+		if ( $current_layout_meta ) {
+			$current_layout = unserialize( $current_layout_meta );
+			$removed_section_ids = array_diff( $current_layout, $layout );
+
+			foreach ( $removed_section_ids as $section_id ) {
+				delete_post_meta( $post_id, "_ttfmake_section_{$section_id}" );
+			}
+		}
+
+		// Update layout
+		update_post_meta( $post_id, '_ttfmake_layout', serialize( $layout ) );
 	}
 
 	/**
@@ -321,40 +365,44 @@ class TTFMAKE_Builder_Save {
 	 * @return string             The post content.
 	 */
 	public function generate_post_content( $data ) {
-		// Run wpautop when saving the data
-		add_filter( 'make_the_builder_content', 'wpautop' );
-
-		// Handle oEmbeds correctly
-		add_filter( 'make_the_builder_content', array( $this, 'embed_handling' ), 8 );
-		add_filter( 'embed_handler_html', array( $this, 'embed_handler_html' ) , 10, 3 );
-		add_filter( 'embed_oembed_html', array( $this, 'embed_oembed_html' ) , 10, 4 );
-
 		// Remove editor image constraints while rendering section data.
 		add_filter( 'editor_max_image_size', array( &$this, 'remove_image_constraints' ) );
+
+		// Set section data as a global to avoid re-querying when
+		// templates render through ttfmake_get_section_data
+		global $ttfmake_sections, $ttfmake_section_data;
+		$ttfmake_sections = $data;
+		$post_id = get_the_ID();
 
 		// Start the output buffer to collect the contents of the templates
 		ob_start();
 
 		// For each sections, render it using the template
-		foreach ( $data as $section ) {
-			global $ttfmake_section_data, $ttfmake_sections;
-			$ttfmake_section_data = $section;
-			$ttfmake_sections     = $data;
+		foreach ( $ttfmake_sections as $section_data ) {
+			$ttfmake_section_data = $section_data;
+			$section_definition = ttfmake_get_section_definition( $section_data['section-type'] );
+			$section_template = $section_definition['display_template'];
 
-			// Get the registered sections
-			$registered_sections = ttfmake_get_sections();
-
-			if ( !isset( $ttfmake_section_data['draft'] ) || $ttfmake_section_data['draft'] != 1 ) {
-				// Get the template for the section
-				ttfmake_load_section_template(
-					$registered_sections[ $section['section-type'] ]['display_template'],
-					$registered_sections[ $section['section-type'] ]['path']
-				);
+			if ( ttfmake_should_render_section( $ttfmake_section_data ) ) {
+				ttfmake_get_template( $section_template );
 			}
 
-			// Cleanup the global
-			unset( $GLOBALS['ttfmake_section_data'] );
+			// if ( !isset( $ttfmake_section_data['draft'] ) || $ttfmake_section_data['draft'] != 1 ) {
+			// 	$section_display_template = apply_filters(
+			// 		'make_section_display_template_relative_path',
+			// 		$registered_sections[ $section['section-type'] ]['display_template'],
+			// 		$ttfmake_section_data
+			// 	);
+
+			// 	$section_path = apply_filters(
+			// 		'make_section_path',
+			// 		$registered_sections[ $section['section-type'] ]['path'],
+			// 		$ttfmake_section_data
+			// 	);
 		}
+
+		unset( $GLOBALS['ttfmake_sections'] );
+		unset( $GLOBALS['ttfmake_section_data'] );
 
 		// Get the rendered templates from the output buffer
 		$post_content = ob_get_clean();
@@ -376,91 +424,6 @@ class TTFMAKE_Builder_Save {
 	}
 
 	/**
-	 * Run content through the $wp_embed->autoembed method to identify and process oEmbeds.
-	 *
-	 * This function causes oEmbeds to be identified and HTML to created for those oEmbeds. Additional functions in this
-	 * file will not allow the embed code to be saved, but rather wrap the oEmbed url in embed shortcode tags (i.e.,
-	 * [embed]url[/embed]).
-	 *
-	 * In other words, if the following content is passed to this function:
-	 *
-	 *     https://www.youtube.com/watch?v=jScLjUlLTLI
-	 *
-	 *     <p>Here is some more content</p>
-	 *
-	 * it is transformed into:
-	 *
-	 *     [embed]https://www.youtube.com/watch?v=jScLjUlLTLI[/embed]
-	 *
-	 *     <p>Here is some more content</p>
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  string    $content    The content to inspect.
-	 * @return string                The modified content.
-	 */
-	function embed_handling( $content ) {
-		global $wp_embed;
-		$content = $wp_embed->autoembed( $content );
-		return $content;
-	}
-
-	/**
-	 * Modify the embed HTML to be just the URL wrapped in embed tags.
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  string    $cache      The previously cached embed value.
-	 * @param  string    $url        The embed URL.
-	 * @param  array     $attr       The shortcode attrs.
-	 * @param  int       $post_ID    The current Post ID.
-	 * @return string                The modified embed code.
-	 */
-	function embed_oembed_html( $cache, $url, $attr, $post_ID ) {
-		return $this->generate_embed_shortcode( $url, $attr );
-	}
-
-	/**
-	 * Modify the embed HTML to be just the URL wrapped in embed tags.
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  string    $return     The embed code.
-	 * @param  string    $url        The embed URL.
-	 * @param  array     $attr       The shortcode attrs.
-	 * @return string                The modified embed code.
-	 */
-	function embed_handler_html( $return, $url, $attr ) {
-		return $this->generate_embed_shortcode( $url, $attr );
-	}
-
-	/**
-	 * Wrap a URL in embed shortcode tags.
-	 *
-	 * This function also will apply shortcode attrs if they are available. It only supports the "height" and "width"
-	 * attributes that core supports.
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  string    $url        The embed URL.
-	 * @param  array     $attr       The shortcode attrs.
-	 * @return string                The modified embed code.
-	 */
-	function generate_embed_shortcode( $url, $attr ) {
-		$attr_string = '';
-
-		if ( isset( $attr['height'] ) ) {
-			$attr_string = ' height="' . absint( $attr['height'] ) . '"';
-		}
-
-		if ( isset( $attr['width'] ) ) {
-			$attr_string = ' width="' . absint( $attr['width'] ) . '"';
-		}
-
-		return '[embed' . $attr_string . ']' . $url . '[/embed]';
-	}
-
-	/**
 	 * Allows image size to be saved regardless of the content width variable.
 	 *
 	 * @since  1.0.0.
@@ -473,168 +436,6 @@ class TTFMAKE_Builder_Save {
 	}
 
 	/**
-	 * Get the next section's data.
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  array    $current_section    The current section's data.
-	 * @param  array    $sections           The list of sections.
-	 * @return array                        The next section's data.
-	 */
-	public function get_next_section_data( $current_section, $sections ) {
-		$next_is_the_one = false;
-		$next_data       = array();
-
-		foreach ( $sections as $id => $data ) {
-			if ( true === $next_is_the_one ) {
-				$next_data = $data;
-				break;
-			}
-
-			if ( $current_section['id'] == $id ) {
-				$next_is_the_one = true;
-			}
-		}
-
-		/**
-		 * Allow developers to alter the "next" section data.
-		 *
-		 * @since 1.2.3.
-		 *
-		 * @param array    $next_data          The data for the next section.
-		 * @param array    $current_section    The data for the current section.
-		 * @param array    $sections           The list of all sections.
-		 */
-		return apply_filters( 'make_get_next_section_data', $next_data, $current_section, $sections );
-	}
-
-	/**
-	 * Get the previous section's data.
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  array    $current_section    The current section's data.
-	 * @param  array    $sections           The list of sections.
-	 * @return array                        The previous section's data.
-	 */
-	public function get_prev_section_data( $current_section, $sections ) {
-		foreach ( $sections as $id => $data ) {
-			if ( $current_section['id'] == $id ) {
-				break;
-			} else {
-				$prev_key = $id;
-			}
-		}
-
-		$prev_section = ( isset( $prev_key ) && isset( $sections[ $prev_key ] ) ) ? $sections[ $prev_key ] : array();
-
-		/**
-		 * Allow developers to alter the "next" section data.
-		 *
-		 * @since 1.2.3.
-		 *
-		 * @param array    $prev_section       The data for the next section.
-		 * @param array    $current_section    The data for the current section.
-		 * @param array    $sections           The list of all sections.
-		 */
-		return apply_filters( 'make_get_prev_section_data', $prev_section, $current_section, $sections );
-	}
-
-	/**
-	 * Prepare the HTML id for a section.
-	 *
-	 * @since 1.6.0.
-	 *
-	 * @param $current_section
-	 *
-	 * @return mixed|void
-	 */
-	public function section_html_id( $current_section ) {
-		$prefix = 'builder-section-';
-		$id = sanitize_title_with_dashes( $current_section['id'] );
-
-		/**
-		 * Filter the section wrapper's HTML id attribute.
-		 *
-		 * @since 1.6.0.
-		 *
-		 * @param string    $section_id         The string used in the section's HTML id attribute.
-		 * @param array     $current_section    The data for the section.
-		 */
-		return apply_filters( 'make_section_html_id', $prefix . $id, $current_section );
-	}
-
-	/**
-	 * Prepare the HTML classes for a section.
-	 *
-	 * Includes the name of the current section type, the next section type and the previous section type. It will also
-	 * denote if a section is the first or last section.
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  array     $current_section    The current section's data.
-	 * @param  array     $sections           The list of sections.
-	 * @return string                        The class string.
-	 */
-	public function section_classes( $current_section, $sections ) {
-		$prefix = 'builder-section-';
-
-		// Get the current section type
-		$current = ( isset( $current_section['section-type'] ) ) ? $prefix . $current_section['section-type'] : '';
-
-		// Get the next section's type
-		$next_data = $this->get_next_section_data( $current_section, $sections );
-		$next      = ( ! empty( $next_data ) && isset( $next_data['section-type'] ) ) ? $prefix . 'next-' . $next_data['section-type'] : $prefix . 'last';
-
-		// Get the previous section's type
-		$prev_data = $this->get_prev_section_data( $current_section, $sections );
-		$prev      = ( ! empty( $prev_data ) && isset( $prev_data['section-type'] ) ) ? $prefix . 'prev-' . $prev_data['section-type'] : $prefix . 'first';
-		
-		/**
-		 * Filter the section classes.
-		 *
-		 * @since 1.2.3.
-		 *
-		 * @param string    $classes            The sting of classes.
-		 * @param array     $current_section    The array of data for the current section.
-		 */
-		return apply_filters( 'make_section_classes', $prev . ' ' . $current . ' ' . $next, $current_section );
-	}
-
-	/**
-	 * Duplicate of "the_content" with custom filter name for generating content in builder templates.
-	 *
-	 * @since  1.0.0.
-	 *
-	 * @param  string    $content    The original content.
-	 * @return void
-	 */
-	public function the_builder_content( $content ) {
-		/**
-		 * Filter the content used for "post_content" when the builder is used to generate content.
-		 *
-		 * @since 1.2.3.
-		 * @deprecated 1.7.0.
-		 *
-		 * @param string    $content    The post content.
-		 */
-		$content = apply_filters( 'ttfmake_the_builder_content', $content );
-
-		/**
-		 * Filter the content used for "post_content" when the builder is used to generate content.
-		 *
-		 * @since 1.2.3.
-		 *
-		 * @param string    $content    The post content.
-		 */
-		$content = apply_filters( 'make_the_builder_content', $content );
-
-		$content = str_replace( ']]>', ']]&gt;', $content );
-
-		echo $content;
-	}
-
-	/**
 	 * Get the sanitized section data.
 	 *
 	 * @since  1.0.0.
@@ -643,11 +444,18 @@ class TTFMAKE_Builder_Save {
 	 */
 	public function get_sanitized_sections() {
 		if ( empty( $this->_sanitized_sections ) ) {
-			$data = ( isset( $_POST['ttfmake-section-json'] ) ) ? $_POST['ttfmake-section-json'] : array();
+			$data = array();
 
-			if ( !empty( $data ) ) {
-				foreach ( $data as $section_id => $section_data ) {
-					$data[$section_id] = json_decode( stripslashes ( $section_data ), true );
+			if ( isset( $_POST['ttfmake-section-layout'] ) ) {
+				$section_ids = json_decode( wp_unslash( $_POST['ttfmake-section-layout'] ), true );
+
+				foreach( $section_ids as $section_id ) {
+					$section_name = 'ttfmake-section-json-' . $section_id;
+
+					if ( isset( $_POST[ $section_name ] ) ) {
+						$section_data = json_decode( wp_unslash( $_POST[ $section_name ] ), true );
+						$data[ $section_id ] = $section_data;
+					}
 				}
 			}
 
@@ -685,27 +493,3 @@ function ttfmake_get_builder_save() {
 endif;
 
 add_action( 'admin_init', 'ttfmake_get_builder_save' );
-
-if ( ! function_exists( 'ttfmake_sanitize_image_id' ) ) :
-/**
- * Cleans an ID for an image.
- *
- * Handles integer or dimension IDs. This function is necessary for handling the cleaning of placeholder image IDs.
- *
- * @since  1.0.0.
- *
- * @param  int|string    $id    Image ID.
- * @return int|string           Cleaned image ID.
- */
-function ttfmake_sanitize_image_id( $id ) {
-	if ( false !== strpos( $id, 'x' ) ) {
-		$pieces       = explode( 'x', $id );
-		$clean_pieces = array_map( 'absint', $pieces );
-		$id           = implode( 'x', $clean_pieces );
-	} else {
-		$id = absint( $id );
-	}
-
-	return $id;
-}
-endif;

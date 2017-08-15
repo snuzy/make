@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2017-08-04T11:18:56+00:00
+// Updated: 2017-08-15T12:08:41+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {

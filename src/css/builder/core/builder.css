@@ -261,14 +261,14 @@
 	padding-left: 10px;
 	padding-right: 12px;
 }
-.ttfmake-section .ttfmake-section-draft-indicator {
+.ttfmake-section .ttfmake-section-badge {
+	display: none;
 	position: relative;
 	margin-left: 10px;
 }
-.ttfmake-section .ttfmake-section-draft-indicator-inner {
+.ttfmake-section .ttfmake-section-badge-inner {
 	padding: 3px 10px;
 	font-weight: 600;
-	background-color: #d54e21;
 	border-radius: 25px;
 	color: #fff;
 }
@@ -486,7 +486,7 @@
 	display: none;
 }
 
-.ttfmake-has-image-set .ttfmake-configuration-media-related-wrap {
+.ttfmake-has-image-set ~ .ttfmake-configuration-media-related-wrap {
 	display: block;
 }
 /*---------------------------------------------------------
@@ -768,21 +768,18 @@
 /*---------------------------------------------------------
  Media Modal (builder.css)
 -------------------------------------------------------- */
-.ttfmake-remove-current-image {
-	display: none;
-}
-.ttfmake-builder-uploader .ttfmake-remove-current-image {
+.ttfmake-builder-uploader .ttfmake-media-overlay-remove-image {
 	display: none;
 	float: left;
 }
-.ttfmake-builder-uploader.ttfmake-media-selected .ttfmake-remove-current-image {
+.ttfmake-builder-uploader.ttfmake-media-selected .ttfmake-media-overlay-remove-image {
 	display: block;
 }
-.ttfmake-builder-uploader .ttfmake-remove-current-image a {
+.ttfmake-builder-uploader .ttfmake-media-overlay-remove-image a {
 	color: #bc0b0b;
 	text-decoration: none; /*reset*/
 }
-.ttfmake-builder-uploader .ttfmake-remove-current-image a:hover {
+.ttfmake-builder-uploader .ttfmake-media-overlay-remove-image a:hover {
 	color: red;
 }
 /*---------------------------------------------------------
@@ -966,4 +963,58 @@
 	-webkit-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
+}
+
+/*---------------------------------------------------------
+ Color Picker
+-------------------------------------------------------- */
+
+.wp-picker-container {
+    position: relative !important;
+}
+
+.iris-picker.iris-border {
+    width: 100% !important;
+}
+
+.iris-picker.iris-border .iris-picker-inner {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+}
+
+.iris-picker.iris-border .iris-picker-inner .iris-slider.iris-strip {
+    right: 0 !important;
+    position: absolute !important;
+}
+
+.iris-picker.iris-border .iris-picker-inner .iris-square {
+    margin-right: 0 !important;
+    width: auto !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 40px !important;
+}
+
+.iris-picker.iris-border .iris-palette-container {
+    left: 0 !important;
+    bottom: 0 !important;
+    width: auto !important;
+}
+
+.iris-picker.iris-border .iris-palette-container .iris-palette {
+    width: 31px !important;
+    height: 31px !important;
+    margin-left: 8px !important;
+}
+
+.wp-picker-input-wrap {
+    position: absolute !important;
+    left: 38px !important;
+    right: 0 !important;
+}
+
+.iris-picker.iris-border .iris-palette-container .iris-palette:first-child {
+    margin-left: 0 !important;
 }
