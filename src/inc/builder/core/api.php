@@ -778,8 +778,8 @@ if ( ! function_exists( 'ttfmake_get_template' ) ) :
 function ttfmake_get_template( $slug, $name = '' ) {
 	$templates = array();
 	$paths = array(
-		STYLESHEETPATH . '/',
-		TEMPLATEPATH . '/inc/'
+		get_stylesheet_directory() . '/',
+		get_template_directory() . '/inc/'
 	);
 	$slug = ltrim( $slug, '/' );
 
