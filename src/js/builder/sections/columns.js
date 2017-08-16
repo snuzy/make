@@ -200,7 +200,7 @@
 			if ( sectionSettings ) {
 				window.make.overlay = new window.make.overlays.configuration( {
 					model: this.model,
-					buttonLabel: 'Update columns settings'
+					buttonLabel: 'Update content settings'
 				}, sectionSettings );
 				window.make.overlay.open();
 			}
