@@ -428,8 +428,8 @@
 	box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 	background-color: #32373c;
 }
-.ttfmake-text-columns-5 .ttfmake-text-column:first-child .configure-item-dropdown,
-.ttfmake-text-columns-6 .ttfmake-text-column:first-child .configure-item-dropdown {
+.ttfmake-text-columns-5 .ttfmake-text-column:nth-child(5n+1) .configure-item-dropdown,
+.ttfmake-text-columns-6 .ttfmake-text-column:nth-child(6n+1) .configure-item-dropdown {
 	left: 0;
 	right: auto;
 }
@@ -451,8 +451,8 @@
 	border-right: 8px solid transparent;
 	border-bottom: 8px solid #32373c;
 }
-.ttfmake-text-columns-5 .ttfmake-text-column:first-child .configure-item-dropdown:before,
-.ttfmake-text-columns-6 .ttfmake-text-column:first-child .configure-item-dropdown:before {
+.ttfmake-text-columns-5 .ttfmake-text-column:nth-child(5n+1) .configure-item-dropdown:before,
+.ttfmake-text-columns-6 .ttfmake-text-column:nth-child(6n+1) .configure-item-dropdown:before {
 	right: auto;
 	left: 25%;
 }
