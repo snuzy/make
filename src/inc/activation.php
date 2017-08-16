@@ -53,7 +53,6 @@ function make_deactivation_notice() {
  */
 if ( defined( 'MAKEPLUS_VERSION' ) && version_compare( MAKEPLUS_VERSION, '1.9.0' ) < 0 ) {
 	$plugin_name = plugin_basename( makeplus_get_plugin_directory() );
-	$current_url = $_SERVER['HTTP_REFERER'];
 	$redirect_url = add_query_arg( 'make-plus-unsupported', '' );
 
 	// Deactivate and redirect back with error
