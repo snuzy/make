@@ -56,6 +56,7 @@ if ( defined( 'MAKEPLUS_VERSION' ) && version_compare( MAKEPLUS_VERSION, '1.9.0'
 	$redirect_url = add_query_arg( 'make-plus-unsupported', '' );
 
 	// Deactivate and redirect back with error
+	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	deactivate_plugins( "{$plugin_name}/{$plugin_name}.php" );
 	wp_safe_redirect( $redirect_url );
 	exit();
