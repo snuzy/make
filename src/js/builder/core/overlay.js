@@ -683,6 +683,7 @@
 				palettes: palettes,
 				defaultColor: this.getValue(),
 				change: this.onColorPick.bind( this ),
+				clear: this.onColorClear.bind( this ),
 			} );
 
 			$( 'body' ).off( 'click.wpcolorpicker' );
@@ -692,6 +693,10 @@
 
 		onColorPick: function( e, widget ) {
 			this.overlay.trigger( 'setting-updated', { name: this.setting.name, value: widget.color.toString() } );
+		},
+
+		onColorClear: function( e, widget ) {
+			this.overlay.trigger( 'setting-updated', { name: this.setting.name, value: '' } );
 		},
 
 		setValue: function( value ) {
