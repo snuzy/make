@@ -2,7 +2,7 @@
 get_template_part( '/inc/builder/core/templates/overlay', 'header' );
 
 wp_editor( '', 'make_content_editor', array(
-	'tinymce'       => array(
+	'tinymce' => array(
 		'wp_autoresize_on' => false,
 		'resize'           => false,
 	),
