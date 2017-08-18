@@ -26,13 +26,19 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.1 - August 18 2017 =
+* Bug fix: Clearing the background color of a section wouldn't reset the corresponding setting.
+* Bug fix: `wpautop` wasn't running on section content, resulting in line breaks being ignored.
+* Bug fix: The tinyMCE content editor was being referenced when not initialized, preventing content from being applied.
+* Improved: Auto disabling Make Plus prevents fatal errors from popping up when Make and Make Plus aren't both on 1.9.x.
+
 = 1.9.0 - August 15 2017 =
-* Improved: Refactored code to support rendering sections through shortcodes
-* Improved: unified Section API now covers data, settings and template helpers.
-* Improved: reduced the number of scripts and refactored logic for overlay and setting controls in the Builder.
-* Bug fix: Minor fixes on Banner display
-* Bug fix: Fixed section IDs being incorrectly parsed on some systems
-* Bug fix: Fixed Typography bug in Customizer which didn't allow to set Menu font to Open Sans
+* Improved: Refactored code to support rendering sections through shortcodes.
+* Improved: Unified Section API now covers data, settings and template helpers.
+* Improved: Reduced the number of scripts and refactored logic for overlay and setting controls in the Builder.
+* Bug fix: Minor fixes on Banner display.
+* Bug fix: Fixed section IDs being incorrectly parsed on some systems.
+* Bug fix: Fixed Typography bug in Customizer which didn't allow to set Menu font to Open Sans.
 * Bug fix: Fixed Typography bug in Customizer which didn't allow to set font-weight on headings.
 * Bug fix: Screen reader text appearing on pages with long content.
 
@@ -548,6 +554,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.1 =
+Content editor bug fixes, better compatibility handling.
 
 = 1.9.0 =
 Builder improvements, minor fixes for Banners, typography and general layout.

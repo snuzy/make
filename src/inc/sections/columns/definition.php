@@ -51,7 +51,7 @@ class MAKE_Sections_Columns_Definition {
 			'text',
 			__( 'Content', 'make' ),
 			Make()->scripts()->get_css_directory_uri() . '/builder/sections/images/text.png',
-			__( 'Create rearrangeable columns of content and images.', 'make' ),
+			__( 'Create rearrangeable content of text and images.', 'make' ),
 			array( $this, 'save' ),
 			array(
 				'text' => 'sections/columns/builder-template',

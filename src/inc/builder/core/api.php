@@ -52,10 +52,9 @@ class TTFMAKE_Sections {
 	 *
 	 * @return TTFMAKE_Sections
 	 */
-	public function __constructor() {
+	public function __construct() {
 		// Run wpautop when saving the data
 		add_filter( 'make_the_builder_content', 'wpautop' );
-
 		// Handle oEmbeds correctly
 		add_filter( 'make_the_builder_content', array( $this, 'embed_handling' ), 8 );
 		add_filter( 'embed_handler_html', array( $this, 'embed_handler_html' ) , 10, 3 );
