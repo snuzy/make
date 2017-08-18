@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2017-08-15T12:08:41+00:00
+// Updated: 2017-08-18T07:23:45+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -224,6 +224,10 @@ $this->load_font_data( array(
 			'regular',
 		),
 		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
+			'greek-ext',
 			'latin',
 			'latin-ext',
 			'vietnamese',
@@ -249,6 +253,10 @@ $this->load_font_data( array(
 			'regular',
 		),
 		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
+			'greek-ext',
 			'latin',
 			'latin-ext',
 			'vietnamese',
@@ -474,6 +482,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'arabic',
 			'latin',
+			'latin-ext',
 		),
 		'category' => 'serif',
 	),
@@ -827,6 +836,8 @@ $this->load_font_data( array(
 		'variants' => array(
 			'500',
 			'500italic',
+			'600',
+			'600italic',
 			'700',
 			'700italic',
 			'italic',
@@ -1120,6 +1131,19 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Baloo Bhaijaan' => array(
+		'label' => 'Baloo Bhaijaan',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'arabic',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
 	'Baloo Bhaina' => array(
 		'label' => 'Baloo Bhaina',
 		'variants' => array(
@@ -1181,6 +1205,19 @@ $this->load_font_data( array(
 			'kannada',
 			'latin',
 			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
+	'Baloo Tammudu' => array(
+		'label' => 'Baloo Tammudu',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'telugu',
 			'vietnamese',
 		),
 		'category' => 'display',
@@ -3017,24 +3054,6 @@ $this->load_font_data( array(
 		),
 		'category' => 'serif',
 	),
-	'Ek Mukta' => array(
-		'label' => 'Ek Mukta',
-		'variants' => array(
-			'200',
-			'300',
-			'500',
-			'600',
-			'700',
-			'800',
-			'regular',
-		),
-		'subsets' => array(
-			'devanagari',
-			'latin',
-			'latin-ext',
-		),
-		'category' => 'sans-serif',
-	),
 	'El Messiri' => array(
 		'label' => 'El Messiri',
 		'variants' => array(
@@ -3105,6 +3124,106 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'display',
+	),
+	'Encode Sans' => array(
+		'label' => 'Encode Sans',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Encode Sans Condensed' => array(
+		'label' => 'Encode Sans Condensed',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Encode Sans Expanded' => array(
+		'label' => 'Encode Sans Expanded',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Encode Sans Semi Condensed' => array(
+		'label' => 'Encode Sans Semi Condensed',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Encode Sans Semi Expanded' => array(
+		'label' => 'Encode Sans Semi Expanded',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
 	),
 	'Engagement' => array(
 		'label' => 'Engagement',
@@ -3623,7 +3742,7 @@ $this->load_font_data( array(
 			'latin',
 			'latin-ext',
 		),
-		'category' => 'sans-serif',
+		'category' => 'serif',
 	),
 	'Freckle Face' => array(
 		'label' => 'Freckle Face',
@@ -4667,6 +4786,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -5468,6 +5588,9 @@ $this->load_font_data( array(
 	'Londrina Solid' => array(
 		'label' => 'Londrina Solid',
 		'variants' => array(
+			'100',
+			'300',
+			'900',
 			'regular',
 		),
 		'subsets' => array(
@@ -6403,6 +6526,60 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'handwriting',
+	),
+	'Mukta' => array(
+		'label' => 'Mukta',
+		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'devanagari',
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
+	'Mukta Mahee' => array(
+		'label' => 'Mukta Mahee',
+		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'gurmukhi',
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
+	'Mukta Malar' => array(
+		'label' => 'Mukta Malar',
+		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'tamil',
+		),
+		'category' => 'sans-serif',
 	),
 	'Mukta Vaani' => array(
 		'label' => 'Mukta Vaani',
