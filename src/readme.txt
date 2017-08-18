@@ -555,6 +555,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Upgrade Notice ==
 
+= 1.9.1 =
+Content editor bug fixes, better compatibility handling.
+
 = 1.9.0 =
 Builder improvements, minor fixes for Banners, typography and general layout.
 
