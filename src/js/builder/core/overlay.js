@@ -27,7 +27,6 @@
 			this.changeset = new Backbone.Model();
 			this.$editor = $( '#wp-make_content_editor-wrap' );
 			this.$textarea = $( '#make_content_editor' );
-			this.editor = tinyMCE.get( 'make_content_editor' );
 			this.field = options.field;
 
 			return this.render();
@@ -55,8 +54,8 @@
 
 			if ( 'visual' === this.getMode() ) {
 				// Focus on visual editor
-				this.editor.focus();
-				this.editor.on( 'keydown', this.onKeyDown );
+				this.getEditor().focus();
+				this.getEditor().on( 'keydown', this.onKeyDown );
 			} else {
 				// Focus on code editor
 				this.$textarea.focus();
@@ -66,9 +65,13 @@
 			$body.on( 'keydown', this.onKeyDown );
 		},
 
+		getEditor: function() {
+			return tinyMCE.get( 'make_content_editor' );
+		},
+
 		setContent: function () {
 			if ( 'visual' === this.getMode() ) {
-				this.editor.setContent( switchEditors.wpautop( this.model.get( this.field ) ) );
+				this.getEditor().setContent( switchEditors.wpautop( this.model.get( this.field ) ) );
 			} else {
 				this.$textarea.val( switchEditors.pre_wpautop( this.model.get( this.field ) ) );
 			}
@@ -76,7 +79,7 @@
 
 		getContent: function() {
 			return 'visual' === this.getMode() ?
-				this.editor.getContent(): this.$textarea.val();
+				this.getEditor().getContent(): this.$textarea.val();
 		},
 
 		getMode: function() {
@@ -84,8 +87,8 @@
 		},
 
 		setStyle: function( style ) {
-			if ( this.editor ) {
-				$( this.editor.getBody() ).css( style );
+			if ( this.getEditor() ) {
+				$( this.getEditor().getBody() ).css( style );
 			}
 		},
 
@@ -132,11 +135,11 @@
 			$body.off( 'keydown', this.onKeyDown );
 			this.$textarea.off( 'keydown', this.onKeyDown );
 
-			if ( this.editor ) {
-				this.editor.off( 'keydown', this.onKeyDown );
+			if ( this.getEditor() ) {
+				this.getEditor().off( 'keydown', this.onKeyDown );
 				// Clear selection
-				this.editor.selection.select( this.editor.getBody(), true );
-				this.editor.selection.collapse( false );
+				this.getEditor().selection.select( this.getEditor().getBody(), true );
+				this.getEditor().selection.collapse( false );
 			}
 
 			$body.removeClass( 'modal-open' );
@@ -680,6 +683,7 @@
 				palettes: palettes,
 				defaultColor: this.getValue(),
 				change: this.onColorPick.bind( this ),
+				clear: this.onColorClear.bind( this ),
 			} );
 
 			$( 'body' ).off( 'click.wpcolorpicker' );
@@ -689,6 +693,10 @@
 
 		onColorPick: function( e, widget ) {
 			this.overlay.trigger( 'setting-updated', { name: this.setting.name, value: widget.color.toString() } );
+		},
+
+		onColorClear: function( e, widget ) {
+			this.overlay.trigger( 'setting-updated', { name: this.setting.name, value: '' } );
 		},
 
 		setValue: function( value ) {
