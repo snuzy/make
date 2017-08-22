@@ -407,13 +407,13 @@ class MAKE_Sections_Columns_Definition {
 					}
 				}
 
-				$column['content'] = $image_tag . $column_title . $column['content'];
-				$data['columns'][$s] = $column;
-
 				unset( $column['image-id'] );
 				unset( $column['image-url'] );
 				unset( $column['image-link'] );
 				unset( $column['title'] );
+
+				$column['content'] = $image_tag . $column_title . $column['content'];
+				$data['columns'][$s] = $column;
 			}
 		}
 
@@ -496,22 +496,6 @@ class MAKE_Sections_Columns_Definition {
 
 				if ( isset( $item['sidebar-label'] ) ) {
 					$clean_item_data['sidebar-label'] = $item['sidebar-label'];
-				}
-
-				if ( isset( $item['background-image'] ) ) {
-					$clean_item_data['background-image'] = ttfmake_sanitize_image_id( $item['background-image'] );
-				}
-
-				if ( isset( $item['background-image'] ) && '' !== $item['background-image'] ) {
-					$clean_item_data['background-image'] = ttfmake_sanitize_image_id( $item['background-image'] );
-				} else {
-					$clean_item_data['background-image'] = '';
-				}
-
-				if ( isset( $item['background-image-url'] ) && '' !== $item['background-image-url'] ) {
-					$clean_item_data['background-image-url'] = $item['background-image-url'];
-				} else {
-					$clean_item_data['background-image-url'] = '';
 				}
 
 				array_push( $clean_data['columns'], $clean_item_data );
