@@ -365,6 +365,11 @@ class TTFMAKE_Builder_Save {
 	 * @return string             The post content.
 	 */
 	public function generate_post_content( $data ) {
+		// Handle oEmbeds correctly
+		add_filter( 'make_the_builder_content', array( $this, 'embed_handling' ), 8 );
+		add_filter( 'embed_handler_html', array( $this, 'embed_handler_html' ) , 10, 3 );
+		add_filter( 'embed_oembed_html', array( $this, 'embed_oembed_html' ) , 10, 4 );
+
 		// Remove editor image constraints while rendering section data.
 		add_filter( 'editor_max_image_size', array( &$this, 'remove_image_constraints' ) );
 
@@ -386,19 +391,6 @@ class TTFMAKE_Builder_Save {
 			if ( ttfmake_should_render_section( $ttfmake_section_data ) ) {
 				ttfmake_get_template( $section_template );
 			}
-
-			// if ( !isset( $ttfmake_section_data['draft'] ) || $ttfmake_section_data['draft'] != 1 ) {
-			// 	$section_display_template = apply_filters(
-			// 		'make_section_display_template_relative_path',
-			// 		$registered_sections[ $section['section-type'] ]['display_template'],
-			// 		$ttfmake_section_data
-			// 	);
-
-			// 	$section_path = apply_filters(
-			// 		'make_section_path',
-			// 		$registered_sections[ $section['section-type'] ]['path'],
-			// 		$ttfmake_section_data
-			// 	);
 		}
 
 		unset( $GLOBALS['ttfmake_sections'] );
@@ -421,6 +413,91 @@ class TTFMAKE_Builder_Save {
 		 * @param array     $data            The data used to generate the content.
 		 */
 		return apply_filters( 'make_generate_post_content', $post_content, $data );
+	}
+
+	/**
+	 * Run content through the $wp_embed->autoembed method to identify and process oEmbeds.
+	 *
+	 * This function causes oEmbeds to be identified and HTML to created for those oEmbeds. Additional functions in this
+	 * file will not allow the embed code to be saved, but rather wrap the oEmbed url in embed shortcode tags (i.e.,
+	 * [embed]url[/embed]).
+	 *
+	 * In other words, if the following content is passed to this function:
+	 *
+	 *     https://www.youtube.com/watch?v=jScLjUlLTLI
+	 *
+	 *     <p>Here is some more content</p>
+	 *
+	 * it is transformed into:
+	 *
+	 *     [embed]https://www.youtube.com/watch?v=jScLjUlLTLI[/embed]
+	 *
+	 *     <p>Here is some more content</p>
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $content    The content to inspect.
+	 * @return string                The modified content.
+	 */
+	function embed_handling( $content ) {
+		global $wp_embed;
+		$content = $wp_embed->autoembed( $content );
+		return $content;
+	}
+
+	/**
+	 * Modify the embed HTML to be just the URL wrapped in embed tags.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $cache      The previously cached embed value.
+	 * @param  string    $url        The embed URL.
+	 * @param  array     $attr       The shortcode attrs.
+	 * @param  int       $post_ID    The current Post ID.
+	 * @return string                The modified embed code.
+	 */
+	function embed_oembed_html( $cache, $url, $attr, $post_ID ) {
+		return $this->generate_embed_shortcode( $url, $attr );
+	}
+
+	/**
+	 * Modify the embed HTML to be just the URL wrapped in embed tags.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $return     The embed code.
+	 * @param  string    $url        The embed URL.
+	 * @param  array     $attr       The shortcode attrs.
+	 * @return string                The modified embed code.
+	 */
+	function embed_handler_html( $return, $url, $attr ) {
+		return $this->generate_embed_shortcode( $url, $attr );
+	}
+
+	/**
+	 * Wrap a URL in embed shortcode tags.
+	 *
+	 * This function also will apply shortcode attrs if they are available. It only supports the "height" and "width"
+	 * attributes that core supports.
+	 *
+	 * @since  1.0.0.
+	 *
+	 * @param  string    $url        The embed URL.
+	 * @param  array     $attr       The shortcode attrs.
+	 * @return string                The modified embed code.
+	 */
+	function generate_embed_shortcode( $url, $attr ) {
+		$attr_string = '';
+
+		if ( isset( $attr['height'] ) ) {
+			$attr_string = ' height="' . absint( $attr['height'] ) . '"';
+		}
+
+		if ( isset( $attr['width'] ) ) {
+			$attr_string = ' width="' . absint( $attr['width'] ) . '"';
+		}
+
+		return '[embed' . $attr_string . ']' . $url . '[/embed]';
 	}
 
 	/**

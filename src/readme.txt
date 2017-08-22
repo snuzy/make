@@ -26,6 +26,10 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.2 - August 22 2017 =
+* Bug fix: Content embed filters weren't running causing embeds to disappear.
+* Bug fix: Background images saved on versions 1.8.x were being preserved, resulting in image duplication.
+
 = 1.9.1 - August 18 2017 =
 * Bug fix: Clearing the background color of a section wouldn't reset the corresponding setting.
 * Bug fix: `wpautop` wasn't running on section content, resulting in line breaks being ignored.
@@ -554,6 +558,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.2 =
+* Embeds and Column background images fixes.
 
 = 1.9.1 =
 Content editor bug fixes, better compatibility handling.
