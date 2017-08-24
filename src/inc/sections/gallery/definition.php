@@ -644,7 +644,7 @@ class MAKE_Sections_Gallery_Definition {
 			// Columns
 			$gallery_columns = ( isset( $section_data['columns'] ) ) ? absint( $section_data['columns'] ) : 1;
 
-			if ( $gallery_columns > 1 && $i > 0 && 0 === $i % ( $gallery_columns - 1 ) ) {
+			if ( $gallery_columns > 1 && $i > 0 && 0 === ( $i + 1 ) % $gallery_columns ) {
 				$classes .= ' last-' . $gallery_columns;
 			}
 

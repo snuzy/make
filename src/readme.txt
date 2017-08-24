@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.3 - August 24 2017 =
+* Bug fix: Gallery items at the end of rows were missing the correct CSS class.
+
 = 1.9.2 - August 22 2017 =
 * Bug fix: Content embed filters weren't running causing embeds to disappear.
 * Bug fix: Background images saved on versions 1.8.x were being preserved, resulting in image duplication.
@@ -559,8 +562,11 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Upgrade Notice ==
 
+= 1.9.3 =
+Fix for Gallery items at the end of rows.
+
 = 1.9.2 =
-* Embeds and Column background images fixes.
+Embeds and Column background images fixes.
 
 = 1.9.1 =
 Content editor bug fixes, better compatibility handling.
