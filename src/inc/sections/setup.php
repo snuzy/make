@@ -90,6 +90,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 		}
 
 		$index = max( array_keys( $settings ) );
+		$plus_link = 'https://thethemefoundry.com/make-buy/';
 
 		$settings[$index + 100] = array(
 			'type' => 'divider',
@@ -102,7 +103,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 			'type' => 'description',
 			'label' => __( 'Master', 'make' ),
 			'name' => 'master',
-			'description' => __( '<p>Did you know: Master mode lets you add this section to other pages, or parts of pages, and changes you make will apply everywhere this section is used.</p><p>Upgrade to Make Plus to get Master mode.</p>', 'make' ),
+			'description' => '<p>' . __( 'Did you know: Master mode lets you add this section to other pages, or parts of pages, and changes you make will apply everywhere this section is used.', 'make'  ) . '</p><p><a href="' . esc_js( $plus_link ) . '" target="_blank">' . __( 'Upgrade to Make Plus to get Master mode.', 'make' ) . '</a></p>',
 		);
 
 		return $settings;
