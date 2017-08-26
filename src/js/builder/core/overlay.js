@@ -537,6 +537,15 @@
 
 	/**
 	 *
+	 * Description control
+	 *
+	 */
+	window.make.classes.configuration.description = window.make.classes.configuration.control.extend( {
+		template: wp.template( 'ttfmake-settings-description' ),
+	} );
+
+	/**
+	 *
 	 * Section title control
 	 *
 	 */
