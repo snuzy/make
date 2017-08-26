@@ -25,7 +25,7 @@ $footer_credit = apply_filters( 'make_show_footer_credit', true );
 		<?php
 		printf(
 			wp_kses(
-				__( 'Built with <a class="theme-name" href="%s" target="_blank">Make</a>. Your friendly small business site builder.', 'make' ),
+				__( 'Built with <a class="theme-name" href="%s" target="_blank">Make</a>. Your friendly WordPress page builder theme.', 'make' ),
 				array( 'a' => array( 'class' => true, 'href' => true, 'target' => true ) )
 			),
 			'https://thethemefoundry.com/make/'

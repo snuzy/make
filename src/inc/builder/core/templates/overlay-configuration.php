@@ -58,6 +58,12 @@
 <# } #>
 </script>
 
+<script type="text/html" id="tmpl-ttfmake-settings-description">
+<# if ( data.description ) { #>
+<div class="ttfmake-configuration-description" style="margin-top: 0;">{{{ data.description }}}</div>
+<# } #>
+</script>
+
 <script type="text/html" id="tmpl-ttfmake-media-frame-remove-image">
 <div class="ttfmake-remove-current-image">
 	<h3><?php esc_html_e( 'Current image', 'make' ); ?></h3>

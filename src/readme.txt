@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.4 - August 26 2017 =
+* Updated: Theme screenshot.
+
 = 1.9.3 - August 24 2017 =
 * Bug fix: Gallery items at the end of rows were missing the correct CSS class.
 
@@ -561,6 +564,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.4 =
+* Updated theme screenshot.
 
 = 1.9.3 =
 Fix for Gallery items at the end of rows.
