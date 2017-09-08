@@ -15,6 +15,10 @@ span.description {
     display: block;
 }
 
+.background-position-control .button-group {
+    display: block;
+}
+
 /* Html control styles */
 .customize-control-make_html {
 	margin-bottom: -2px;

@@ -227,6 +227,9 @@ div.custom-logo {
 	color: $a;
 	background-color: $b;
 	border-bottom: $rule;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+
 	@extend .clear;
 	@include for(large-screens) {
 		.header-bar-flipped & {
