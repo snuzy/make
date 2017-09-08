@@ -613,6 +613,9 @@ if ( $is_style_preview || ! $this->thememod()->is_default( 'header-bar-link-hove
 
 // Header Bar border color
 if ( $is_style_preview || ! $this->thememod()->is_default( 'header-bar-border-color' ) ) {
+	// Convert to RGBa
+	$color = $this->helper()->hex_to_rgb( $this->thememod()->get_value( 'header-bar-border-color' ) ) . ', ' . $this->thememod()->get_value( 'header-bar-background-color-opacity' );
+
 	$this->css()->add( array(
 		'selectors'    => array(
 			'.header-bar',
@@ -621,7 +624,7 @@ if ( $is_style_preview || ! $this->thememod()->is_default( 'header-bar-border-co
 			'.header-social-links li a',
 		),
 		'declarations' => array(
-			'border-color' => $this->thememod()->get_value( 'header-bar-border-color' )
+			'border-color' => 'rgba(' . $color . ')'
 		)
 	) );
 }

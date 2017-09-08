@@ -6,7 +6,7 @@
 /**
  * The current version of the theme.
  */
-define( 'TTFMAKE_VERSION', '1.9.4' );
+define( 'TTFMAKE_VERSION', '1.9.5' );
 
 /**
  * The minimum version of WordPress required for Make.

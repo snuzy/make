@@ -288,7 +288,8 @@ if ( $is_style_preview || ! $this->thememod()->is_default( 'font-weight-nav-curr
  */
 $element = 'header-bar-text';
 $selectors = array( '.header-bar', '.header-text', '.header-bar .search-form input', '.header-bar .menu a' );
-$declarations = $this->helper()->parse_font_properties( $element, $is_style_preview );
+$force = $is_style_preview || $body_font_customized;
+$declarations = $this->helper()->parse_font_properties( $element, $force );
 if ( ! empty( $declarations ) ) {
 	$this->css()->add( array( 'selectors' => $selectors, 'declarations' => $declarations, ) );
 }
@@ -321,7 +322,8 @@ if ( $is_style_preview || ! $this->thememod()->is_default( 'font-size-header-bar
  */
 $element = 'widget-title';
 $selectors = array( '.sidebar .widget-title', '.sidebar .widgettitle', '.sidebar .widget-title a', '.sidebar .widgettitle a', '.font-widget-title' );
-$declarations = $this->helper()->parse_font_properties( $element, $is_style_preview );
+$force = $is_style_preview || $body_font_customized;
+$declarations = $this->helper()->parse_font_properties( $element, $force );
 if ( ! empty( $declarations ) ) {
 	$this->css()->add( array( 'selectors' => $selectors, 'declarations' => $declarations, ) );
 }
@@ -350,7 +352,8 @@ if ( ! empty( $link_rule ) ) {
  */
 $element = 'footer-widget-title';
 $selectors = array( '.footer-widget-container .widget-title', '.footer-widget-container .widgettitle', '.footer-widget-container .widget-title a', '.footer-widget-container .widgettitle a' );
-$declarations = $this->helper()->parse_font_properties( $element, $is_style_preview );
+$force = $is_style_preview || $body_font_customized;
+$declarations = $this->helper()->parse_font_properties( $element, $force );
 if ( ! empty( $declarations ) ) {
 	$this->css()->add( array( 'selectors' => $selectors, 'declarations' => $declarations, ) );
 }

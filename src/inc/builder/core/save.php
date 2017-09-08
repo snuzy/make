@@ -523,7 +523,7 @@ class TTFMAKE_Builder_Save {
 		if ( empty( $this->_sanitized_sections ) ) {
 			$data = array();
 
-			if ( isset( $_POST['ttfmake-section-layout'] ) ) {
+			if ( isset( $_POST['ttfmake-section-layout'] ) && ! empty( $_POST['ttfmake-section-layout'] ) ) {
 				$section_ids = json_decode( wp_unslash( $_POST['ttfmake-section-layout'] ), true );
 
 				foreach( $section_ids as $section_id ) {
