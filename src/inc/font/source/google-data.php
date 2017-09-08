@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2017-08-26T07:50:03+00:00
+// Updated: 2017-09-08T09:12:31+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -2192,6 +2192,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'latin',
+			'latin-ext',
 		),
 		'category' => 'serif',
 	),
@@ -5429,6 +5430,66 @@ $this->load_font_data( array(
 			'latin',
 			'latin-ext',
 			'vietnamese',
+		),
+		'category' => 'display',
+	),
+	'Libre Barcode 128' => array(
+		'label' => 'Libre Barcode 128',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'display',
+	),
+	'Libre Barcode 128 Text' => array(
+		'label' => 'Libre Barcode 128 Text',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'display',
+	),
+	'Libre Barcode 39' => array(
+		'label' => 'Libre Barcode 39',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'display',
+	),
+	'Libre Barcode 39 Extended' => array(
+		'label' => 'Libre Barcode 39 Extended',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'display',
+	),
+	'Libre Barcode 39 Extended Text' => array(
+		'label' => 'Libre Barcode 39 Extended Text',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'display',
+	),
+	'Libre Barcode 39 Text' => array(
+		'label' => 'Libre Barcode 39 Text',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
 		),
 		'category' => 'display',
 	),
@@ -10402,13 +10463,22 @@ $this->load_font_data( array(
 	'Vollkorn' => array(
 		'label' => 'Vollkorn',
 		'variants' => array(
+			'600',
+			'600italic',
 			'700',
 			'700italic',
+			'900',
+			'900italic',
 			'italic',
 			'regular',
 		),
 		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
 			'latin',
+			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'serif',
 	),

@@ -1,7 +1,7 @@
 === Make ===
 
 Contributors: thethemefoundry
-Tags: black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, grid-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, footer-widgets, blog, e-commerce, portfolio
+Tags: black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, grid-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, footer-widgets, blog, e-commerce, portfolio, accessibility-ready, custom-logo, featured-image-header, rtl-language-support
 
 Requires at least: 4.4
 Tested up to: 4.8.1
@@ -25,6 +25,12 @@ Build a website that means business. With Make’s powerful drag and drop page b
 Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
+
+= 1.9.5 - September 8 2017 =
+* Bug fix: A missing check in post save routines resulted in a PHP notice.
+* Bug fix: Typography settings didn't apply correctly to the header and header bar.
+* Improved: Header Bar border now respects opacity settings.
+* Updated: Theme screenshot.
 
 = 1.9.4 - August 26 2017 =
 * Updated: Theme screenshot.
@@ -564,6 +570,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.5 =
+* Header typography and other minor fixes, updated theme screenshot.
 
 = 1.9.4 =
 * Updated theme screenshot.
