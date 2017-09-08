@@ -1,7 +1,7 @@
 === Make ===
 
 Contributors: thethemefoundry
-Tags: black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, grid-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, footer-widgets, blog, e-commerce, portfolio
+Tags: black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, grid-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, footer-widgets, blog, e-commerce, portfolio, accessibility-ready, custom-logo, featured-image-header, rtl-language-support
 
 Requires at least: 4.4
 Tested up to: 4.8.1
