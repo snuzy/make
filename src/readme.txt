@@ -26,6 +26,12 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.5 - September 8 2017 =
+* Bug fix: A missing check in post save routines resulted in a PHP notice.
+* Bug fix: Typography settings didn't apply correctly to the header and header bar.
+* Improved: Header Bar border now respects opacity settings.
+* Updated: Theme screenshot.
+
 = 1.9.4 - August 26 2017 =
 * Updated: Theme screenshot.
 
@@ -564,6 +570,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.5 =
+* Header typography and other minor fixes, updated theme screenshot.
 
 = 1.9.4 =
 * Updated theme screenshot.
