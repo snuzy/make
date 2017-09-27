@@ -687,10 +687,10 @@ function ttfmake_load_section_header() {
 	 *
 	 * @param array    $ttfmake_section_data    The array of data for the section.
 	 */
-	do_action( 'make_section_' . $ttfmake_section_data['section']['id'] . '_before', $ttfmake_section_data );
+	do_action( 'make_section_' . $ttfmake_section_data['id'] . '_before', $ttfmake_section_data );
 
 	// Backcompat
-	do_action( 'ttfmake_section_' . $ttfmake_section_data['section']['id'] . '_before', $ttfmake_section_data );
+	do_action( 'ttfmake_section_' . $ttfmake_section_data['id'] . '_before', $ttfmake_section_data );
 }
 endif;
 
@@ -716,10 +716,10 @@ function ttfmake_load_section_footer() {
 	 *
 	 * @param array    $ttfmake_section_data    The array of data for the section.
 	 */
-	do_action( 'make_section_' . $ttfmake_section_data['section']['id'] . '_after', $ttfmake_section_data );
+	do_action( 'make_section_' . $ttfmake_section_data['id'] . '_after', $ttfmake_section_data );
 
 	// Backcompat
-	do_action( 'ttfmake_section_' . $ttfmake_section_data['section']['id'] . '_after', $ttfmake_section_data );
+	do_action( 'ttfmake_section_' . $ttfmake_section_data['id'] . '_after', $ttfmake_section_data );
 }
 endif;
 
