@@ -70,12 +70,6 @@ class MAKE_Sections_Gallery_Definition {
 				'class' => 'ttfmake-configuration-title ttfmake-section-header-title-input',
 				'default' => ttfmake_get_section_default( 'title', 'gallery' )
 			),
-			300 => array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Full width', 'make' ),
-				'name'    => 'full-width',
-				'default' => ttfmake_get_section_default( 'full-width', 'gallery' )
-			),
 			400 => array(
 				'type'    => 'select',
 				'name'    => 'columns',
@@ -300,8 +294,7 @@ class MAKE_Sections_Gallery_Definition {
 			'background-position' => 'center-center',
 			'darken' => 0,
 			'background-style' => 'cover',
-			'background-color' => '',
-			'full-width' => 0
+			'background-color' => ''
 		);
 	}
 
@@ -463,12 +456,6 @@ class MAKE_Sections_Gallery_Definition {
 
 		if ( isset( $data['background-position'] ) ) {
 			$clean_data['background-position'] = ttfmake_sanitize_section_choice( $data['background-position'], 'background-position', $data['section-type'] );
-		}
-
-		if ( isset( $data['full-width'] ) && $data['full-width'] == 1 ) {
-			$clean_data['full-width'] = 1;
-		} else {
-			$clean_data['full-width'] = 0;
 		}
 
 		if ( isset( $data['gallery-items'] ) && is_array( $data['gallery-items'] ) ) {

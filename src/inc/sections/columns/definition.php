@@ -86,12 +86,6 @@ class MAKE_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'columns-number', 'text' ),
 				'options' => ttfmake_get_section_choices( 'columns-number', 'text' ),
 			),
-			400 => array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Full width', 'make' ),
-				'name'    => 'full-width',
-				'default' => ttfmake_get_section_default( 'full-width', 'text' ),
-			),
 			500 => array(
 				'type'    => 'divider',
 				'label'   => __( 'Background', 'make-plus' ),
@@ -227,7 +221,6 @@ class MAKE_Sections_Columns_Definition {
 			'darken' => 0,
 			'background-style' => 'cover',
 			'background-color' => '',
-			'full-width' => 0,
 		);
 	}
 
@@ -465,12 +458,6 @@ class MAKE_Sections_Columns_Definition {
 
 		if ( isset( $data['background-style'] ) ) {
 			$clean_data['background-style'] = ttfmake_sanitize_section_choice( $data['background-style'], 'background-style', $data['section-type'] );
-		}
-
-		if ( isset( $data['full-width'] ) && $data['full-width'] == 1 ) {
-			$clean_data['full-width'] = 1;
-		} else {
-			$clean_data['full-width'] = 0;
 		}
 
 		if ( isset( $data['columns'] ) && is_array( $data['columns'] ) ) {
