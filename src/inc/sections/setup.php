@@ -71,12 +71,11 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 		MAKE_Sections_Banner_Definition::register();
 		MAKE_Sections_Gallery_Definition::register();
 
-		add_filter( 'make_builder_settings', array( $this, 'builder_settings' ), 100 );
 		add_filter( 'make_section_settings', array( $this, 'full_width_settings' ), 20, 2 );
 		add_filter( 'make_sections_defaults', array( $this, 'full_width_defaults' ), 20 );
 		add_filter( 'make_prepare_data_section', array( $this, 'full_width_save_data' ), 20, 2 );
 
-		// Master sections description
+		// Upsells
 		if ( ! Make()->plus()->is_plus() ) {
 			add_filter( 'make_section_settings', array( $this, 'master_demo_setting' ), 40, 2 );
 			add_filter( 'make_section_settings', array( $this, 'section_draft_demo_setting' ), 50, 2 );
