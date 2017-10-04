@@ -107,7 +107,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 			'type'    => 'checkbox',
 			'label'   => __( 'Full width', 'make' ),
 			'name'    => 'full-width',
-			'default' => ttfmake_get_section_default( 'full-width', 'text' ),
+			'default' => ttfmake_get_section_default( 'full-width', $section_type ),
 		);
 		return $settings;
 	}
