@@ -30,7 +30,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 	/**
 	 * TODO
 	 */
-	protected $makeplus_link = 'https://thethemefoundry.com/make-buy/';
+	protected $makeplus_link = 'https://thethemefoundry.com/wordpress-plugins/make-builder/#get-started';
 
 	/**
 	 * MAKE_Sections_Setup constructor.
@@ -202,7 +202,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 			'type' => 'description',
 			'label' => __( 'Master', 'make' ),
 			'name' => 'master',
-			'description' => '<p>' . __( 'Did you know: With Make Plus you can add custom classes and IDs to this section so applying custom CSS styles is easily.', 'make'  ) . '</p><p><a href="' . esc_js( $this->makeplus_link ) . '" target="_blank">' . __( 'Upgrade to Make Plus to get custom classes and IDs.', 'make' ) . '</a></p>',
+			'description' => '<p>' . __( 'Did you know: With Make Plus you can add custom classes and IDs to this section so applying custom CSS styles is easy.', 'make'  ) . '</p><p><a href="' . esc_js( $this->makeplus_link ) . '" target="_blank">' . __( 'Upgrade to Make Plus to get custom classes and IDs.', 'make' ) . '</a></p>',
 		);
 		return $settings;
 	}
