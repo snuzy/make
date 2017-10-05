@@ -236,7 +236,7 @@
 			window.make.overlay = new window.make.overlays.content( {
 				model: this.model,
 				field: 'content',
-				buttonLabel: 'Update column'
+				buttonLabel: 'Update content'
 			} );
 			window.make.overlay.open();
 
