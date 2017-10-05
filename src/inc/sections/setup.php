@@ -178,7 +178,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 			'name'        => 'draft',
 			'default'     => '',
 			'disabled'    => true,
-			'description' => __( 'UPSELL: When draft mode is enabled, the section is hidden from the front-end, so you can continue to edit it without your readers seeing it. <a href="' . esc_js( $this->makeplus_link ) . '" target="_blank">' . __( 'Upgrade to Make Plus to get draft section.', 'make' ) . '</a>', 'make' )
+			'description' => '<p>' . __( 'Did you know: When Draft mode is enabled, the section is hidden from the front-end, so you can continue to edit it without your readers seeing it.', 'make' ) . '</p><p><a href="' . esc_js( $this->makeplus_link ) . '" target="_blank">' . __( 'Upgrade to Make Plus to get Draft mode.', 'make' ) . '</a></p>'
 		);
 		return $settings;
 	}
@@ -202,7 +202,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 			'type' => 'description',
 			'label' => __( 'Master', 'make' ),
 			'name' => 'master',
-			'description' => '<p>' . __( 'UPSELL: section custom classes and IDs', 'make'  ) . '</p><p><a href="' . esc_js( $this->makeplus_link ) . '" target="_blank">' . __( 'Upgrade to Make Plus to get code section.', 'make' ) . '</a></p>',
+			'description' => '<p>' . __( 'Did you know: With Make Plus you can add custom classes and IDs to this section so applying custom CSS styles is easily.', 'make'  ) . '</p><p><a href="' . esc_js( $this->makeplus_link ) . '" target="_blank">' . __( 'Upgrade to Make Plus to get custom classes and IDs.', 'make' ) . '</a></p>',
 		);
 		return $settings;
 	}
