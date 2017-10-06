@@ -30,7 +30,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 	/**
 	 * TODO
 	 */
-	protected $makeplus_link = 'https://thethemefoundry.com/wordpress-plugins/make-builder/#get-started';
+	protected $makeplus_link = 'https://thethemefoundry.com/wordpress-themes/make/#get-started';
 
 	/**
 	 * MAKE_Sections_Setup constructor.
