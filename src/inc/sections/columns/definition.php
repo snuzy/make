@@ -86,12 +86,6 @@ class MAKE_Sections_Columns_Definition {
 				'default' => ttfmake_get_section_default( 'columns-number', 'text' ),
 				'options' => ttfmake_get_section_choices( 'columns-number', 'text' ),
 			),
-			400 => array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Full width', 'make' ),
-				'name'    => 'full-width',
-				'default' => ttfmake_get_section_default( 'full-width', 'text' ),
-			),
 			500 => array(
 				'type'    => 'divider',
 				'label'   => __( 'Background', 'make-plus' ),
@@ -227,7 +221,6 @@ class MAKE_Sections_Columns_Definition {
 			'darken' => 0,
 			'background-style' => 'cover',
 			'background-color' => '',
-			'full-width' => 0,
 		);
 	}
 
@@ -467,12 +460,6 @@ class MAKE_Sections_Columns_Definition {
 			$clean_data['background-style'] = ttfmake_sanitize_section_choice( $data['background-style'], 'background-style', $data['section-type'] );
 		}
 
-		if ( isset( $data['full-width'] ) && $data['full-width'] == 1 ) {
-			$clean_data['full-width'] = 1;
-		} else {
-			$clean_data['full-width'] = 0;
-		}
-
 		if ( isset( $data['columns'] ) && is_array( $data['columns'] ) ) {
 			$clean_data['columns'] = array();
 
@@ -532,7 +519,7 @@ class MAKE_Sections_Columns_Definition {
 	}
 
 	public function print_templates() {
-		global $hook_suffix, $typenow;
+		global $hook_suffix, $typenow, $ttfmake_section_data;
 
 		// Only show when adding/editing pages
 		if ( ! ttfmake_post_type_supports_builder( $typenow ) || ! in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) )) {
@@ -540,12 +527,12 @@ class MAKE_Sections_Columns_Definition {
 		}
 
 		$section_definitions = ttfmake_get_sections();
-		set_query_var( 'ttfmake_section_data', $section_definitions[ 'text' ] );
+		$ttfmake_section_data = $section_definitions[ 'text' ];
 		?>
 		<script type="text/template" id="tmpl-ttfmake-section-text">
 		<?php get_template_part( 'inc/sections/columns/builder-template' ); ?>
 		</script>
-		<?php set_query_var( 'ttfmake_section_data', array() ); ?>
+		<?php $ttfmake_section_data = array(); ?>
 		<script type="text/template" id="tmpl-ttfmake-section-text-item">
 		<?php get_template_part( 'inc/sections/columns/builder-template', 'column' ); ?>
 		</script>

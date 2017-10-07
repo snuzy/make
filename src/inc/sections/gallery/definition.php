@@ -70,12 +70,6 @@ class MAKE_Sections_Gallery_Definition {
 				'class' => 'ttfmake-configuration-title ttfmake-section-header-title-input',
 				'default' => ttfmake_get_section_default( 'title', 'gallery' )
 			),
-			300 => array(
-				'type'    => 'checkbox',
-				'label'   => __( 'Full width', 'make' ),
-				'name'    => 'full-width',
-				'default' => ttfmake_get_section_default( 'full-width', 'gallery' )
-			),
 			400 => array(
 				'type'    => 'select',
 				'name'    => 'columns',
@@ -300,8 +294,7 @@ class MAKE_Sections_Gallery_Definition {
 			'background-position' => 'center-center',
 			'darken' => 0,
 			'background-style' => 'cover',
-			'background-color' => '',
-			'full-width' => 0
+			'background-color' => ''
 		);
 	}
 
@@ -465,12 +458,6 @@ class MAKE_Sections_Gallery_Definition {
 			$clean_data['background-position'] = ttfmake_sanitize_section_choice( $data['background-position'], 'background-position', $data['section-type'] );
 		}
 
-		if ( isset( $data['full-width'] ) && $data['full-width'] == 1 ) {
-			$clean_data['full-width'] = 1;
-		} else {
-			$clean_data['full-width'] = 0;
-		}
-
 		if ( isset( $data['gallery-items'] ) && is_array( $data['gallery-items'] ) ) {
 			$clean_data['gallery-items'] = array();
 
@@ -553,7 +540,7 @@ class MAKE_Sections_Gallery_Definition {
 	}
 
 	public function print_templates() {
-		global $hook_suffix, $typenow;
+		global $hook_suffix, $typenow, $ttfmake_section_data;
 
 		// Only show when adding/editing pages
 		if ( ! ttfmake_post_type_supports_builder( $typenow ) || ! in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) )) {
@@ -561,12 +548,12 @@ class MAKE_Sections_Gallery_Definition {
 		}
 
 		$section_definitions = ttfmake_get_sections();
-		set_query_var( 'ttfmake_section_data', $section_definitions[ 'gallery' ] );
+		$ttfmake_section_data = $section_definitions[ 'gallery' ];
 		?>
 		<script type="text/template" id="tmpl-ttfmake-section-gallery">
 		<?php get_template_part( 'inc/sections/gallery/builder-template' ); ?>
 		</script>
-		<?php set_query_var( 'ttfmake_section_data', array() ); ?>
+		<?php $ttfmake_section_data = array(); ?>
 		<script type="text/template" id="tmpl-ttfmake-section-gallery-item">
 		<?php get_template_part( 'inc/sections/gallery/builder-template', 'item' ); ?>
 		</script>

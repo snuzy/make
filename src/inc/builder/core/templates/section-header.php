@@ -3,10 +3,10 @@
  * @package Make
  */
 
-$ttfmake_section_data = array(
-	'config' => isset( $ttfmake_section_data['config'] ) ? $ttfmake_section_data['config']: array(),
-	'label' => isset( $ttfmake_section_data['label'] ) ? $ttfmake_section_data['label']: '',
-);
+global $ttfmake_section_data;
+
+$ttfmake_section_data['config'] = isset( $ttfmake_section_data['config'] ) ? $ttfmake_section_data['config']: array();
+$ttfmake_section_data['label'] = isset( $ttfmake_section_data['label'] ) ? $ttfmake_section_data['label']: '';
 
 $links = array(
 	100 => array(

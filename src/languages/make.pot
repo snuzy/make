@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Make 1.9.5\n"
+"Project-Id-Version: Make 1.9.6\n"
 "Report-Msgid-Bugs-To: https://thethemefoundry.com/support/\n"
-"POT-Creation-Date: 2017-09-08 09:12:22+00:00\n"
+"POT-Creation-Date: 2017-10-07 11:49:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,18 +57,18 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: functions.php:57
+#: functions.php:58
 msgid ""
 "The Make() function should not be called before the make_api_loaded action "
 "has fired."
 msgstr ""
 
-#: functions.php:100 functions.php:155 functions.php:210 functions.php:264
-#: functions.php:317 functions.php:371
+#: functions.php:102 functions.php:157 functions.php:212 functions.php:266
+#: functions.php:319 functions.php:373
 msgid "This function should only be called during the %s action."
 msgstr ""
 
-#: functions.php:383
+#: functions.php:385
 msgid "The style rule does not have the required properties."
 msgstr ""
 
@@ -147,8 +147,8 @@ msgstr ""
 #: inc/builder/core/base.php:465 inc/builder/core/base.php:495
 #: inc/sections/banner/builder-template-slide.php:24
 #: inc/sections/banner/builder-template-slide.php:27
-#: inc/sections/columns/builder-template-column.php:15
 #: inc/sections/columns/builder-template-column.php:18
+#: inc/sections/columns/builder-template-column.php:21
 #: inc/sections/gallery/builder-template-item.php:25
 #: inc/sections/gallery/builder-template-item.php:28
 msgid "Edit content"
@@ -187,8 +187,8 @@ msgstr ""
 #: inc/choices/definitions/choices.php:33
 #: inc/sections/banner/definition.php:191
 #: inc/sections/banner/definition.php:296
-#: inc/sections/columns/definition.php:202
-#: inc/sections/gallery/definition.php:266
+#: inc/sections/columns/definition.php:196
+#: inc/sections/gallery/definition.php:260
 msgid "Left"
 msgstr ""
 
@@ -197,16 +197,16 @@ msgstr ""
 #: inc/choices/definitions/choices.php:35
 #: inc/sections/banner/definition.php:192
 #: inc/sections/banner/definition.php:297
-#: inc/sections/columns/definition.php:203
-#: inc/sections/gallery/definition.php:267
+#: inc/sections/columns/definition.php:197
+#: inc/sections/gallery/definition.php:261
 msgid "Right"
 msgstr ""
 
 #: inc/choices/definitions/choices.php:26
 #: inc/choices/definitions/choices.php:34
 #: inc/sections/banner/definition.php:294
-#: inc/sections/columns/definition.php:200
-#: inc/sections/gallery/definition.php:264
+#: inc/sections/columns/definition.php:194
+#: inc/sections/gallery/definition.php:258
 msgid "Center"
 msgstr ""
 
@@ -217,8 +217,8 @@ msgstr ""
 #: inc/choices/definitions/choices.php:31
 #: inc/choices/definitions/choices.php:107
 #: inc/sections/banner/definition.php:293
-#: inc/sections/columns/definition.php:199
-#: inc/sections/gallery/definition.php:263
+#: inc/sections/columns/definition.php:193
+#: inc/sections/gallery/definition.php:257
 msgid "Top"
 msgstr ""
 
@@ -232,8 +232,8 @@ msgstr ""
 
 #: inc/choices/definitions/choices.php:37
 #: inc/sections/banner/definition.php:295
-#: inc/sections/columns/definition.php:201
-#: inc/sections/gallery/definition.php:265
+#: inc/sections/columns/definition.php:195
+#: inc/sections/gallery/definition.php:259
 msgid "Bottom"
 msgstr ""
 
@@ -255,8 +255,8 @@ msgstr ""
 
 #: inc/choices/definitions/choices.php:46
 #: inc/sections/banner/definition.php:285
-#: inc/sections/columns/definition.php:191
-#: inc/sections/gallery/definition.php:273
+#: inc/sections/columns/definition.php:185
+#: inc/sections/gallery/definition.php:267
 msgid "Tile"
 msgstr ""
 
@@ -274,15 +274,15 @@ msgstr ""
 
 #: inc/choices/definitions/choices.php:52
 #: inc/sections/banner/definition.php:286
-#: inc/sections/columns/definition.php:192
-#: inc/sections/gallery/definition.php:274
+#: inc/sections/columns/definition.php:186
+#: inc/sections/gallery/definition.php:268
 msgid "Cover"
 msgstr ""
 
 #: inc/choices/definitions/choices.php:53
 #: inc/sections/banner/definition.php:287
-#: inc/sections/columns/definition.php:193
-#: inc/sections/gallery/definition.php:275
+#: inc/sections/columns/definition.php:187
+#: inc/sections/gallery/definition.php:269
 msgid "Contain"
 msgstr ""
 
@@ -301,8 +301,8 @@ msgstr ""
 #: inc/choices/definitions/choices.php:117 inc/galleryslider/setup.php:129
 #: inc/sections/banner/definition.php:190
 #: inc/sections/banner/definition.php:272
-#: inc/sections/gallery/definition.php:242
-#: inc/sections/gallery/definition.php:250
+#: inc/sections/gallery/definition.php:236
+#: inc/sections/gallery/definition.php:244
 msgid "None"
 msgstr ""
 
@@ -858,8 +858,8 @@ msgstr ""
 
 #: inc/customizer/definitions/background-images.php:44
 #: inc/sections/banner/definition.php:115
-#: inc/sections/columns/definition.php:111
-#: inc/sections/gallery/definition.php:124
+#: inc/sections/columns/definition.php:105
+#: inc/sections/gallery/definition.php:118
 msgid "Position"
 msgstr ""
 
@@ -994,8 +994,8 @@ msgstr ""
 
 #: inc/customizer/definitions/color.php:124
 #: inc/sections/banner/definition.php:101
-#: inc/sections/columns/definition.php:97
-#: inc/sections/gallery/definition.php:110
+#: inc/sections/columns/definition.php:91
+#: inc/sections/gallery/definition.php:104
 msgid "Background"
 msgstr ""
 
@@ -2006,28 +2006,28 @@ msgid ""
 msgstr ""
 
 #: inc/sections/banner/definition.php:108
-#: inc/sections/columns/definition.php:104
-#: inc/sections/gallery/definition.php:117
+#: inc/sections/columns/definition.php:98
+#: inc/sections/gallery/definition.php:111
 msgid "Background image"
 msgstr ""
 
 #: inc/sections/banner/definition.php:123
-#: inc/sections/columns/definition.php:119
-#: inc/sections/gallery/definition.php:132
+#: inc/sections/columns/definition.php:113
+#: inc/sections/gallery/definition.php:126
 msgid "Display"
 msgstr ""
 
 #: inc/sections/banner/definition.php:130
 #: inc/sections/banner/definition.php:197
-#: inc/sections/columns/definition.php:126
-#: inc/sections/gallery/definition.php:139
+#: inc/sections/columns/definition.php:120
+#: inc/sections/gallery/definition.php:133
 msgid "Darken"
 msgstr ""
 
 #: inc/sections/banner/definition.php:136
 #: inc/sections/banner/definition.php:203
-#: inc/sections/columns/definition.php:132
-#: inc/sections/gallery/definition.php:145
+#: inc/sections/columns/definition.php:126
+#: inc/sections/gallery/definition.php:139
 msgid "Background color"
 msgstr ""
 
@@ -2071,12 +2071,12 @@ msgstr ""
 msgid "Aspect"
 msgstr ""
 
-#: inc/sections/columns/builder-template-column.php:21
 #: inc/sections/columns/builder-template-column.php:24
+#: inc/sections/columns/builder-template-column.php:27
 msgid "Trash column"
 msgstr ""
 
-#: inc/sections/columns/builder-template-column.php:53
+#: inc/sections/columns/builder-template-column.php:56
 msgid "Drag-and-drop this column into place"
 msgstr ""
 
@@ -2095,13 +2095,8 @@ msgid "Create rearrangeable content of text and images."
 msgstr ""
 
 #: inc/sections/columns/definition.php:85
-#: inc/sections/gallery/definition.php:82
+#: inc/sections/gallery/definition.php:76
 msgid "Columns"
-msgstr ""
-
-#: inc/sections/columns/definition.php:91
-#: inc/sections/gallery/definition.php:75
-msgid "Full width"
 msgstr ""
 
 #: inc/sections/gallery/builder-template-item.php:14
@@ -2130,71 +2125,104 @@ msgstr ""
 msgid "Display your images in various grid combinations."
 msgstr ""
 
-#: inc/sections/gallery/definition.php:90
+#: inc/sections/gallery/definition.php:84
 msgid "Aspect ratio"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:97
+#: inc/sections/gallery/definition.php:91
 msgid "Caption style"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:104
+#: inc/sections/gallery/definition.php:98
 msgid "Caption color"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:165
+#: inc/sections/gallery/definition.php:159
 msgid "Enter item title"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:172
+#: inc/sections/gallery/definition.php:166
 msgid "Item link URL"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:178
+#: inc/sections/gallery/definition.php:172
 msgid "Open link in a new tab"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:239
+#: inc/sections/gallery/definition.php:233
 msgid "Square"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:240
+#: inc/sections/gallery/definition.php:234
 msgid "Landscape"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:241
+#: inc/sections/gallery/definition.php:235
 msgid "Portrait"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:248
+#: inc/sections/gallery/definition.php:242
 msgid "Reveal"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:249
+#: inc/sections/gallery/definition.php:243
 msgid "Overlay"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:256
+#: inc/sections/gallery/definition.php:250
 msgid "Light"
 msgstr ""
 
-#: inc/sections/gallery/definition.php:257
+#: inc/sections/gallery/definition.php:251
 msgid "Dark"
 msgstr ""
 
-#: inc/sections/setup.php:97 inc/sections/setup.php:104
+#: inc/sections/setup.php:108
+msgid "Full width"
+msgstr ""
+
+#: inc/sections/setup.php:153 inc/sections/setup.php:159
+#: inc/sections/setup.php:203
 msgid "Master"
 msgstr ""
 
-#: inc/sections/setup.php:106
+#: inc/sections/setup.php:161
 msgid ""
 "Did you know: Master mode lets you add this section to other pages, or "
 "parts of pages, and changes you make will apply everywhere this section is "
 "used."
 msgstr ""
 
-#: inc/sections/setup.php:106
+#: inc/sections/setup.php:161
 msgid "Upgrade to Make Plus to get Master mode."
+msgstr ""
+
+#: inc/sections/setup.php:177
+msgid "Draft mode"
+msgstr ""
+
+#: inc/sections/setup.php:181
+msgid ""
+"Did you know: When Draft mode is enabled, the section is hidden from the "
+"front-end, so you can continue to edit it without your readers seeing it."
+msgstr ""
+
+#: inc/sections/setup.php:181
+msgid "Upgrade to Make Plus to get Draft mode."
+msgstr ""
+
+#: inc/sections/setup.php:198
+msgid "Code"
+msgstr ""
+
+#: inc/sections/setup.php:205
+msgid ""
+"Did you know: With Make Plus you can add custom classes and IDs to this "
+"section so applying custom CSS styles is easy."
+msgstr ""
+
+#: inc/sections/setup.php:205
+msgid "Upgrade to Make Plus to get custom classes and IDs."
 msgstr ""
 
 #: inc/settings/base.php:118

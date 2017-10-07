@@ -148,7 +148,7 @@ final class MAKE_Plus_Methods implements MAKE_Plus_MethodsInterface, MAKE_Util_H
 	 * @return string
 	 */
 	public function get_plus_link() {
-		return 'https://thethemefoundry.com/make-buy/';
+		return 'https://thethemefoundry.com/wordpress-themes/make/#get-started';
 	}
 
 	/**

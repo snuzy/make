@@ -287,7 +287,7 @@ if ( $is_style_preview || ! $this->thememod()->is_default( 'font-weight-nav-curr
  * Header Bar Text
  */
 $element = 'header-bar-text';
-$selectors = array( '.header-bar', '.header-text', '.header-bar .search-form input', '.header-bar .menu a' );
+$selectors = array( '.header-bar', '.header-text', '.header-bar .search-form input', '.header-bar .menu a', '.header-navigation .mobile-menu ul.menu li a' );
 $force = $is_style_preview || $body_font_customized;
 $declarations = $this->helper()->parse_font_properties( $element, $force );
 if ( ! empty( $declarations ) ) {
