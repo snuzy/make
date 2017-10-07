@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2017-09-08T09:12:31+00:00
+// Updated: 2017-10-07T11:50:09+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -433,19 +433,6 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'handwriting',
-	),
-	'Amatica SC' => array(
-		'label' => 'Amatica SC',
-		'variants' => array(
-			'700',
-			'regular',
-		),
-		'subsets' => array(
-			'hebrew',
-			'latin',
-			'latin-ext',
-		),
-		'category' => 'display',
 	),
 	'Amethysta' => array(
 		'label' => 'Amethysta',
