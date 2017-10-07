@@ -596,7 +596,7 @@ class MAKE_Sections_Banner_Definition {
 	}
 
 	public function print_templates() {
-		global $hook_suffix, $typenow;
+		global $hook_suffix, $typenow, $ttfmake_section_data;
 
 		// Only show when adding/editing pages
 		if ( ! ttfmake_post_type_supports_builder( $typenow ) || ! in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) )) {
@@ -604,12 +604,12 @@ class MAKE_Sections_Banner_Definition {
 		}
 
 		$section_definitions = ttfmake_get_sections();
-		set_query_var( 'ttfmake_section_data', $section_definitions[ 'banner' ] );
+		$ttfmake_section_data = $section_definitions[ 'banner' ];
 		?>
 		<script type="text/template" id="tmpl-ttfmake-section-banner">
 		<?php get_template_part( 'inc/sections/banner/builder-template' ); ?>
 		</script>
-		<?php set_query_var( 'ttfmake_section_data', array() ); ?>
+		<?php $ttfmake_section_data = array(); ?>
 		<script type="text/template" id="tmpl-ttfmake-section-banner-slide">
 		<?php get_template_part( 'inc/sections/banner/builder-template', 'slide' ); ?>
 		</script>

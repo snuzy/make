@@ -26,9 +26,9 @@
 
 <script type="text/html" id="tmpl-ttfmake-settings-checkbox">
 <label>{{ data.label }}</label>
-<input type="checkbox" value="1" class="{{ data.class }}">
+<input type="checkbox" value="1" class="{{ data.class }}"<# if( data.disabled ) { #>{{ disabled="disabled" }}<# } #>>
 <# if ( data.description ) { #>
-<div class="ttfmake-configuration-description">{{ data.description }}</div>
+<div class="ttfmake-configuration-description">{{{ data.description }}}</div>
 <# } #>
 </script>
 

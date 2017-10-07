@@ -420,7 +420,7 @@ class TTFMAKE_Sections {
 			if ( in_array( $current_section['background-style'], array( 'cover', 'contain' ) ) ) {
 				$style .= 'background-size: ' . $current_section['background-style'] . '; background-repeat: no-repeat;';
 			} else if ( 'tile' === $current_section['background-style'] ) {
-				$style .= 'background-repeat: repeat;';
+				$style .= 'background-size: contain; background-repeat: repeat;';
 			}
 		}
 
