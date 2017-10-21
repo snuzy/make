@@ -88,7 +88,7 @@ class TTFMAKE_Builder_Save {
 		if ( isset( $_POST['use-builder'] ) && 1 === (int) $_POST['use-builder'] ) {
 			update_post_meta( $post_id, '_ttfmake-use-builder', 1 );
 		} else {
-			delete_post_meta( $post_id, '_ttfmake-use-builder' );
+			update_post_meta( $post_id, '_ttfmake-use-builder', '' );
 		}
 
 		// Don't save data if we're not using the Builder template
