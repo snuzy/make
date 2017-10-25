@@ -3035,6 +3035,13 @@ div.wp-video-shortcode {
 	max-width: 100%;
 }
 
+.single .builder-section-gallery .builder-section-content,
+.single .builder-section-text .builder-section-content {
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 0;
+}
+
 .builder-section {
 	position: relative;
 	margin-bottom: 44px;

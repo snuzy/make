@@ -47,6 +47,14 @@
 		}
 	}
 }
+.single .builder-section-gallery,
+.single .builder-section-text {
+	.builder-section-content {
+		max-width: $width+($gut*2);
+		margin: 0 auto;
+		padding: 0;
+	}
+}
 .builder-section {
 	@include rem('margin-bottom', $base*2);
 	position: relative;
