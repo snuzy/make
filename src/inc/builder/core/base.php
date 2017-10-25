@@ -79,9 +79,15 @@ class TTFMAKE_Builder_Base {
 	 */
 	public function add_meta_boxes() {
 		foreach ( ttfmake_get_post_types_supporting_builder() as $name ) {
+			$builder_metabox_title = esc_html__( 'Page Builder', 'make' );
+
+			if ( 'page' !== $name ) {
+				$builder_metabox_title = esc_html__( 'Post Builder', 'make' );
+			}
+
 			add_meta_box(
 				'ttfmake-builder',
-				esc_html__( 'Page Builder', 'make' ),
+				$builder_metabox_title,
 				array( $this, 'display_builder' ),
 				$name,
 				'normal',
@@ -91,7 +97,7 @@ class TTFMAKE_Builder_Base {
 			if ( 'page' !== $name ) {
 				add_meta_box(
 					'ttfmake-builder-toggle',
-					esc_html__( 'Make Builder', 'make' ),
+					esc_html__( 'Post builder', 'make' ),
 					array( $this, 'display_builder_toggle' ),
 					$name,
 					'side',
@@ -128,7 +134,7 @@ class TTFMAKE_Builder_Base {
 	?>
 		<p>
 			<input type="checkbox" value="1" name="use-builder" id="use-builder"<?php checked( $using_builder, 1 ); ?> />
-			&nbsp;<label for="use-builder"><?php esc_html_e( 'Enable page builder', 'make' ); ?></label>
+			&nbsp;<label for="use-builder"><?php esc_html_e( 'Enable post builder', 'make' ); ?></label>
 		</p>
 	<?php
 	}
