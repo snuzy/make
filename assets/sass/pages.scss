@@ -32,6 +32,26 @@
 		@include rem('padding', 0 $gut);
 	}
 }
+.single.builder-enabled.no-sidebar {
+	.site-content > .container {
+		width: 100%;
+		max-width: none;
+		padding: 0;
+	}
+	.entry-header,
+	.entry-footer,
+	.builder-section-header,
+	.comments-area,
+	.post-navigation {
+		max-width: $width+($gut*2);
+		margin: 0 auto;
+		@include rem('padding', 0 $gut);
+	}
+	.builder-section-full-width .builder-section-content {
+		max-width: none;
+		@include rem('padding', 0 $gut);
+	}
+}
 .builder-section-gallery,
 .builder-section-text,
 .builder-section-blank {
