@@ -241,7 +241,10 @@
 			window.make.overlay.open();
 
 			var backgroundColor = this.model.parentModel.get( 'background-color' );
-			window.make.overlay.setStyle( { backgroundColor: backgroundColor } );
+
+			if (backgroundColor) {
+				window.make.overlay.setStyle( { backgroundColor: backgroundColor } );
+			}
 		},
 
 		onRemoveItemClick: function( e ) {
