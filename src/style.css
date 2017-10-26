@@ -2101,22 +2101,22 @@ div.wp-video-shortcode {
   padding: 0 32px;
   padding:  0 3.2rem; }
 
-.single:not(.has-right-sidebar):not(.has-left-sidebar) .site-content > .container, .single:not(.has-right-sidebar):not(.has-left-sidebar) .site-content > .infinite-footer-container, .single:not(.has-right-sidebar):not(.has-left-sidebar) .page-template-template-builder-php .entry-content.site-content > .twitter-share, .page-template-template-builder-php .single:not(.has-right-sidebar):not(.has-left-sidebar) .entry-content.site-content > .twitter-share {
+.single.builder-enabled.no-sidebar .site-content > .container, .single.builder-enabled.no-sidebar .site-content > .infinite-footer-container, .single.builder-enabled.no-sidebar .page-template-template-builder-php .entry-content.site-content > .twitter-share, .page-template-template-builder-php .single.builder-enabled.no-sidebar .entry-content.site-content > .twitter-share {
   width: 100%;
   max-width: none;
   padding: 0; }
 
-.single:not(.has-right-sidebar):not(.has-left-sidebar) .entry-header,
-.single:not(.has-right-sidebar):not(.has-left-sidebar) .entry-footer,
-.single:not(.has-right-sidebar):not(.has-left-sidebar) .builder-section-header,
-.single:not(.has-right-sidebar):not(.has-left-sidebar) .comments-area,
-.single:not(.has-right-sidebar):not(.has-left-sidebar) .post-navigation {
+.single.builder-enabled.no-sidebar .entry-header,
+.single.builder-enabled.no-sidebar .entry-footer,
+.single.builder-enabled.no-sidebar .builder-section-header,
+.single.builder-enabled.no-sidebar .comments-area,
+.single.builder-enabled.no-sidebar .post-navigation {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 32px;
   padding:  0 3.2rem; }
 
-.single:not(.has-right-sidebar):not(.has-left-sidebar) .builder-section-full-width .builder-section-content {
+.single.builder-enabled.no-sidebar .builder-section-full-width .builder-section-content {
   max-width: none;
   padding: 0 32px;
   padding:  0 3.2rem; }
