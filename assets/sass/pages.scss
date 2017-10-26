@@ -99,6 +99,11 @@
 	margin-right: auto;
 	@include rem('padding', 0 $gut);
 }
+.single .builder-text-section-title,
+.single .builder-gallery-section-title,
+.single .builder-banner-section-title {
+	padding: 0;
+}
 .builder-text-section-title {
 	@include rem('margin-bottom', $base);
 }
