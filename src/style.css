@@ -3062,7 +3062,9 @@ div.wp-video-shortcode {
 }
 
 .single .builder-section-gallery .builder-section-content,
-.single .builder-section-text .builder-section-content {
+.single .builder-section-text .builder-section-content,
+.blog .builder-section-gallery .builder-section-content,
+.blog .builder-section-text .builder-section-content {
 	max-width: 1024px;
 	margin: 0 auto;
 	padding: 0;

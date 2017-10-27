@@ -68,7 +68,9 @@
 	}
 }
 .single .builder-section-gallery,
-.single .builder-section-text {
+.single .builder-section-text,
+.blog .builder-section-gallery,
+.blog .builder-section-text {
 	.builder-section-content {
 		max-width: $width+($gut*2);
 		margin: 0 auto;
