@@ -3068,6 +3068,12 @@ div.wp-video-shortcode {
 	padding: 0;
 }
 
+.single.no-sidebar .builder-section-gallery .builder-section-content,
+.single.no-sidebar .builder-section-text .builder-section-content {
+	padding: 0 32px;
+	padding: 0 3.2rem;
+}
+
 .builder-section {
 	position: relative;
 	margin-bottom: 44px;

@@ -75,6 +75,12 @@
 		padding: 0;
 	}
 }
+.single.no-sidebar .builder-section-gallery,
+.single.no-sidebar .builder-section-text {
+	.builder-section-content {
+		@include rem('padding', 0 $gut);
+	}
+}
 .builder-section {
 	@include rem('margin-bottom', $base*2);
 	position: relative;
