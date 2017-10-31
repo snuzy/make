@@ -53,6 +53,12 @@
 				// Comments and pings turned off by default
 				self.cache.$commentstatus.prop('checked', '');
 				self.cache.$pingstatus.prop('checked', '');
+			} else if ( 'post.php' === ttfmakeEditPageData.pageNow ) {
+				if ( 'page' === pagenow && ttfmakeEditPageData.useBuilder ) {
+					// Switch to Builder template if the page was previously
+					// saved with Make Builder.
+					self.cache.$pageTemplate.val('template-builder.php');
+				}
 			}
 
 			// Make sure screen is correctly toggled on load

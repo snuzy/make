@@ -355,6 +355,7 @@ class TTFMAKE_Builder_Base {
 		 * @param bool $is_default
 		 */
 		$data['defaultTemplate'] = apply_filters( 'make_builder_is_default', true );
+		$data['useBuilder'] = get_post_meta( get_the_ID(), '_ttfmake-use-builder', true );
 
 		wp_localize_script(
 			'ttfmake-builder-edit-page',
