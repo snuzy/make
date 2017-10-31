@@ -107,6 +107,11 @@
 	margin-right: auto;
 	@include rem('padding', 0 $gut);
 }
+.single.no-sidebar .builder-text-section-title,
+.single.no-sidebar .builder-gallery-section-title,
+.single.no-sidebar .builder-banner-section-title {
+	@include rem('padding', 0 $gut);
+}
 .single .builder-text-section-title,
 .single .builder-gallery-section-title,
 .single .builder-banner-section-title {

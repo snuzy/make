@@ -3106,6 +3106,13 @@ div.wp-video-shortcode {
 	padding: 0 3.2rem;
 }
 
+.single.no-sidebar .builder-text-section-title,
+.single.no-sidebar .builder-gallery-section-title,
+.single.no-sidebar .builder-banner-section-title {
+	padding: 0 32px;
+	padding: 0 3.2rem;
+}
+
 .single .builder-text-section-title,
 .single .builder-gallery-section-title,
 .single .builder-banner-section-title {
