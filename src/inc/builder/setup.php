@@ -18,6 +18,7 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 	 */
 	protected $dependencies = array(
 		'scripts' => 'MAKE_Setup_ScriptsInterface',
+		'plus'    => 'MAKE_Plus_MethodsInterface',
 	);
 
 	/**
@@ -63,8 +64,11 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_builder_scripts' ) );
 		add_action( 'make_style_loaded', array( $this, 'builder_styles' ) );
-		// Read from new layout if present
 		add_filter( 'make_get_section_data', array( $this, 'read_layout' ), 10, 2 );
+
+		if ( is_admin() && ! $this->plus()->is_plus() ) {
+			add_action( 'add_meta_boxes', array( $this, 'add_upsell_meta_box' ), 1 );
+		}
 
 		// Hooking has occurred.
 		self::$hooked = true;
@@ -96,6 +100,53 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 		}
 
 		return $sections;
+	}
+
+	/**
+	 * Register an upsell metabox for post builder support.
+	 *
+	 * @since 1.9.7.
+	 *
+	 * @hooked action add_meta_boxes
+	 *
+	 * @return void
+	 */
+	public function add_upsell_meta_box() {
+		// Only show the builder upsell on posts
+		if ( 'post' !== get_post_type() ) {
+			return;
+		}
+
+		add_meta_box(
+			'ttfmake-builder-toggle-upsell',
+			esc_html__( 'Post Builder', 'make' ),
+			array( $this, 'display_builder_toggle_upsell' ),
+			'post',
+			'side',
+			'high'
+		);
+	}
+
+	/**
+	 * Render the upsell metabox for post builder support.
+	 *
+	 * @since 1.9.7.
+	 *
+	 * @return void
+	 */
+	public function display_builder_toggle_upsell() {
+		?>
+		<p>
+			<input type="checkbox" disabled />
+			&nbsp;<label for="use-builder"><?php esc_html_e( 'Enable post builder', 'make' ); ?></label>
+		</p>
+		<p style="color: #666;">
+			<em><?php _e( 'Did you know: with Make Plus you can use the Make builder on posts, too.', 'make'  ) ?></em>
+		<p>
+		<p>
+			<a href="<?php echo esc_url( 'https://thethemefoundry.com/wordpress-themes/make/?utm_source=app&utm_campaign=post-builder#get-started' ); ?>" target="_blank" class="button button-primary button-large"><?php _e( 'Upgrade to Make Plus Now', 'make' ); ?></a>
+		</p>
+		<?php
 	}
 
 	/**

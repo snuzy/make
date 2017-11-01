@@ -247,8 +247,10 @@
 			window.make.overlay.open();
 
 			var backgroundColor = this.model.parentModel.get( 'background-color' );
-			backgroundColor = '' !== backgroundColor ? backgroundColor : 'transparent';
-			window.make.overlay.setStyle( { backgroundColor: backgroundColor } );
+
+			if (backgroundColor) {
+				window.make.overlay.setStyle( { backgroundColor: backgroundColor } );
+			}
 		},
 
 		onUploaderSlideClick: function( e ) {

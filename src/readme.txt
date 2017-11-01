@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.7 - November 1 2017 =
+* Bug fix: Content editor was ignoring background color settings in Customize screen.
+
 = 1.9.6 - October 7 2017 =
 * Bug fix: Typography settings weren't applying correctly to the mobile menu.
 * Bug fix: Section tiled backgrounds were misbehaving.
