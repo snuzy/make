@@ -27,7 +27,8 @@ div.ttfmake-customize-plus a {
 .make-plus-products .ttfmake-menu-list-item-link-icon-wrapper:before,
 .ttfmp-import-message strong:after,
 #accordion-section-ttfmake_stylekit h3:before,
-#ttfmake-menu-list-item-link-plus h4:after {
+#ttfmake-menu-list-item-link-plus h4:after,
+#ttfmake-builder-toggle-upsell h2:after {
 	content: "Plus";
 	position: relative;
 	top: -1px;

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Make 1.9.6\n"
+"Project-Id-Version: Make 1.9.7\n"
 "Report-Msgid-Bugs-To: https://thethemefoundry.com/support/\n"
-"POT-Creation-Date: 2017-10-07 11:49:56+00:00\n"
+"POT-Creation-Date: 2017-11-01 07:20:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -120,31 +120,39 @@ msgid ""
 "you’re using. Please update Make Plus."
 msgstr ""
 
-#: inc/builder/core/base.php:85
+#: inc/builder/core/base.php:82
 msgid "Page Builder"
 msgstr ""
 
-#: inc/builder/core/base.php:116
-msgid "Use Page Builder"
+#: inc/builder/core/base.php:85 inc/builder/setup.php:122
+msgid "Post Builder"
 msgstr ""
 
-#: inc/builder/core/base.php:303
+#: inc/builder/core/base.php:100
+msgid "Post builder"
+msgstr ""
+
+#: inc/builder/core/base.php:137 inc/builder/setup.php:141
+msgid "Enable post builder"
+msgstr ""
+
+#: inc/builder/core/base.php:324
 msgid "Are you sure you want to trash this section permanently?"
 msgstr ""
 
-#: inc/builder/core/base.php:325
+#: inc/builder/core/base.php:346
 msgid "Note: the Builder Template does not display a featured image."
 msgstr ""
 
-#: inc/builder/core/base.php:428 inc/builder/core/configuration-helpers.php:113
+#: inc/builder/core/base.php:450 inc/builder/core/configuration-helpers.php:113
 msgid "Set image"
 msgstr ""
 
-#: inc/builder/core/base.php:459
+#: inc/builder/core/base.php:481
 msgid "Click to edit"
 msgstr ""
 
-#: inc/builder/core/base.php:465 inc/builder/core/base.php:495
+#: inc/builder/core/base.php:487 inc/builder/core/base.php:517
 #: inc/sections/banner/builder-template-slide.php:24
 #: inc/sections/banner/builder-template-slide.php:27
 #: inc/sections/columns/builder-template-column.php:18
@@ -154,16 +162,16 @@ msgstr ""
 msgid "Edit content"
 msgstr ""
 
-#: inc/builder/core/base.php:496
+#: inc/builder/core/base.php:518
 msgid "Update changes"
 msgstr ""
 
-#: inc/builder/core/base.php:509
+#: inc/builder/core/base.php:531
 #: inc/builder/core/templates/overlay-configuration.php:69
 msgid "Current image"
 msgstr ""
 
-#: inc/builder/core/base.php:511
+#: inc/builder/core/base.php:533
 #: inc/builder/core/templates/overlay-configuration.php:71
 msgid "Remove Current Image"
 msgstr ""
@@ -180,6 +188,14 @@ msgstr ""
 
 #: inc/builder/core/templates/section-header.php:103
 msgid "Click to toggle"
+msgstr ""
+
+#: inc/builder/setup.php:144
+msgid "Did you know: with Make Plus you can use the Make builder on posts, too."
+msgstr ""
+
+#: inc/builder/setup.php:147
+msgid "Upgrade to Make Plus Now"
 msgstr ""
 
 #: inc/choices/definitions/choices.php:21

@@ -39,34 +39,42 @@
 			self.cache.$builderToggle.on('click', self.templateToggle);
 
 			// Change default settings for new pages
-			if ( typeof ttfmakeEditPageData !== 'undefined' && 'post-new.php' === ttfmakeEditPageData.pageNow && 'page' === pagenow ) {
-				if ( ttfmakeEditPageData.defaultTemplate ) {
-					// Builder template is selected by default
-					self.cache.$pageTemplate.val('template-builder.php');
-				}
-
-				if ( ! ttfmakeEditPageData.defaultTemplate ) {
-					// Hide the Builder help notice if Builder is not the default template.
-					self.cache.$helpnotice.hide();
+			if ( 'post-new.php' === ttfmakeEditPageData.pageNow ) {
+				if ( 'page' === pagenow ) {
+					if ( ttfmakeEditPageData.defaultTemplate ) {
+						// Builder template is selected by default
+						self.cache.$pageTemplate.val('template-builder.php');
+					} else {
+						// Hide the Builder help notice if Builder is not the default template.
+						self.cache.$helpnotice.hide();
+					}
 				}
 
 				// Comments and pings turned off by default
 				self.cache.$commentstatus.prop('checked', '');
 				self.cache.$pingstatus.prop('checked', '');
+			} else if ( 'post.php' === ttfmakeEditPageData.pageNow ) {
+				if ( 'page' === pagenow && ttfmakeEditPageData.useBuilder ) {
+					// Switch to Builder template if the page was previously
+					// saved with Make Builder.
+					self.cache.$pageTemplate.val('template-builder.php');
+				}
 			}
 
 			// Make sure screen is correctly toggled on load
 			self.cache.$document.on('ready', function() {
 				self.cache.$pageTemplate.trigger('change');
 			});
+
+			self.templateToggle();
 		},
 
-		templateToggle: function(e) {
-			var self = ttfmakeEditPage,
-				$target = $(e.target),
-				val = $target.val();
+		templateToggle: function() {
+			var self = ttfmakeEditPage;
 
-			if ('template-builder.php' === val || $target.is(':checked')) {
+			if ( 'template-builder.php' === self.cache.$pageTemplate.val() ||
+						self.cache.$builderToggle.is( ':checked' ) ) {
+
 				self.cache.$mainEditor.hide();
 				self.cache.$builder.show();
 				self.cache.$duplicator.show();
