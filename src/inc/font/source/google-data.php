@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2017-10-07T11:50:09+00:00
+// Updated: 2017-11-01T07:21:28+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -2919,40 +2919,6 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'handwriting',
-	),
-	'Droid Sans' => array(
-		'label' => 'Droid Sans',
-		'variants' => array(
-			'700',
-			'regular',
-		),
-		'subsets' => array(
-			'latin',
-		),
-		'category' => 'sans-serif',
-	),
-	'Droid Sans Mono' => array(
-		'label' => 'Droid Sans Mono',
-		'variants' => array(
-			'regular',
-		),
-		'subsets' => array(
-			'latin',
-		),
-		'category' => 'monospace',
-	),
-	'Droid Serif' => array(
-		'label' => 'Droid Serif',
-		'variants' => array(
-			'700',
-			'700italic',
-			'italic',
-			'regular',
-		),
-		'subsets' => array(
-			'latin',
-		),
-		'category' => 'serif',
 	),
 	'Duru Sans' => array(
 		'label' => 'Duru Sans',
