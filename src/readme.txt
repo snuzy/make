@@ -26,7 +26,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
-= 1.9.7 - October 7 2017 =
+= 1.9.7 - November 1 2017 =
 * Bug fix: Content editor was ignoring background color settings in Customize screen.
 
 = 1.9.6 - October 7 2017 =
