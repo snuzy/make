@@ -206,20 +206,16 @@ class TTFMAKE_Builder_Save {
 
 		foreach( $sections as $id => $section ) {
 			// Save new section metas
-			update_post_meta(
-				$post_id,
-				'_ttfmake_section_' . $section[ 'id' ],
-				serialize( $section )
-			);
+			update_post_meta( $post_id, '_ttfmake_section_' . $section[ 'id' ], $section );
 
 			$layout[] = $section[ 'id' ];
 		}
 
 		// Purge removed sections
-		$current_layout_meta = get_post_meta( $post_id, '_ttfmake_layout', true );
+		$current_layout = get_post_meta( $post_id, '_ttfmake_layout', true );
 
-		if ( $current_layout_meta ) {
-			$current_layout = unserialize( $current_layout_meta );
+		if ( ! empty( $current_layout ) ) {
+			$current_layout = maybe_unserialize( $current_layout );
 			$removed_section_ids = array_diff( $current_layout, $layout );
 
 			foreach ( $removed_section_ids as $section_id ) {
@@ -228,7 +224,7 @@ class TTFMAKE_Builder_Save {
 		}
 
 		// Update layout
-		update_post_meta( $post_id, '_ttfmake_layout', serialize( $layout ) );
+		update_post_meta( $post_id, '_ttfmake_layout', $layout );
 	}
 
 	/**
