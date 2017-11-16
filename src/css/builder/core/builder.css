@@ -696,24 +696,6 @@
 	padding: 15px;
 }
 /*---------------------------------------------------------
- Color picker (builder.css)
--------------------------------------------------------- */
-.wp-color-result.wp-picker-open:after {
-	display: none;
-}
-.ttfmake-configuration-overlay-input-wrap .wp-picker-container .button {
-	margin-left: 0; /*reset*/
-	margin-right: 4px; /*reset*/
-	float: none;
-	width: 18%;
-}
-.ttfmake-configuration-overlay-input-wrap .wp-picker-container .iris-picker {
-	border: 0; /*reset*/
-}
-.wp-picker-container input[type=text].wp-color-picker {
-	width: 80%;
-}
-/*---------------------------------------------------------
  iFrame (builder.css)
 -------------------------------------------------------- */
 .ttfmake-iframe-wrapper {
@@ -966,13 +948,38 @@
 }
 
 /*---------------------------------------------------------
- Color Picker
+ Color picker (builder.css)
 -------------------------------------------------------- */
-
+.wp-color-result {
+	pointer-events: none;
+}
+.wp-color-result-text {
+	display: none !important;
+}
+.wp-picker-clear {
+	position: absolute;
+	left: 0;
+}
+.wp-color-result.wp-picker-open:after {
+	display: none !important;
+}
+.wp-picker-input-wrap > label {
+	position: absolute;
+	left: 65px;
+}
+.wp-picker-input-wrap input[type="text"] {
+	width: 256px !important;
+}
+.wp-picker-input-wrap > label input {
+	/* 4.9 only */
+	margin-top: -2px !important;
+}
 .wp-picker-container {
     position: relative !important;
 }
-
+.ttfmake-configuration-overlay-input-wrap .wp-picker-container .iris-picker {
+	border: 0;
+}
 .iris-picker.iris-border {
     width: 100% !important;
 }

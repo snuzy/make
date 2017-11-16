@@ -86,15 +86,15 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 	}
 
 	public function read_layout( $sections, $post_id ) {
-		$layout_meta = get_post_meta( $post_id, '_ttfmake_layout', true );
+		$layout = get_post_meta( $post_id, '_ttfmake_layout', true );
 
-		if ( $layout_meta ) {
-			$layout = unserialize( $layout_meta );
+		if ( ! empty( $layout ) ) {
+			$layout = maybe_unserialize( $layout );
 			$sections = array();
 
 			foreach ( $layout as $section_id ) {
-				$section_meta = get_post_meta( $post_id, "_ttfmake_section_{$section_id}", true );
-				$section = unserialize( $section_meta );
+				$section = get_post_meta( $post_id, "_ttfmake_section_{$section_id}", true );
+				$section = maybe_unserialize( $section );
 				$sections[] = $section;
 			}
 		}
