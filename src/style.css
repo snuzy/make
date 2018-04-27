@@ -1882,6 +1882,7 @@ h6 a,
 a
   h6 {
 	color: inherit;
+	font-weight: inherit;
 	text-decoration: none;
 }
 
