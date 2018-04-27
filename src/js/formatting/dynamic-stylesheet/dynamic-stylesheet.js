@@ -48,8 +48,8 @@ var MakeDynamicStylesheet = MakeDynamicStylesheet || {};
 							color = $(this).attr('data-hover-color');
 
 						if (buttonID) {
-							if (backgroundColor) self.addCSSRule(self.stylesheet, '#' + buttonID + ':hover', 'background-color: ' + backgroundColor + ' !important');
-							if (color) self.addCSSRule(self.stylesheet, '#' + buttonID + ':hover', 'color: ' + color + ' !important');
+							if (backgroundColor) self.addCSSRule(self.stylesheet, '#' + buttonID + ':hover', 'background-color: ' + backgroundColor);
+							if (color) self.addCSSRule(self.stylesheet, '#' + buttonID + ':hover', 'color: ' + color);
 						}
 					});
 				}
