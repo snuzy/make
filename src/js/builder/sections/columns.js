@@ -46,7 +46,7 @@
 			this.listenTo( this.itemViews, 'remove', this.onItemViewRemoved );
 			this.listenTo( this.itemViews, 'reset', this.onItemViewsSorted );
 
-			var items = this.model.items || _.times( 3, _.constant( sectionData.defaults['text-item'] ) );
+			var items = this.model.items || _.times( sectionData.defaults.text['columns-number'], _.constant( sectionData.defaults['text-item'] ) );
 			var itemCollection = this.model.get( 'columns' );
 
 			_.each( items, function( itemAttrs ) {
@@ -54,6 +54,8 @@
 				itemModel.parentModel = this.model;
 				itemCollection.add( itemModel );
 			}, this );
+
+			this.model.trigger('change:columns-number');
 
 			this.initSortables();
 			this.on( 'sort-start', this.onItemSortStart, this );
