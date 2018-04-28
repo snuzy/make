@@ -10,3 +10,4 @@
 				</div>
 			</div>
 			<div class="ttfmake-overlay-body">
+				<?php do_action( 'make_overlay_body_before', $ttfmake_overlay_id ); ?>

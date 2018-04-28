@@ -695,6 +695,17 @@
 	text-align: right;
 	padding: 15px;
 }
+.ttfmake-overlay-happyforms-ad {
+	margin-top: -15px;
+	margin-bottom: 5px;
+	padding: 15px 15px 15px 55px;
+	font-size: 0.9rem;
+	background-color: #e9f8ec;
+	background-image: url(images/happyforms.png);
+	background-size: auto 50%;
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+}
 /*---------------------------------------------------------
  iFrame (builder.css)
 -------------------------------------------------------- */
