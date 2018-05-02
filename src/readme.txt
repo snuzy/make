@@ -590,7 +590,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Upgrade Notice ==
 
-= 1.9.8 =
+= 1.9.9 =
 * Miscellaneous bug fixes and improvements.
 
 = 1.9.8 =
