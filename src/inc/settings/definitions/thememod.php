@@ -455,7 +455,7 @@ $this->add_settings(
 		'font-weight-body'                => array( 'default' => 'normal' ),
 		'font-weight-body-link'           => array( 'default' => 'bold' ),
 		'font-weight-button'              => array( 'default' => 'normal' ),
-		'font-weight-h1'                  => array( 'default' => 'bold' ),
+		'font-weight-h1'                  => array( 'default' => 'normal' ),
 		'font-weight-h2'                  => array( 'default' => 'bold' ),
 		'font-weight-h3'                  => array( 'default' => 'bold' ),
 		'font-weight-h4'                  => array( 'default' => 'normal' ),
