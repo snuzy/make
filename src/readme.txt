@@ -26,6 +26,14 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.9 - May 2 2018 =
+* Improvement: added a Custom CSS option to Button format for easier global customization.
+* Bug fix: Column sorting was messing up column resizing in Content sections.
+* Bug fix: Global discussion settings were being ignored in posts and pages.
+* Bug fix: Make color picker customizations were interfering with core and third party color pickers.
+* Bug fix: Headings font weight configuration didn't apply correctly.
+* Bug fix: Content section was ignoring filtered default amount of columns.
+
 = 1.9.8 - November 14 2017 =
 * Bug fix: Color picker controls misbehave on WordPress 4.9.
 * Improved: Removed double serialization of Make data which was causing issues with migration plugins.
@@ -581,6 +589,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.9 =
+* Miscellaneous bug fixes and improvements.
 
 = 1.9.8 =
 * Compatibility bug fixes and improvements.
