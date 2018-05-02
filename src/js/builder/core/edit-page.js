@@ -25,8 +25,6 @@
 			this.cache.$duplicator = $('.ttfmake-duplicator');
 			this.cache.$builderHide = $('#ttfmake-builder-hide');
 			this.cache.$featuredImage = $('#postimagediv');
-			this.cache.$commentstatus = $('#comment_status');
-			this.cache.$pingstatus = $('#ping_status');
 			this.cache.$helpnotice = $('#ttfmake-notice-make-page-builder-welcome');
 			this.cache.$body = $('body');
 		},
@@ -49,10 +47,6 @@
 						self.cache.$helpnotice.hide();
 					}
 				}
-
-				// Comments and pings turned off by default
-				self.cache.$commentstatus.prop('checked', '');
-				self.cache.$pingstatus.prop('checked', '');
 			} else if ( 'post.php' === ttfmakeEditPageData.pageNow ) {
 				if ( 'page' === pagenow && ttfmakeEditPageData.useBuilder ) {
 					// Switch to Builder template if the page was previously

@@ -57,6 +57,9 @@ class TTFMAKE_Builder_Base {
 		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 		add_action( 'admin_footer', array( $this, 'print_templates' ) );
 		add_filter( 'make_get_section_data', array( $this, 'massage_legacy_format' ), 20, 2 );
+
+		// HappyForms ad
+		require_once get_template_directory() . '/inc/happyforms.php';
 	}
 
 	/**
