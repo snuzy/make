@@ -141,10 +141,13 @@
 		onItemViewsSorted: function( itemViewCollection ) {
 			var $stage = $( '.ttfmake-text-columns-stage', this.$el );
 
-			itemViewCollection.forEach( function( itemViewModel ) {
+			itemViewCollection
+				.toArray()
+				.reverse()
+				.forEach( function( itemViewModel ) {
 				var $itemViewEl = itemViewModel.get( 'view' ).$el;
 				$itemViewEl.detach();
-				$stage.append( $itemViewEl );
+				$stage.prepend( $itemViewEl );
 			}, this );
 		},
 
