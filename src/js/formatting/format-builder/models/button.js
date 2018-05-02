@@ -69,7 +69,8 @@ var MakeFormatBuilder = MakeFormatBuilder || {};
 			paddingHorz: '10',
 			paddingVert: '4',
 			borderRadius: '100',
-			icon: ''
+			icon: '',
+			cssClass: '',
 		},
 
 		/**
@@ -168,7 +169,14 @@ var MakeFormatBuilder = MakeFormatBuilder || {};
 					classes: 'monospace',
 					value: this.escape('borderRadius')
 				},
-				builder.getIconButton( 'icon', 'Icon' )
+				builder.getIconButton( 'icon', 'Icon' ),
+				{
+					type: 'textbox',
+					name: 'cssClass',
+					label: 'CSS Class',
+					classes: 'monospace',
+					value: this.escape('cssClass')
+				}
 			];
 
 			return this.wrapOptionFields(items);
@@ -250,6 +258,14 @@ var MakeFormatBuilder = MakeFormatBuilder || {};
 					}
 				});
 			}
+
+			// Parse CSS Class
+			var classes = $node.attr( 'class' ).split( ' ' );
+			classes = classes.filter( function( cssClass ) {
+				return cssClass !== 'ttfmake-button';
+			} );
+			classes = classes.join( ' ' );
+			this.set( 'cssClass', classes );
 		},
 
 		/**
@@ -317,6 +333,9 @@ var MakeFormatBuilder = MakeFormatBuilder || {};
 				$node.prepend(' ');
 				$node.prepend($icon);
 			}
+
+			// Add CSS Class
+			$node.addClass(this.escape('cssClass'));
 
 			// Remove TinyMCE attributes that break things when trying to update an existing format.
 			$node.removeAttr('data-mce-href');
