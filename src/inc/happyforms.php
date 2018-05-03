@@ -5,6 +5,7 @@
 
 function make_overlay_happyforms_ad( $overlay_id ) {
 	if ( 'ttfmake-tinymce-overlay' === $overlay_id
+		&& ! Make()->plus()->is_plus()
 		&& ! is_plugin_active( 'happyforms/happyforms.php' ) ) {
 		get_template_part( '/inc/builder/core/templates/happyforms-ad' );
 	}
