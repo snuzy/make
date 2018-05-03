@@ -333,11 +333,13 @@
 
 	Utils = {
 		frameHeadLinks: _.memoize( function() {
-			var scripts = tinyMCEPreInit.mceInit.make_content_editor.content_css.split(',');
+			var scripts = tinyMCEPreInit.mceInit.make_content_editor.content_css.split( ',' );
 			var link = '';
 
 			_.each( scripts, function( url ) {
-				link += '<link type="text/css" rel="stylesheet" href="' + url + '" />';
+				if ( url.indexOf( 'make-css' ) < 0 ) {
+					link += '<link type="text/css" rel="stylesheet" href="' + url + '" />';
+				}
 			} );
 
 			return link;
