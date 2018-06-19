@@ -296,6 +296,8 @@ li.customize-control.customize-control-make_range .ui-slider-handle:hover {
 #make-socialicons-list i {
 	display: block;
 	float: left;
+	font-family: 'Font Awesome 5 Brands';
+	font-weight: normal;
 	margin-right: 6px;
 	font-size: 34px;
 	line-height: 1;

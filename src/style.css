@@ -1002,8 +1002,8 @@ div.custom-logo a {
 	color: #808080;
 }
 
-.social-links a:hover .fa.fa-facebook-official,
-.social-links a:focus .fa.fa-facebook-official {
+.social-links a:hover .fa.fa-facebook-square,
+.social-links a:focus .fa.fa-facebook-square {
 	color: #3b5999;
 }
 
