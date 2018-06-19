@@ -198,7 +198,7 @@ input[type="submit"] {
 .ttfmake-download:after {
     content: "\f0ab";
     padding-left: 6px;
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
 }
 /*---------------------------------------------------------
  Notices / Alerts (editor-style.css)
@@ -258,7 +258,7 @@ ol.ttfmake-list {
 ul.ttfmake-list li:before,
 ol.ttfmake-list li:before {
     padding-right: 10px;
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
 }
 /* Deprecated in 1.4.1 */
 ul.ttfmake-list-check li:before,
