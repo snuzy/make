@@ -206,24 +206,28 @@ ol {
 		padding-left: 0; //reset
 		list-style: none; //reset
 		li:before {
-			font-family: FontAwesome;
+			font-family: 'Font Awesome 5 Free';
 			@include rem('padding-right', $gut/3);
 		}
 }
 	&.ttfmake-list-check li:before {
 		content: "\f14a";
+		font-weight: 900;
 		color: #339d56;
 	}
 	&.ttfmake-list-check2 li:before {
 		content: "\f046";
+		font-weight: 400;
 		color: #339d56;
 	}
 	&.ttfmake-list-star li:before {
 		content: "\f005";
+		font-weight: 900;
 		color: #f89e01;
 	}
 	&.ttfmake-list-dot li:before {
 		content: "\f192";
+		font-weight: 400;
 		color: $c;
 	}
 }
@@ -371,7 +375,7 @@ Notices / Alerts (_elements.scss)
 		display: block;
 		position: absolute;
 		opacity: .1;
-		font-family: FontAwesome;
+		font-family: 'Font Awesome 5 Free';
 		line-height: 1; //reset
 		@include rem('bottom', -12px);
 		@include rem('right', -12px);
@@ -386,6 +390,7 @@ Notices / Alerts (_elements.scss)
 		background-color: #f7eeee;
 		&:before {
 			content: "\f06a";
+			font-weight: 900;
 		}
 	}
 	&.ttfmake-success {
@@ -394,6 +399,7 @@ Notices / Alerts (_elements.scss)
 		background: #eef7f1;
 		&:before {
 			content: "\f058";
+			font-weight: 900;
 		}
 	}
 	&.ttfmake-important {
@@ -402,6 +408,7 @@ Notices / Alerts (_elements.scss)
 		background-color: #fffde5;
 			&:before {
 				content: "\f06a";
+				font-weight: 900;
 			}
 	}
 }
