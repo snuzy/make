@@ -88,7 +88,7 @@ class MAKE_Sections_Columns_Definition {
 			),
 			500 => array(
 				'type'    => 'divider',
-				'label'   => __( 'Background', 'make-plus' ),
+				'label'   => __( 'Background', 'make' ),
 				'name'    => 'divider-background',
 				'class'   => 'ttfmake-configuration-divider',
 			),

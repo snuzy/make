@@ -352,7 +352,8 @@
 		cursor: pointer;
 		&:before {
 			position: relative;
-			font-family: FontAwesome;
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 900;
 			color: $d;
 			line-height: 1; //reset
 			@include rem('top', -34px);
