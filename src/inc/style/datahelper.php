@@ -79,7 +79,8 @@ class MAKE_Style_DataHelper extends MAKE_Util_Modules implements MAKE_Style_Data
 							break;
 						case 'font-weight' :
 							$declarations[ $property ] = $sanitized_value;
-							break;						case 'letter-spacing' :
+							break;
+						case 'letter-spacing' :
 						case 'word-spacing' :
 							$declarations[ $property ] = $sanitized_value . 'px';
 							break;
