@@ -109,7 +109,8 @@
 	position: relative;
 	content: "\f075";
 	float: left;
-	font-family: FontAwesome;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
 	color: $e;
 	@include rem('top', 1px);
 	@include rem('padding-right', 8px);
@@ -210,15 +211,15 @@
 		@include rem('font-size', 14px);
 		&:before,
 		&:after {
-			font-family: FontAwesome;
-			font-weight: normal; //reset
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 900;
 		}
 	}
 }
 [class*="navigation"] .nav-previous {
 	float: left;
 	a:before {
-		content: "\f177  ";
+		content: "\f30a  ";
 	}
 }
 [class*="navigation"] .nav-next,
@@ -226,7 +227,7 @@
 	float: right;
 	text-align: right;
 	a:after, span:after {
-		content: "  \f178";
+		content: "  \f30b";
 	}
 }
 .infinite-scroll {

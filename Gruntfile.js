@@ -214,7 +214,17 @@ module.exports = function( grunt ) {
 					{
 						expand: true,
 						cwd: 'assets',
-						src: 'icons*.yml',
+						src: 'fa-icons*.yml',
+						dest: 'assets/temp'
+					}
+				]
+			},
+			fontawesomecats: {
+				files: [
+					{
+						expand: true,
+						cwd: 'assets',
+						src: 'fa-categories*.yml',
 						dest: 'assets/temp'
 					}
 				]
@@ -223,39 +233,44 @@ module.exports = function( grunt ) {
 		json_massager: {
 			fontawesome: {
 				modifier: function( json ) {
-					var icons = json.icons,
+					var icons = json,
 						newObj = {};
 
-					_.forEach( icons, function( data ) {
-						_.forEach( data.categories, function( category ) {
-							if ( 'undefined' === typeof newObj[category] ) {
-								newObj[category] = [];
-							}
-							var icon = {
-								name: data.name,
-								id: 'fa-' + data.id,
-								unicode: data.unicode
-							};
-							newObj[category].push( icon );
-						} );
-					} );
-
-					_.forEach( newObj, function( category ) {
-						category.sort( function( a, b ) {
-							if (a.name.toLowerCase() > b.name.toLowerCase()) {
-								return 1;
-							}
-							if (a.name.toLowerCase() < b.name.toLowerCase()) {
-								return -1;
-							}
-							return 0;
-						} );
+					_.forEach( icons, function( data, key ) {
+						var icon = {
+							id: 'fa-' + key,
+							label: data.label,
+							style: data.styles,
+							unicode: data.unicode
+						};
+						newObj[key] = icon;
 					} );
 
 					return newObj;
 				},
 				files: {
-					'src/js/formatting/icon-picker/fontawesome.json': [ 'assets/temp/icons*.json' ]
+					'src/js/formatting/icon-picker/fontawesome.json': [ 'assets/temp/fa-icons*.json' ]
+				}
+			},
+			fontawesomecats: {
+				modifier: function (json) {
+					var cats = json,
+						newObj = {};
+
+					_.forEach(cats, function (data, key) {
+						if ('undefined' === typeof newObj[key]) {
+							newObj[key] = {};
+							newObj[key]['icons'] = [];
+							newObj[key]['label'] = data.label;
+						}
+
+						newObj[key]['icons'] = data.icons;
+					});
+
+					return newObj;
+				},
+				files: {
+					'src/js/formatting/icon-picker/fontawesomecats.json': ['assets/temp/fa-categories*.json']
 				}
 			},
 			googlefonts: {
@@ -384,7 +399,9 @@ module.exports = function( grunt ) {
 	// Process the icons YAML file
 	grunt.registerTask( 'fontawesome', [
 		'yaml:fontawesome',
+		'yaml:fontawesomecats',
 		'json_massager:fontawesome',
+		'json_massager:fontawesomecats',
 		'clean:assets'
 	] );
 

@@ -55,8 +55,14 @@ i.mce-i-ttfmake-icon-picker:before {
 #ttfmake-icon-picker .mce-container .mce-icon-choice,
 #ttfmake-icon-picker .mce-container .mce-icon-choice * {
 	cursor: pointer;
-	font-family: 'FontAwesome';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
 	font-size: 24px;
+}
+
+#ttfmake-icon-picker .mce-container .mce-icon-choice .fab {
+	font-family: 'Font Awesome 5 Brands';
+	font-weight: normal;
 }
 
 /* Buttons, copied from core */
