@@ -10,4 +10,15 @@
 				</div>
 			</div>
 			<div class="ttfmake-overlay-body">
-				<?php do_action( 'make_overlay_body_before', $ttfmake_overlay_id ); ?>
+				<?php
+				/**
+				 * Action: Fires before the overlay body gets rendered.
+				 *
+				 * This action gives a developer the opportunity to output additional
+				 * content before an overlay body.
+				 *
+				 * @since 1.9.9.
+				 *
+				 * @param string $ttfmake_overlay_id The html id of the overlay.
+				 */
+				do_action( 'make_overlay_body_before', $ttfmake_overlay_id ); ?>

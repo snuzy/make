@@ -26,6 +26,15 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.11 - Jun 20 2018 =
+* Improvement: Upgraded Font Awesome from v4 to the latest v5.
+* Bug fix: Format builder buttons hover background color and text color was not applying to button.
+* Bug fix: Font weight set in Customizer was not applying to H1.
+
+= 1.9.10 - May 3 2018 =
+* Improvement: disable Customize styles in section previews to avoid white-on-white scenarios.
+* Bug fix: Hide HappyForms notice if Make Plus is active.
+
 = 1.9.9 - May 2 2018 =
 * Improvement: added a Custom CSS option to Button format for easier global customization.
 * Bug fix: Column sorting was messing up column resizing in Content sections.
@@ -589,6 +598,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.10 =
+* Minor bug fixes and improvements.
 
 = 1.9.9 =
 * Miscellaneous bug fixes and improvements.

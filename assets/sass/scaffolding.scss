@@ -419,7 +419,7 @@ div.custom-logo {
 	a:hover .fa,
 	a:focus .fa {
 		color: #808080;
-		&.fa-facebook-official {
+		&.fa-facebook-square {
 			color: #3B5999;
 		}
 		&.fa-twitter {
@@ -572,8 +572,8 @@ div.custom-logo {
 					content: "  \f054";
 					position: relative;
 					float: right;
-					font-family: FontAwesome;
-					font-weight: normal; //reset
+					font-family: 'Font Awesome 5 Free';
+					font-weight: 900;
 					@include rem('top', 4px);
 					@include rem('font-size', 10px);
 					text-decoration: none;
@@ -619,8 +619,8 @@ div.custom-logo {
 		.menu-item-has-children a:after {
 			display: inline-block;
 			content: "  \f078";
-			font-family: FontAwesome;
-			font-weight: normal; //reset
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 900;
 			color: $e;
 			@include rem('padding-left', 2px);
 			@include rem('font-size', 10px);
@@ -698,8 +698,8 @@ div.custom-logo {
 				content: "  \f054";
 				position: relative;
 				float: right;
-				font-family: FontAwesome;
-				font-weight: normal; //reset
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900;
 				@include rem('top', 4px);
 				@include rem('font-size', 10px);
 			}
@@ -740,8 +740,8 @@ div.custom-logo {
 		.page_item_has_children a:after,
 		.menu-item-has-children a:after {
 			content: "  \f078";
-			font-family: FontAwesome;
-			font-weight: normal; //reset
+			font-family: 'Font Awesome 5 Free';
+			font-weight: 900;
 			color: $e;
 			@include rem('padding-left', 2px);
 			@include rem('font-size', 10px);
@@ -789,7 +789,8 @@ div.custom-logo {
 	@include border-radius;
 	&:before {
 		content: "\f0c9";
-		font-family: FontAwesome;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
 		@include rem('padding-right', 6px);
 	}
 }

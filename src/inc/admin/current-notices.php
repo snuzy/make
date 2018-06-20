@@ -77,7 +77,7 @@ $this->register_admin_notice(
 if ( Make()->plus()->is_plus() && strcmp( Make()->plus()->get_plus_version(), '1.8.0' ) < 0 ) {
 	$this->register_admin_notice(
 		'make-makeplus-18-compatibility',
-		__( 'The latest version of Make isn’t compatible with the version of Make Plus you’re using. Please update Make Plus.', 'make-plus' ),
+		__( 'The latest version of Make isn’t compatible with the version of Make Plus you’re using. Please update Make Plus.', 'make' ),
 		array(
 			'cap'     => 'install_plugins',
 			'dismiss' => false,

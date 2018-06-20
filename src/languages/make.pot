@@ -1,14 +1,14 @@
-# Copyright (C) 2017 The Theme Foundry
+# Copyright (C) 2018 The Theme Foundry
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Make 1.9.8\n"
+"Project-Id-Version: Make 1.9.11\n"
 "Report-Msgid-Bugs-To: https://thethemefoundry.com/support/\n"
-"POT-Creation-Date: 2017-11-16 07:26:25+00:00\n"
+"POT-Creation-Date: 2018-06-20 09:46:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: The Theme Foundry\n"
 "Language-Team: The Theme Foundry\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -120,39 +120,39 @@ msgid ""
 "you’re using. Please update Make Plus."
 msgstr ""
 
-#: inc/builder/core/base.php:82
+#: inc/builder/core/base.php:85
 msgid "Page Builder"
 msgstr ""
 
-#: inc/builder/core/base.php:85 inc/builder/setup.php:122
+#: inc/builder/core/base.php:88 inc/builder/setup.php:122
 msgid "Post Builder"
 msgstr ""
 
-#: inc/builder/core/base.php:100
+#: inc/builder/core/base.php:103
 msgid "Post builder"
 msgstr ""
 
-#: inc/builder/core/base.php:137 inc/builder/setup.php:141
+#: inc/builder/core/base.php:140 inc/builder/setup.php:141
 msgid "Enable post builder"
 msgstr ""
 
-#: inc/builder/core/base.php:324
+#: inc/builder/core/base.php:327
 msgid "Are you sure you want to trash this section permanently?"
 msgstr ""
 
-#: inc/builder/core/base.php:346
+#: inc/builder/core/base.php:349
 msgid "Note: the Builder Template does not display a featured image."
 msgstr ""
 
-#: inc/builder/core/base.php:450 inc/builder/core/configuration-helpers.php:113
+#: inc/builder/core/base.php:453 inc/builder/core/configuration-helpers.php:113
 msgid "Set image"
 msgstr ""
 
-#: inc/builder/core/base.php:481
+#: inc/builder/core/base.php:484
 msgid "Click to edit"
 msgstr ""
 
-#: inc/builder/core/base.php:487 inc/builder/core/base.php:517
+#: inc/builder/core/base.php:490 inc/builder/core/base.php:520
 #: inc/sections/banner/builder-template-slide.php:24
 #: inc/sections/banner/builder-template-slide.php:27
 #: inc/sections/columns/builder-template-column.php:18
@@ -162,16 +162,16 @@ msgstr ""
 msgid "Edit content"
 msgstr ""
 
-#: inc/builder/core/base.php:518
+#: inc/builder/core/base.php:521
 msgid "Update changes"
 msgstr ""
 
-#: inc/builder/core/base.php:531
+#: inc/builder/core/base.php:534
 #: inc/builder/core/templates/overlay-configuration.php:69
 msgid "Current image"
 msgstr ""
 
-#: inc/builder/core/base.php:533
+#: inc/builder/core/base.php:536
 #: inc/builder/core/templates/overlay-configuration.php:71
 msgid "Remove Current Image"
 msgstr ""
