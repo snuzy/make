@@ -259,6 +259,7 @@ ul.ttfmake-list li:before,
 ol.ttfmake-list li:before {
     padding-right: 10px;
     font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
 }
 /* Deprecated in 1.4.1 */
 ul.ttfmake-list-check li:before,

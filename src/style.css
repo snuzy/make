@@ -2151,6 +2151,7 @@ ol.ttfmake-list li:before {
 	padding-right: 10.6666666667px;
 	padding-right: 1.0666666667rem;
 	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
 }
 
 ul.ttfmake-list-check li:before,
