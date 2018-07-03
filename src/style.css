@@ -2380,6 +2380,7 @@ Notices / Alerts (_elements.scss)
 	font-family: "Font Awesome 5 Free";
 	font-size: 72px;
 	font-size: 7.2rem;
+	font-weight: 900;
 	line-height: 1;
 	content: "\f05a";
 }

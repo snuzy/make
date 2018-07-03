@@ -377,6 +377,7 @@ Notices / Alerts (_elements.scss)
 		position: absolute;
 		opacity: .1;
 		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
 		line-height: 1; //reset
 		@include rem('bottom', -12px);
 		@include rem('right', -12px);
