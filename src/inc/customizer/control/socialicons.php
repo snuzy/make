@@ -169,7 +169,6 @@ class MAKE_Customizer_Control_SocialIcons extends WP_Customize_Control {
 					</div>
 				</div>
 				<ul>
-					<# console.log(data) #>
 				<# for (pattern in data) { #>
 					<# var classes = data[pattern].class.join(' '); #>
 					<li>
