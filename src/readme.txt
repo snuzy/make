@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.12 - July 3 2018 =
+* Bug fix: Icons in List format builder were not displaying.
+
 = 1.9.11 - Jun 20 2018 =
 * Improvement: Upgraded Font Awesome from v4 to the latest v5.
 * Bug fix: Format builder buttons hover background color and text color was not applying to button.
@@ -598,6 +601,12 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.12 =
+* Fixed icons in List format builder items.
+
+= 1.9.11 =
+* Font Awesome upgraded to the latest version, minor bug fixes.
 
 = 1.9.10 =
 * Minor bug fixes and improvements.
