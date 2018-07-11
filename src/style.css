@@ -1214,10 +1214,10 @@ div.custom-logo a {
 	.site-navigation .menu .children,
 	.site-navigation .nav-menu .sub-menu,
 	.site-navigation .nav-menu .children {
-		display: none;
 		overflow: hidden;
 		position: absolute;
-		z-index: 99999;
+		z-index: -1;
+		height: 0;
 		background-color: #eaecee;
 	}
 
@@ -1380,8 +1380,8 @@ div.custom-logo a {
 	.site-navigation .menu ul li:hover > ul,
 	.site-navigation ul.menu .focus > ul,
 	.site-navigation .menu .focus > ul {
-		display: block;
 		overflow: inherit;
+		z-index: 99999;
 		width: inherit;
 		height: inherit;
 	}
@@ -1419,10 +1419,9 @@ div.custom-logo a {
 .site-navigation .desktop-menu .menu .children,
 .site-navigation .desktop-menu .nav-menu .sub-menu,
 .site-navigation .desktop-menu .nav-menu .children {
-	display: none;
 	overflow: hidden;
 	position: absolute;
-	z-index: 99999;
+	z-index: -1;
 	background-color: #eaecee;
 }
 
@@ -1577,8 +1576,8 @@ div.custom-logo a {
 .site-navigation .desktop-menu .menu ul li:hover > ul,
 .site-navigation .desktop-menu ul.menu .focus > ul,
 .site-navigation .desktop-menu .menu .focus > ul {
-	display: block;
 	overflow: inherit;
+	z-index: 99999;
 	width: inherit;
 	height: inherit;
 }
