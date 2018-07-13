@@ -543,6 +543,22 @@ if ( $is_style_preview || ! $this->thememod()->is_default( 'color-subnav-backgro
 	) );
 }
 
+// Mobile Menu Trigger Background
+if ( $is_style_preview || ! $this->thememod()->is_default( 'color-nav-mobile-menu-trigger-background' ) ) {
+	// Convert to RGBa
+	$color = $this->helper()->hex_to_rgb( $this->thememod()->get_value( 'color-nav-mobile-menu-trigger-background' ) );
+
+	$this->css()->add( array(
+		'selectors'    => array(
+			'.site-navigation .menu-toggle',
+		),
+		'declarations' => array(
+			'background-color' => 'rgba(' . $color . ')'
+		),
+		'media'        => 'screen and (max-width: 800px)'
+	) );
+}
+
 // Current Item Background
 if ( $is_style_preview || ! $this->thememod()->is_default( 'color-nav-current-item-background' ) || ! $this->thememod()->is_default( 'color-nav-current-item-background-opacity' ) ) {
 	// Convert to RGBa
