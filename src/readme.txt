@@ -26,6 +26,10 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.13 - July 17 2018 =
+* New feature: Mobile Menu Trigger background color setting in Customizer's Menu Items color section.
+* Improvement: Search form meets accessibility standars better now.
+
 = 1.9.12 - July 3 2018 =
 * Bug fix: Icons in List format builder were not displaying.
 
@@ -601,6 +605,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.13 =
+* New color setting for mobile menu trigger background, accessibility improvements.
 
 = 1.9.12 =
 * Fixed icons in List format builder items.
