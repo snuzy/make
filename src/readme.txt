@@ -30,6 +30,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * New feature: Mobile Menu Trigger background color setting in Customizer's Menu Items color section.
 * Improvement: Search form meets accessibility standards better now.
 * Improvement: Bumped version of Font Awesome CSS.
+* Bugfix: Old version of TinyMCE noneditable plugin was causing issues with editor extensions.
 
 = 1.9.12 - July 3 2018 =
 * Bug fix: Icons in List format builder were not displaying.
