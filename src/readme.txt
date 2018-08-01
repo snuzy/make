@@ -28,7 +28,8 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 = 1.9.13 - July 17 2018 =
 * New feature: Mobile Menu Trigger background color setting in Customizer's Menu Items color section.
-* Improvement: Search form meets accessibility standars better now.
+* Improvement: Search form meets accessibility standards better now.
+* Improvement: Bumped version of Font Awesome CSS.
 
 = 1.9.12 - July 3 2018 =
 * Bug fix: Icons in List format builder were not displaying.
