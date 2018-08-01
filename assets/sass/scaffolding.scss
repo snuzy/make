@@ -548,8 +548,8 @@ div.custom-logo {
 			.sub-menu,
 			.children {
 				position: absolute;
-				display: none;
-				z-index: 99999;
+				z-index: -1;
+				height: 0;
 				overflow: hidden;
 				background-color: $d;
 				li {
@@ -646,7 +646,7 @@ div.custom-logo {
 		.menu ul li:hover > ul,
 		ul.menu .focus > ul,
 		.menu .focus > ul {
-			display: block;
+			z-index: 99999;
 			overflow: inherit;
 			height: inherit;
 			width: inherit;
@@ -675,8 +675,7 @@ div.custom-logo {
 		.sub-menu,
 		.children {
 			position: absolute;
-			display: none;
-			z-index: 99999;
+			z-index: -1;
 			overflow: hidden;
 			background-color: $d;
 			li {
@@ -770,7 +769,7 @@ div.custom-logo {
 		.menu ul li:hover > ul,
 		ul.menu .focus > ul,
 		.menu .focus > ul {
-			display: block;
+			z-index: 99999;
 			overflow: inherit;
 			height: inherit;
 			width: inherit;
