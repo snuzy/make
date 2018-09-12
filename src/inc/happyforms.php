@@ -21,7 +21,7 @@ function make_overlay_happyforms_dequeue_scripts() {
 
 function make_before_editor_happyforms_ad() {
 	if ( ! is_plugin_active( 'happyforms/happyforms.php' ) 
-		&& ( ! Make()->plus()->is_plus() && ! intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
+		&& ( ! Make()->plus()->is_plus() || ! intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
 	) {
 	?>
 		<div class="ttfmake-happyforms-ad--header">
