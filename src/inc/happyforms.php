@@ -29,7 +29,7 @@ function make_before_editor_happyforms_ad() {
 	}
 }
 
-function make_dismiss_happyforms_ad() {
+function make_ajax_dismiss_happyforms_ad() {
 	update_option( 'make_happyforms_ad_dismissed', 1 );
 
 	wp_die();
@@ -38,4 +38,4 @@ function make_dismiss_happyforms_ad() {
 add_action( 'make_overlay_body_before', 'make_overlay_happyforms_ad' );
 add_action( 'install_plugins_pre_plugin-information', 'make_overlay_happyforms_dequeue_scripts' );
 add_action( 'edit_form_after_title', 'make_before_editor_happyforms_ad' );
-add_action( 'wp_ajax_dismiss_happyforms_ad', 'make_dismiss_happyforms_ad' );
+add_action( 'wp_ajax_dismiss_happyforms_ad', 'make_ajax_dismiss_happyforms_ad' );
