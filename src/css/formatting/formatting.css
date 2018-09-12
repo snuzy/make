@@ -211,3 +211,22 @@ i.mce-i-ttfmake-icon-picker:before {
 #ttfmake-format-builder-body label.mce-label {
 	font-size: 13px;
 }
+
+.ttfmake-happyforms-ad {
+	position: relative;
+	margin-top: -15px;
+	margin-bottom: 5px;
+	padding: 15px 15px 15px 55px;
+	font-size: 0.9rem;
+	background-color: #e9f8ec;
+	background-image: url(../builder/core/images/happyforms.png);
+	background-size: auto 50%;
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+}
+.ttfmake-happyforms-ad .notice-dismiss {
+	top: 5px;
+}
+.ttfmake-happyforms-ad--header .ttfmake-happyforms-ad {
+	margin-top: 15px;
+}
