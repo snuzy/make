@@ -5,7 +5,7 @@
 function make_overlay_happyforms_ad( $overlay_id ) {
 	if ( 'ttfmake-tinymce-overlay' === $overlay_id
 		&& ! is_plugin_active( 'happyforms/happyforms.php' ) 
-		&& ( ! Make()->plus()->is_plus() || Make()->plus()->is_plus() && 0 === intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
+		&& ( ! Make()->plus()->is_plus() || ! intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
 		) {
 		get_template_part( '/inc/builder/core/templates/happyforms-ad' );
 	}
@@ -21,8 +21,8 @@ function make_overlay_happyforms_dequeue_scripts() {
 
 function make_before_editor_happyforms_ad() {
 	if ( ! is_plugin_active( 'happyforms/happyforms.php' ) 
-		&& ( ! Make()->plus()->is_plus() || ( Make()->plus()->is_plus() && 0 === intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) ) 
-		) {
+		&& ( ! Make()->plus()->is_plus() && ! intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
+	) {
 	?>
 		<div class="ttfmake-happyforms-ad--header">
 			<?php get_template_part( '/inc/builder/core/templates/happyforms-ad' ); ?>
