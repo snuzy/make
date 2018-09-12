@@ -227,3 +227,6 @@ i.mce-i-ttfmake-icon-picker:before {
 .ttfmake-happyforms-ad .notice-dismiss {
 	top: 5px;
 }
+.ttfmake-happyforms-ad--header .ttfmake-happyforms-ad {
+	margin-top: 15px;
+}
