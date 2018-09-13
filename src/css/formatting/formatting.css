@@ -216,13 +216,18 @@ i.mce-i-ttfmake-icon-picker:before {
 	position: relative;
 	margin-top: -15px;
 	margin-bottom: 5px;
-	padding: 15px 15px 15px 75px;
+	padding: 15px 15px 15px 65px;
 	font-size: 0.9rem;
 	background-color: #776cff;
 	background-image: url(../builder/core/images/happyforms.png);
 	background-size: auto 50%;
 	background-repeat: no-repeat;
 	background-position: 10px 50%;
+}
+@media screen and (max-width: 1190px) {
+	.ttfmake-happyforms-ad {
+		padding-left: 85px;
+	}
 }
 @media screen and (max-width: 600px) {
 	.ttfmake-happyforms-ad {
