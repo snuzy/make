@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2018-08-01T14:36:40+00:00
+// Updated: 2018-09-13T13:24:15+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -5495,6 +5495,30 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Kosugi' => array(
+		'label' => 'Kosugi',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'japanese',
+			'latin',
+		),
+		'category' => 'sans-serif',
+	),
+	'Kosugi Maru' => array(
+		'label' => 'Kosugi Maru',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'japanese',
+			'latin',
+		),
+		'category' => 'sans-serif',
+	),
 	'Kotta One' => array(
 		'label' => 'Kotta One',
 		'variants' => array(
@@ -6065,6 +6089,54 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'serif',
+	),
+	'M PLUS 1p' => array(
+		'label' => 'M PLUS 1p',
+		'variants' => array(
+			'100',
+			'300',
+			'500',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
+			'greek-ext',
+			'hebrew',
+			'japanese',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'M PLUS Rounded 1c' => array(
+		'label' => 'M PLUS Rounded 1c',
+		'variants' => array(
+			'100',
+			'300',
+			'500',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
+			'greek-ext',
+			'hebrew',
+			'japanese',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
 	),
 	'Macondo' => array(
 		'label' => 'Macondo',
@@ -7294,6 +7366,38 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Noto Sans JP' => array(
+		'label' => 'Noto Sans JP',
+		'variants' => array(
+			'100',
+			'300',
+			'500',
+			'700',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'japanese',
+			'latin',
+		),
+		'category' => 'sans-serif',
+	),
+	'Noto Sans KR' => array(
+		'label' => 'Noto Sans KR',
+		'variants' => array(
+			'100',
+			'300',
+			'500',
+			'700',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'korean',
+			'latin',
+		),
+		'category' => 'sans-serif',
+	),
 	'Noto Serif' => array(
 		'label' => 'Noto Serif',
 		'variants' => array(
@@ -7312,6 +7416,40 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'serif',
+	),
+	'Noto Serif JP' => array(
+		'label' => 'Noto Serif JP',
+		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'japanese',
+			'latin',
+		),
+		'category' => 'sans-serif',
+	),
+	'Noto Serif KR' => array(
+		'label' => 'Noto Serif KR',
+		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'korean',
+			'latin',
+		),
+		'category' => 'sans-serif',
 	),
 	'Nova Cut' => array(
 		'label' => 'Nova Cut',
@@ -9483,6 +9621,32 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'handwriting',
+	),
+	'Sawarabi Gothic' => array(
+		'label' => 'Sawarabi Gothic',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'japanese',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Sawarabi Mincho' => array(
+		'label' => 'Sawarabi Mincho',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'japanese',
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
 	),
 	'Scada' => array(
 		'label' => 'Scada',
