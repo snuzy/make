@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.14 - September 13 2018 =
+* Bugfix: Fixed untranslatable strings in code by removing extra line breaks.
+
 = 1.9.13 - July 17 2018 =
 * New feature: Mobile Menu Trigger background color setting in Customizer's Menu Items color section.
 * Improvement: Search form meets accessibility standards better now.
@@ -607,6 +610,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.14 =
+* Removed line breaks from couple of strings in code to make translation possible.
 
 = 1.9.13 =
 * New color setting for mobile menu trigger background, accessibility improvements.

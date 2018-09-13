@@ -555,9 +555,6 @@
 #ttfmake-tinymce-overlay .ttfmake-overlay-dialog {
 	width: 800px !important;
 }
-#ttfmake-tinymce-overlay .ttfmake-overlay-body {
-	/* overflow-y: hidden; */
-}
 .ttfmake-overlay-wrapper * {
 	-webkit-font-smoothing: subpixel-antialiased !important;
 }
@@ -670,7 +667,7 @@
 	padding: 20px !important;
 	clear: both;
 	overflow-y: auto;
-	max-height: 400px;
+	max-height: 450px;
 	border-bottom: 1px solid #ddd;
 }
 .ttfmake-overlay-body .ttfmake-configuration-overlay-input-wrap:last-of-type {
@@ -694,17 +691,6 @@
 	background-color: #fcfcfc;
 	text-align: right;
 	padding: 15px;
-}
-.ttfmake-overlay-happyforms-ad {
-	margin-top: -15px;
-	margin-bottom: 5px;
-	padding: 15px 15px 15px 55px;
-	font-size: 0.9rem;
-	background-color: #e9f8ec;
-	background-image: url(images/happyforms.png);
-	background-size: auto 50%;
-	background-repeat: no-repeat;
-	background-position: 10px 50%;
 }
 /*---------------------------------------------------------
  iFrame (builder.css)
