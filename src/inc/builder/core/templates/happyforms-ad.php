@@ -5,7 +5,7 @@
 		'TB_iframe' => true,
 	), network_admin_url( 'plugin-install.php' ) );
 
-	_e( sprintf( '<b>Need a contact form?</b> <a href="%s" class="thickbox open-plugin-details-modal">Install HappyForms for free</a>, it\'s specially designed to work with Make theme.', $url ), 'make' ); ?>
+	_e( sprintf( '<p>Adding a contact form? <a href="%s" target="_blank">Check out HappyForms</a>. It’s free and easy to use. <a href="%s" class="%s">Install Now</a></p>', 'https://wordpress.org/plugins/happyforms/', $url, 'button thickbox open-plugin-details-modal' ), 'make' ); ?>
 
 	<?php if ( Make()->plus()->is_plus() ) { ?>
 		<button class="notice-dismiss"><span class="screen-reader-text"><?php _e( 'Dismiss', 'make' ); ?></span></button>
