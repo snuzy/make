@@ -211,3 +211,48 @@ i.mce-i-ttfmake-icon-picker:before {
 #ttfmake-format-builder-body label.mce-label {
 	font-size: 13px;
 }
+
+.ttfmake-happyforms-ad {
+	position: relative;
+	margin-top: -15px;
+	margin-bottom: 5px;
+	padding: 15px 15px 15px 65px;
+	font-size: 0.9rem;
+	background-color: #776cff;
+	background-image: url(../builder/core/images/happyforms.png);
+	background-size: auto 50%;
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+}
+@media screen and (max-width: 1190px) {
+	.ttfmake-happyforms-ad {
+		padding-left: 85px;
+	}
+}
+@media screen and (max-width: 600px) {
+	.ttfmake-happyforms-ad {
+		padding-left: 15px;
+		background-image: none;
+	}
+}
+.ttfmake-happyforms-ad--header .ttfmake-happyforms-ad {
+	margin-top: 15px;
+}
+.ttfmake-happyforms-ad p {
+	margin: 0;
+	font-size: 0.9rem;
+	color: #fff;
+}
+.ttfmake-happyforms-ad p a {
+	color: #fff;
+	text-decoration: underline;
+}
+.ttfmake-happyforms-ad .notice-dismiss {
+	top: 10px;
+}
+.ttfmake-happyforms-ad .notice-dismiss:before {
+	color: #fff;
+}
+.ttfmake-happyforms-ad .notice-dismiss:hover:before {
+	color: #c00;
+}

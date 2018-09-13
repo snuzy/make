@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Make 1.9.13\n"
+"Project-Id-Version: Make 1.9.14\n"
 "Report-Msgid-Bugs-To: https://thethemefoundry.com/support/\n"
-"POT-Creation-Date: 2018-08-01 14:35:45+00:00\n"
+"POT-Creation-Date: 2018-09-13 13:23:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -174,6 +174,10 @@ msgstr ""
 #: inc/builder/core/base.php:536
 #: inc/builder/core/templates/overlay-configuration.php:71
 msgid "Remove Current Image"
+msgstr ""
+
+#: inc/builder/core/templates/happyforms-ad.php:11
+msgid "Dismiss"
 msgstr ""
 
 #: inc/builder/core/templates/section-header.php:15
@@ -614,105 +618,102 @@ msgstr ""
 
 #: inc/compatibility/settingsmigration.php:156
 msgid ""
-"\n"
-"\t\t\tThis site is currently using a child theme. Any changes made in the "
-"Customizer to the Make parent theme\n"
-"\t\t\tbefore the child theme was activated do not carry over. You can use "
-"this tool to import these settings\n"
-"\t\t\tinto the child theme so you don't have to start over again!\n"
-"\t\t"
+"This site is currently using a child theme. Any changes made in the "
+"Customizer to the Make parent theme before the child theme was activated do "
+"not carry over. You can use this tool to import these settings into the "
+"child theme so you don't have to start over again!"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:162
+#: inc/compatibility/settingsmigration.php:158
 msgid "Import settings from the parent theme"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:164
+#: inc/compatibility/settingsmigration.php:160
 msgid ""
 "Use this tool to migrate your existing settings from the parent theme to "
 "your child theme."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:165
-#: inc/compatibility/settingsmigration.php:192
+#: inc/compatibility/settingsmigration.php:161
+#: inc/compatibility/settingsmigration.php:188
 msgid ""
 "Note that in doing this, your database will be modified. Any existing "
 "settings that have already been configured for the current theme will be "
 "overwritten."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:172
-#: inc/compatibility/settingsmigration.php:199
+#: inc/compatibility/settingsmigration.php:168
+#: inc/compatibility/settingsmigration.php:195
 msgid "I have backed up my database. (<a href=\"%s\" target=\"_blank\">How?</a>)"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:182
+#: inc/compatibility/settingsmigration.php:178
 msgid "Import"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:186
+#: inc/compatibility/settingsmigration.php:182
 msgid "There are no parent theme settings to import."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:190
+#: inc/compatibility/settingsmigration.php:186
 msgid "Restore previous theme settings"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:191
+#: inc/compatibility/settingsmigration.php:187
 msgid ""
 "Use this tool to restore settings that were previously overwritten when "
 "importing parent theme settings."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:209
+#: inc/compatibility/settingsmigration.php:205
 msgid "Restore"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:235
+#: inc/compatibility/settingsmigration.php:231
 msgid "Please verify that you have backed up your database."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:236
-#: inc/compatibility/settingsmigration.php:250
-#: inc/compatibility/settingsmigration.php:264
-#: inc/compatibility/settingsmigration.php:409
+#: inc/compatibility/settingsmigration.php:232
+#: inc/compatibility/settingsmigration.php:246
+#: inc/compatibility/settingsmigration.php:260
+#: inc/compatibility/settingsmigration.php:405
 msgid "No settings migration has taken place."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:249
+#: inc/compatibility/settingsmigration.php:245
 msgid "Invalid action."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:263
+#: inc/compatibility/settingsmigration.php:259
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:306
+#: inc/compatibility/settingsmigration.php:302
 msgid "No parent theme settings were found to import."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:322
-#: inc/compatibility/settingsmigration.php:388
+#: inc/compatibility/settingsmigration.php:318
+#: inc/compatibility/settingsmigration.php:384
 msgid "Existing child theme settings were backed up."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:333
+#: inc/compatibility/settingsmigration.php:329
 msgid "The parent theme settings were imported!"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:343
+#: inc/compatibility/settingsmigration.php:339
 msgid "The import process failed."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:369
+#: inc/compatibility/settingsmigration.php:365
 msgid "No child theme settings backup was found to restore."
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:396
+#: inc/compatibility/settingsmigration.php:392
 msgid "The child theme settings backup was restored!"
 msgstr ""
 
-#: inc/compatibility/settingsmigration.php:408
+#: inc/compatibility/settingsmigration.php:404
 msgid "The restore process failed."
 msgstr ""
 
@@ -1491,61 +1492,47 @@ msgstr ""
 
 #: inc/error/display.php:499
 msgid ""
-"\n"
-"\t\t\t\t\t\t\tMake notices occur when Make's functionality is used "
-"incorrectly. Often these notices are\n"
-"\t\t\t\t\t\t\ttriggered by code errors in a child theme or plugin that "
-"extends the theme. The notice\n"
-"\t\t\t\t\t\t\tmessages help you to identify the cause of the errors so they "
-"can be fixed.\n"
-"\t\t\t\t\t\t"
+"Make notices occur when Make's functionality is used incorrectly. Often "
+"these notices are triggered by code errors in a child theme or plugin that "
+"extends the theme. The notice messages help you to identify the cause of "
+"the errors so they can be fixed."
+msgstr ""
+
+#: inc/error/display.php:501
+msgid "Is it important to fix these notices?"
+msgstr ""
+
+#: inc/error/display.php:503
+msgid ""
+"Absolutely! These notices may indicate that some part of your site is not "
+"working correctly. We don't want that."
 msgstr ""
 
 #: inc/error/display.php:505
-msgid "Is it important to fix these notices?"
+msgid "How do I fix a Make notice?"
 msgstr ""
 
 #: inc/error/display.php:507
 msgid ""
-"\n"
-"\t\t\t\t\t\t\tAbsolutely! These notices may indicate that some part of your "
-"site is not working correctly.\n"
-"\t\t\t\t\t\t\tWe don't want that.\n"
-"\t\t\t\t\t\t"
+"Check to see if your child theme or plugin has an update available, as a "
+"new version may include changes that fix the errors. If it is caused by "
+"custom code, you will need to modify the code to fix the errors. Check out "
+"our article about <a href=\"%s\" target=\"_blank\">dealing with Make "
+"Notices</a> to learn more."
 msgstr ""
 
-#: inc/error/display.php:512
-msgid "How do I fix a Make notice?"
-msgstr ""
-
-#: inc/error/display.php:514
-msgid ""
-"\n"
-"\t\t\t\t\t\t\tCheck to see if your child theme or plugin has an update "
-"available, as a new version may\n"
-"\t\t\t\t\t\t\tinclude changes that fix the errors. If it is caused by "
-"custom code, you will need to modify\n"
-"\t\t\t\t\t\t\tthe code to fix the errors. Check out our article about <a "
-"href=\"%s\" target=\"_blank\">dealing\n"
-"\t\t\t\t\t\t\twith Make Notices</a> to learn more.\n"
-"\t\t\t\t\t\t"
-msgstr ""
-
-#: inc/error/display.php:521
+#: inc/error/display.php:509
 msgid "How can I hide this notification?"
 msgstr ""
 
-#: inc/error/display.php:523
+#: inc/error/display.php:511
 msgid ""
-"\n"
-"\t\t\t\t\t\t\tThis notification is only visible to users who are logged in "
-"and have the capability to\n"
-"\t\t\t\t\t\t\tinstall themes. To hide it completely, add this code to your "
-"functions.php file: %s\n"
-"\t\t\t\t\t\t"
+"This notification is only visible to users who are logged in and have the "
+"capability to install themes. To hide it completely, add this code to your "
+"functions.php file: %s"
 msgstr ""
 
-#: inc/error/display.php:532
+#: inc/error/display.php:515
 msgid "Error code: %s"
 msgstr ""
 
