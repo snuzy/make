@@ -20,14 +20,19 @@ function make_overlay_happyforms_dequeue_scripts() {
 }
 
 function make_before_editor_happyforms_ad() {
-	if ( ! is_plugin_active( 'happyforms/happyforms.php' ) 
-		&& ( ! Make()->plus()->is_plus() || ! intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
-	) {
-	?>
-		<div class="ttfmake-happyforms-ad--header">
-			<?php get_template_part( '/inc/builder/core/templates/happyforms-ad' ); ?>
-		</div>
-	<?php
+	$current_screen = get_current_screen();
+	$ad_post_types = array( 'post', 'page' );
+
+	if ( in_array( $current_screen->post_type, $ad_post_types ) && 'edit' === $current_screen->parent_base ) {
+		if ( ! is_plugin_active( 'happyforms/happyforms.php' ) 
+			&& ( ! Make()->plus()->is_plus() || ! intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
+		) {
+		?>
+			<div class="ttfmake-happyforms-ad--header">
+				<?php get_template_part( '/inc/builder/core/templates/happyforms-ad' ); ?>
+			</div>
+		<?php
+		}
 	}
 }
 
