@@ -27,6 +27,8 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 	}
 
 	public function has_block_editor() {
+		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 		global $wp_version;
 
 		$is_50 = version_compare( $wp_version, '5.0-alpha', '>=' );
