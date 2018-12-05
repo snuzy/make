@@ -60,6 +60,9 @@ class TTFMAKE_Builder_Base {
 
 		// HappyForms ad
 		require_once get_template_directory() . '/inc/happyforms.php';
+
+		// 5.0 integration
+		require_once get_template_directory() . '/inc/gutenberg.php';
 	}
 
 	/**
