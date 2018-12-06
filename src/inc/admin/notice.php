@@ -523,6 +523,7 @@ final class MAKE_Admin_Notice implements MAKE_Admin_NoticeInterface, MAKE_Util_H
 	private function sanitize_message( $message ) {
 		$allowedtags = wp_kses_allowed_html();
 		$allowedtags['a']['target'] = true;
+		$allowedtags['br'] = true;
 		return wp_kses( $message, $allowedtags );
 	}
 }
