@@ -620,7 +620,7 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Upgrade Notice ==
 
-= 1.9.16 =
+= 1.9.17 =
 * Bugfix.
 
 = 1.9.16 =
