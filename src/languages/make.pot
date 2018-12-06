@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Make 1.9.16\n"
+"Project-Id-Version: Make 1.9.17\n"
 "Report-Msgid-Bugs-To: https://thethemefoundry.com/support/\n"
-"POT-Creation-Date: 2018-12-06 09:00:27+00:00\n"
+"POT-Creation-Date: 2018-12-06 11:45:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,6 +118,15 @@ msgstr ""
 msgid ""
 "The latest version of Make isn’t compatible with the version of Make Plus "
 "you’re using. Please update Make Plus."
+msgstr ""
+
+#: inc/admin/current-notices.php:95
+msgid ""
+"<strong>Heads up!</strong> Make’s page builder only works with the classic "
+"editor. For this reason, the WordPress 5.0 Gutenberg editor has been "
+"disabled site-wide.<br />Shortly we’ll be adding a toggle button so you can "
+"switch over to Gutenberg for specific posts and pages — stay tuned for the "
+"update!"
 msgstr ""
 
 #: inc/builder/core/base.php:88
@@ -1847,15 +1856,6 @@ msgstr ""
 
 #: inc/galleryslider/setup.php:128 inc/sections/banner/definition.php:271
 msgid "Fade"
-msgstr ""
-
-#: inc/gutenberg.php:13
-msgid ""
-"<strong>Heads up!</strong> Make’s page builder only works with the classic "
-"editor. For this reason, the WordPress 5.0 Gutenberg editor has been "
-"disabled site-wide.<br />Shortly we’ll be adding a toggle button so you can "
-"switch over to Gutenberg for specific posts and pages — stay tuned for the "
-"update!"
 msgstr ""
 
 #: inc/integration/wpretina2x.php:116
