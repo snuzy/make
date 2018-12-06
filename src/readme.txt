@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.17 - December 6 2018 =
+* Bugfix: WordPress 5.0 notice wasn't dismissible.
+
 = 1.9.16 - December 6 2018 =
 * Improvement: Added WordPress 5.0 editor compatibility notice.
 
@@ -616,6 +619,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.17 =
+* Bugfix.
 
 = 1.9.16 =
 * WordPress 5.0 editor compatibility notice.
