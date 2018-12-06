@@ -86,3 +86,18 @@ if ( Make()->plus()->is_plus() && strcmp( Make()->plus()->get_plus_version(), '1
 		)
 	);
 }
+
+global $wp_version;
+
+if ( version_compare( $wp_version, '5.0-alpha', '>=' ) ) {
+	$this->register_admin_notice(
+		'gutenberg-compatibility',
+		__( '<strong>Heads up!</strong> Make’s page builder only works with the classic editor. For this reason, the WordPress 5.0 Gutenberg editor has been disabled site-wide.<br />Shortly we’ll be adding a toggle button so you can switch over to Gutenberg for specific posts and pages — stay tuned for the update!', 'make' ),
+		array(
+			'cap'     => 'edit_pages',
+			'dismiss' => true,
+			'screen'  => array( 'post', 'page' ),
+			'type'    => 'info',
+		)
+	);
+}
