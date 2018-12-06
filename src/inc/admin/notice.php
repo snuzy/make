@@ -257,7 +257,7 @@ final class MAKE_Admin_Notice implements MAKE_Admin_NoticeInterface, MAKE_Util_H
 		if ( is_null( $screen ) ) {
 			$screen = get_current_screen();
 		}
-		
+
 		// Get the array of notices that the current user has already dismissed
 		$dismissed = $this->get_dismissed_notices( get_current_user_id() );
 
@@ -340,6 +340,10 @@ final class MAKE_Admin_Notice implements MAKE_Admin_NoticeInterface, MAKE_Util_H
 		// Validate current screen variable
 		if ( ! $current_screen instanceof WP_Screen ) {
 			return false;
+		}
+
+		if ( 'any' === $enabled_screens ) {
+			return true;
 		}
 
 		// Ensure correct casting
@@ -519,6 +523,7 @@ final class MAKE_Admin_Notice implements MAKE_Admin_NoticeInterface, MAKE_Util_H
 	private function sanitize_message( $message ) {
 		$allowedtags = wp_kses_allowed_html();
 		$allowedtags['a']['target'] = true;
+		$allowedtags['br'] = true;
 		return wp_kses( $message, $allowedtags );
 	}
 }

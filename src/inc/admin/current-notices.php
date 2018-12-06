@@ -96,7 +96,7 @@ if ( version_compare( $wp_version, '5.0-alpha', '>=' ) ) {
 		array(
 			'cap'     => 'edit_pages',
 			'dismiss' => true,
-			'screen'  => array( 'post', 'page' ),
+			'screen'  => 'any',
 			'type'    => 'info',
 		)
 	);
