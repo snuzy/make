@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.16 - December 6 2018 =
+* Improvement: Added WordPress 5.0 editor compatibility notice.
+
 = 1.9.15 - September 15 2018 =
 * Bugfix: Limit the appearance of HappyForms banner to Posts and Pages only.
 
@@ -613,6 +616,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.16 =
+* WordPress 5.0 editor compatibility notice.
 
 = 1.9.15 =
 * Limit appearance of HappyForms banner to Posts and Pages edit screen.
