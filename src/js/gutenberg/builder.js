@@ -3,16 +3,12 @@
 	var switchEditor = function( e ) {
 		e.preventDefault();
 
-		$.ajax( {
-			url: ajaxurl,
-			data: {
-				action: settings.action,
-				_wpnonce: settings.nonce,
-				post_id: settings.postId,
-			},
-			complete: function() {
-				window.location.reload();
-			},
+		$.post( ajaxurl, {
+			action: settings.action,
+			_wpnonce: settings.nonce,
+			post_id: settings.postId,
+		}, function( response ) {
+			window.location.reload();
 		} );
 	}
 

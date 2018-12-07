@@ -22,6 +22,8 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 			return;
 		}
 
+		add_action( 'wp_ajax_' . $this->action , array( $this, 'ajax_switch_editors' ) );
+
 		if ( ! $this->is_editor() ) {
 			return;
 		}
@@ -35,7 +37,6 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_scripts' ) );
 		add_filter( 'use_block_editor_for_post', array( $this, 'use_block_editor_for_post' ), 10, 2 );
-		add_action( 'wp_ajax_' . $this->action , array( $this, 'ajax_switch_editors' ) );
 
 		self::$hooked = true;
 	}
@@ -121,7 +122,7 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 			update_post_meta( $post_id, $this->editor_meta, 1 );
 		}
 
-		wp_send_json_error( array(
+		wp_send_json_success( array(
 			'success' => true
 		) );
 	}
