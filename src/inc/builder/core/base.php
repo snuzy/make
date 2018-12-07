@@ -84,7 +84,7 @@ class TTFMAKE_Builder_Base {
 		global $current_screen;
 		
 		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
-			return false;
+			return;
 		}
 
 		foreach ( ttfmake_get_post_types_supporting_builder() as $name ) {
