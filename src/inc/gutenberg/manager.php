@@ -50,6 +50,7 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 
 		$is_editor = (
 			is_admin()
+			&& $this->has_block_editor()
 			&& in_array( $pagenow, array( 'post-new.php', 'post.php' ) )
 		);
 
