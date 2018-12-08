@@ -102,10 +102,10 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 				$post_type, $guide_link, $new_post_link, $post_type
 			),
 			array(
-				'cap'     => 'edit_pages',
+				'cap' => 'edit_pages',
 				'dismiss' => false,
-				'screen'  => array( 'post', 'page', 'edit-post', 'edit-page' ),
-				'type'    => 'info',
+				'screen' => array( 'post', 'page', 'edit-post', 'edit-page' ),
+				'type' => 'info',
 			)
 		);
 	}
