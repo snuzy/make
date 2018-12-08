@@ -93,7 +93,11 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 
 		$notice->register_admin_notice(
 			'make-block-editor',
-			sprintf( __( 'Make is not compatible with Gutenberg. We switch your screen to classic one. If you prefer to use Gutenberg for this post, <a href="%s">click here</a>.' ), $link ),
+			sprintf( 
+				__( '<div>Make’s builder requires the classic editor to work, but you can replace the builder with the Gutenberg editor for this particular page.<br>Read through our guide about <a href="%s">getting ready for WordPress 5.0</a> to find out why.</div><div><a href="%s" class="button">Use Gutenberg On This Page</a></div>' ),
+				'https://thethemefoundry.com/tutorials/getting-ready-for-wordpress-5-0-theme-bundle/',
+				$link 
+			),
 			array(
 				'cap'     => 'edit_pages',
 				'dismiss' => false,

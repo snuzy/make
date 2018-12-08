@@ -1016,3 +1016,22 @@
 .ttfmake-configuration-overlay-input-wrap .iris-picker.iris-border .iris-palette-container .iris-palette:first-child {
     margin-left: 0 !important;
 }
+#make-notice-make-block-editor {
+	display: flex;
+	align-items: center;
+	padding: 10px 12px;
+}
+#make-notice-make-block-editor div:last-child {
+	flex: 1;
+	text-align: right;
+}
+@media screen and (max-width: 800px) {
+	#make-notice-make-block-editor {
+		flex-flow: column wrap;
+		align-items: flex-start;
+	}
+	#make-notice-make-block-editor div:last-child {
+		margin-top: 10px;
+		text-align: left;
+	}
+}
