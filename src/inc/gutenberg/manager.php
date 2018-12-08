@@ -86,17 +86,20 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 			return;
 		}
 
-		$link = add_query_arg( array(
+		$post_type = get_post_type();
+
+		$new_post_link = add_query_arg( array(
 			$this->editor_parameter => '',
-			'post_type' => get_post_type(),
+			'post_type' => $post_type,
 		), admin_url( 'post-new.php' ) );
+
+		$guide_link = 'https://thethemefoundry.com/tutorials/getting-ready-for-wordpress-5-0-theme-bundle/';
 
 		$notice->register_admin_notice(
 			'make-block-editor',
-			sprintf( 
-				__( '<div>Make’s builder requires the classic editor to work, but you can replace the builder with the Gutenberg editor for this particular page.<br>Read through our guide about <a href="%s">getting ready for WordPress 5.0</a> to find out why.</div><div><a href="%s" class="button">Use Gutenberg On This Page</a></div>' ),
-				'https://thethemefoundry.com/tutorials/getting-ready-for-wordpress-5-0-theme-bundle/',
-				$link 
+			sprintf(
+				__( '<div>Make’s builder requires the classic editor to work, but you can replace the builder with the Gutenberg editor for this particular %1s.<br>Read through our guide about <a href="%2s" target="_blank">getting ready for WordPress 5.0</a> to find out why.</div><div><a href="%3s" class="button">Use Gutenberg on this %1s</a></div>' ),
+				$post_type, $guide_link, $new_post_link, $post_type
 			),
 			array(
 				'cap'     => 'edit_pages',

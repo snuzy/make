@@ -1025,6 +1025,9 @@
 	flex: 1;
 	text-align: right;
 }
+#make-notice-make-block-editor a.button {
+	text-transform: capitalize;
+}
 @media screen and (max-width: 800px) {
 	#make-notice-make-block-editor {
 		flex-flow: column wrap;
