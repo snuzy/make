@@ -13,23 +13,17 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 
 	private $editor_parameter = 'block-editor';
 
+	private $editor_meta = '_ttfmake_block_editor';
+
 	public function hook() {
 		if ( $this->is_hooked() ) {
 			return;
 		}
 
-		if ( ! $this->is_editor() ) {
-			return;
-		}
-
-		if ( ! $this->is_block_editor() ) {
-			add_action( 'make_notice_loaded', array( $this, 'admin_notice' ) );
-		} else {
-			add_filter( 'theme_page_templates', array( $this, 'remove_page_template' ) );
-		}
-
+		add_action( 'make_notice_loaded', array( $this, 'admin_notice' ) );
 		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
 		add_filter( 'use_block_editor_for_post', array( $this, 'use_block_editor_for_post' ), 10, 2 );
+		add_filter( 'theme_page_templates', array( $this, 'remove_page_template' ) );
 
 		self::$hooked = true;
 	}
@@ -38,21 +32,9 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 		return self::$hooked;
 	}
 
-	public function is_editor() {
-		global $pagenow;
-
-		$is_editor = (
-			is_admin()
-			&& $this->has_block_editor()
-			&& in_array( $pagenow, array( 'post-new.php', 'post.php' ) )
-		);
-
-		return $is_editor;
-	}
-
 	public function save_post( $post_id, $post ) {
 		if ( isset( $_GET[$this->editor_parameter] ) ) {
-			update_post_meta( $post_id, '_ttfmake_use_gutenberg', true );
+			update_post_meta( $post_id, $this->$editor_meta, true );
 		}
 	}
 
@@ -68,7 +50,16 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 		return $has_block_editor;
 	}
 
-	private function is_block_editor( $post_id = 0 ) {
+	public function is_block_editor() {
+		$current_screen = get_current_screen();
+		$is_block_editor =
+			method_exists( $current_screen, 'is_block_editor' )
+			&& $current_screen->is_block_editor();
+
+		return $is_block_editor;
+	}
+
+	private function use_block_editor( $post_id = 0 ) {
 		global $pagenow;
 
 		$use = false;
@@ -76,20 +67,20 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 		if ( 'post-new.php' === $pagenow ) {
 			$use = isset( $_GET[$this->editor_parameter] );
 		} else {
-			$use = get_post_meta( $post_id, '_ttfmake_use_gutenberg', true );
+			$use = get_post_meta( $post_id, $this->$editor_meta, true );
 		}
 
 		return $use;
 	}
 
 	public function use_block_editor_for_post( $use, $post ) {
-		return $this->is_block_editor( $post->ID );
+		return $this->use_block_editor( $post->ID );
 	}
 
 	public function admin_notice( MAKE_Admin_NoticeInterface $notice ) {
 		global $pagenow;
 
-		if ( 'post-new.php' !== $pagenow ) {
+		if ( $this->use_block_editor() || 'post-new.php' !== $pagenow ) {
 			return;
 		}
 
@@ -118,12 +109,8 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 	}
 
 	public function remove_page_template( $post_templates ) {
-		global $current_screen;
-
-		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
-			if ( isset( $post_templates['template-builder.php'] ) ) {
-				unset( $post_templates['template-builder.php'] );
-			}
+		if ( $this->is_block_editor() && isset( $post_templates['template-builder.php'] ) ) {
+			unset( $post_templates['template-builder.php'] );
 		}
 
 		return $post_templates;
