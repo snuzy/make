@@ -34,7 +34,7 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 
 	public function save_post( $post_id, $post ) {
 		if ( isset( $_GET[$this->editor_parameter] ) ) {
-			update_post_meta( $post_id, $this->$editor_meta, true );
+			update_post_meta( $post_id, $this->editor_meta, true );
 		}
 	}
 
@@ -67,7 +67,7 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 		if ( 'post-new.php' === $pagenow ) {
 			$use = isset( $_GET[$this->editor_parameter] );
 		} else {
-			$use = get_post_meta( $post_id, $this->$editor_meta, true );
+			$use = get_post_meta( $post_id, $this->editor_meta, true );
 		}
 
 		return $use;
