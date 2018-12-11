@@ -28,6 +28,7 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 			add_filter( 'theme_page_templates', array( $this, 'remove_page_template' ) );
 		}
 
+		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
 		add_filter( 'use_block_editor_for_post', array( $this, 'use_block_editor_for_post' ), 10, 2 );
 
 		self::$hooked = true;
@@ -47,6 +48,12 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 		);
 
 		return $is_editor;
+	}
+
+	public function save_post( $post_id, $post ) {
+		if ( isset( $_GET[$this->editor_parameter] ) ) {
+			update_post_meta( $post_id, '_make_use_gutenberg', true );
+		}
 	}
 
 	public function has_block_editor() {
@@ -69,7 +76,7 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 		if ( 'post-new.php' === $pagenow ) {
 			$use = isset( $_GET[$this->editor_parameter] );
 		} else {
-			$use = ! ttfmake_is_builder_page( $post_id );
+			$use = get_post_meta( $post_id, '_make_use_gutenberg', true );
 		}
 
 		return $use;
@@ -111,8 +118,12 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 	}
 
 	public function remove_page_template( $post_templates ) {
-		if ( isset( $post_templates['template-builder.php'] ) ) {
-			unset( $post_templates['template-builder.php'] );
+		global $current_screen;
+
+		if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
+			if ( isset( $post_templates['template-builder.php'] ) ) {
+				unset( $post_templates['template-builder.php'] );
+			}
 		}
 
 		return $post_templates;
