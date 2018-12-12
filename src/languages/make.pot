@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Make 1.9.18\n"
+"Project-Id-Version: Make 1.9.19\n"
 "Report-Msgid-Bugs-To: https://thethemefoundry.com/support/\n"
-"POT-Creation-Date: 2018-12-06 12:47:06+00:00\n"
+"POT-Creation-Date: 2018-12-12 07:57:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -120,48 +120,39 @@ msgid ""
 "you’re using. Please update Make Plus."
 msgstr ""
 
-#: inc/admin/current-notices.php:95
-msgid ""
-"<strong>Heads up!</strong> Make’s page builder only works with the classic "
-"editor. For this reason, the WordPress 5.0 Gutenberg editor has been "
-"disabled site-wide.<br />Shortly we’ll be adding a toggle button so you can "
-"switch over to Gutenberg for specific posts and pages — stay tuned for the "
-"update!"
-msgstr ""
-
-#: inc/builder/core/base.php:88
+#: inc/builder/core/base.php:91
 msgid "Page Builder"
 msgstr ""
 
-#: inc/builder/core/base.php:91 inc/builder/setup.php:122
+#: inc/builder/core/base.php:94 inc/builder/setup.php:122
 msgid "Post Builder"
 msgstr ""
 
-#: inc/builder/core/base.php:106
+#: inc/builder/core/base.php:109
 msgid "Post builder"
 msgstr ""
 
-#: inc/builder/core/base.php:143 inc/builder/setup.php:141
+#: inc/builder/core/base.php:146 inc/builder/setup.php:141
 msgid "Enable post builder"
 msgstr ""
 
-#: inc/builder/core/base.php:330
+#: inc/builder/core/base.php:333
 msgid "Are you sure you want to trash this section permanently?"
 msgstr ""
 
-#: inc/builder/core/base.php:352
+#: inc/builder/core/base.php:355
 msgid "Note: the Builder Template does not display a featured image."
 msgstr ""
 
-#: inc/builder/core/base.php:456 inc/builder/core/configuration-helpers.php:113
+#: inc/builder/core/base.php:459 inc/builder/core/configuration-helpers.php:113
 msgid "Set image"
 msgstr ""
 
-#: inc/builder/core/base.php:487
+#: inc/builder/core/base.php:490
 msgid "Click to edit"
 msgstr ""
 
-#: inc/builder/core/base.php:493 inc/builder/core/base.php:523
+#: inc/builder/core/base.php:496 inc/builder/core/base.php:526
 #: inc/sections/banner/builder-template-slide.php:24
 #: inc/sections/banner/builder-template-slide.php:27
 #: inc/sections/columns/builder-template-column.php:18
@@ -171,16 +162,16 @@ msgstr ""
 msgid "Edit content"
 msgstr ""
 
-#: inc/builder/core/base.php:524
+#: inc/builder/core/base.php:527
 msgid "Update changes"
 msgstr ""
 
-#: inc/builder/core/base.php:537
+#: inc/builder/core/base.php:540
 #: inc/builder/core/templates/overlay-configuration.php:69
 msgid "Current image"
 msgstr ""
 
-#: inc/builder/core/base.php:539
+#: inc/builder/core/base.php:542
 #: inc/builder/core/templates/overlay-configuration.php:71
 msgid "Remove Current Image"
 msgstr ""
@@ -1856,6 +1847,16 @@ msgstr ""
 
 #: inc/galleryslider/setup.php:128 inc/sections/banner/definition.php:271
 msgid "Fade"
+msgstr ""
+
+#: inc/gutenberg/manager.php:99
+msgid ""
+"<div>Make’s builder requires the classic editor to work, but you can "
+"replace the builder with the Gutenberg editor for this particular "
+"%1s.<br>Read through our guide about <a href=\"%2s\" "
+"target=\"_blank\">getting ready for WordPress 5.0</a> to find out "
+"why.</div><div><a href=\"%3s\" class=\"button\">Use Gutenberg on this "
+"%1s</a></div>"
 msgstr ""
 
 #: inc/integration/wpretina2x.php:116

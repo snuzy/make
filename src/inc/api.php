@@ -44,7 +44,8 @@ final class MAKE_API extends MAKE_Util_Modules implements MAKE_APIInterface {
 		'integration'         => 'MAKE_Integration_ManagerInterface',
 		'setup'               => 'MAKE_Setup_MiscInterface',
 		'head'                => 'MAKE_Setup_HeadInterface',
-		'sections'			  => 'MAKE_Sections_SetupInterface'
+		'sections'			  => 'MAKE_Sections_SetupInterface',
+		'gutenberg'			  => 'MAKE_Gutenberg_ManagerInterface',
 	);
 
 	/**
@@ -78,7 +79,8 @@ final class MAKE_API extends MAKE_Util_Modules implements MAKE_APIInterface {
 		'integration'         => 'MAKE_Integration_Manager',
 		'setup'               => 'MAKE_Setup_Misc',
 		'head'                => 'MAKE_Setup_Head',
-		'sections'			  => 'MAKE_Sections_Setup'
+		'sections'			  => 'MAKE_Sections_Setup',
+		'gutenberg'			  => 'MAKE_Gutenberg_Manager',
 	);
 
 	/**
