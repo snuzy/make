@@ -26,7 +26,10 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
-= 1.9.17 - December 6 2018 =
+= 1.9.19 - December 12 2018 =
+* Improvement: It's now possible to switch between Make and the block editor on a per post/page basis.
+
+= 1.9.18 - December 6 2018 =
 * Bugfix: WordPress 5.0 notice wasn't appearing everywhere.
 
 = 1.9.17 - December 6 2018 =
@@ -622,6 +625,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.19 =
+* Improvement: It's now possible to switch between Make and the block editor on a per post/page basis.
 
 = 1.9.18 =
 * Bugfix.
