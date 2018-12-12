@@ -160,13 +160,15 @@ var MakeDynamicStylesheet = MakeDynamicStylesheet || {};
 				$style.attr('id', 'ttfmake-dynamic-styles');
 
 				// WebKit hack :(
-				$style.html('&shy;');
+				$style.html('&shy;');;
 
 				// Add the <style> element to the page
 				if (self.root.find('head').length > 0) {
 					self.root.find('head').append($style);
-				} else {
+				} else if (self.root.parent().find('head').length > 0) {
 					self.root.parent().find('head').append($style);
+				} else {
+					self.root.append($style);
 				}
 
 				return $style.get(0).sheet;

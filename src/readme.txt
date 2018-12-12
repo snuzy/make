@@ -4,7 +4,7 @@ Contributors: thethemefoundry
 Tags: black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, grid-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, footer-widgets, blog, e-commerce, portfolio, accessibility-ready, custom-logo, featured-image-header, rtl-language-support
 
 Requires at least: 4.7
-Tested up to: 4.9.8
+Tested up to: 5.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,11 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
-= 1.9.17 - December 6 2018 =
+= 1.9.19 - December 12 2018 =
+* Improvement: It's now possible to switch between Make and the block editor on a per post/page basis.
+* Bugfix: Editor height in content edit overlay only allowed showing one line of text on WordPress 5.0.
+
+= 1.9.18 - December 6 2018 =
 * Bugfix: WordPress 5.0 notice wasn't appearing everywhere.
 
 = 1.9.17 - December 6 2018 =
@@ -622,6 +626,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.19 =
+* Improvement: It's now possible to switch between Make and the block editor on a per post/page basis.
 
 = 1.9.18 =
 * Bugfix.

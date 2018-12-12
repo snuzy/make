@@ -670,6 +670,10 @@
 	max-height: 450px;
 	border-bottom: 1px solid #ddd;
 }
+#make_content_editor_ifr {
+	min-height: 250px;
+	height: 100% !important;
+}
 .ttfmake-overlay-body .ttfmake-configuration-overlay-input-wrap:last-of-type {
 	border-bottom: 0;
 }
@@ -1015,4 +1019,26 @@
 }
 .ttfmake-configuration-overlay-input-wrap .iris-picker.iris-border .iris-palette-container .iris-palette:first-child {
     margin-left: 0 !important;
+}
+#make-notice-make-block-editor {
+	display: flex;
+	align-items: center;
+	padding: 10px 12px;
+}
+#make-notice-make-block-editor div:last-child {
+	flex: 1;
+	text-align: right;
+}
+#make-notice-make-block-editor a.button {
+	text-transform: capitalize;
+}
+@media screen and (max-width: 800px) {
+	#make-notice-make-block-editor {
+		flex-flow: column wrap;
+		align-items: flex-start;
+	}
+	#make-notice-make-block-editor div:last-child {
+		margin-top: 10px;
+		text-align: left;
+	}
 }
