@@ -670,6 +670,10 @@
 	max-height: 450px;
 	border-bottom: 1px solid #ddd;
 }
+#make_content_editor_ifr {
+	min-height: 250px;
+	height: 100% !important;
+}
 .ttfmake-overlay-body .ttfmake-configuration-overlay-input-wrap:last-of-type {
 	border-bottom: 0;
 }
