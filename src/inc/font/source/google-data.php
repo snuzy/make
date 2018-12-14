@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2018-12-12T07:57:47+00:00
+// Updated: 2018-12-14T08:22:03+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -280,6 +280,22 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'sans-serif',
+	),
+	'Aleo' => array(
+		'label' => 'Aleo',
+		'variants' => array(
+			'300',
+			'300italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
 	),
 	'Alex Brush' => array(
 		'label' => 'Alex Brush',
@@ -1089,6 +1105,32 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'B612' => array(
+		'label' => 'B612',
+		'variants' => array(
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'sans-serif',
+	),
+	'B612 Mono' => array(
+		'label' => 'B612 Mono',
+		'variants' => array(
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'monospace',
+	),
 	'Bad Script' => array(
 		'label' => 'Bad Script',
 		'variants' => array(
@@ -1312,6 +1354,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -1340,6 +1383,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -1368,6 +1412,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -2208,6 +2253,20 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'display',
+	),
+	'Charm' => array(
+		'label' => 'Charm',
+		'variants' => array(
+			'700',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'thai',
+			'vietnamese',
+		),
+		'category' => 'handwriting',
 	),
 	'Charmonman' => array(
 		'label' => 'Charmonman',
@@ -6399,6 +6458,18 @@ $this->load_font_data( array(
 		),
 		'category' => 'serif',
 	),
+	'Major Mono Display' => array(
+		'label' => 'Major Mono Display',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'monospace',
+	),
 	'Mako' => array(
 		'label' => 'Mako',
 		'variants' => array(
@@ -9889,6 +9960,34 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Sarabun' => array(
+		'label' => 'Sarabun',
+		'variants' => array(
+			'100',
+			'100italic',
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'800',
+			'800italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'thai',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
 	'Sarala' => array(
 		'label' => 'Sarala',
 		'variants' => array(
@@ -10643,6 +10742,17 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Staatliches' => array(
+		'label' => 'Staatliches',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'display',
+	),
 	'Stalemate' => array(
 		'label' => 'Stalemate',
 		'variants' => array(
@@ -11003,6 +11113,22 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
+	'Thasadith' => array(
+		'label' => 'Thasadith',
+		'variants' => array(
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'thai',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -11714,6 +11840,39 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+		),
+		'category' => 'serif',
+	),
+	'ZCOOL KuaiLe' => array(
+		'label' => 'ZCOOL KuaiLe',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'chinese-simplified',
+			'latin',
+		),
+		'category' => 'display',
+	),
+	'ZCOOL QingKe HuangYou' => array(
+		'label' => 'ZCOOL QingKe HuangYou',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'chinese-simplified',
+			'latin',
+		),
+		'category' => 'display',
+	),
+	'ZCOOL XiaoWei' => array(
+		'label' => 'ZCOOL XiaoWei',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'chinese-simplified',
+			'latin',
 		),
 		'category' => 'serif',
 	),
