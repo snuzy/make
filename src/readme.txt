@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.20 - December 14 2018 =
+* Improvement: Wrap block editor's related logic in admin context to prevent issue with third party plugins.
+
 = 1.9.19 - December 12 2018 =
 * Improvement: It's now possible to switch between Make and the block editor on a per post/page basis.
 * Bugfix: Editor height in content edit overlay only allowed showing one line of text on WordPress 5.0.
@@ -626,6 +629,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.20 =
+* Wrap block editor's related logic in admin context to prevent issue with third party plugins.
 
 = 1.9.19 =
 * Improvement: It's now possible to switch between Make and the block editor on a per post/page basis.
