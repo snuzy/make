@@ -20,10 +20,12 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 			return;
 		}
 
-		add_action( 'make_notice_loaded', array( $this, 'admin_notice' ) );
-		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
-		add_filter( 'use_block_editor_for_post', array( $this, 'use_block_editor_for_post' ), 10, 2 );
-		add_filter( 'theme_page_templates', array( $this, 'remove_page_template' ) );
+		if ( is_admin() ) {
+			add_action( 'make_notice_loaded', array( $this, 'admin_notice' ) );
+			add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
+			add_filter( 'use_block_editor_for_post', array( $this, 'use_block_editor_for_post' ), 10, 2 );
+			add_filter( 'theme_page_templates', array( $this, 'remove_page_template' ) );
+		}
 
 		self::$hooked = true;
 	}
