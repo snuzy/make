@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.21 - December 18 2018 =
+* Bugfix: Toggle between Make builder and Gutenberg editing experience was showing when Gutenberg was not available.
+
 = 1.9.20 - December 14 2018 =
 * Improvement: Wrap block editor's related logic in admin context to prevent issue with third party plugins.
 
@@ -629,6 +632,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.21 =
+* Fixed appearance for toggle between Make builder and Gutenberg editing experience.
 
 = 1.9.20 =
 * Wrap block editor's related logic in admin context to prevent issue with third party plugins.
