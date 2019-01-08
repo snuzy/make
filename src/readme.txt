@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.22 - January 8 2019 =
+* Bugfix: Gutenberg compatibility code was returning fatal error when used in combination with some plugins.
+
 = 1.9.21 - December 18 2018 =
 * Bugfix: Toggle between Make builder and Gutenberg editing experience was showing when Gutenberg was not available.
 
@@ -632,6 +635,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.22 =
+* Fixed fatal error triggered by Gutenberg compatibility code in Make when used in combination with some plugins.
 
 = 1.9.21 =
 * Fixed appearance for toggle between Make builder and Gutenberg editing experience.
