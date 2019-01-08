@@ -77,7 +77,7 @@ $this->add_section_definitions( 'social', array(
 			),
 			'control' => array(
 				'control_type' => 'MAKE_Customizer_Control_SocialIcons',
-				'description' => __( 'Add a link to each of your social profiles and we&#8217;ll add the icon to match — it&#8217;s that simple. Drag and drop to rearrange.', 'make' )
+				'description' => __( 'Add a link to each of your social profiles and we\'ll add the icon to match — it\'s that simple. Drag and drop to rearrange.', 'make' )
 			),
 			'partial' => array(
 				'selector'            => '.header-social-links, .footer-social-links',

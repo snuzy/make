@@ -195,7 +195,7 @@ class MAKE_Sections_Setup extends MAKE_Util_Modules implements MAKE_Sections_Set
 		$settings[ $index + 50 ] = array(
 			'type'	  => 'divider',
 			'name'	  => 'divider-code',
-			'label'	  => __( 'Code', 'make-plus' ),
+			'label'	  => __( 'Code', 'make' ),
 			'class'	  => 'ttfmake-configuration-divider'
 		);
 		$settings[ $index + 100 ] = array(
