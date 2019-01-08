@@ -102,7 +102,7 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 		$notice->register_admin_notice(
 			'make-block-editor',
 			sprintf(
-				__( '<div>Make’s builder requires the classic editor to work, but you can replace the builder with the Gutenberg editor for this particular %1s.<br>Read through our guide about <a href="%2s" target="_blank">getting ready for WordPress 5.0</a> to find out why.</div><div><a href="%3s" class="button">Use Gutenberg on this %1s</a></div>' ),
+				__( '<div>Make\'s builder requires the classic editor to work, but you can replace the builder with the Gutenberg editor for this particular %1s.<br>Read through our guide about <a href="%2s" target="_blank">getting ready for WordPress 5.0</a> to find out why.</div><div><a href="%3s" class="button">Use Gutenberg on this %1s</a></div>', 'make' ),
 				$post_type, $guide_link, $new_post_link, $post_type
 			),
 			array(

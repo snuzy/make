@@ -141,7 +141,7 @@ class MAKE_Builder_Setup extends MAKE_Util_Modules implements MAKE_Builder_Setup
 			&nbsp;<label for="use-builder"><?php esc_html_e( 'Enable post builder', 'make' ); ?></label>
 		</p>
 		<p style="color: #666;">
-			<em><?php _e( 'Did you know: with Make Plus you can use the Make builder on posts, too.', 'make'  ) ?></em>
+			<em><?php _e( 'Did you know: with Make Plus you can use the Make builder on posts, too.', 'make' ) ?></em>
 		<p>
 		<p>
 			<a href="<?php echo esc_url( 'https://thethemefoundry.com/wordpress-themes/make/?utm_source=app&utm_campaign=post-builder#get-started' ); ?>" target="_blank" class="button button-primary button-large"><?php _e( 'Upgrade to Make Plus Now', 'make' ); ?></a>
