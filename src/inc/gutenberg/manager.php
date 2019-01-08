@@ -53,10 +53,14 @@ final class MAKE_Gutenberg_Manager implements MAKE_Gutenberg_ManagerInterface, M
 	}
 
 	public function is_block_editor() {
-		$current_screen = get_current_screen();
-		$is_block_editor =
-			method_exists( $current_screen, 'is_block_editor' )
-			&& $current_screen->is_block_editor();
+		$is_block_editor = false;
+
+		if ( function_exists( 'get_current_screen' ) ) {
+			$current_screen = get_current_screen();
+			$is_block_editor =
+				method_exists( $current_screen, 'is_block_editor' )
+				&& $current_screen->is_block_editor();
+		}
 
 		return $is_block_editor;
 	}
