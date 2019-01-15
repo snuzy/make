@@ -49,6 +49,7 @@ $this->add_icons( array(
 	'stumbleupon.com'    => array( 'title' => _x( 'StumbleUpon', 'brand name', 'make' ), 'class' => array( 'fa', 'fab', 'fa-stumbleupon' ) ),
 	't.qq.com'           => array( 'title' => _x( 'Tencent Weibo', 'brand name', 'make' ), 'class' => array( 'fa', 'fab', 'fa-tencent-weibo' ) ),
 	'trello.com'         => array( 'title' => _x( 'Trello', 'brand name', 'make' ), 'class' => array( 'fa', 'fab', 'fa-trello' ) ),
+	'tripadvisor.com'         => array( 'title' => _x( 'TripAdvisor', 'brand name', 'make' ), 'class' => array( 'fa', 'fab', 'fa-tripadvisor' ) ),
 	'tumblr.com'         => array( 'title' => _x( 'Tumblr', 'brand name', 'make' ), 'class' => array( 'fa', 'fab', 'fa-tumblr' ) ),
 	'twitch.tv'          => array( 'title' => _x( 'Twitch', 'brand name', 'make' ), 'class' => array( 'fa', 'fab', 'fa-twitch' ) ),
 	'twitter.com'        => array( 'title' => _x( 'Twitter', 'brand name', 'make' ), 'class' => array( 'fa', 'fab', 'fa-twitter' ) ),
