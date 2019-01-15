@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.23 - January 15 2019 =
+* Improvement: Updated Font Awesome to 5.6.3. Added TripAdvisor FA icon to General -> Social Icons in Customizer.
+
 = 1.9.22 - January 8 2019 =
 * Bugfix: Gutenberg compatibility code was returning fatal error when used in combination with some plugins.
 
@@ -635,6 +638,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.23 =
+* Updated Font Awesome to 5.6.3. Added TripAdvisor FA icon to General -> Social Icons in Customizer.
 
 = 1.9.22 =
 * Fixed fatal error triggered by Gutenberg compatibility code in Make when used in combination with some plugins.
