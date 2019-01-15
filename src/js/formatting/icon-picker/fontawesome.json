@@ -23,6 +23,22 @@
     ],
     "unicode": "f369"
   },
+  "acquisitions-incorporated": {
+    "id": "fa-acquisitions-incorporated",
+    "label": "Acquisitions Incorporated",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f6af"
+  },
+  "ad": {
+    "id": "fa-ad",
+    "label": "Ad",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f641"
+  },
   "address-book": {
     "id": "fa-address-book",
     "label": "Address Book",
@@ -57,6 +73,14 @@
     ],
     "unicode": "f170"
   },
+  "adobe": {
+    "id": "fa-adobe",
+    "label": "Adobe",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f778"
+  },
   "adversal": {
     "id": "fa-adversal",
     "label": "Adversal",
@@ -72,6 +96,14 @@
       "brands"
     ],
     "unicode": "f36b"
+  },
+  "air-freshener": {
+    "id": "fa-air-freshener",
+    "label": "Air Freshener",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5d0"
   },
   "algolia": {
     "id": "fa-algolia",
@@ -112,6 +144,14 @@
       "solid"
     ],
     "unicode": "f038"
+  },
+  "alipay": {
+    "id": "fa-alipay",
+    "label": "Alipay",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f642"
   },
   "allergies": {
     "id": "fa-allergies",
@@ -249,6 +289,15 @@
     ],
     "unicode": "f106"
   },
+  "angry": {
+    "id": "fa-angry",
+    "label": "Angry Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f556"
+  },
   "angrycreative": {
     "id": "fa-angrycreative",
     "label": "Angry Creative",
@@ -264,6 +313,14 @@
       "brands"
     ],
     "unicode": "f420"
+  },
+  "ankh": {
+    "id": "fa-ankh",
+    "label": "Ankh",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f644"
   },
   "app-store": {
     "id": "fa-app-store",
@@ -297,6 +354,14 @@
     ],
     "unicode": "f179"
   },
+  "apple-alt": {
+    "id": "fa-apple-alt",
+    "label": "Fruit Apple",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5d1"
+  },
   "apple-pay": {
     "id": "fa-apple-pay",
     "label": "Apple Pay",
@@ -312,6 +377,14 @@
       "solid"
     ],
     "unicode": "f187"
+  },
+  "archway": {
+    "id": "fa-archway",
+    "label": "Archway",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f557"
   },
   "arrow-alt-circle-down": {
     "id": "fa-arrow-alt-circle-down",
@@ -437,6 +510,14 @@
     ],
     "unicode": "f338"
   },
+  "artstation": {
+    "id": "fa-artstation",
+    "label": "Artstation",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f77a"
+  },
   "assistive-listening-systems": {
     "id": "fa-assistive-listening-systems",
     "label": "Assistive Listening Systems",
@@ -468,6 +549,30 @@
       "solid"
     ],
     "unicode": "f1fa"
+  },
+  "atlas": {
+    "id": "fa-atlas",
+    "label": "Atlas",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f558"
+  },
+  "atlassian": {
+    "id": "fa-atlassian",
+    "label": "Atlassian",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f77b"
+  },
+  "atom": {
+    "id": "fa-atom",
+    "label": "Atom",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5d2"
   },
   "audible": {
     "id": "fa-audible",
@@ -509,6 +614,14 @@
     ],
     "unicode": "f421"
   },
+  "award": {
+    "id": "fa-award",
+    "label": "Award",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f559"
+  },
   "aws": {
     "id": "fa-aws",
     "label": "Amazon Web Services (AWS)",
@@ -516,6 +629,30 @@
       "brands"
     ],
     "unicode": "f375"
+  },
+  "baby": {
+    "id": "fa-baby",
+    "label": "Baby",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f77c"
+  },
+  "baby-carriage": {
+    "id": "fa-baby-carriage",
+    "label": "Baby Carriage",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f77d"
+  },
+  "backspace": {
+    "id": "fa-backspace",
+    "label": "Backspace",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f55a"
   },
   "backward": {
     "id": "fa-backward",
@@ -687,6 +824,22 @@
     ],
     "unicode": "f1f6"
   },
+  "bezier-curve": {
+    "id": "fa-bezier-curve",
+    "label": "Bezier Curve",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f55b"
+  },
+  "bible": {
+    "id": "fa-bible",
+    "label": "Bible",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f647"
+  },
   "bicycle": {
     "id": "fa-bicycle",
     "label": "Bicycle",
@@ -710,6 +863,14 @@
       "solid"
     ],
     "unicode": "f1e5"
+  },
+  "biohazard": {
+    "id": "fa-biohazard",
+    "label": "Biohazard",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f780"
   },
   "birthday-cake": {
     "id": "fa-birthday-cake",
@@ -767,6 +928,14 @@
     ],
     "unicode": "f517"
   },
+  "blender-phone": {
+    "id": "fa-blender-phone",
+    "label": "Blender Phone",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6b6"
+  },
   "blind": {
     "id": "fa-blind",
     "label": "Blind",
@@ -774,6 +943,14 @@
       "solid"
     ],
     "unicode": "f29d"
+  },
+  "blog": {
+    "id": "fa-blog",
+    "label": "Blog",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f781"
   },
   "blogger": {
     "id": "fa-blogger",
@@ -831,6 +1008,22 @@
     ],
     "unicode": "f1e2"
   },
+  "bone": {
+    "id": "fa-bone",
+    "label": "Bone",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5d7"
+  },
+  "bong": {
+    "id": "fa-bong",
+    "label": "Bong",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f55c"
+  },
   "book": {
     "id": "fa-book",
     "label": "book",
@@ -839,6 +1032,14 @@
     ],
     "unicode": "f02d"
   },
+  "book-dead": {
+    "id": "fa-book-dead",
+    "label": "Book of the Dead",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6b7"
+  },
   "book-open": {
     "id": "fa-book-open",
     "label": "Book Open",
@@ -846,6 +1047,14 @@
       "solid"
     ],
     "unicode": "f518"
+  },
+  "book-reader": {
+    "id": "fa-book-reader",
+    "label": "Book Reader",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5da"
   },
   "bookmark": {
     "id": "fa-bookmark",
@@ -896,6 +1105,14 @@
     ],
     "unicode": "f2a1"
   },
+  "brain": {
+    "id": "fa-brain",
+    "label": "Brain",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5dc"
+  },
   "briefcase": {
     "id": "fa-briefcase",
     "label": "Briefcase",
@@ -927,6 +1144,14 @@
       "solid"
     ],
     "unicode": "f51a"
+  },
+  "brush": {
+    "id": "fa-brush",
+    "label": "Brush",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f55d"
   },
   "btc": {
     "id": "fa-btc",
@@ -993,6 +1218,22 @@
     ],
     "unicode": "f207"
   },
+  "bus-alt": {
+    "id": "fa-bus-alt",
+    "label": "Bus Alt",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f55e"
+  },
+  "business-time": {
+    "id": "fa-business-time",
+    "label": "Business Time",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f64a"
+  },
   "buysellads": {
     "id": "fa-buysellads",
     "label": "BuySellAds",
@@ -1036,6 +1277,14 @@
     ],
     "unicode": "f274"
   },
+  "calendar-day": {
+    "id": "fa-calendar-day",
+    "label": "Calendar with Day Focus",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f783"
+  },
   "calendar-minus": {
     "id": "fa-calendar-minus",
     "label": "Calendar Minus",
@@ -1063,6 +1312,14 @@
     ],
     "unicode": "f273"
   },
+  "calendar-week": {
+    "id": "fa-calendar-week",
+    "label": "Calendar with Week Focus",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f784"
+  },
   "camera": {
     "id": "fa-camera",
     "label": "camera",
@@ -1079,6 +1336,38 @@
     ],
     "unicode": "f083"
   },
+  "campground": {
+    "id": "fa-campground",
+    "label": "Campground",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6bb"
+  },
+  "canadian-maple-leaf": {
+    "id": "fa-canadian-maple-leaf",
+    "label": "Canadian Maple Leaf",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f785"
+  },
+  "candy-cane": {
+    "id": "fa-candy-cane",
+    "label": "Candy Cane",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f786"
+  },
+  "cannabis": {
+    "id": "fa-cannabis",
+    "label": "Cannabis",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f55f"
+  },
   "capsules": {
     "id": "fa-capsules",
     "label": "Capsules",
@@ -1094,6 +1383,38 @@
       "solid"
     ],
     "unicode": "f1b9"
+  },
+  "car-alt": {
+    "id": "fa-car-alt",
+    "label": "Alternate Car",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5de"
+  },
+  "car-battery": {
+    "id": "fa-car-battery",
+    "label": "Car Battery",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5df"
+  },
+  "car-crash": {
+    "id": "fa-car-crash",
+    "label": "Car Crash",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5e1"
+  },
+  "car-side": {
+    "id": "fa-car-side",
+    "label": "Car Side",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5e4"
   },
   "caret-down": {
     "id": "fa-caret-down",
@@ -1163,6 +1484,14 @@
     ],
     "unicode": "f0d8"
   },
+  "carrot": {
+    "id": "fa-carrot",
+    "label": "Carrot",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f787"
+  },
   "cart-arrow-down": {
     "id": "fa-cart-arrow-down",
     "label": "Shopping Cart Arrow Down",
@@ -1178,6 +1507,22 @@
       "solid"
     ],
     "unicode": "f217"
+  },
+  "cash-register": {
+    "id": "fa-cash-register",
+    "label": "Cash Register",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f788"
+  },
+  "cat": {
+    "id": "fa-cat",
+    "label": "Cat",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6be"
   },
   "cc-amazon-pay": {
     "id": "fa-cc-amazon-pay",
@@ -1267,6 +1612,14 @@
     ],
     "unicode": "f380"
   },
+  "centos": {
+    "id": "fa-centos",
+    "label": "Centos",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f789"
+  },
   "certificate": {
     "id": "fa-certificate",
     "label": "certificate",
@@ -1274,6 +1627,14 @@
       "solid"
     ],
     "unicode": "f0a3"
+  },
+  "chair": {
+    "id": "fa-chair",
+    "label": "Chair",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6c0"
   },
   "chalkboard": {
     "id": "fa-chalkboard",
@@ -1290,6 +1651,14 @@
       "solid"
     ],
     "unicode": "f51c"
+  },
+  "charging-station": {
+    "id": "fa-charging-station",
+    "label": "Charging Station",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5e7"
   },
   "chart-area": {
     "id": "fa-chart-area",
@@ -1340,6 +1709,14 @@
       "regular"
     ],
     "unicode": "f058"
+  },
+  "check-double": {
+    "id": "fa-check-double",
+    "label": "Check Double",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f560"
   },
   "check-square": {
     "id": "fa-check-square",
@@ -1519,6 +1896,14 @@
     ],
     "unicode": "f1ce"
   },
+  "city": {
+    "id": "fa-city",
+    "label": "City",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f64f"
+  },
   "clipboard": {
     "id": "fa-clipboard",
     "label": "Clipboard",
@@ -1530,7 +1915,7 @@
   },
   "clipboard-check": {
     "id": "fa-clipboard-check",
-    "label": "Clipboard Check",
+    "label": "Clipboard with Check",
     "style": [
       "solid"
     ],
@@ -1587,6 +1972,62 @@
     ],
     "unicode": "f381"
   },
+  "cloud-meatball": {
+    "id": "fa-cloud-meatball",
+    "label": "Cloud with (a chance of) Meatball",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f73b"
+  },
+  "cloud-moon": {
+    "id": "fa-cloud-moon",
+    "label": "Cloud with Moon",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6c3"
+  },
+  "cloud-moon-rain": {
+    "id": "fa-cloud-moon-rain",
+    "label": "Cloud with Moon and Rain",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f73c"
+  },
+  "cloud-rain": {
+    "id": "fa-cloud-rain",
+    "label": "Cloud with Rain",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f73d"
+  },
+  "cloud-showers-heavy": {
+    "id": "fa-cloud-showers-heavy",
+    "label": "Cloud with Heavy Showers",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f740"
+  },
+  "cloud-sun": {
+    "id": "fa-cloud-sun",
+    "label": "Cloud with Sun",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6c4"
+  },
+  "cloud-sun-rain": {
+    "id": "fa-cloud-sun-rain",
+    "label": "Cloud with Sun and Rain",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f743"
+  },
   "cloud-upload-alt": {
     "id": "fa-cloud-upload-alt",
     "label": "Alternate Cloud Upload",
@@ -1618,6 +2059,14 @@
       "brands"
     ],
     "unicode": "f385"
+  },
+  "cocktail": {
+    "id": "fa-cocktail",
+    "label": "Cocktail",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f561"
   },
   "code": {
     "id": "fa-code",
@@ -1709,6 +2158,14 @@
     ],
     "unicode": "f27a"
   },
+  "comment-dollar": {
+    "id": "fa-comment-dollar",
+    "label": "Comment Dollar",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f651"
+  },
   "comment-dots": {
     "id": "fa-comment-dots",
     "label": "Comment Dots",
@@ -1735,6 +2192,14 @@
     ],
     "unicode": "f086"
   },
+  "comments-dollar": {
+    "id": "fa-comments-dollar",
+    "label": "Comments Dollar",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f653"
+  },
   "compact-disc": {
     "id": "fa-compact-disc",
     "label": "Compact Disc",
@@ -1760,6 +2225,30 @@
     ],
     "unicode": "f066"
   },
+  "compress-arrows-alt": {
+    "id": "fa-compress-arrows-alt",
+    "label": "Alternate Compress Arrows",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f78c"
+  },
+  "concierge-bell": {
+    "id": "fa-concierge-bell",
+    "label": "Concierge Bell",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f562"
+  },
+  "confluence": {
+    "id": "fa-confluence",
+    "label": "Confluence",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f78d"
+  },
   "connectdevelop": {
     "id": "fa-connectdevelop",
     "label": "Connect Develop",
@@ -1775,6 +2264,22 @@
       "brands"
     ],
     "unicode": "f26d"
+  },
+  "cookie": {
+    "id": "fa-cookie",
+    "label": "Cookie",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f563"
+  },
+  "cookie-bite": {
+    "id": "fa-cookie-bite",
+    "label": "Cookie Bite",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f564"
   },
   "copy": {
     "id": "fa-copy",
@@ -1868,7 +2373,7 @@
   },
   "creative-commons-pd-alt": {
     "id": "fa-creative-commons-pd-alt",
-    "label": "Creative Commons Public Domain Alternate",
+    "label": "Alternate Creative Commons Public Domain",
     "style": [
       "brands"
     ],
@@ -1914,6 +2419,14 @@
     ],
     "unicode": "f4f2"
   },
+  "creative-commons-zero": {
+    "id": "fa-creative-commons-zero",
+    "label": "Creative Commons CC0",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f4f3"
+  },
   "credit-card": {
     "id": "fa-credit-card",
     "label": "Credit Card",
@@ -1923,6 +2436,14 @@
     ],
     "unicode": "f09d"
   },
+  "critical-role": {
+    "id": "fa-critical-role",
+    "label": "Critical Role",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f6c9"
+  },
   "crop": {
     "id": "fa-crop",
     "label": "crop",
@@ -1930,6 +2451,22 @@
       "solid"
     ],
     "unicode": "f125"
+  },
+  "crop-alt": {
+    "id": "fa-crop-alt",
+    "label": "Alternate Crop",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f565"
+  },
+  "cross": {
+    "id": "fa-cross",
+    "label": "Cross",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f654"
   },
   "crosshairs": {
     "id": "fa-crosshairs",
@@ -2011,6 +2548,14 @@
     ],
     "unicode": "f38d"
   },
+  "d-and-d-beyond": {
+    "id": "fa-d-and-d-beyond",
+    "label": "D&D Beyond",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f6ca"
+  },
   "dashcube": {
     "id": "fa-dashcube",
     "label": "DashCube",
@@ -2043,6 +2588,14 @@
     ],
     "unicode": "f1a5"
   },
+  "democrat": {
+    "id": "fa-democrat",
+    "label": "Democrat",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f747"
+  },
   "deploydog": {
     "id": "fa-deploydog",
     "label": "deploy.dog",
@@ -2067,6 +2620,14 @@
     ],
     "unicode": "f108"
   },
+  "dev": {
+    "id": "fa-dev",
+    "label": "DEV",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f6cc"
+  },
   "deviantart": {
     "id": "fa-deviantart",
     "label": "deviantART",
@@ -2074,6 +2635,22 @@
       "brands"
     ],
     "unicode": "f1bd"
+  },
+  "dharmachakra": {
+    "id": "fa-dharmachakra",
+    "label": "Dharmachakra",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f655"
+  },
+  "dhl": {
+    "id": "fa-dhl",
+    "label": "DHL",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f790"
   },
   "diagnoses": {
     "id": "fa-diagnoses",
@@ -2083,6 +2660,14 @@
     ],
     "unicode": "f470"
   },
+  "diaspora": {
+    "id": "fa-diaspora",
+    "label": "Diaspora",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f791"
+  },
   "dice": {
     "id": "fa-dice",
     "label": "Dice",
@@ -2090,6 +2675,22 @@
       "solid"
     ],
     "unicode": "f522"
+  },
+  "dice-d20": {
+    "id": "fa-dice-d20",
+    "label": "Dice D20",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6cf"
+  },
+  "dice-d6": {
+    "id": "fa-dice-d6",
+    "label": "Dice D6",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6d1"
   },
   "dice-five": {
     "id": "fa-dice-five",
@@ -2155,6 +2756,22 @@
     ],
     "unicode": "f391"
   },
+  "digital-tachograph": {
+    "id": "fa-digital-tachograph",
+    "label": "Digital Tachograph",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f566"
+  },
+  "directions": {
+    "id": "fa-directions",
+    "label": "Directions",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5eb"
+  },
   "discord": {
     "id": "fa-discord",
     "label": "Discord",
@@ -2179,6 +2796,15 @@
     ],
     "unicode": "f529"
   },
+  "dizzy": {
+    "id": "fa-dizzy",
+    "label": "Dizzy Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f567"
+  },
   "dna": {
     "id": "fa-dna",
     "label": "DNA",
@@ -2202,6 +2828,14 @@
       "brands"
     ],
     "unicode": "f395"
+  },
+  "dog": {
+    "id": "fa-dog",
+    "label": "Dog",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6d3"
   },
   "dollar-sign": {
     "id": "fa-dollar-sign",
@@ -2284,6 +2918,30 @@
     ],
     "unicode": "f396"
   },
+  "drafting-compass": {
+    "id": "fa-drafting-compass",
+    "label": "Drafting Compass",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f568"
+  },
+  "dragon": {
+    "id": "fa-dragon",
+    "label": "Dragon",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6d5"
+  },
+  "draw-polygon": {
+    "id": "fa-draw-polygon",
+    "label": "Draw Polygon",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5ee"
+  },
   "dribbble": {
     "id": "fa-dribbble",
     "label": "Dribbble",
@@ -2308,6 +2966,30 @@
     ],
     "unicode": "f16b"
   },
+  "drum": {
+    "id": "fa-drum",
+    "label": "Drum",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f569"
+  },
+  "drum-steelpan": {
+    "id": "fa-drum-steelpan",
+    "label": "Drum Steelpan",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f56a"
+  },
+  "drumstick-bite": {
+    "id": "fa-drumstick-bite",
+    "label": "Drumstick with Bite Taken Out",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6d7"
+  },
   "drupal": {
     "id": "fa-drupal",
     "label": "Drupal Logo",
@@ -2323,6 +3005,30 @@
       "solid"
     ],
     "unicode": "f44b"
+  },
+  "dumpster": {
+    "id": "fa-dumpster",
+    "label": "Dumpster",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f793"
+  },
+  "dumpster-fire": {
+    "id": "fa-dumpster-fire",
+    "label": "Dumpster Fire",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f794"
+  },
+  "dungeon": {
+    "id": "fa-dungeon",
+    "label": "Dungeon",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6d9"
   },
   "dyalog": {
     "id": "fa-dyalog",
@@ -2397,6 +3103,14 @@
     ],
     "unicode": "f142"
   },
+  "ello": {
+    "id": "fa-ello",
+    "label": "Ello",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5f1"
+  },
   "ember": {
     "id": "fa-ember",
     "label": "Ember",
@@ -2430,6 +3144,14 @@
       "regular"
     ],
     "unicode": "f2b6"
+  },
+  "envelope-open-text": {
+    "id": "fa-envelope-open-text",
+    "label": "Envelope Open-text",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f658"
   },
   "envelope-square": {
     "id": "fa-envelope-square",
@@ -2478,6 +3200,14 @@
       "brands"
     ],
     "unicode": "f42e"
+  },
+  "ethernet": {
+    "id": "fa-ethernet",
+    "label": "Ethernet",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f796"
   },
   "etsy": {
     "id": "fa-etsy",
@@ -2625,6 +3355,14 @@
     ],
     "unicode": "f082"
   },
+  "fantasy-flight-games": {
+    "id": "fa-fantasy-flight-games",
+    "label": "Fantasy Flight-games",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f6dc"
+  },
   "fast-backward": {
     "id": "fa-fast-backward",
     "label": "fast-backward",
@@ -2657,6 +3395,30 @@
     ],
     "unicode": "f52d"
   },
+  "feather-alt": {
+    "id": "fa-feather-alt",
+    "label": "Alternate Feather",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f56b"
+  },
+  "fedex": {
+    "id": "fa-fedex",
+    "label": "FedEx",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f797"
+  },
+  "fedora": {
+    "id": "fa-fedora",
+    "label": "Fedora",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f798"
+  },
   "female": {
     "id": "fa-female",
     "label": "Female",
@@ -2672,6 +3434,14 @@
       "solid"
     ],
     "unicode": "f0fb"
+  },
+  "figma": {
+    "id": "fa-figma",
+    "label": "Figma",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f799"
   },
   "file": {
     "id": "fa-file",
@@ -2718,6 +3488,30 @@
     ],
     "unicode": "f1c9"
   },
+  "file-contract": {
+    "id": "fa-file-contract",
+    "label": "File Contract",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f56c"
+  },
+  "file-csv": {
+    "id": "fa-file-csv",
+    "label": "File CSV",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6dd"
+  },
+  "file-download": {
+    "id": "fa-file-download",
+    "label": "File Download",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f56d"
+  },
   "file-excel": {
     "id": "fa-file-excel",
     "label": "Excel File",
@@ -2727,6 +3521,14 @@
     ],
     "unicode": "f1c3"
   },
+  "file-export": {
+    "id": "fa-file-export",
+    "label": "File Export",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f56e"
+  },
   "file-image": {
     "id": "fa-file-image",
     "label": "Image File",
@@ -2735,6 +3537,30 @@
       "regular"
     ],
     "unicode": "f1c5"
+  },
+  "file-import": {
+    "id": "fa-file-import",
+    "label": "File Import",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f56f"
+  },
+  "file-invoice": {
+    "id": "fa-file-invoice",
+    "label": "File Invoice",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f570"
+  },
+  "file-invoice-dollar": {
+    "id": "fa-file-invoice-dollar",
+    "label": "File Invoice with US Dollar",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f571"
   },
   "file-medical": {
     "id": "fa-file-medical",
@@ -2770,6 +3596,30 @@
     ],
     "unicode": "f1c4"
   },
+  "file-prescription": {
+    "id": "fa-file-prescription",
+    "label": "File Prescription",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f572"
+  },
+  "file-signature": {
+    "id": "fa-file-signature",
+    "label": "File Signature",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f573"
+  },
+  "file-upload": {
+    "id": "fa-file-upload",
+    "label": "File Upload",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f574"
+  },
   "file-video": {
     "id": "fa-file-video",
     "label": "Video File",
@@ -2788,6 +3638,22 @@
     ],
     "unicode": "f1c2"
   },
+  "fill": {
+    "id": "fa-fill",
+    "label": "Fill",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f575"
+  },
+  "fill-drip": {
+    "id": "fa-fill-drip",
+    "label": "Fill Drip",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f576"
+  },
   "film": {
     "id": "fa-film",
     "label": "Film",
@@ -2804,6 +3670,14 @@
     ],
     "unicode": "f0b0"
   },
+  "fingerprint": {
+    "id": "fa-fingerprint",
+    "label": "Fingerprint",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f577"
+  },
   "fire": {
     "id": "fa-fire",
     "label": "fire",
@@ -2811,6 +3685,14 @@
       "solid"
     ],
     "unicode": "f06d"
+  },
+  "fire-alt": {
+    "id": "fa-fire-alt",
+    "label": "Alternate Fire",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7e4"
   },
   "fire-extinguisher": {
     "id": "fa-fire-extinguisher",
@@ -2860,6 +3742,22 @@
     ],
     "unicode": "f3a1"
   },
+  "fish": {
+    "id": "fa-fish",
+    "label": "Fish",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f578"
+  },
+  "fist-raised": {
+    "id": "fa-fist-raised",
+    "label": "Raised Fist",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6de"
+  },
   "flag": {
     "id": "fa-flag",
     "label": "flag",
@@ -2876,6 +3774,14 @@
       "solid"
     ],
     "unicode": "f11e"
+  },
+  "flag-usa": {
+    "id": "fa-flag-usa",
+    "label": "United States of America Flag",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f74d"
   },
   "flask": {
     "id": "fa-flask",
@@ -2901,6 +3807,15 @@
     ],
     "unicode": "f44d"
   },
+  "flushed": {
+    "id": "fa-flushed",
+    "label": "Flushed Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f579"
+  },
   "fly": {
     "id": "fa-fly",
     "label": "Fly",
@@ -2918,6 +3833,14 @@
     ],
     "unicode": "f07b"
   },
+  "folder-minus": {
+    "id": "fa-folder-minus",
+    "label": "Folder Minus",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f65d"
+  },
   "folder-open": {
     "id": "fa-folder-open",
     "label": "Folder Open",
@@ -2926,6 +3849,14 @@
       "regular"
     ],
     "unicode": "f07c"
+  },
+  "folder-plus": {
+    "id": "fa-folder-plus",
+    "label": "Folder Plus",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f65e"
   },
   "font": {
     "id": "fa-font",
@@ -3059,12 +3990,21 @@
   },
   "frown": {
     "id": "fa-frown",
-    "label": "Frown",
+    "label": "Frowning Face",
     "style": [
       "solid",
       "regular"
     ],
     "unicode": "f119"
+  },
+  "frown-open": {
+    "id": "fa-frown-open",
+    "label": "Frowning Face With Open Mouth",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f57a"
   },
   "fulcrum": {
     "id": "fa-fulcrum",
@@ -3073,6 +4013,14 @@
       "brands"
     ],
     "unicode": "f50b"
+  },
+  "funnel-dollar": {
+    "id": "fa-funnel-dollar",
+    "label": "Funnel Dollar",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f662"
   },
   "futbol": {
     "id": "fa-futbol",
@@ -3164,6 +4112,14 @@
     ],
     "unicode": "f261"
   },
+  "ghost": {
+    "id": "fa-ghost",
+    "label": "Ghost",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6e2"
+  },
   "gift": {
     "id": "fa-gift",
     "label": "gift",
@@ -3171,6 +4127,14 @@
       "solid"
     ],
     "unicode": "f06b"
+  },
+  "gifts": {
+    "id": "fa-gifts",
+    "label": "Gifts",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f79c"
   },
   "git": {
     "id": "fa-git",
@@ -3236,6 +4200,14 @@
     ],
     "unicode": "f426"
   },
+  "glass-cheers": {
+    "id": "fa-glass-cheers",
+    "label": "Glass Cheers",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f79f"
+  },
   "glass-martini": {
     "id": "fa-glass-martini",
     "label": "Martini Glass",
@@ -3243,6 +4215,22 @@
       "solid"
     ],
     "unicode": "f000"
+  },
+  "glass-martini-alt": {
+    "id": "fa-glass-martini-alt",
+    "label": "Alternate Glass Martini",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f57b"
+  },
+  "glass-whiskey": {
+    "id": "fa-glass-whiskey",
+    "label": "Glass Whiskey",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7a0"
   },
   "glasses": {
     "id": "fa-glasses",
@@ -3275,6 +4263,38 @@
       "solid"
     ],
     "unicode": "f0ac"
+  },
+  "globe-africa": {
+    "id": "fa-globe-africa",
+    "label": "Globe with Africa shown",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f57c"
+  },
+  "globe-americas": {
+    "id": "fa-globe-americas",
+    "label": "Globe with Americas shown",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f57d"
+  },
+  "globe-asia": {
+    "id": "fa-globe-asia",
+    "label": "Globe with Asia shown",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f57e"
+  },
+  "globe-europe": {
+    "id": "fa-globe-europe",
+    "label": "Globe with Europe shown",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7a2"
   },
   "gofore": {
     "id": "fa-gofore",
@@ -3364,6 +4384,14 @@
     ],
     "unicode": "f1ee"
   },
+  "gopuram": {
+    "id": "fa-gopuram",
+    "label": "Gopuram",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f664"
+  },
   "graduation-cap": {
     "id": "fa-graduation-cap",
     "label": "Graduation Cap",
@@ -3404,6 +4432,164 @@
     ],
     "unicode": "f532"
   },
+  "grimace": {
+    "id": "fa-grimace",
+    "label": "Grimacing Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f57f"
+  },
+  "grin": {
+    "id": "fa-grin",
+    "label": "Grinning Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f580"
+  },
+  "grin-alt": {
+    "id": "fa-grin-alt",
+    "label": "Alternate Grinning Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f581"
+  },
+  "grin-beam": {
+    "id": "fa-grin-beam",
+    "label": "Grinning Face With Smiling Eyes",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f582"
+  },
+  "grin-beam-sweat": {
+    "id": "fa-grin-beam-sweat",
+    "label": "Grinning Face With Sweat",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f583"
+  },
+  "grin-hearts": {
+    "id": "fa-grin-hearts",
+    "label": "Smiling Face With Heart-Eyes",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f584"
+  },
+  "grin-squint": {
+    "id": "fa-grin-squint",
+    "label": "Grinning Squinting Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f585"
+  },
+  "grin-squint-tears": {
+    "id": "fa-grin-squint-tears",
+    "label": "Rolling on the Floor Laughing",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f586"
+  },
+  "grin-stars": {
+    "id": "fa-grin-stars",
+    "label": "Star-Struck",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f587"
+  },
+  "grin-tears": {
+    "id": "fa-grin-tears",
+    "label": "Face With Tears of Joy",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f588"
+  },
+  "grin-tongue": {
+    "id": "fa-grin-tongue",
+    "label": "Face With Tongue",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f589"
+  },
+  "grin-tongue-squint": {
+    "id": "fa-grin-tongue-squint",
+    "label": "Squinting Face With Tongue",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f58a"
+  },
+  "grin-tongue-wink": {
+    "id": "fa-grin-tongue-wink",
+    "label": "Winking Face With Tongue",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f58b"
+  },
+  "grin-wink": {
+    "id": "fa-grin-wink",
+    "label": "Grinning Winking Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f58c"
+  },
+  "grip-horizontal": {
+    "id": "fa-grip-horizontal",
+    "label": "Grip Horizontal",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f58d"
+  },
+  "grip-lines": {
+    "id": "fa-grip-lines",
+    "label": "Grip Lines",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7a4"
+  },
+  "grip-lines-vertical": {
+    "id": "fa-grip-lines-vertical",
+    "label": "Grip Lines Vertical",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7a5"
+  },
+  "grip-vertical": {
+    "id": "fa-grip-vertical",
+    "label": "Grip Vertical",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f58e"
+  },
   "gripfire": {
     "id": "fa-gripfire",
     "label": "Gripfire, Inc.",
@@ -3419,6 +4605,14 @@
       "brands"
     ],
     "unicode": "f3ad"
+  },
+  "guitar": {
+    "id": "fa-guitar",
+    "label": "Guitar",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7a6"
   },
   "gulp": {
     "id": "fa-gulp",
@@ -3451,6 +4645,30 @@
       "brands"
     ],
     "unicode": "f3af"
+  },
+  "hackerrank": {
+    "id": "fa-hackerrank",
+    "label": "Hackerrank",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5f7"
+  },
+  "hammer": {
+    "id": "fa-hammer",
+    "label": "Hammer",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6e3"
+  },
+  "hamsa": {
+    "id": "fa-hamsa",
+    "label": "Hamsa",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f665"
   },
   "hand-holding": {
     "id": "fa-hand-holding",
@@ -3600,6 +4818,14 @@
     ],
     "unicode": "f2b5"
   },
+  "hanukiah": {
+    "id": "fa-hanukiah",
+    "label": "Hanukiah",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6e6"
+  },
   "hashtag": {
     "id": "fa-hashtag",
     "label": "Hashtag",
@@ -3607,6 +4833,22 @@
       "solid"
     ],
     "unicode": "f292"
+  },
+  "hat-wizard": {
+    "id": "fa-hat-wizard",
+    "label": "Wizard's Hat",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6e8"
+  },
+  "haykal": {
+    "id": "fa-haykal",
+    "label": "Haykal",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f666"
   },
   "hdd": {
     "id": "fa-hdd",
@@ -3633,6 +4875,22 @@
     ],
     "unicode": "f025"
   },
+  "headphones-alt": {
+    "id": "fa-headphones-alt",
+    "label": "Alternate Headphones",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f58f"
+  },
+  "headset": {
+    "id": "fa-headset",
+    "label": "Headset",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f590"
+  },
   "heart": {
     "id": "fa-heart",
     "label": "Heart",
@@ -3641,6 +4899,14 @@
       "regular"
     ],
     "unicode": "f004"
+  },
+  "heart-broken": {
+    "id": "fa-heart-broken",
+    "label": "Heart Broken",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7a9"
   },
   "heartbeat": {
     "id": "fa-heartbeat",
@@ -3657,6 +4923,30 @@
       "solid"
     ],
     "unicode": "f533"
+  },
+  "highlighter": {
+    "id": "fa-highlighter",
+    "label": "Highlighter",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f591"
+  },
+  "hiking": {
+    "id": "fa-hiking",
+    "label": "Hiking",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6ec"
+  },
+  "hippo": {
+    "id": "fa-hippo",
+    "label": "Hippo",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6ed"
   },
   "hips": {
     "id": "fa-hips",
@@ -3690,6 +4980,14 @@
     ],
     "unicode": "f453"
   },
+  "holly-berry": {
+    "id": "fa-holly-berry",
+    "label": "Holly Berry",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7aa"
+  },
   "home": {
     "id": "fa-home",
     "label": "home",
@@ -3705,6 +5003,30 @@
       "brands"
     ],
     "unicode": "f427"
+  },
+  "hornbill": {
+    "id": "fa-hornbill",
+    "label": "Hornbill",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f592"
+  },
+  "horse": {
+    "id": "fa-horse",
+    "label": "Horse",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6f0"
+  },
+  "horse-head": {
+    "id": "fa-horse-head",
+    "label": "Horse Head",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7ab"
   },
   "hospital": {
     "id": "fa-hospital",
@@ -3730,6 +5052,22 @@
       "solid"
     ],
     "unicode": "f47e"
+  },
+  "hot-tub": {
+    "id": "fa-hot-tub",
+    "label": "Hot Tub",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f593"
+  },
+  "hotel": {
+    "id": "fa-hotel",
+    "label": "Hotel",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f594"
   },
   "hotjar": {
     "id": "fa-hotjar",
@@ -3772,6 +5110,14 @@
     ],
     "unicode": "f251"
   },
+  "house-damage": {
+    "id": "fa-house-damage",
+    "label": "Damaged House",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6f1"
+  },
   "houzz": {
     "id": "fa-houzz",
     "label": "Houzz",
@@ -3779,6 +5125,14 @@
       "brands"
     ],
     "unicode": "f27c"
+  },
+  "hryvnia": {
+    "id": "fa-hryvnia",
+    "label": "Hryvnia",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6f2"
   },
   "html5": {
     "id": "fa-html5",
@@ -3803,6 +5157,14 @@
       "solid"
     ],
     "unicode": "f246"
+  },
+  "icicles": {
+    "id": "fa-icicles",
+    "label": "Icicles",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7ad"
   },
   "id-badge": {
     "id": "fa-id-badge",
@@ -3829,6 +5191,14 @@
       "solid"
     ],
     "unicode": "f47f"
+  },
+  "igloo": {
+    "id": "fa-igloo",
+    "label": "Igloo",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7ae"
   },
   "image": {
     "id": "fa-image",
@@ -3912,6 +5282,14 @@
     ],
     "unicode": "f16d"
   },
+  "intercom": {
+    "id": "fa-intercom",
+    "label": "Intercom",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7af"
+  },
   "internet-explorer": {
     "id": "fa-internet-explorer",
     "label": "Internet-explorer",
@@ -3919,6 +5297,14 @@
       "brands"
     ],
     "unicode": "f26b"
+  },
+  "invision": {
+    "id": "fa-invision",
+    "label": "InVision",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7b0"
   },
   "ioxhost": {
     "id": "fa-ioxhost",
@@ -3960,6 +5346,14 @@
     ],
     "unicode": "f4e4"
   },
+  "jedi": {
+    "id": "fa-jedi",
+    "label": "Jedi",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f669"
+  },
   "jedi-order": {
     "id": "fa-jedi-order",
     "label": "Jedi Order",
@@ -3976,6 +5370,14 @@
     ],
     "unicode": "f3b6"
   },
+  "jira": {
+    "id": "fa-jira",
+    "label": "Jira",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7b1"
+  },
   "joget": {
     "id": "fa-joget",
     "label": "Joget",
@@ -3984,6 +5386,14 @@
     ],
     "unicode": "f3b7"
   },
+  "joint": {
+    "id": "fa-joint",
+    "label": "Joint",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f595"
+  },
   "joomla": {
     "id": "fa-joomla",
     "label": "Joomla Logo",
@@ -3991,6 +5401,14 @@
       "brands"
     ],
     "unicode": "f1aa"
+  },
+  "journal-whills": {
+    "id": "fa-journal-whills",
+    "label": "Journal of the Whills",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f66a"
   },
   "js": {
     "id": "fa-js",
@@ -4015,6 +5433,22 @@
       "brands"
     ],
     "unicode": "f1cc"
+  },
+  "kaaba": {
+    "id": "fa-kaaba",
+    "label": "Kaaba",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f66b"
+  },
+  "kaggle": {
+    "id": "fa-kaggle",
+    "label": "Kaggle",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5fa"
   },
   "key": {
     "id": "fa-key",
@@ -4049,6 +5483,14 @@
     ],
     "unicode": "f3ba"
   },
+  "khanda": {
+    "id": "fa-khanda",
+    "label": "Khanda",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f66d"
+  },
   "kickstarter": {
     "id": "fa-kickstarter",
     "label": "Kickstarter",
@@ -4064,6 +5506,33 @@
       "brands"
     ],
     "unicode": "f3bc"
+  },
+  "kiss": {
+    "id": "fa-kiss",
+    "label": "Kissing Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f596"
+  },
+  "kiss-beam": {
+    "id": "fa-kiss-beam",
+    "label": "Kissing Face With Smiling Eyes",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f597"
+  },
+  "kiss-wink-heart": {
+    "id": "fa-kiss-wink-heart",
+    "label": "Face Blowing a Kiss",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f598"
   },
   "kiwi-bird": {
     "id": "fa-kiwi-bird",
@@ -4081,6 +5550,14 @@
     ],
     "unicode": "f42f"
   },
+  "landmark": {
+    "id": "fa-landmark",
+    "label": "Landmark",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f66f"
+  },
   "language": {
     "id": "fa-language",
     "label": "Language",
@@ -4096,6 +5573,14 @@
       "solid"
     ],
     "unicode": "f109"
+  },
+  "laptop-code": {
+    "id": "fa-laptop-code",
+    "label": "Laptop Code",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5fc"
   },
   "laravel": {
     "id": "fa-laravel",
@@ -4120,6 +5605,50 @@
       "brands"
     ],
     "unicode": "f203"
+  },
+  "laugh": {
+    "id": "fa-laugh",
+    "label": "Grinning Face With Big Eyes",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f599"
+  },
+  "laugh-beam": {
+    "id": "fa-laugh-beam",
+    "label": "Laugh Face with Beaming Eyes",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f59a"
+  },
+  "laugh-squint": {
+    "id": "fa-laugh-squint",
+    "label": "Laughing Squinting Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f59b"
+  },
+  "laugh-wink": {
+    "id": "fa-laugh-wink",
+    "label": "Laughing Winking Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f59c"
+  },
+  "layer-group": {
+    "id": "fa-layer-group",
+    "label": "Layer Group",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5fd"
   },
   "leaf": {
     "id": "fa-leaf",
@@ -4357,6 +5886,14 @@
     ],
     "unicode": "f2a8"
   },
+  "luggage-cart": {
+    "id": "fa-luggage-cart",
+    "label": "Luggage Cart",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f59d"
+  },
   "lyft": {
     "id": "fa-lyft",
     "label": "lyft",
@@ -4389,6 +5926,22 @@
     ],
     "unicode": "f076"
   },
+  "mail-bulk": {
+    "id": "fa-mail-bulk",
+    "label": "Mail Bulk",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f674"
+  },
+  "mailchimp": {
+    "id": "fa-mailchimp",
+    "label": "Mailchimp",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f59e"
+  },
   "male": {
     "id": "fa-male",
     "label": "Male",
@@ -4413,6 +5966,22 @@
       "regular"
     ],
     "unicode": "f279"
+  },
+  "map-marked": {
+    "id": "fa-map-marked",
+    "label": "Map Marked",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f59f"
+  },
+  "map-marked-alt": {
+    "id": "fa-map-marked-alt",
+    "label": "Alternate Map Marked",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5a0"
   },
   "map-marker": {
     "id": "fa-map-marker",
@@ -4445,6 +6014,22 @@
       "solid"
     ],
     "unicode": "f277"
+  },
+  "markdown": {
+    "id": "fa-markdown",
+    "label": "Markdown",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f60f"
+  },
+  "marker": {
+    "id": "fa-marker",
+    "label": "Marker",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5a1"
   },
   "mars": {
     "id": "fa-mars",
@@ -4486,6 +6071,14 @@
     ],
     "unicode": "f22a"
   },
+  "mask": {
+    "id": "fa-mask",
+    "label": "Mask",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6fa"
+  },
   "mastodon": {
     "id": "fa-mastodon",
     "label": "Mastodon",
@@ -4501,6 +6094,14 @@
       "brands"
     ],
     "unicode": "f136"
+  },
+  "medal": {
+    "id": "fa-medal",
+    "label": "Medal",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5a2"
   },
   "medapps": {
     "id": "fa-medapps",
@@ -4550,14 +6151,40 @@
     ],
     "unicode": "f2e0"
   },
+  "megaport": {
+    "id": "fa-megaport",
+    "label": "Megaport",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5a3"
+  },
   "meh": {
     "id": "fa-meh",
-    "label": "Meh",
+    "label": "Neutral Face",
     "style": [
       "solid",
       "regular"
     ],
     "unicode": "f11a"
+  },
+  "meh-blank": {
+    "id": "fa-meh-blank",
+    "label": "Face Without Mouth",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f5a4"
+  },
+  "meh-rolling-eyes": {
+    "id": "fa-meh-rolling-eyes",
+    "label": "Face With Rolling Eyes",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f5a5"
   },
   "memory": {
     "id": "fa-memory",
@@ -4567,6 +6194,22 @@
     ],
     "unicode": "f538"
   },
+  "mendeley": {
+    "id": "fa-mendeley",
+    "label": "Mendeley",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7b3"
+  },
+  "menorah": {
+    "id": "fa-menorah",
+    "label": "Menorah",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f676"
+  },
   "mercury": {
     "id": "fa-mercury",
     "label": "Mercury",
@@ -4574,6 +6217,14 @@
       "solid"
     ],
     "unicode": "f223"
+  },
+  "meteor": {
+    "id": "fa-meteor",
+    "label": "Meteor",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f753"
   },
   "microchip": {
     "id": "fa-microchip",
@@ -4615,6 +6266,14 @@
     ],
     "unicode": "f131"
   },
+  "microscope": {
+    "id": "fa-microscope",
+    "label": "Microscope",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f610"
+  },
   "microsoft": {
     "id": "fa-microsoft",
     "label": "Microsoft",
@@ -4647,6 +6306,14 @@
       "regular"
     ],
     "unicode": "f146"
+  },
+  "mitten": {
+    "id": "fa-mitten",
+    "label": "Mitten",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7b5"
   },
   "mix": {
     "id": "fa-mix",
@@ -4753,6 +6420,14 @@
     ],
     "unicode": "f53d"
   },
+  "monument": {
+    "id": "fa-monument",
+    "label": "Monument",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5a6"
+  },
   "moon": {
     "id": "fa-moon",
     "label": "Moon",
@@ -4762,6 +6437,22 @@
     ],
     "unicode": "f186"
   },
+  "mortar-pestle": {
+    "id": "fa-mortar-pestle",
+    "label": "Mortar Pestle",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5a7"
+  },
+  "mosque": {
+    "id": "fa-mosque",
+    "label": "Mosque",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f678"
+  },
   "motorcycle": {
     "id": "fa-motorcycle",
     "label": "Motorcycle",
@@ -4770,6 +6461,14 @@
     ],
     "unicode": "f21c"
   },
+  "mountain": {
+    "id": "fa-mountain",
+    "label": "Mountain",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6fc"
+  },
   "mouse-pointer": {
     "id": "fa-mouse-pointer",
     "label": "Mouse Pointer",
@@ -4777,6 +6476,14 @@
       "solid"
     ],
     "unicode": "f245"
+  },
+  "mug-hot": {
+    "id": "fa-mug-hot",
+    "label": "Mug Hot",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7b6"
   },
   "music": {
     "id": "fa-music",
@@ -4794,6 +6501,22 @@
     ],
     "unicode": "f3d2"
   },
+  "neos": {
+    "id": "fa-neos",
+    "label": "Neos",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f612"
+  },
+  "network-wired": {
+    "id": "fa-network-wired",
+    "label": "Wired Network",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6ff"
+  },
   "neuter": {
     "id": "fa-neuter",
     "label": "Neuter",
@@ -4810,6 +6533,14 @@
       "regular"
     ],
     "unicode": "f1ea"
+  },
+  "nimblr": {
+    "id": "fa-nimblr",
+    "label": "Nimblr",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5a8"
   },
   "nintendo-switch": {
     "id": "fa-nintendo-switch",
@@ -4909,6 +6640,14 @@
     ],
     "unicode": "f264"
   },
+  "oil-can": {
+    "id": "fa-oil-can",
+    "label": "Oil Can",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f613"
+  },
   "old-republic": {
     "id": "fa-old-republic",
     "label": "Old Republic",
@@ -4916,6 +6655,14 @@
       "brands"
     ],
     "unicode": "f510"
+  },
+  "om": {
+    "id": "fa-om",
+    "label": "Om",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f679"
   },
   "opencart": {
     "id": "fa-opencart",
@@ -4957,6 +6704,14 @@
     ],
     "unicode": "f41a"
   },
+  "otter": {
+    "id": "fa-otter",
+    "label": "Otter",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f700"
+  },
   "outdent": {
     "id": "fa-outdent",
     "label": "Outdent",
@@ -4988,6 +6743,14 @@
       "solid"
     ],
     "unicode": "f1fc"
+  },
+  "paint-roller": {
+    "id": "fa-paint-roller",
+    "label": "Paint Roller",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5aa"
   },
   "palette": {
     "id": "fa-palette",
@@ -5054,6 +6817,22 @@
     ],
     "unicode": "f540"
   },
+  "passport": {
+    "id": "fa-passport",
+    "label": "Passport",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5ab"
+  },
+  "pastafarianism": {
+    "id": "fa-pastafarianism",
+    "label": "Pastafarianism",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f67b"
+  },
   "paste": {
     "id": "fa-paste",
     "label": "Paste",
@@ -5103,6 +6882,46 @@
     ],
     "unicode": "f1ed"
   },
+  "peace": {
+    "id": "fa-peace",
+    "label": "Peace",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f67c"
+  },
+  "pen": {
+    "id": "fa-pen",
+    "label": "Pen",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f304"
+  },
+  "pen-alt": {
+    "id": "fa-pen-alt",
+    "label": "Alternate Pen",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f305"
+  },
+  "pen-fancy": {
+    "id": "fa-pen-fancy",
+    "label": "Pen Fancy",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5ac"
+  },
+  "pen-nib": {
+    "id": "fa-pen-nib",
+    "label": "Pen Nib",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5ad"
+  },
   "pen-square": {
     "id": "fa-pen-square",
     "label": "Pen Square",
@@ -5118,6 +6937,22 @@
       "solid"
     ],
     "unicode": "f303"
+  },
+  "pencil-ruler": {
+    "id": "fa-pencil-ruler",
+    "label": "Pencil Ruler",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5ae"
+  },
+  "penny-arcade": {
+    "id": "fa-penny-arcade",
+    "label": "Penny Arcade",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f704"
   },
   "people-carry": {
     "id": "fa-people-carry",
@@ -5150,6 +6985,14 @@
       "brands"
     ],
     "unicode": "f3da"
+  },
+  "person-booth": {
+    "id": "fa-person-booth",
+    "label": "Person Entering Booth",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f756"
   },
   "phabricator": {
     "id": "fa-phabricator",
@@ -5287,6 +7130,14 @@
     ],
     "unicode": "f0d3"
   },
+  "place-of-worship": {
+    "id": "fa-place-of-worship",
+    "label": "Place of Worship",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f67f"
+  },
   "plane": {
     "id": "fa-plane",
     "label": "plane",
@@ -5294,6 +7145,22 @@
       "solid"
     ],
     "unicode": "f072"
+  },
+  "plane-arrival": {
+    "id": "fa-plane-arrival",
+    "label": "Plane Arrival",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5af"
+  },
+  "plane-departure": {
+    "id": "fa-plane-departure",
+    "label": "Plane Departure",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5b0"
   },
   "play": {
     "id": "fa-play",
@@ -5361,6 +7228,22 @@
     ],
     "unicode": "f2ce"
   },
+  "poll": {
+    "id": "fa-poll",
+    "label": "Poll",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f681"
+  },
+  "poll-h": {
+    "id": "fa-poll-h",
+    "label": "Poll H",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f682"
+  },
   "poo": {
     "id": "fa-poo",
     "label": "Poo",
@@ -5368,6 +7251,22 @@
       "solid"
     ],
     "unicode": "f2fe"
+  },
+  "poo-storm": {
+    "id": "fa-poo-storm",
+    "label": "Poo Storm",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f75a"
+  },
+  "poop": {
+    "id": "fa-poop",
+    "label": "Poop",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f619"
   },
   "portrait": {
     "id": "fa-portrait",
@@ -5392,6 +7291,30 @@
       "solid"
     ],
     "unicode": "f011"
+  },
+  "pray": {
+    "id": "fa-pray",
+    "label": "Pray",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f683"
+  },
+  "praying-hands": {
+    "id": "fa-praying-hands",
+    "label": "Praying Hands",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f684"
+  },
+  "prescription": {
+    "id": "fa-prescription",
+    "label": "Prescription",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5b1"
   },
   "prescription-bottle": {
     "id": "fa-prescription-bottle",
@@ -5538,6 +7461,14 @@
     ],
     "unicode": "f10e"
   },
+  "quran": {
+    "id": "fa-quran",
+    "label": "Quran",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f687"
+  },
   "r-project": {
     "id": "fa-r-project",
     "label": "R Project",
@@ -5546,6 +7477,30 @@
     ],
     "unicode": "f4f7"
   },
+  "radiation": {
+    "id": "fa-radiation",
+    "label": "Radiation",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7b9"
+  },
+  "radiation-alt": {
+    "id": "fa-radiation-alt",
+    "label": "Alternate Radiation",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7ba"
+  },
+  "rainbow": {
+    "id": "fa-rainbow",
+    "label": "Rainbow",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f75b"
+  },
   "random": {
     "id": "fa-random",
     "label": "random",
@@ -5553,6 +7508,14 @@
       "solid"
     ],
     "unicode": "f074"
+  },
+  "raspberry-pi": {
+    "id": "fa-raspberry-pi",
+    "label": "Raspberry Pi",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7bb"
   },
   "ravelry": {
     "id": "fa-ravelry",
@@ -5569,6 +7532,14 @@
       "brands"
     ],
     "unicode": "f41b"
+  },
+  "reacteurope": {
+    "id": "fa-reacteurope",
+    "label": "ReactEurope",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f75d"
   },
   "readme": {
     "id": "fa-readme",
@@ -5634,6 +7605,14 @@
     ],
     "unicode": "f1a2"
   },
+  "redhat": {
+    "id": "fa-redhat",
+    "label": "Redhat",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7bc"
+  },
   "redo": {
     "id": "fa-redo",
     "label": "Redo",
@@ -5658,14 +7637,6 @@
       "regular"
     ],
     "unicode": "f25d"
-  },
-  "rendact": {
-    "id": "fa-rendact",
-    "label": "Rendact",
-    "style": [
-      "brands"
-    ],
-    "unicode": "f3e4"
   },
   "renren": {
     "id": "fa-renren",
@@ -5699,6 +7670,14 @@
     ],
     "unicode": "f3e6"
   },
+  "republican": {
+    "id": "fa-republican",
+    "label": "Republican",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f75e"
+  },
   "researchgate": {
     "id": "fa-researchgate",
     "label": "Researchgate",
@@ -5715,6 +7694,14 @@
     ],
     "unicode": "f3e7"
   },
+  "restroom": {
+    "id": "fa-restroom",
+    "label": "Restroom",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7bd"
+  },
   "retweet": {
     "id": "fa-retweet",
     "label": "Retweet",
@@ -5723,6 +7710,14 @@
     ],
     "unicode": "f079"
   },
+  "rev": {
+    "id": "fa-rev",
+    "label": "Rev.io",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5b2"
+  },
   "ribbon": {
     "id": "fa-ribbon",
     "label": "Ribbon",
@@ -5730,6 +7725,14 @@
       "solid"
     ],
     "unicode": "f4d6"
+  },
+  "ring": {
+    "id": "fa-ring",
+    "label": "Ring",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f70b"
   },
   "road": {
     "id": "fa-road",
@@ -5770,6 +7773,14 @@
       "brands"
     ],
     "unicode": "f3e9"
+  },
+  "route": {
+    "id": "fa-route",
+    "label": "Route",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f4d7"
   },
   "rss": {
     "id": "fa-rss",
@@ -5827,6 +7838,14 @@
     ],
     "unicode": "f548"
   },
+  "running": {
+    "id": "fa-running",
+    "label": "Running",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f70c"
+  },
   "rupee-sign": {
     "id": "fa-rupee-sign",
     "label": "Indian Rupee Sign",
@@ -5834,6 +7853,24 @@
       "solid"
     ],
     "unicode": "f156"
+  },
+  "sad-cry": {
+    "id": "fa-sad-cry",
+    "label": "Crying Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f5b3"
+  },
+  "sad-tear": {
+    "id": "fa-sad-tear",
+    "label": "Loudly Crying Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f5b4"
   },
   "safari": {
     "id": "fa-safari",
@@ -5850,6 +7887,22 @@
       "brands"
     ],
     "unicode": "f41e"
+  },
+  "satellite": {
+    "id": "fa-satellite",
+    "label": "Satellite",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7bf"
+  },
+  "satellite-dish": {
+    "id": "fa-satellite-dish",
+    "label": "Satellite Dish",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7c0"
   },
   "save": {
     "id": "fa-save",
@@ -5892,6 +7945,22 @@
     ],
     "unicode": "f28a"
   },
+  "scroll": {
+    "id": "fa-scroll",
+    "label": "Scroll",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f70e"
+  },
+  "sd-card": {
+    "id": "fa-sd-card",
+    "label": "Sd Card",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7c2"
+  },
   "search": {
     "id": "fa-search",
     "label": "Search",
@@ -5899,6 +7968,22 @@
       "solid"
     ],
     "unicode": "f002"
+  },
+  "search-dollar": {
+    "id": "fa-search-dollar",
+    "label": "Search Dollar",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f688"
+  },
+  "search-location": {
+    "id": "fa-search-location",
+    "label": "Search Location",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f689"
   },
   "search-minus": {
     "id": "fa-search-minus",
@@ -5963,6 +8048,14 @@
       "brands"
     ],
     "unicode": "f3ec"
+  },
+  "shapes": {
+    "id": "fa-shapes",
+    "label": "Shapes",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f61f"
   },
   "share": {
     "id": "fa-share",
@@ -6069,6 +8162,14 @@
     ],
     "unicode": "f07a"
   },
+  "shopware": {
+    "id": "fa-shopware",
+    "label": "Shopware",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5b5"
+  },
   "shower": {
     "id": "fa-shower",
     "label": "Shower",
@@ -6076,6 +8177,14 @@
       "solid"
     ],
     "unicode": "f2cc"
+  },
+  "shuttle-van": {
+    "id": "fa-shuttle-van",
+    "label": "Shuttle Van",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5b6"
   },
   "sign": {
     "id": "fa-sign",
@@ -6117,6 +8226,22 @@
     ],
     "unicode": "f012"
   },
+  "signature": {
+    "id": "fa-signature",
+    "label": "Signature",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5b7"
+  },
+  "sim-card": {
+    "id": "fa-sim-card",
+    "label": "SIM Card",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7c4"
+  },
   "simplybuilt": {
     "id": "fa-simplybuilt",
     "label": "SimplyBuilt",
@@ -6149,6 +8274,38 @@
     ],
     "unicode": "f512"
   },
+  "skating": {
+    "id": "fa-skating",
+    "label": "Skating",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7c5"
+  },
+  "sketch": {
+    "id": "fa-sketch",
+    "label": "Sketch",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7c6"
+  },
+  "skiing": {
+    "id": "fa-skiing",
+    "label": "Skiing",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7c9"
+  },
+  "skiing-nordic": {
+    "id": "fa-skiing-nordic",
+    "label": "Skiing Nordic",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7ca"
+  },
   "skull": {
     "id": "fa-skull",
     "label": "Skull",
@@ -6156,6 +8313,14 @@
       "solid"
     ],
     "unicode": "f54c"
+  },
+  "skull-crossbones": {
+    "id": "fa-skull-crossbones",
+    "label": "Skull & Crossbones",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f714"
   },
   "skyatlas": {
     "id": "fa-skyatlas",
@@ -6189,6 +8354,22 @@
     ],
     "unicode": "f3ef"
   },
+  "slash": {
+    "id": "fa-slash",
+    "label": "Slash",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f715"
+  },
+  "sleigh": {
+    "id": "fa-sleigh",
+    "label": "Sleigh",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7cc"
+  },
   "sliders-h": {
     "id": "fa-sliders-h",
     "label": "Horizontal Sliders",
@@ -6207,12 +8388,38 @@
   },
   "smile": {
     "id": "fa-smile",
-    "label": "Smile",
+    "label": "Smiling Face",
     "style": [
       "solid",
       "regular"
     ],
     "unicode": "f118"
+  },
+  "smile-beam": {
+    "id": "fa-smile-beam",
+    "label": "Beaming Face With Smiling Eyes",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f5b8"
+  },
+  "smile-wink": {
+    "id": "fa-smile-wink",
+    "label": "Winking Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f4da"
+  },
+  "smog": {
+    "id": "fa-smog",
+    "label": "Smog",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f75f"
   },
   "smoking": {
     "id": "fa-smoking",
@@ -6229,6 +8436,14 @@
       "solid"
     ],
     "unicode": "f54d"
+  },
+  "sms": {
+    "id": "fa-sms",
+    "label": "SMS",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7cd"
   },
   "snapchat": {
     "id": "fa-snapchat",
@@ -6254,6 +8469,14 @@
     ],
     "unicode": "f2ad"
   },
+  "snowboarding": {
+    "id": "fa-snowboarding",
+    "label": "Snowboarding",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7ce"
+  },
   "snowflake": {
     "id": "fa-snowflake",
     "label": "Snowflake",
@@ -6262,6 +8485,38 @@
       "regular"
     ],
     "unicode": "f2dc"
+  },
+  "snowman": {
+    "id": "fa-snowman",
+    "label": "Snowman",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7d0"
+  },
+  "snowplow": {
+    "id": "fa-snowplow",
+    "label": "Snowplow",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7d2"
+  },
+  "socks": {
+    "id": "fa-socks",
+    "label": "Socks",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f696"
+  },
+  "solar-panel": {
+    "id": "fa-solar-panel",
+    "label": "Solar Panel",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5ba"
   },
   "sort": {
     "id": "fa-sort",
@@ -6343,6 +8598,22 @@
     ],
     "unicode": "f1be"
   },
+  "sourcetree": {
+    "id": "fa-sourcetree",
+    "label": "Sourcetree",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7d3"
+  },
+  "spa": {
+    "id": "fa-spa",
+    "label": "Spa",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5bb"
+  },
   "space-shuttle": {
     "id": "fa-space-shuttle",
     "label": "Space Shuttle",
@@ -6359,6 +8630,14 @@
     ],
     "unicode": "f3f3"
   },
+  "spider": {
+    "id": "fa-spider",
+    "label": "Spider",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f717"
+  },
   "spinner": {
     "id": "fa-spinner",
     "label": "Spinner",
@@ -6367,6 +8646,14 @@
     ],
     "unicode": "f110"
   },
+  "splotch": {
+    "id": "fa-splotch",
+    "label": "Splotch",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5bc"
+  },
   "spotify": {
     "id": "fa-spotify",
     "label": "Spotify",
@@ -6374,6 +8661,14 @@
       "brands"
     ],
     "unicode": "f1bc"
+  },
+  "spray-can": {
+    "id": "fa-spray-can",
+    "label": "Spray Can",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5bd"
   },
   "square": {
     "id": "fa-square",
@@ -6392,6 +8687,22 @@
     ],
     "unicode": "f45c"
   },
+  "square-root-alt": {
+    "id": "fa-square-root-alt",
+    "label": "Alternate Square Root",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f698"
+  },
+  "squarespace": {
+    "id": "fa-squarespace",
+    "label": "Squarespace",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5be"
+  },
   "stack-exchange": {
     "id": "fa-stack-exchange",
     "label": "Stack Exchange",
@@ -6408,6 +8719,14 @@
     ],
     "unicode": "f16c"
   },
+  "stamp": {
+    "id": "fa-stamp",
+    "label": "Stamp",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5bf"
+  },
   "star": {
     "id": "fa-star",
     "label": "Star",
@@ -6417,6 +8736,14 @@
     ],
     "unicode": "f005"
   },
+  "star-and-crescent": {
+    "id": "fa-star-and-crescent",
+    "label": "Star and Crescent",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f699"
+  },
   "star-half": {
     "id": "fa-star-half",
     "label": "star-half",
@@ -6425,6 +8752,30 @@
       "regular"
     ],
     "unicode": "f089"
+  },
+  "star-half-alt": {
+    "id": "fa-star-half-alt",
+    "label": "Alternate Star Half",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5c0"
+  },
+  "star-of-david": {
+    "id": "fa-star-of-david",
+    "label": "Star of David",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f69a"
+  },
+  "star-of-life": {
+    "id": "fa-star-of-life",
+    "label": "Star of Life",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f621"
   },
   "staylinked": {
     "id": "fa-staylinked",
@@ -6644,6 +8995,14 @@
     ],
     "unicode": "f0f2"
   },
+  "suitcase-rolling": {
+    "id": "fa-suitcase-rolling",
+    "label": "Suitcase Rolling",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5c1"
+  },
   "sun": {
     "id": "fa-sun",
     "label": "Sun",
@@ -6676,6 +9035,55 @@
       "brands"
     ],
     "unicode": "f3f9"
+  },
+  "surprise": {
+    "id": "fa-surprise",
+    "label": "Hushed Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f5c2"
+  },
+  "suse": {
+    "id": "fa-suse",
+    "label": "Suse",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7d6"
+  },
+  "swatchbook": {
+    "id": "fa-swatchbook",
+    "label": "Swatchbook",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5c3"
+  },
+  "swimmer": {
+    "id": "fa-swimmer",
+    "label": "Swimmer",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5c4"
+  },
+  "swimming-pool": {
+    "id": "fa-swimming-pool",
+    "label": "Swimming Pool",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5c5"
+  },
+  "synagogue": {
+    "id": "fa-synagogue",
+    "label": "Synagogue",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f69b"
   },
   "sync": {
     "id": "fa-sync",
@@ -6797,6 +9205,22 @@
     ],
     "unicode": "f4f9"
   },
+  "teeth": {
+    "id": "fa-teeth",
+    "label": "Teeth",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f62e"
+  },
+  "teeth-open": {
+    "id": "fa-teeth-open",
+    "label": "Teeth Open",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f62f"
+  },
   "telegram": {
     "id": "fa-telegram",
     "label": "Telegram",
@@ -6813,6 +9237,22 @@
     ],
     "unicode": "f3fe"
   },
+  "temperature-high": {
+    "id": "fa-temperature-high",
+    "label": "High Temperature",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f769"
+  },
+  "temperature-low": {
+    "id": "fa-temperature-low",
+    "label": "Low Temperature",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f76b"
+  },
   "tencent-weibo": {
     "id": "fa-tencent-weibo",
     "label": "Tencent Weibo",
@@ -6820,6 +9260,14 @@
       "brands"
     ],
     "unicode": "f1d5"
+  },
+  "tenge": {
+    "id": "fa-tenge",
+    "label": "Tenge",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7d7"
   },
   "terminal": {
     "id": "fa-terminal",
@@ -6868,6 +9316,30 @@
       "solid"
     ],
     "unicode": "f00b"
+  },
+  "the-red-yeti": {
+    "id": "fa-the-red-yeti",
+    "label": "The Red Yeti",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f69d"
+  },
+  "theater-masks": {
+    "id": "fa-theater-masks",
+    "label": "Theater Masks",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f630"
+  },
+  "themeco": {
+    "id": "fa-themeco",
+    "label": "Themeco",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5c6"
   },
   "themeisle": {
     "id": "fa-themeisle",
@@ -6924,6 +9396,14 @@
       "solid"
     ],
     "unicode": "f2c8"
+  },
+  "think-peaks": {
+    "id": "fa-think-peaks",
+    "label": "Think Peaks",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f731"
   },
   "thumbs-down": {
     "id": "fa-thumbs-down",
@@ -6984,6 +9464,23 @@
     ],
     "unicode": "f043"
   },
+  "tint-slash": {
+    "id": "fa-tint-slash",
+    "label": "Tint Slash",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5c7"
+  },
+  "tired": {
+    "id": "fa-tired",
+    "label": "Tired Face",
+    "style": [
+      "solid",
+      "regular"
+    ],
+    "unicode": "f5c8"
+  },
   "toggle-off": {
     "id": "fa-toggle-off",
     "label": "Toggle Off",
@@ -7000,6 +9497,22 @@
     ],
     "unicode": "f205"
   },
+  "toilet": {
+    "id": "fa-toilet",
+    "label": "Toilet",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7d8"
+  },
+  "toilet-paper": {
+    "id": "fa-toilet-paper",
+    "label": "Toilet Paper",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f71e"
+  },
   "toolbox": {
     "id": "fa-toolbox",
     "label": "Toolbox",
@@ -7007,6 +9520,46 @@
       "solid"
     ],
     "unicode": "f552"
+  },
+  "tools": {
+    "id": "fa-tools",
+    "label": "Tools",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7d9"
+  },
+  "tooth": {
+    "id": "fa-tooth",
+    "label": "Tooth",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5c9"
+  },
+  "torah": {
+    "id": "fa-torah",
+    "label": "Torah",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6a0"
+  },
+  "torii-gate": {
+    "id": "fa-torii-gate",
+    "label": "Torii Gate",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6a1"
+  },
+  "tractor": {
+    "id": "fa-tractor",
+    "label": "Tractor",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f722"
   },
   "trade-federation": {
     "id": "fa-trade-federation",
@@ -7024,6 +9577,14 @@
     ],
     "unicode": "f25c"
   },
+  "traffic-light": {
+    "id": "fa-traffic-light",
+    "label": "Traffic Light",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f637"
+  },
   "train": {
     "id": "fa-train",
     "label": "Train",
@@ -7031,6 +9592,14 @@
       "solid"
     ],
     "unicode": "f238"
+  },
+  "tram": {
+    "id": "fa-tram",
+    "label": "Tram",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f7da"
   },
   "transgender": {
     "id": "fa-transgender",
@@ -7113,6 +9682,14 @@
     ],
     "unicode": "f4de"
   },
+  "truck-monster": {
+    "id": "fa-truck-monster",
+    "label": "Truck Monster",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f63b"
+  },
   "truck-moving": {
     "id": "fa-truck-moving",
     "label": "Truck Moving",
@@ -7120,6 +9697,14 @@
       "solid"
     ],
     "unicode": "f4df"
+  },
+  "truck-pickup": {
+    "id": "fa-truck-pickup",
+    "label": "Truck Side",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f63c"
   },
   "tshirt": {
     "id": "fa-tshirt",
@@ -7201,6 +9786,14 @@
     ],
     "unicode": "f402"
   },
+  "ubuntu": {
+    "id": "fa-ubuntu",
+    "label": "Ubuntu",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7df"
+  },
   "uikit": {
     "id": "fa-uikit",
     "label": "UIkit",
@@ -7216,6 +9809,14 @@
       "solid"
     ],
     "unicode": "f0e9"
+  },
+  "umbrella-beach": {
+    "id": "fa-umbrella-beach",
+    "label": "Umbrella Beach",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5ca"
   },
   "underline": {
     "id": "fa-underline",
@@ -7304,6 +9905,14 @@
       "solid"
     ],
     "unicode": "f093"
+  },
+  "ups": {
+    "id": "fa-ups",
+    "label": "UPS",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7e0"
   },
   "usb": {
     "id": "fa-usb",
@@ -7403,6 +10012,14 @@
     ],
     "unicode": "f501"
   },
+  "user-injured": {
+    "id": "fa-user-injured",
+    "label": "User Injured",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f728"
+  },
   "user-lock": {
     "id": "fa-user-lock",
     "label": "User Lock",
@@ -7437,7 +10054,7 @@
   },
   "user-plus": {
     "id": "fa-user-plus",
-    "label": "Add User",
+    "label": "User Plus",
     "style": [
       "solid"
     ],
@@ -7507,6 +10124,14 @@
     ],
     "unicode": "f509"
   },
+  "usps": {
+    "id": "fa-usps",
+    "label": "United States Postal Service",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7e1"
+  },
   "ussunnah": {
     "id": "fa-ussunnah",
     "label": "us-Sunnah Foundation",
@@ -7538,6 +10163,14 @@
       "brands"
     ],
     "unicode": "f408"
+  },
+  "vector-square": {
+    "id": "fa-vector-square",
+    "label": "Vector Square",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5cb"
   },
   "venus": {
     "id": "fa-venus",
@@ -7573,7 +10206,7 @@
   },
   "viadeo": {
     "id": "fa-viadeo",
-    "label": "Viadeo",
+    "label": "Video",
     "style": [
       "brands"
     ],
@@ -7581,7 +10214,7 @@
   },
   "viadeo-square": {
     "id": "fa-viadeo-square",
-    "label": "Viadeo Square",
+    "label": "Video Square",
     "style": [
       "brands"
     ],
@@ -7626,6 +10259,14 @@
       "solid"
     ],
     "unicode": "f4e2"
+  },
+  "vihara": {
+    "id": "fa-vihara",
+    "label": "Vihara",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6a7"
   },
   "vimeo": {
     "id": "fa-vimeo",
@@ -7685,15 +10326,23 @@
   },
   "volume-down": {
     "id": "fa-volume-down",
-    "label": "volume-down",
+    "label": "Volume Down",
     "style": [
       "solid"
     ],
     "unicode": "f027"
   },
+  "volume-mute": {
+    "id": "fa-volume-mute",
+    "label": "Volume Mute",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6a9"
+  },
   "volume-off": {
     "id": "fa-volume-off",
-    "label": "volume-off",
+    "label": "Volume Off",
     "style": [
       "solid"
     ],
@@ -7701,11 +10350,27 @@
   },
   "volume-up": {
     "id": "fa-volume-up",
-    "label": "volume-up",
+    "label": "Volume Up",
     "style": [
       "solid"
     ],
     "unicode": "f028"
+  },
+  "vote-yea": {
+    "id": "fa-vote-yea",
+    "label": "Vote Yea",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f772"
+  },
+  "vr-cardboard": {
+    "id": "fa-vr-cardboard",
+    "label": "Cardboard VR",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f729"
   },
   "vuejs": {
     "id": "fa-vuejs",
@@ -7739,6 +10404,22 @@
     ],
     "unicode": "f494"
   },
+  "water": {
+    "id": "fa-water",
+    "label": "Water",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f773"
+  },
+  "weebly": {
+    "id": "fa-weebly",
+    "label": "Weebly",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5cc"
+  },
   "weibo": {
     "id": "fa-weibo",
     "label": "Weibo",
@@ -7754,6 +10435,14 @@
       "solid"
     ],
     "unicode": "f496"
+  },
+  "weight-hanging": {
+    "id": "fa-weight-hanging",
+    "label": "Hanging Weight",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5cd"
   },
   "weixin": {
     "id": "fa-weixin",
@@ -7811,6 +10500,14 @@
     ],
     "unicode": "f266"
   },
+  "wind": {
+    "id": "fa-wind",
+    "label": "Wind",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f72e"
+  },
   "window-close": {
     "id": "fa-window-close",
     "label": "Window Close",
@@ -7855,6 +10552,14 @@
     ],
     "unicode": "f17a"
   },
+  "wine-bottle": {
+    "id": "fa-wine-bottle",
+    "label": "Wine Bottle",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f72f"
+  },
   "wine-glass": {
     "id": "fa-wine-glass",
     "label": "Wine Glass",
@@ -7863,9 +10568,33 @@
     ],
     "unicode": "f4e3"
   },
+  "wine-glass-alt": {
+    "id": "fa-wine-glass-alt",
+    "label": "Alternate Wine Glas",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f5ce"
+  },
+  "wix": {
+    "id": "fa-wix",
+    "label": "Wix",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f5cf"
+  },
+  "wizards-of-the-coast": {
+    "id": "fa-wizards-of-the-coast",
+    "label": "Wizards of the Coast",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f730"
+  },
   "wolf-pack-battalion": {
     "id": "fa-wolf-pack-battalion",
-    "label": "Wolf Pack-battalion",
+    "label": "Wolf Pack Battalion",
     "style": [
       "brands"
     ],
@@ -7918,6 +10647,14 @@
       "brands"
     ],
     "unicode": "f298"
+  },
+  "wpressr": {
+    "id": "fa-wpressr",
+    "label": "wpressr",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f3e4"
   },
   "wrench": {
     "id": "fa-wrench",
@@ -7991,6 +10728,14 @@
     ],
     "unicode": "f414"
   },
+  "yarn": {
+    "id": "fa-yarn",
+    "label": "Yarn",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f7e3"
+  },
   "yelp": {
     "id": "fa-yelp",
     "label": "Yelp",
@@ -8006,6 +10751,14 @@
       "solid"
     ],
     "unicode": "f157"
+  },
+  "yin-yang": {
+    "id": "fa-yin-yang",
+    "label": "Yin Yang",
+    "style": [
+      "solid"
+    ],
+    "unicode": "f6ad"
   },
   "yoast": {
     "id": "fa-yoast",
@@ -8030,5 +10783,13 @@
       "brands"
     ],
     "unicode": "f431"
+  },
+  "zhihu": {
+    "id": "fa-zhihu",
+    "label": "Zhihu",
+    "style": [
+      "brands"
+    ],
+    "unicode": "f63f"
   }
 }
