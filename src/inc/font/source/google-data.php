@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2019-03-02T08:05:49+00:00
+// Updated: 2019-04-10T12:36:32+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -2514,6 +2514,8 @@ $this->load_font_data( array(
 		'label' => 'Comfortaa',
 		'variants' => array(
 			'300',
+			'500',
+			'600',
 			'700',
 			'regular',
 		),
@@ -4822,6 +4824,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'cyrillic',
 			'cyrillic-ext',
+			'greek',
 			'latin',
 			'latin-ext',
 			'vietnamese',
