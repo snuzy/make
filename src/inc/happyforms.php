@@ -4,7 +4,7 @@
  */
 function make_overlay_happyforms_ad( $overlay_id ) {
 	if ( 'ttfmake-tinymce-overlay' === $overlay_id
-		&& ! is_plugin_active( 'happyforms/happyforms.php' ) 
+		&& ! defined( 'HAPPYFORMS_VERSION' )
 		&& ( ! Make()->plus()->is_plus() || ! intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
 		) {
 		get_template_part( '/inc/builder/core/templates/happyforms-ad' );
@@ -24,7 +24,7 @@ function make_before_editor_happyforms_ad() {
 	$ad_post_types = array( 'post', 'page' );
 
 	if ( in_array( $current_screen->post_type, $ad_post_types ) && 'edit' === $current_screen->parent_base ) {
-		if ( ! is_plugin_active( 'happyforms/happyforms.php' ) 
+		if ( ! defined( 'HAPPYFORMS_VERSION' )
 			&& ( ! Make()->plus()->is_plus() || ! intval( get_option( 'make_happyforms_ad_dismissed', 0 ) ) ) 
 		) {
 		?>
