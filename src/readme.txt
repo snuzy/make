@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.25 - April 10 2019 =
+* Bugfix: HappyForms ad was showing when HappyForms Upgrade was activated.
+
 = 1.9.24 - March 2 2019 =
 * Bugfix: Pages previously created with Gutenberg to preserve block editor experience.
 
@@ -641,6 +644,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.25 =
+* Fix HappyForms ad visibility.
 
 = 1.9.24 =
 * Fixed pages previously created with Gutenberg to preserve block editor experience.
