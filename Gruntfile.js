@@ -1,6 +1,7 @@
 /* jshint node:true */
 module.exports = function( grunt ) {
-	var _ = require( 'lodash' );
+	var _    = require( 'lodash' );
+	var sass = require( 'node-sass' );
 
 	// Load all Grunt tasks
 	require( 'load-grunt-tasks' )( grunt );
@@ -21,6 +22,7 @@ module.exports = function( grunt ) {
 		sass: {
 			theme: {
 				options: {
+					implementation: sass,
 					outputStyle: 'nested'
 				},
 				files: {
