@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2019-04-10T12:36:32+00:00
+// Updated: 2020-05-14T12:23:41+00:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -150,6 +150,30 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'handwriting',
+	),
+	'Alata' => array(
+		'label' => 'Alata',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Alatsi' => array(
+		'label' => 'Alatsi',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
 	),
 	'Aldrich' => array(
 		'label' => 'Aldrich',
@@ -394,6 +418,19 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'handwriting',
+	),
+	'Almarai' => array(
+		'label' => 'Almarai',
+		'variants' => array(
+			'300',
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'arabic',
+		),
+		'category' => 'sans-serif',
 	),
 	'Almendra' => array(
 		'label' => 'Almendra',
@@ -723,6 +760,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -1153,6 +1191,18 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Bahianita' => array(
+		'label' => 'Bahianita',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
 	'Bai Jamjuree' => array(
 		'label' => 'Bai Jamjuree',
 		'variants' => array(
@@ -1177,9 +1227,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
-	'Baloo' => array(
-		'label' => 'Baloo',
+	'Baloo 2' => array(
+		'label' => 'Baloo 2',
 		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1190,9 +1244,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
-	'Baloo Bhai' => array(
-		'label' => 'Baloo Bhai',
+	'Baloo Bhai 2' => array(
+		'label' => 'Baloo Bhai 2',
 		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1203,22 +1261,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
-	'Baloo Bhaijaan' => array(
-		'label' => 'Baloo Bhaijaan',
+	'Baloo Bhaina 2' => array(
+		'label' => 'Baloo Bhaina 2',
 		'variants' => array(
-			'regular',
-		),
-		'subsets' => array(
-			'arabic',
-			'latin',
-			'latin-ext',
-			'vietnamese',
-		),
-		'category' => 'display',
-	),
-	'Baloo Bhaina' => array(
-		'label' => 'Baloo Bhaina',
-		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1229,9 +1278,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
-	'Baloo Chettan' => array(
-		'label' => 'Baloo Chettan',
+	'Baloo Chettan 2' => array(
+		'label' => 'Baloo Chettan 2',
 		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1242,9 +1295,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
-	'Baloo Da' => array(
-		'label' => 'Baloo Da',
+	'Baloo Da 2' => array(
+		'label' => 'Baloo Da 2',
 		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1255,9 +1312,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
-	'Baloo Paaji' => array(
-		'label' => 'Baloo Paaji',
+	'Baloo Paaji 2' => array(
+		'label' => 'Baloo Paaji 2',
 		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1268,9 +1329,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
-	'Baloo Tamma' => array(
-		'label' => 'Baloo Tamma',
+	'Baloo Tamma 2' => array(
+		'label' => 'Baloo Tamma 2',
 		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1281,9 +1346,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
-	'Baloo Tammudu' => array(
-		'label' => 'Baloo Tammudu',
+	'Baloo Tammudu 2' => array(
+		'label' => 'Baloo Tammudu 2',
 		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1294,9 +1363,13 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
-	'Baloo Thambi' => array(
-		'label' => 'Baloo Thambi',
+	'Baloo Thambi 2' => array(
+		'label' => 'Baloo Thambi 2',
 		'variants' => array(
+			'500',
+			'600',
+			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -1304,6 +1377,22 @@ $this->load_font_data( array(
 			'latin-ext',
 			'tamil',
 			'vietnamese',
+		),
+		'category' => 'display',
+	),
+	'Balsamiq Sans' => array(
+		'label' => 'Balsamiq Sans',
+		'variants' => array(
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'latin',
+			'latin-ext',
 		),
 		'category' => 'display',
 	),
@@ -1416,6 +1505,18 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Barriecito' => array(
+		'label' => 'Barriecito',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
 	'Barrio' => array(
 		'label' => 'Barrio',
 		'variants' => array(
@@ -1437,6 +1538,18 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'sans-serif',
+	),
+	'Baskervville' => array(
+		'label' => 'Baskervville',
+		'variants' => array(
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
 	),
 	'Battambang' => array(
 		'label' => 'Battambang',
@@ -1466,6 +1579,42 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'khmer',
+		),
+		'category' => 'display',
+	),
+	'Be Vietnam' => array(
+		'label' => 'Be Vietnam',
+		'variants' => array(
+			'100',
+			'100italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'800',
+			'800italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Bebas Neue' => array(
+		'label' => 'Bebas Neue',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
 		),
 		'category' => 'display',
 	),
@@ -1502,6 +1651,42 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Bellota' => array(
+		'label' => 'Bellota',
+		'variants' => array(
+			'300',
+			'300italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
+	'Bellota Text' => array(
+		'label' => 'Bellota Text',
+		'variants' => array(
+			'300',
+			'300italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
 	'BenchNine' => array(
 		'label' => 'BenchNine',
 		'variants' => array(
@@ -1536,9 +1721,57 @@ $this->load_font_data( array(
 		),
 		'category' => 'handwriting',
 	),
+	'Beth Ellen' => array(
+		'label' => 'Beth Ellen',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'handwriting',
+	),
 	'Bevan' => array(
 		'label' => 'Bevan',
 		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
+	'Big Shoulders Display' => array(
+		'label' => 'Big Shoulders Display',
+		'variants' => array(
+			'100',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
+	'Big Shoulders Text' => array(
+		'label' => 'Big Shoulders Text',
+		'variants' => array(
+			'100',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
 			'regular',
 		),
 		'subsets' => array(
@@ -1684,6 +1917,24 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'display',
+	),
+	'Blinker' => array(
+		'label' => 'Blinker',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
 	),
 	'Bokor' => array(
 		'label' => 'Bokor',
@@ -1965,6 +2216,32 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Caladea' => array(
+		'label' => 'Caladea',
+		'variants' => array(
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
+	),
+	'Calistoga' => array(
+		'label' => 'Calistoga',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
 	'Calligraffitti' => array(
 		'label' => 'Calligraffitti',
 		'variants' => array(
@@ -2155,6 +2432,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'cyrillic',
+			'cyrillic-ext',
 			'latin',
 			'latin-ext',
 		),
@@ -2384,6 +2662,17 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Chilanka' => array(
+		'label' => 'Chilanka',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'malayalam',
+		),
+		'category' => 'handwriting',
+	),
 	'Chivo' => array(
 		'label' => 'Chivo',
 		'variants' => array(
@@ -2528,6 +2817,21 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'display',
+	),
+	'Comic Neue' => array(
+		'label' => 'Comic Neue',
+		'variants' => array(
+			'300',
+			'300italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'handwriting',
 	),
 	'Coming Soon' => array(
 		'label' => 'Coming Soon',
@@ -2756,6 +3060,20 @@ $this->load_font_data( array(
 		),
 		'category' => 'handwriting',
 	),
+	'Courier Prime' => array(
+		'label' => 'Courier Prime',
+		'variants' => array(
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'monospace',
+	),
 	'Cousine' => array(
 		'label' => 'Cousine',
 		'variants' => array(
@@ -2826,6 +3144,33 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+		),
+		'category' => 'serif',
+	),
+	'Crimson Pro' => array(
+		'label' => 'Crimson Pro',
+		'variants' => array(
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'800',
+			'800italic',
+			'900',
+			'900italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'serif',
 	),
@@ -2915,6 +3260,62 @@ $this->load_font_data( array(
 		),
 		'category' => 'monospace',
 	),
+	'DM Mono' => array(
+		'label' => 'DM Mono',
+		'variants' => array(
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'monospace',
+	),
+	'DM Sans' => array(
+		'label' => 'DM Sans',
+		'variants' => array(
+			'500',
+			'500italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
+	'DM Serif Display' => array(
+		'label' => 'DM Serif Display',
+		'variants' => array(
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
+	),
+	'DM Serif Text' => array(
+		'label' => 'DM Serif Text',
+		'variants' => array(
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
+	),
 	'Damion' => array(
 		'label' => 'Damion',
 		'variants' => array(
@@ -2928,6 +3329,8 @@ $this->load_font_data( array(
 	'Dancing Script' => array(
 		'label' => 'Dancing Script',
 		'variants' => array(
+			'500',
+			'600',
 			'700',
 			'regular',
 		),
@@ -2947,6 +3350,24 @@ $this->load_font_data( array(
 			'khmer',
 		),
 		'category' => 'display',
+	),
+	'Darker Grotesque' => array(
+		'label' => 'Darker Grotesque',
+		'variants' => array(
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
 	),
 	'David Libre' => array(
 		'label' => 'David Libre',
@@ -3186,6 +3607,7 @@ $this->load_font_data( array(
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -3505,6 +3927,8 @@ $this->load_font_data( array(
 	'Enriqueta' => array(
 		'label' => 'Enriqueta',
 		'variants' => array(
+			'500',
+			'600',
 			'700',
 			'regular',
 		),
@@ -3611,8 +4035,10 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'cyrillic',
+			'cyrillic-ext',
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -3667,6 +4093,20 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'serif',
+	),
+	'Farro' => array(
+		'label' => 'Farro',
+		'variants' => array(
+			'300',
+			'500',
+			'700',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
 	),
 	'Farsan' => array(
 		'label' => 'Farsan',
@@ -3802,6 +4242,25 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'display',
+	),
+	'Fira Code' => array(
+		'label' => 'Fira Code',
+		'variants' => array(
+			'300',
+			'500',
+			'600',
+			'700',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
+			'greek-ext',
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'monospace',
 	),
 	'Fira Mono' => array(
 		'label' => 'Fira Mono',
@@ -3958,6 +4417,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'latin',
+			'latin-ext',
 		),
 		'category' => 'display',
 	),
@@ -4042,6 +4502,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'latin',
+			'latin-ext',
 		),
 		'category' => 'display',
 	),
@@ -4209,6 +4670,38 @@ $this->load_font_data( array(
 		),
 		'category' => 'handwriting',
 	),
+	'Gayathri' => array(
+		'label' => 'Gayathri',
+		'variants' => array(
+			'100',
+			'700',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'malayalam',
+		),
+		'category' => 'sans-serif',
+	),
+	'Gelasio' => array(
+		'label' => 'Gelasio',
+		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'serif',
+	),
 	'Gentium Basic' => array(
 		'label' => 'Gentium Basic',
 		'variants' => array(
@@ -4299,6 +4792,17 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'serif',
+	),
+	'Girassol' => array(
+		'label' => 'Girassol',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'display',
 	),
 	'Give You Glory' => array(
 		'label' => 'Give You Glory',
@@ -4394,6 +4898,19 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Gotu' => array(
+		'label' => 'Gotu',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'devanagari',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
 	'Goudy Bookletter 1911' => array(
 		'label' => 'Goudy Bookletter 1911',
 		'variants' => array(
@@ -4446,6 +4963,35 @@ $this->load_font_data( array(
 		),
 		'category' => 'handwriting',
 	),
+	'Grenze' => array(
+		'label' => 'Grenze',
+		'variants' => array(
+			'100',
+			'100italic',
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'800',
+			'800italic',
+			'900',
+			'900italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'serif',
+	),
 	'Griffy' => array(
 		'label' => 'Griffy',
 		'variants' => array(
@@ -4491,6 +5037,18 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'display',
+	),
+	'Gupter' => array(
+		'label' => 'Gupter',
+		'variants' => array(
+			'500',
+			'700',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'serif',
 	),
 	'Gurajada' => array(
 		'label' => 'Gurajada',
@@ -4621,8 +5179,10 @@ $this->load_font_data( array(
 		'label' => 'Heebo',
 		'variants' => array(
 			'100',
+			'200',
 			'300',
 			'500',
+			'600',
 			'700',
 			'800',
 			'900',
@@ -4643,6 +5203,26 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'display',
+	),
+	'Hepta Slab' => array(
+		'label' => 'Hepta Slab',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'serif',
 	),
 	'Herr Von Muellerhoff' => array(
 		'label' => 'Herr Von Muellerhoff',
@@ -4988,6 +5568,22 @@ $this->load_font_data( array(
 		),
 		'category' => 'serif',
 	),
+	'Ibarra Real Nova' => array(
+		'label' => 'Ibarra Real Nova',
+		'variants' => array(
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
+	),
 	'Iceberg' => array(
 		'label' => 'Iceberg',
 		'variants' => array(
@@ -5022,7 +5618,13 @@ $this->load_font_data( array(
 	'Inconsolata' => array(
 		'label' => 'Inconsolata',
 		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'600',
 			'700',
+			'800',
+			'900',
 			'regular',
 		),
 		'subsets' => array(
@@ -5082,6 +5684,62 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'serif',
+	),
+	'Inria Sans' => array(
+		'label' => 'Inria Sans',
+		'variants' => array(
+			'300',
+			'300italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
+	'Inria Serif' => array(
+		'label' => 'Inria Serif',
+		'variants' => array(
+			'300',
+			'300italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
+	),
+	'Inter' => array(
+		'label' => 'Inter',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
+			'greek-ext',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
 	),
 	'Irish Grover' => array(
 		'label' => 'Irish Grover',
@@ -5221,13 +5879,28 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Jomolhari' => array(
+		'label' => 'Jomolhari',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'tibetan',
+		),
+		'category' => 'serif',
+	),
 	'Josefin Sans' => array(
 		'label' => 'Josefin Sans',
 		'variants' => array(
 			'100',
 			'100italic',
+			'200',
+			'200italic',
 			'300',
 			'300italic',
+			'500',
+			'500italic',
 			'600',
 			'600italic',
 			'700',
@@ -5260,6 +5933,35 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'serif',
+	),
+	'Jost' => array(
+		'label' => 'Jost',
+		'variants' => array(
+			'100',
+			'100italic',
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'800',
+			'800italic',
+			'900',
+			'900italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
 	),
 	'Joti One' => array(
 		'label' => 'Joti One',
@@ -5776,11 +6478,14 @@ $this->load_font_data( array(
 		'label' => 'Kreon',
 		'variants' => array(
 			'300',
+			'500',
+			'600',
 			'700',
 			'regular',
 		),
 		'subsets' => array(
 			'latin',
+			'latin-ext',
 		),
 		'category' => 'serif',
 	),
@@ -5826,6 +6531,26 @@ $this->load_font_data( array(
 			'latin-ext',
 			'thai',
 			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Kulim Park' => array(
+		'label' => 'Kulim Park',
+		'variants' => array(
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
 		),
 		'category' => 'sans-serif',
 	),
@@ -5876,6 +6601,16 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'handwriting',
+	),
+	'Lacquer' => array(
+		'label' => 'Lacquer',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'display',
 	),
 	'Laila' => array(
 		'label' => 'Laila',
@@ -6018,6 +6753,7 @@ $this->load_font_data( array(
 		'label' => 'Lemonada',
 		'variants' => array(
 			'300',
+			'500',
 			'600',
 			'700',
 			'regular',
@@ -6029,6 +6765,90 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'display',
+	),
+	'Lexend Deca' => array(
+		'label' => 'Lexend Deca',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Lexend Exa' => array(
+		'label' => 'Lexend Exa',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Lexend Giga' => array(
+		'label' => 'Lexend Giga',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Lexend Mega' => array(
+		'label' => 'Lexend Mega',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Lexend Peta' => array(
+		'label' => 'Lexend Peta',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Lexend Tera' => array(
+		'label' => 'Lexend Tera',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
+	),
+	'Lexend Zetta' => array(
+		'label' => 'Lexend Zetta',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
 	),
 	'Libre Barcode 128' => array(
 		'label' => 'Libre Barcode 128',
@@ -6103,6 +6923,30 @@ $this->load_font_data( array(
 		),
 		'category' => 'serif',
 	),
+	'Libre Caslon Display' => array(
+		'label' => 'Libre Caslon Display',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
+	),
+	'Libre Caslon Text' => array(
+		'label' => 'Libre Caslon Text',
+		'variants' => array(
+			'700',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'serif',
+	),
 	'Libre Franklin' => array(
 		'label' => 'Libre Franklin',
 		'variants' => array(
@@ -6135,6 +6979,7 @@ $this->load_font_data( array(
 		'label' => 'Life Savers',
 		'variants' => array(
 			'700',
+			'800',
 			'regular',
 		),
 		'subsets' => array(
@@ -6186,6 +7031,66 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'serif',
+	),
+	'Literata' => array(
+		'label' => 'Literata',
+		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'greek',
+			'greek-ext',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'serif',
+	),
+	'Liu Jian Mao Cao' => array(
+		'label' => 'Liu Jian Mao Cao',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'chinese-simplified',
+			'latin',
+		),
+		'category' => 'handwriting',
+	),
+	'Livvic' => array(
+		'label' => 'Livvic',
+		'variants' => array(
+			'100',
+			'100italic',
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'900',
+			'900italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'sans-serif',
 	),
 	'Lobster' => array(
 		'label' => 'Lobster',
@@ -6257,9 +7162,24 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Long Cang' => array(
+		'label' => 'Long Cang',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'chinese-simplified',
+			'latin',
+		),
+		'category' => 'handwriting',
+	),
 	'Lora' => array(
 		'label' => 'Lora',
 		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
 			'700',
 			'700italic',
 			'italic',
@@ -6383,6 +7303,17 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'sans-serif',
+	),
+	'Ma Shan Zheng' => array(
+		'label' => 'Ma Shan Zheng',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'chinese-simplified',
+			'latin',
+		),
+		'category' => 'handwriting',
 	),
 	'Macondo' => array(
 		'label' => 'Macondo',
@@ -6528,6 +7459,48 @@ $this->load_font_data( array(
 			'telugu',
 		),
 		'category' => 'sans-serif',
+	),
+	'Manjari' => array(
+		'label' => 'Manjari',
+		'variants' => array(
+			'100',
+			'700',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'malayalam',
+		),
+		'category' => 'sans-serif',
+	),
+	'Manrope' => array(
+		'label' => 'Manrope',
+		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'greek',
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
+	'Mansalva' => array(
+		'label' => 'Mansalva',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'handwriting',
 	),
 	'Manuale' => array(
 		'label' => 'Manuale',
@@ -6705,7 +7678,9 @@ $this->load_font_data( array(
 		'label' => 'Maven Pro',
 		'variants' => array(
 			'500',
+			'600',
 			'700',
+			'800',
 			'900',
 			'regular',
 		),
@@ -6890,6 +7865,8 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'latin',
+			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -7383,6 +8360,8 @@ $this->load_font_data( array(
 			'200italic',
 			'300',
 			'300italic',
+			'500',
+			'500italic',
 			'600',
 			'600italic',
 			'700',
@@ -7682,6 +8661,22 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Noto Sans HK' => array(
+		'label' => 'Noto Sans HK',
+		'variants' => array(
+			'100',
+			'300',
+			'500',
+			'700',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'chinese-hongkong',
+			'latin',
+		),
+		'category' => 'sans-serif',
+	),
 	'Noto Sans JP' => array(
 		'label' => 'Noto Sans JP',
 		'variants' => array(
@@ -7726,10 +8721,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'chinese-simplified',
-			'cyrillic',
-			'japanese',
 			'latin',
-			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -7745,7 +8737,6 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'chinese-traditional',
-			'japanese',
 			'latin',
 		),
 		'category' => 'sans-serif',
@@ -7816,10 +8807,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'chinese-simplified',
-			'cyrillic',
-			'japanese',
 			'latin',
-			'vietnamese',
 		),
 		'category' => 'serif',
 	),
@@ -7836,10 +8824,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'chinese-traditional',
-			'cyrillic',
-			'japanese',
 			'latin',
-			'vietnamese',
 		),
 		'category' => 'serif',
 	),
@@ -7953,6 +8938,8 @@ $this->load_font_data( array(
 			'regular',
 		),
 		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
 			'latin',
 			'latin-ext',
 			'vietnamese',
@@ -7983,6 +8970,16 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'sans-serif',
+	),
+	'Odibee Sans' => array(
+		'label' => 'Odibee Sans',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'display',
 	),
 	'Odor Mean Chey' => array(
 		'label' => 'Odor Mean Chey',
@@ -8115,7 +9112,9 @@ $this->load_font_data( array(
 		'label' => 'Orbitron',
 		'variants' => array(
 			'500',
+			'600',
 			'700',
+			'800',
 			'900',
 			'regular',
 		),
@@ -8169,6 +9168,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'cyrillic',
+			'cyrillic-ext',
 			'latin',
 			'latin-ext',
 			'vietnamese',
@@ -8261,6 +9261,23 @@ $this->load_font_data( array(
 			'latin',
 		),
 		'category' => 'serif',
+	),
+	'Oxanium' => array(
+		'label' => 'Oxanium',
+		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'display',
 	),
 	'Oxygen' => array(
 		'label' => 'Oxygen',
@@ -8380,6 +9397,7 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'cyrillic',
+			'cyrillic-ext',
 			'latin',
 			'latin-ext',
 			'vietnamese',
@@ -8715,8 +9733,14 @@ $this->load_font_data( array(
 	'Playfair Display' => array(
 		'label' => 'Playfair Display',
 		'variants' => array(
+			'500',
+			'500italic',
+			'600',
+			'600italic',
 			'700',
 			'700italic',
+			'800',
+			'800italic',
 			'900',
 			'900italic',
 			'italic',
@@ -9031,6 +10055,34 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Public Sans' => array(
+		'label' => 'Public Sans',
+		'variants' => array(
+			'100',
+			'100italic',
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'800',
+			'800italic',
+			'900',
+			'900italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
 	'Puritan' => array(
 		'label' => 'Puritan',
 		'variants' => array(
@@ -9120,6 +10172,7 @@ $this->load_font_data( array(
 		'variants' => array(
 			'300',
 			'500',
+			'600',
 			'700',
 			'regular',
 		),
@@ -9360,6 +10413,40 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Red Hat Display' => array(
+		'label' => 'Red Hat Display',
+		'variants' => array(
+			'500',
+			'500italic',
+			'700',
+			'700italic',
+			'900',
+			'900italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
+	'Red Hat Text' => array(
+		'label' => 'Red Hat Text',
+		'variants' => array(
+			'500',
+			'500italic',
+			'700',
+			'700italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
 	'Redressed' => array(
 		'label' => 'Redressed',
 		'variants' => array(
@@ -9535,8 +10622,13 @@ $this->load_font_data( array(
 		'label' => 'Roboto Slab',
 		'variants' => array(
 			'100',
+			'200',
 			'300',
+			'500',
+			'600',
 			'700',
+			'800',
+			'900',
 			'regular',
 		),
 		'subsets' => array(
@@ -9616,6 +10708,12 @@ $this->load_font_data( array(
 	'Rosario' => array(
 		'label' => 'Rosario',
 		'variants' => array(
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
 			'700',
 			'700italic',
 			'italic',
@@ -9623,6 +10721,8 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'latin',
+			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -9697,13 +10797,18 @@ $this->load_font_data( array(
 	'Ruda' => array(
 		'label' => 'Ruda',
 		'variants' => array(
+			'500',
+			'600',
 			'700',
+			'800',
 			'900',
 			'regular',
 		),
 		'subsets' => array(
+			'cyrillic',
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -9911,6 +11016,18 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'sans-serif',
+	),
+	'Saira Stencil One' => array(
+		'label' => 'Saira Stencil One',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
 	),
 	'Salsa' => array(
 		'label' => 'Salsa',
@@ -10164,6 +11281,19 @@ $this->load_font_data( array(
 		),
 		'category' => 'handwriting',
 	),
+	'Sen' => array(
+		'label' => 'Sen',
+		'variants' => array(
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
 	'Sevillana' => array(
 		'label' => 'Sevillana',
 		'variants' => array(
@@ -10349,6 +11479,16 @@ $this->load_font_data( array(
 		),
 		'category' => 'display',
 	),
+	'Single Day' => array(
+		'label' => 'Single Day',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'korean',
+		),
+		'category' => 'display',
+	),
 	'Sintony' => array(
 		'label' => 'Sintony',
 		'variants' => array(
@@ -10498,6 +11638,20 @@ $this->load_font_data( array(
 		),
 		'category' => 'handwriting',
 	),
+	'Solway' => array(
+		'label' => 'Solway',
+		'variants' => array(
+			'300',
+			'500',
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+		),
+		'category' => 'serif',
+	),
 	'Song Myung' => array(
 		'label' => 'Song Myung',
 		'variants' => array(
@@ -10536,16 +11690,27 @@ $this->load_font_data( array(
 		'label' => 'Source Code Pro',
 		'variants' => array(
 			'200',
+			'200italic',
 			'300',
+			'300italic',
 			'500',
+			'500italic',
 			'600',
+			'600italic',
 			'700',
+			'700italic',
 			'900',
+			'900italic',
+			'italic',
 			'regular',
 		),
 		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'greek',
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'monospace',
 	),
@@ -10603,6 +11768,25 @@ $this->load_font_data( array(
 			'vietnamese',
 		),
 		'category' => 'monospace',
+	),
+	'Spartan' => array(
+		'label' => 'Spartan',
+		'variants' => array(
+			'100',
+			'200',
+			'300',
+			'500',
+			'600',
+			'700',
+			'800',
+			'900',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
 	),
 	'Special Elite' => array(
 		'label' => 'Special Elite',
@@ -10866,6 +12050,19 @@ $this->load_font_data( array(
 			'latin-ext',
 		),
 		'category' => 'serif',
+	),
+	'Sulphur Point' => array(
+		'label' => 'Sulphur Point',
+		'variants' => array(
+			'300',
+			'700',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
 	),
 	'Sumana' => array(
 		'label' => 'Sumana',
@@ -11236,6 +12433,34 @@ $this->load_font_data( array(
 		),
 		'category' => 'sans-serif',
 	),
+	'Tomorrow' => array(
+		'label' => 'Tomorrow',
+		'variants' => array(
+			'100',
+			'100italic',
+			'200',
+			'200italic',
+			'300',
+			'300italic',
+			'500',
+			'500italic',
+			'600',
+			'600italic',
+			'700',
+			'700italic',
+			'800',
+			'800italic',
+			'900',
+			'900italic',
+			'italic',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
+		),
+		'category' => 'sans-serif',
+	),
 	'Trade Winds' => array(
 		'label' => 'Trade Winds',
 		'variants' => array(
@@ -11317,6 +12542,22 @@ $this->load_font_data( array(
 		),
 		'subsets' => array(
 			'latin',
+		),
+		'category' => 'display',
+	),
+	'Turret Road' => array(
+		'label' => 'Turret Road',
+		'variants' => array(
+			'200',
+			'300',
+			'500',
+			'700',
+			'800',
+			'regular',
+		),
+		'subsets' => array(
+			'latin',
+			'latin-ext',
 		),
 		'category' => 'display',
 	),
@@ -11545,6 +12786,31 @@ $this->load_font_data( array(
 		),
 		'category' => 'serif',
 	),
+	'Viaoda Libre' => array(
+		'label' => 'Viaoda Libre',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'cyrillic',
+			'cyrillic-ext',
+			'latin',
+			'latin-ext',
+			'vietnamese',
+		),
+		'category' => 'display',
+	),
+	'Vibes' => array(
+		'label' => 'Vibes',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'arabic',
+			'latin',
+		),
+		'category' => 'display',
+	),
 	'Vibur' => array(
 		'label' => 'Vibur',
 		'variants' => array(
@@ -11603,10 +12869,14 @@ $this->load_font_data( array(
 	'Vollkorn' => array(
 		'label' => 'Vollkorn',
 		'variants' => array(
+			'500',
+			'500italic',
 			'600',
 			'600italic',
 			'700',
 			'700italic',
+			'800',
+			'800italic',
 			'900',
 			'900italic',
 			'italic',
@@ -11726,18 +12996,28 @@ $this->load_font_data( array(
 		'label' => 'Work Sans',
 		'variants' => array(
 			'100',
+			'100italic',
 			'200',
+			'200italic',
 			'300',
+			'300italic',
 			'500',
+			'500italic',
 			'600',
+			'600italic',
 			'700',
+			'700italic',
 			'800',
+			'800italic',
 			'900',
+			'900italic',
+			'italic',
 			'regular',
 		),
 		'subsets' => array(
 			'latin',
 			'latin-ext',
+			'vietnamese',
 		),
 		'category' => 'sans-serif',
 	),
@@ -11746,6 +13026,8 @@ $this->load_font_data( array(
 		'variants' => array(
 			'200',
 			'300',
+			'500',
+			'600',
 			'700',
 			'regular',
 		),
@@ -11885,6 +13167,17 @@ $this->load_font_data( array(
 			'regular',
 		),
 		'subsets' => array(
+			'latin',
+		),
+		'category' => 'handwriting',
+	),
+	'Zhi Mang Xing' => array(
+		'label' => 'Zhi Mang Xing',
+		'variants' => array(
+			'regular',
+		),
+		'subsets' => array(
+			'chinese-simplified',
 			'latin',
 		),
 		'category' => 'handwriting',
