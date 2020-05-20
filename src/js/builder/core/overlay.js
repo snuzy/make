@@ -12,7 +12,8 @@
 		events: {
 			'click .ttfmake-overlay-close-update': 'onUpdate',
 			'click .ttfmake-overlay-close-discard': 'onDiscard',
-			'click .ttfmake-overlay-wrapper': 'onWrapperClick',
+			'mousedown .ttfmake-overlay-dialog': 'onDialogClick',
+			'mousedown .ttfmake-overlay-wrapper': 'onWrapperClick',
 		},
 
 		editor: false,
@@ -107,13 +108,15 @@
 			this.remove();
 		},
 
-		onWrapperClick: function( e ) {
-			if ( $( e.target ).is( '.ttfmake-overlay-wrapper' ) ) {
-				e.preventDefault();
-				e.stopPropagation();
+		onDialogClick: function( e ) {
+			e.stopPropagation();
+		},
 
-				this.remove();
-			}
+		onWrapperClick: function( e ) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			this.remove();
 		},
 
 		onKeyDown: function( e ) {
@@ -278,7 +281,8 @@
 		events: {
 			'click .ttfmake-overlay-close-update': 'onUpdate',
 			'click .ttfmake-overlay-close-discard': 'onDiscard',
-			'click .ttfmake-overlay-wrapper': 'onWrapperClick',
+			'mousedown .ttfmake-overlay-dialog': 'onDialogClick',
+			'mousedown .ttfmake-overlay-wrapper': 'onWrapperClick',
 		},
 
 		initialize: function( options, settings ) {
@@ -398,13 +402,15 @@
 			this.remove();
 		},
 
-		onWrapperClick: function( e ) {
-			if ( $( e.target ).is( '.ttfmake-overlay-wrapper' ) ) {
-				e.preventDefault();
-				e.stopPropagation();
+		onDialogClick: function( e ) {
+			e.stopPropagation();
+		},
 
-				this.remove();
-			}
+		onWrapperClick: function( e ) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			this.remove();
 		},
 
 		onKeyDown: function( e ) {
