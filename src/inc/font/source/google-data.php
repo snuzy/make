@@ -3,7 +3,7 @@
  * @package Make
  */
 
-// Updated: 2020-05-14T12:23:41+00:00
+// Updated: 2020-05-20T10:46:02+02:00
 
 // Bail if this isn't being included inside of MAKE_Font_Source_Google.
 if ( ! isset( $this ) || ! $this instanceof MAKE_Font_Source_Google ) {
@@ -5179,10 +5179,8 @@ $this->load_font_data( array(
 		'label' => 'Heebo',
 		'variants' => array(
 			'100',
-			'200',
 			'300',
 			'500',
-			'600',
 			'700',
 			'800',
 			'900',
