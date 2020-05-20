@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.27 - May 20 2020 =
+* Bugfix: Overlays were closing after legitimate mouse release events.
+
 = 1.9.26 - May 14 2020 =
 * Improvement: Updated list of Google Fonts in Customizer.
 
@@ -647,6 +650,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.27 =
+* Minor bugfixes.
 
 = 1.9.26 =
 * Upgraded list of Google Fonts in Customizer.
