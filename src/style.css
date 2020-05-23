@@ -1,16 +1,19 @@
 @charset "UTF-8";
 /**
- * Theme Name:  Make
- * Theme URI:   https://thethemefoundry.com/make/
- * Author:      The Theme Foundry
- * Author URI:  https://thethemefoundry.com
+ * Theme Name: Make
+ * Theme URI: https://thethemefoundry.com/make/
+ * Author: The Theme Foundry
+ * Author URI: https://thethemefoundry.com
  * Description: Build a website that means business. With Make’s powerful drag and drop page builder and hundreds of Customizer options, you can effortlessly brand your site without touching a line of code. Add full-width banners, columns, and galleries to showcase your best work. The intuitive builder delivers clean, lean code — not shortcodes — so you can trust your content remains portable. Make lets you control page layout options, including sidebar display, on all your posts and pages. Choose from hundreds of Google Fonts and upload custom backgrounds everywhere. Built on a fully responsive grid, Make renders as beautifully on tablets and phone screens as it does on desktop. Make scales with your business and is fully compatible with popular plugins like WooCommerce, Gravity Forms, Contact Form 7, Jetpack, and others. For documentation on the page builder and getting started with Make, see: https://thethemefoundry.com/make-help/
- * Version:     1.9.27
- * License:     GNU General Public License v2 or later
+ * Version:     1.9.28
+ * Requires at least: 4.7
+ * Tested up to: 5.4
+ * Requires PHP: 5.2.4
+ * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: make
  * Domain Path: /languages/
- * Tags:        one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, grid-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, footer-widgets, blog, e-commerce, portfolio
+ * Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, grid-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, footer-widgets, blog, e-commerce, portfolio
  *
  * Make WordPress Theme, Copyright 2014-2016 The Theme Foundry
  * Make is distributed under the terms of the GNU GPL
