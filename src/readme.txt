@@ -26,6 +26,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 
 == Changelog ==
 
+= 1.9.28 - May 23 2020 =
+* Improvement: Added "Tested up to" and "Requires PHP" tags to style.css.
+
 = 1.9.27 - May 20 2020 =
 * Bugfix: Overlays were closing after legitimate mouse release events.
 
@@ -650,6 +653,9 @@ Please see the Make documentation: https://thethemefoundry.com/make-help/
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.9.28 =
+* Added "Tested up to" and "Requires PHP" to style header.
 
 = 1.9.27 =
 * Minor bugfixes.
