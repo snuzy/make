@@ -34,7 +34,7 @@
     "grunt-yaml": "~0.4.1",
     "intern": "^3.4.2",
     "load-grunt-tasks": "~0.2.0",
-    "lodash": "~2.4.1",
+    "lodash": "~4.17.19",
     "node-sass": "",
     "semver": "~4.3.2"
   },
